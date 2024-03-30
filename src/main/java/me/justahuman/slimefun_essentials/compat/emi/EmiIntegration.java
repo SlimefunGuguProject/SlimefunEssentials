@@ -3,22 +3,22 @@ package me.justahuman.slimefun_essentials.compat.emi;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipe;
-import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.Comparison;
 import dev.emi.emi.api.stack.EmiStack;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.client.SlimefunCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
+import me.justahuman.slimefun_essentials.compat.emi.handler.GridHandler;
+import me.justahuman.slimefun_essentials.compat.emi.handler.MachineHandler;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.AncientAltarRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.GridRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.ProcessRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.ReactorRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.SmelteryRecipe;
-import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
@@ -61,9 +61,17 @@ public class EmiIntegration implements EmiPlugin {
         for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
             emiRegistry.addEmiStack(EmiStack.of(slimefunItemStack.itemStack()));
         }
+
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_3X3, new GridHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X1, new MachineHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X2, new MachineHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X3, new MachineHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X4, new MachineHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X5, new MachineHandler());
+        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X6, new MachineHandler());
     }
 
-    public static EmiRecipe getEmiRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, EmiRecipeCategory category) {
+    public static EmiRecipe getEmiRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory category) {
         final String type = slimefunCategory.type();
         if (type.equals("ancient_altar")) {
             return new AncientAltarRecipe(slimefunCategory, slimefunRecipe, category);

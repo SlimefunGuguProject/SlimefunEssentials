@@ -13,7 +13,11 @@ public class SlimefunEmiCategory extends EmiRecipeCategory {
         
         this.displayName = workstation.getItemStack().getName();
     }
-    
+
+    public Text getWorkstationName() {
+        return displayName;
+    }
+
     @Override
     public Text getName() {
         return Text.translatable("slimefun_essentials.recipes.category.slimefun", this.displayName);

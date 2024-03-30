@@ -16,6 +16,7 @@ import me.justahuman.slimefun_essentials.compat.emi.EmiIntegration;
 import me.justahuman.slimefun_essentials.compat.emi.EmiLabel;
 import me.justahuman.slimefun_essentials.compat.emi.EmiUtils;
 import me.justahuman.slimefun_essentials.compat.emi.ReverseFillingArrowWidget;
+import me.justahuman.slimefun_essentials.compat.emi.SlimefunEmiCategory;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.text.Text;
@@ -29,15 +30,15 @@ import java.util.function.BiFunction;
 public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
     protected final SlimefunCategory slimefunCategory;
     protected final SlimefunRecipe slimefunRecipe;
-    protected final EmiRecipeCategory emiRecipeCategory;
+    protected final SlimefunEmiCategory emiRecipeCategory;
     protected final List<EmiIngredient> inputs = new ArrayList<>();
     protected final List<EmiStack> outputs = new ArrayList<>();
 
-    public ProcessRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, EmiRecipeCategory emiRecipeCategory) {
+    public ProcessRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
         this(Type.PROCESS, slimefunCategory, slimefunRecipe, emiRecipeCategory);
     }
 
-    public ProcessRecipe(Type type, SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, EmiRecipeCategory emiRecipeCategory) {
+    public ProcessRecipe(Type type, SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
         super(type);
 
         this.slimefunCategory = slimefunCategory;
@@ -48,7 +49,7 @@ public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
     }
     
     @Override
-    public EmiRecipeCategory getCategory() {
+    public SlimefunEmiCategory getCategory() {
         return this.emiRecipeCategory;
     }
     

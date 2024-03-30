@@ -1,15 +1,15 @@
 package me.justahuman.slimefun_essentials.compat.emi.recipes;
 
-import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.widget.WidgetHolder;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.client.SlimefunCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.EmiUtils;
+import me.justahuman.slimefun_essentials.compat.emi.SlimefunEmiCategory;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 
 public class ReactorRecipe extends ProcessRecipe {
-    public ReactorRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, EmiRecipeCategory emiRecipeCategory) {
+    public ReactorRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
         super(Type.REACTOR, slimefunCategory, slimefunRecipe, emiRecipeCategory);
 
         EmiUtils.fillInputs(this.inputs, 4);
