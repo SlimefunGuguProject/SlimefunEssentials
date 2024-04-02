@@ -46,6 +46,17 @@ public class JeiIntegration implements IModPlugin {
 
         registration.register(SLIMEFUN, ResourceLoader.getSlimefunItems().values(), new SlimefunStackHelper(), new SlimefunStackRenderer());
     }
+
+    @Override
+    public void registerItemSubtypes(ISubtypeRegistration registration) {
+        if (!Utils.shouldFunction()) {
+            return;
+        }
+
+        for (SlimefunItemStack itemStack : ResourceLoader.getSlimefunItems().values()) {
+            registration.useNbtForSubtypes(itemStack.itemStack().getItem());
+        }
+    }
     
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
