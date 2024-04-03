@@ -5,7 +5,6 @@ import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
-import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluid;
@@ -58,7 +57,7 @@ public class ReiRecipeInterpreter implements IdInterpreter<EntryIngredient> {
 
     @Override
     public EntryIngredient fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, EntryIngredient defaultValue) {
-        return EntryIngredient.of(EntryStack.of(ReiIntegration.SLIMEFUN, slimefunItemStack.setAmount(amount)));
+        return fromItemStack(slimefunItemStack.itemStack(), amount, defaultValue);
     }
 
     @Override

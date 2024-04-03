@@ -49,9 +49,9 @@ public class JeiIntegration implements IModPlugin {
             return;
         }
 
-        for (SlimefunItemStack itemStack : ResourceLoader.getSlimefunItems().values()) {
-            registration.registerSubtypeInterpreter(itemStack.itemStack().getItem(),
-                    new SlimefunIdInterpreter(subtypeRegistration.getInterpreters().get(VanillaTypes.ITEM_STACK, itemStack.itemStack()).orElse(null)));
+        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
+            registration.registerSubtypeInterpreter(slimefunItemStack.itemStack().getItem(),
+                    new SlimefunIdInterpreter(subtypeRegistration.getInterpreters().get(VanillaTypes.ITEM_STACK, slimefunItemStack.itemStack()).orElse(null)));
         }
     }
     

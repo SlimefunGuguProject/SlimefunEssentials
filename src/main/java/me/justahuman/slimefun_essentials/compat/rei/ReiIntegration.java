@@ -27,14 +27,12 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.entry.EntryRegistry;
-import me.shedaniel.rei.api.common.entry.EntryStack;
-import me.shedaniel.rei.api.common.entry.type.EntryType;
-import me.shedaniel.rei.api.common.entry.type.EntryTypeRegistry;
+import me.shedaniel.rei.api.common.entry.comparison.ItemComparatorRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import me.shedaniel.rei.impl.common.entry.comparison.ItemComparatorRegistryImpl;
 import net.minecraft.item.ItemStack;
 
 public class ReiIntegration implements REIClientPlugin {
-    public static final EntryType<SlimefunItemStack> SLIMEFUN = EntryType.deferred(Utils.newIdentifier("rei_slimefun"));
     public static final ReiRecipeInterpreter RECIPE_INTERPRETER = new ReiRecipeInterpreter();
 
     @Override
@@ -43,14 +41,10 @@ public class ReiIntegration implements REIClientPlugin {
     }
 
     @Override
-    public void registerEntryTypes(EntryTypeRegistry registry) {
-        if (!Utils.shouldFunction()) {
-            return;
-        }
-
-        registry.register(SLIMEFUN, new SlimefunEntryDefinition());
+    public void registerItemComparators(ItemComparatorRegistry registry) {
+        registry.registerGlobal(new SlimefunIdComparator());
     }
-    
+
     @Override
     public void registerEntries(EntryRegistry registry) {
         if (!Utils.shouldFunction()) {
@@ -58,7 +52,7 @@ public class ReiIntegration implements REIClientPlugin {
         }
 
         for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
-            registry.addEntry(EntryStack.of(SLIMEFUN, slimefunItemStack));
+            registry.addEntry(EntryStacks.of(slimefunItemStack.itemStack()));
         }
     }
     
@@ -176,9 +170,5 @@ public class ReiIntegration implements REIClientPlugin {
 
             slimefunLabel.draw(graphics, mx, my, mw, mh, mu, mv, mrw, mrh, REIRuntime.getInstance().isDarkThemeEnabled());
         });
-    }
-
-    public static EntryStack<ItemStack> unwrap(EntryStack<SlimefunItemStack> entryStack) {
-        return EntryStacks.of(entryStack.getValue().itemStack());
     }
 }

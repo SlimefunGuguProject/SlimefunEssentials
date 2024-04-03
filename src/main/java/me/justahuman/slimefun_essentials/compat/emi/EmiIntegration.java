@@ -18,7 +18,6 @@ import me.justahuman.slimefun_essentials.compat.emi.recipes.ReactorRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.SmelteryRecipe;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
@@ -36,8 +35,8 @@ public class EmiIntegration implements EmiPlugin {
             return;
         }
 
-        for (Map.Entry<String, SlimefunItemStack> entry : ResourceLoader.getSlimefunItems().entrySet()) {
-            emiRegistry.setDefaultComparison(EmiStack.of(entry.getValue().itemStack()), SLIMEFUN_ID);
+        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
+            emiRegistry.setDefaultComparison(EmiStack.of(slimefunItemStack.itemStack()), SLIMEFUN_ID);
         }
         slimefunCategories.clear();
 
