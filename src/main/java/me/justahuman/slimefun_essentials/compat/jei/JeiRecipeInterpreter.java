@@ -58,11 +58,6 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, Object defaultValue) {
-        return fromItemStack(slimefunItemStack.itemStack(), amount, defaultValue);
-    }
-
-    @Override
     public Object fromFluid(Fluid fluid, int amount, Object defaultValue) {
         return new JeiFluidIngredient(fluid, amount);
     }

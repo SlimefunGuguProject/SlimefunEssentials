@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.rei;
 
 import me.justahuman.slimefun_essentials.api.IdInterpreter;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -53,11 +52,6 @@ public class ReiRecipeInterpreter implements IdInterpreter<EntryIngredient> {
     public EntryIngredient fromItemStack(ItemStack itemStack, int amount, EntryIngredient defaultValue) {
         itemStack.setCount(amount);
         return EntryIngredients.of(itemStack);
-    }
-
-    @Override
-    public EntryIngredient fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, EntryIngredient defaultValue) {
-        return fromItemStack(slimefunItemStack.itemStack(), amount, defaultValue);
     }
 
     @Override

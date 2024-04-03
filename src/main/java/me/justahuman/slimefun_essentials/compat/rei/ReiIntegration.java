@@ -27,10 +27,12 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.entry.EntryRegistry;
+import me.shedaniel.rei.api.client.registry.transfer.TransferHandlerRegistry;
+import me.shedaniel.rei.api.client.registry.transfer.simple.SimpleTransferHandler;
 import me.shedaniel.rei.api.common.entry.comparison.ItemComparatorRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
-import me.shedaniel.rei.impl.common.entry.comparison.ItemComparatorRegistryImpl;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.Generic3x3ContainerScreenHandler;
 
 public class ReiIntegration implements REIClientPlugin {
     public static final ReiRecipeInterpreter RECIPE_INTERPRETER = new ReiRecipeInterpreter();
@@ -81,6 +83,11 @@ public class ReiIntegration implements REIClientPlugin {
                 registry.add(getDisplay(slimefunCategory, slimefunRecipe));
             }
         }
+    }
+
+    @Override
+    public void registerTransferHandlers(TransferHandlerRegistry registry) {
+        registry.register(SimpleTransferHandler.create(Generic3x3ContainerScreenHandler.class, ))
     }
 
     public static DisplayCategory<? extends SlimefunDisplay> getReiCategory(SlimefunCategory slimefunCategory, ItemStack icon) {

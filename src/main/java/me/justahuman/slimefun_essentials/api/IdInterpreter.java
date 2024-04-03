@@ -72,7 +72,9 @@ public interface IdInterpreter<T> {
     
     T fromTag(TagKey<Item> tagKey, int amount, T defaultValue);
     T fromItemStack(ItemStack itemStack, int amount, T defaultValue);
-    T fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, T defaultValue);
+    default T fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, T defaultValue) {
+        return fromItemStack(slimefunItemStack.itemStack(), amount, defaultValue);
+    }
     T fromFluid(Fluid fluid, int amount, T defaultValue);
     T fromEntityType(EntityType<?> entityType, int amount, T defaultValue);
 }

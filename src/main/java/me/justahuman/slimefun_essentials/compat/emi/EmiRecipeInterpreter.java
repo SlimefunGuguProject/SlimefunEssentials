@@ -3,7 +3,6 @@ package me.justahuman.slimefun_essentials.compat.emi;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import me.justahuman.slimefun_essentials.api.IdInterpreter;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.utils.Utils;
@@ -71,11 +70,6 @@ public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
     @Override
     public EmiIngredient fromItemStack(ItemStack itemStack, int amount, EmiIngredient defaultValue) {
         return EmiStack.of(itemStack, amount);
-    }
-
-    @Override
-    public EmiIngredient fromSlimefunItemStack(SlimefunItemStack slimefunItemStack, int amount, EmiIngredient defaultValue) {
-        return EmiStack.of(slimefunItemStack.itemStack(), amount);
     }
 
     @Override

@@ -21,10 +21,13 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IRecipeTransferRegistration;
 import mezz.jei.api.registration.IRuntimeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
 import mezz.jei.library.load.registration.SubtypeRegistration;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.Generic3x3ContainerScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
@@ -87,6 +90,20 @@ public class JeiIntegration implements IModPlugin {
 
         for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
             registration.addRecipeCatalyst(ResourceLoader.getSlimefunItems().get(slimefunCategory.id()).itemStack(), RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class));
+        }
+    }
+
+    @Override
+    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
+        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
+            if (slimefunCategory.type().contains("ancient_altar")) {
+                return;
+            }
+
+            final RecipeType<SlimefunRecipe> recipeType = RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class);
+            if (slimefunCategory.type().contains("grid")) {
+                registration.addRecipeTransferHandler(Generic3x3ContainerScreenHandler.class, ScreenHandlerType.GENERIC_3X3, recipeType, 0, 9, 9, 36);
+            }
         }
     }
 
