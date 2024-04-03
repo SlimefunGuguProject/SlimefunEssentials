@@ -35,7 +35,7 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
         } else if (ingredient instanceof ItemStack itemStack) {
             slotBuilder.addItemStack(itemStack);
         } else if (ingredient instanceof SlimefunItemStack slimefunItemStack) {
-            slotBuilder.addIngredient(JeiIntegration.SLIMEFUN, slimefunItemStack);
+            slotBuilder.addItemStack(slimefunItemStack.itemStack());
         } else if (ingredient instanceof JeiFluidIngredient fluidStack) {
             slotBuilder.addFluidStack(fluidStack.getFluid(), fluidStack.getAmount());
         }

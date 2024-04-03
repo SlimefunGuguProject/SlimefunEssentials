@@ -9,29 +9,27 @@ import me.justahuman.slimefun_essentials.compat.jei.categories.GridCategory;
 import me.justahuman.slimefun_essentials.compat.jei.categories.ProcessCategory;
 import me.justahuman.slimefun_essentials.compat.jei.categories.ReactorCategory;
 import me.justahuman.slimefun_essentials.compat.jei.categories.SmelteryCategory;
-import me.justahuman.slimefun_essentials.compat.jei.ingredient_handlers.SlimefunStackHelper;
-import me.justahuman.slimefun_essentials.compat.jei.ingredient_handlers.SlimefunStackRenderer;
-import me.justahuman.slimefun_essentials.compat.jei.ingredient_handlers.SlimefunStackType;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.api.registration.IModIngredientRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.IRuntimeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
+import mezz.jei.library.load.registration.SubtypeRegistration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
-    public static final SlimefunStackType SLIMEFUN = new SlimefunStackType();
     public static final JeiRecipeInterpreter RECIPE_INTERPRETER = new JeiRecipeInterpreter();
 
     @Override
@@ -39,24 +37,21 @@ public class JeiIntegration implements IModPlugin {
     public Identifier getPluginUid() {
         return Utils.newIdentifier("jei_integration");
     }
-    
-    @Override
-    public void registerIngredients(IModIngredientRegistration registration) {
-        if (!Utils.shouldFunction()) {
-            return;
-        }
 
-        registration.register(SLIMEFUN, ResourceLoader.getSlimefunItems().values(), new SlimefunStackHelper(), new SlimefunStackRenderer());
+    @Override
+    public void registerRuntime(IRuntimeRegistration registration) {
+        registration.getIngredientManager().addIngredientsAtRuntime(VanillaTypes.ITEM_STACK, ResourceLoader.getSlimefunItems().values().stream().map(SlimefunItemStack::itemStack).toList());
     }
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
-        if (!Utils.shouldFunction()) {
+        if (!Utils.shouldFunction() || !(registration instanceof SubtypeRegistration subtypeRegistration)) {
             return;
         }
 
         for (SlimefunItemStack itemStack : ResourceLoader.getSlimefunItems().values()) {
-            registration.useNbtForSubtypes(itemStack.itemStack().getItem());
+            registration.registerSubtypeInterpreter(itemStack.itemStack().getItem(),
+                    new SlimefunIdInterpreter(subtypeRegistration.getInterpreters().get(VanillaTypes.ITEM_STACK, itemStack.itemStack()).orElse(null)));
         }
     }
     
