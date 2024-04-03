@@ -18,6 +18,7 @@ import me.justahuman.slimefun_essentials.compat.emi.recipes.ReactorRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.SmelteryRecipe;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
@@ -26,6 +27,7 @@ import java.util.Map;
 
 public class EmiIntegration implements EmiPlugin {
     public static final EmiRecipeInterpreter RECIPE_INTERPRETER = new EmiRecipeInterpreter();
+    private static final Comparison SLIMEFUN_ID = Comparison.compareData(stack -> Utils.getSlimefunId(stack.getNbt()));
     private static final Map<String, SlimefunEmiCategory> slimefunCategories = new HashMap<>();
     
     @Override
@@ -35,7 +37,7 @@ public class EmiIntegration implements EmiPlugin {
         }
 
         for (Map.Entry<String, SlimefunItemStack> entry : ResourceLoader.getSlimefunItems().entrySet()) {
-            emiRegistry.setDefaultComparison(EmiStack.of(entry.getValue().itemStack()), Comparison.compareNbt());
+            emiRegistry.setDefaultComparison(EmiStack.of(entry.getValue().itemStack()), SLIMEFUN_ID);
         }
         slimefunCategories.clear();
 
