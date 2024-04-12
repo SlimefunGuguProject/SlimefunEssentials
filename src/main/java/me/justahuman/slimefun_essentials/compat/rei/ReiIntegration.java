@@ -34,16 +34,24 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.Generic3x3ContainerScreenHandler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ReiIntegration implements REIClientPlugin {
     public static final ReiRecipeInterpreter RECIPE_INTERPRETER = new ReiRecipeInterpreter();
+    public static final Map<SlimefunCategory, DisplayCategory<?>> CATEGORIES = new HashMap<>();
 
     @Override
     public double getPriority() {
-        return 1;
+        return 10;
     }
 
     @Override
     public void registerItemComparators(ItemComparatorRegistry registry) {
+        if (!Utils.shouldFunction()) {
+            return;
+        }
+
         registry.registerGlobal(new SlimefunIdComparator());
     }
 
@@ -64,11 +72,14 @@ public class ReiIntegration implements REIClientPlugin {
             return;
         }
 
+        CATEGORIES.clear();
+
         for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
             final ItemStack icon = ResourceLoader.getSlimefunItems().get(slimefunCategory.id()).itemStack();
             final DisplayCategory<?> displayCategory = getReiCategory(slimefunCategory, icon);
             registry.add(displayCategory);
             registry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
+            CATEGORIES.put(slimefunCategory, displayCategory);
         }
     }
     
@@ -87,7 +98,13 @@ public class ReiIntegration implements REIClientPlugin {
 
     @Override
     public void registerTransferHandlers(TransferHandlerRegistry registry) {
-        registry.register(SimpleTransferHandler.create(Generic3x3ContainerScreenHandler.class, ))
+        for (DisplayCategory<?> category : CATEGORIES.values()) {
+            registry.register(SimpleTransferHandler.create(
+                    Generic3x3ContainerScreenHandler.class,
+                    category.getCategoryIdentifier(),
+                    new SimpleTransferHandler.IntRange(0, 8)
+            ));
+        }
     }
 
     public static DisplayCategory<? extends SlimefunDisplay> getReiCategory(SlimefunCategory slimefunCategory, ItemStack icon) {

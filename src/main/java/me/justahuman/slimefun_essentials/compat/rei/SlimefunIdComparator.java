@@ -12,6 +12,6 @@ public class SlimefunIdComparator implements EntryComparator<ItemStack> {
         if (sfId != null) {
             return sfId.hashCode();
         }
-        return 1;
+        return 123;
     }
 }
