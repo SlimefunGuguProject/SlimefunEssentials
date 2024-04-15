@@ -10,7 +10,6 @@ import me.justahuman.slimefun_essentials.client.SlimefunCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.handler.GridHandler;
-import me.justahuman.slimefun_essentials.compat.emi.handler.MachineHandler;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.AncientAltarRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.GridRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.ProcessRecipe;
@@ -64,12 +63,13 @@ public class EmiIntegration implements EmiPlugin {
         }
 
         emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_3X3, new GridHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X1, new MachineHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X2, new MachineHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X3, new MachineHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X4, new MachineHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X5, new MachineHandler());
-        emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X6, new MachineHandler());
+        // TODO: Support machine categories for all mods
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X1, new MachineHandler());
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X2, new MachineHandler());
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X3, new MachineHandler());
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X4, new MachineHandler());
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X5, new MachineHandler());
+        // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X6, new MachineHandler());
     }
 
     public static EmiRecipe getEmiRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory category) {

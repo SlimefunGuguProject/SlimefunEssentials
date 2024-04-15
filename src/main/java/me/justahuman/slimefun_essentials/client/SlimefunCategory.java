@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import lombok.NonNull;
 import me.justahuman.slimefun_essentials.utils.JsonUtils;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +48,10 @@ public record SlimefunCategory(String id, String type, Integer speed, Integer en
 
     public static void clear() {
         slimefunCategories.clear();
+    }
+
+    public ItemStack getItemFromId() {
+        return ResourceLoader.getSlimefunItem(this.id).itemStack();
     }
 
     public boolean hasSpeed() {

@@ -1,8 +1,10 @@
 package me.justahuman.slimefun_essentials.client;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import lombok.NonNull;
 import me.justahuman.slimefun_essentials.SlimefunEssentials;
 import me.justahuman.slimefun_essentials.config.ModConfig;
@@ -10,8 +12,10 @@ import me.justahuman.slimefun_essentials.utils.CompatUtils;
 import me.justahuman.slimefun_essentials.utils.JsonUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
+import net.minecraft.resource.VanillaResourcePackProvider;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -27,28 +31,28 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 public class ResourceLoader {
     private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
     private static final Map<String, SlimefunItemStack> slimefunItems = new LinkedHashMap<>();
+    private static final Set<String> vanillaItems = new HashSet<>();
     private static final Set<String> itemBlacklist = new HashSet<>();
 
     private static final Map<String, Identifier> blockModels = new HashMap<>();
-    private static final Map<String, Long> itemModels = new HashMap<>();
 
     private static final Map<ChunkPos, Set<BlockPos>> placedChunks = new HashMap<>();
     private static final Map<BlockPos, String> placedBlocks = new HashMap<>();
 
     /**
-     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link ResourceLoader#itemModels}, {@link SlimefunLabel#clear()}, {@link SlimefunCategory#clear()}
+     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link SlimefunLabel#clear()}, {@link SlimefunCategory#clear()}
      */
     public static void clear() {
         slimefunItems.clear();
         itemBlacklist.clear();
         blockModels.clear();
-        itemModels.clear();
         SlimefunLabel.clear();
         SlimefunCategory.clear();
     }
@@ -67,7 +71,7 @@ public class ResourceLoader {
      * @param manager The {@link ResourceManager} to load from
      */
     public static void loadResources(ResourceManager manager) {
-        if (CompatUtils.isRecipeModLoaded()) {
+        if (CompatUtils.isRecipeModLoaded() && ModConfig.recipeFeatures()) {
             loadItems(manager);
             loadLabels(manager);
             loadCategories(manager);
@@ -111,6 +115,8 @@ public class ResourceLoader {
         for (Resource resource : manager.findResources("slimefun/items", Utils::filterAddons).values()) {
             ResourceLoader.loadItems(resource);
         }
+        loadCustomModels(manager, "item");
+        loadCustomModels(manager, "block");
     }
     
     /**
@@ -125,8 +131,10 @@ public class ResourceLoader {
             if (!(itemElement instanceof JsonObject itemObject) || !itemObject.has("item") || !itemObject.has("nbt")) {
                 continue;
             }
-            
-            slimefunItems.put(id, new SlimefunItemStack(id, JsonUtils.deserializeItem(itemObject)));
+
+            final ItemStack itemStack = JsonUtils.deserializeItem(itemObject);
+            slimefunItems.put(id, new SlimefunItemStack(id, itemStack));
+            vanillaItems.add(itemStack.getItem().toString());
         }
         
         sortItems();
@@ -134,6 +142,46 @@ public class ResourceLoader {
 
     public static SlimefunItemStack getSlimefunItem(String id) {
         return slimefunItems.get(id);
+    }
+
+
+    public static void loadCustomModels(ResourceManager manager, String directory) {
+        for (Map.Entry<Identifier, Resource> entry : manager.findResources("models/" + directory, Utils::filterVanillaItems).entrySet()) {
+            final Resource resource = entry.getValue();
+            if (VanillaResourcePackProvider.VANILLA_KEY.equals(resource.getResourcePackName())) {
+                continue;
+            }
+
+            final JsonObject model = jsonObjectFromResource(resource);
+            if (model != null && model.get("overrides") instanceof JsonArray overrides) {
+                for (JsonElement element : overrides) {
+                    if (element instanceof JsonObject override) {
+                        loadCustomModel(override);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void loadCustomModel(JsonObject override) {
+        if (!(override.get("predicate") instanceof JsonObject predicate)
+                || !(predicate.get("custom_model_data") instanceof JsonPrimitive modelData)
+                || !modelData.isNumber()
+                || !(override.get("model") instanceof JsonPrimitive model)
+                || !model.isString()) {
+            return;
+        }
+
+        final long customModelData = modelData.getAsLong();
+        final String modelId = model.getAsString();
+        final int idStart = modelId.lastIndexOf("/");
+        final int idEnd = modelId.lastIndexOf(".");
+        final String id = modelId.substring(idStart == -1 ? 0 : idStart + 1,
+                idEnd == -1 ? modelId.length() : idEnd).toUpperCase(Locale.ROOT);
+
+        if (slimefunItems.containsKey(id)) {
+            slimefunItems.get(id.toUpperCase()).setCustomModelData(customModelData);
+        }
     }
 
     /**
@@ -192,7 +240,6 @@ public class ResourceLoader {
     public static void loadBlockModels(ResourceManager manager) {
         for (Identifier identifier : manager.findResources("models/block", Utils::filterItems).keySet()) {
             final String id = Utils.getFileName(identifier.getPath());
-            Utils.log("Loaded Block Model For: " + id);
             ResourceLoader.addBlockModel(id);
         }
     }
@@ -268,47 +315,6 @@ public class ResourceLoader {
     }
 
     /**
-     * Adds an Item Model for a given {@link String} id
-     *
-     * @param id The {@link String} id that represents a Slimefun Item
-     * @param model The {@link Long} model for the Slimefun Item
-     */
-    public static void addItemModel(String id, long model) {
-        if (slimefunItems.containsKey(id)) {
-            itemModels.put(id, model);
-        }
-    }
-
-    /**
-     * Checks if a {@link String} id has a registered Item Model
-     *
-     * @param id The {@link String} id to check
-     *
-     * @return If the {@link String} id has a registered Item Model
-     */
-    public static boolean hasItemModel(String id) {
-        return itemModels.containsKey(id);
-    }
-
-    /**
-     * Gets the Item Model for a given {@link String} id
-     *
-     * @param id The {@link String} id to get the Item Model for
-     *
-     * @return The Item Model for the given {@link String} id
-     */
-    public static long getItemModel(String id) {
-        return itemModels.getOrDefault(id, 0L);
-    }
-
-    /**
-     * Clears {@link ResourceLoader#itemModels}
-     */
-    public static void clearItemModels() {
-        itemModels.clear();
-    }
-
-    /**
      * Checks if a {@link BlockPos} is a placed Slimefun Item
      *
      * @param blockPos The {@link BlockPos} to check
@@ -331,6 +337,16 @@ public class ResourceLoader {
     @NonNull
     public static Map<String, SlimefunItemStack> getSlimefunItems() {
         return Collections.unmodifiableMap(slimefunItems);
+    }
+
+    /**
+     * Returns an unmodifiable version of {@link ResourceLoader#vanillaItems}
+     *
+     * return {@link HashSet}
+     */
+    @NonNull
+    public static Set<String> getVanillaItems() {
+        return Collections.unmodifiableSet(vanillaItems);
     }
 
     /**

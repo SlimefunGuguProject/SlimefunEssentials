@@ -1,11 +1,14 @@
 package me.justahuman.slimefun_essentials.client;
 
-import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 
 public record SlimefunItemStack(String id, ItemStack itemStack) {
-    public SlimefunItemStack(ItemStack itemStack) {
-        this(Utils.getSlimefunId(itemStack), itemStack);
+    public void setCustomModelData(long customModelData) {
+        final NbtCompound nbt = itemStack.getNbt();
+        if (nbt != null) {
+            nbt.putLong("CustomModelData", customModelData);
+        }
     }
 
     public SlimefunItemStack setAmount(int amount) {

@@ -37,9 +37,6 @@ public class ModConfig {
     private static @Setter @Getter List<String> serverWhitelist = new ArrayList<>();
     private static @Setter boolean autoToggleAddons = true;
     private static @Setter boolean autoManageItems = true;
-    private static @Setter boolean autoItemModels = true;
-    private static @Setter boolean autoItemModelServerWhitelist = false;
-    private static @Setter @Getter List<String> autoItemModelServers = new ArrayList<>();
     
     public static void loadConfig() {
         final JsonObject root = new JsonObject();
@@ -73,15 +70,6 @@ public class ModConfig {
         });
         loadConfigOption(() -> autoToggleAddons = JsonUtils.getBooleanOrDefault(root, "auto_toggle_addons", true, true));
         loadConfigOption(() -> autoManageItems = JsonUtils.getBooleanOrDefault(root, "auto_manage_items", true, true));
-        loadConfigOption(() -> autoItemModels = JsonUtils.getBooleanOrDefault(root, "auto_item_models", true, true));
-        loadConfigOption(() -> autoItemModelServerWhitelist = JsonUtils.getBooleanOrDefault(root, "auto_item_model_server_whitelist", false, true));
-        loadConfigOption(() -> {
-            for (JsonElement server : JsonUtils.getArrayOrDefault(root, "auto_item_model_servers", new JsonArray(), true)) {
-                if (server instanceof JsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
-                    autoItemModelServers.add(jsonPrimitive.getAsString());
-                }
-            }
-        });
     }
 
     private static void loadConfigOption(Runnable runnable) {
@@ -116,9 +104,6 @@ public class ModConfig {
         root.add("enabled_servers", serverArray);
         root.addProperty("auto_toggle_addons", autoToggleAddons);
         root.addProperty("auto_manage_items", autoManageItems);
-        root.addProperty("auto_item_models", autoItemModels);
-        root.addProperty("auto_item_model_server_whitelist", autoItemModelServerWhitelist);
-        root.add("auto_item_model_servers", serverArray);
         
         try (final FileWriter fileWriter = new FileWriter(getConfigFile())) {
             gson.toJson(root, fileWriter);
@@ -151,14 +136,6 @@ public class ModConfig {
 
     public static boolean autoManageItems() {
         return autoManageItems;
-    }
-
-    public static boolean autoItemModels() {
-        return autoItemModels;
-    }
-
-    public static boolean autoItemModelServerWhitelist() {
-        return autoItemModelServerWhitelist;
     }
 
     public static boolean isCurrentServerEnabled() {

@@ -74,24 +74,6 @@ public class ConfigScreen {
                 .setTooltip(Text.translatable("slimefun_essentials.config.option.auto_manage_items.tooltip"))
                 .setSaveConsumer(ModConfig::setAutoManageItems)
                 .build());
-
-        serverCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.auto_item_models"), ModConfig.autoItemModels())
-                .setDefaultValue(true)
-                .setTooltip(Text.translatable("slimefun_essentials.config.option.auto_item_models.tooltip"))
-                .setSaveConsumer(ModConfig::setAutoItemModels)
-                .build());
-
-        serverCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.auto_item_model_server_whitelist"), ModConfig.autoItemModelServerWhitelist())
-                .setDefaultValue(false)
-                .setTooltip(Text.translatable("slimefun_essentials.config.option.auto_item_model_server_whitelist.tooltip"))
-                .setSaveConsumer(ModConfig::setAutoItemModelServerWhitelist)
-                .build());
-
-        serverCategory.addEntry(entryBuilder.startStrList(Text.translatable("slimefun_essentials.config.option.auto_item_model_servers"), ModConfig.getAutoItemModelServers())
-                .setDefaultValue(new ArrayList<>())
-                .setTooltip(Text.translatable("slimefun_essentials.config.option.auto_item_model_servers.tooltip"))
-                .setSaveConsumer(ModConfig::setAutoItemModelServers)
-                .build());
         
         builder.setSavingRunnable(ModConfig::saveConfig);
         

@@ -9,6 +9,7 @@ import me.justahuman.slimefun_essentials.compat.rei.categorys.AncientAltarCatego
 import me.justahuman.slimefun_essentials.compat.rei.categorys.GridCategory;
 import me.justahuman.slimefun_essentials.compat.rei.categorys.ProcessCategory;
 import me.justahuman.slimefun_essentials.compat.rei.categorys.ReactorCategory;
+import me.justahuman.slimefun_essentials.compat.rei.categorys.SlimefunReiCategory;
 import me.justahuman.slimefun_essentials.compat.rei.categorys.SmelteryCategory;
 import me.justahuman.slimefun_essentials.compat.rei.displays.AncientAltarDisplay;
 import me.justahuman.slimefun_essentials.compat.rei.displays.GridDisplay;
@@ -39,7 +40,10 @@ import java.util.Map;
 
 public class ReiIntegration implements REIClientPlugin {
     public static final ReiRecipeInterpreter RECIPE_INTERPRETER = new ReiRecipeInterpreter();
-    public static final Map<SlimefunCategory, DisplayCategory<?>> CATEGORIES = new HashMap<>();
+    private static final Map<SlimefunCategory, DisplayCategory<?>> CATEGORIES = new HashMap<>();
+    private static EntryRegistry entryRegistry = null;
+    private static CategoryRegistry categoryRegistry = null;
+    private static DisplayRegistry displayRegistry = null;
 
     @Override
     public double getPriority() {
@@ -61,9 +65,7 @@ public class ReiIntegration implements REIClientPlugin {
             return;
         }
 
-        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
-            registry.addEntry(EntryStacks.of(slimefunItemStack.itemStack()));
-        }
+        entryRegistry = registry;
     }
     
     @Override
@@ -72,15 +74,7 @@ public class ReiIntegration implements REIClientPlugin {
             return;
         }
 
-        CATEGORIES.clear();
-
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            final ItemStack icon = ResourceLoader.getSlimefunItems().get(slimefunCategory.id()).itemStack();
-            final DisplayCategory<?> displayCategory = getReiCategory(slimefunCategory, icon);
-            registry.add(displayCategory);
-            registry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
-            CATEGORIES.put(slimefunCategory, displayCategory);
-        }
+        categoryRegistry = registry;
     }
     
     @Override
@@ -89,25 +83,48 @@ public class ReiIntegration implements REIClientPlugin {
             return;
         }
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            for (SlimefunRecipe slimefunRecipe : slimefunCategory.recipes()) {
-                registry.add(getDisplay(slimefunCategory, slimefunRecipe));
-            }
-        }
+        displayRegistry = registry;
     }
 
     @Override
     public void registerTransferHandlers(TransferHandlerRegistry registry) {
-        for (DisplayCategory<?> category : CATEGORIES.values()) {
-            registry.register(SimpleTransferHandler.create(
-                    Generic3x3ContainerScreenHandler.class,
-                    category.getCategoryIdentifier(),
-                    new SimpleTransferHandler.IntRange(0, 8)
-            ));
+        for (SlimefunCategory category : CATEGORIES.keySet()) {
+            if (category.type().contains("grid")) {
+                registry.register(SimpleTransferHandler.create(
+                        Generic3x3ContainerScreenHandler.class,
+                        CATEGORIES.get(category).getCategoryIdentifier(),
+                        new SimpleTransferHandler.IntRange(0, 8)
+                ));
+            }
         }
     }
 
-    public static DisplayCategory<? extends SlimefunDisplay> getReiCategory(SlimefunCategory slimefunCategory, ItemStack icon) {
+    public static void load() {
+        if (entryRegistry == null || categoryRegistry == null || displayRegistry == null) {
+            return;
+        }
+
+        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
+            entryRegistry.addEntry(EntryStacks.of(slimefunItemStack.itemStack()));
+        }
+
+        CATEGORIES.clear();
+        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
+            final ItemStack icon = slimefunCategory.getItemFromId();
+            final DisplayCategory<?> displayCategory = getReiCategory(slimefunCategory, icon);
+            categoryRegistry.add(displayCategory);
+            categoryRegistry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
+            CATEGORIES.put(slimefunCategory, displayCategory);
+        }
+
+        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunCategory.recipes()) {
+                displayRegistry.add(getDisplay(slimefunCategory, slimefunRecipe));
+            }
+        }
+    }
+
+    public static SlimefunReiCategory<? extends SlimefunDisplay> getReiCategory(SlimefunCategory slimefunCategory, ItemStack icon) {
         final String type = slimefunCategory.type();
         if (type.equals("ancient_altar")) {
             return new AncientAltarCategory(slimefunCategory, icon);

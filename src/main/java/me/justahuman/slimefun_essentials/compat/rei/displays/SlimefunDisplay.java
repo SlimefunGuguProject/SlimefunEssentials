@@ -20,10 +20,6 @@ public abstract class SlimefunDisplay extends RecipeRenderer implements Display 
     protected final List<EntryIngredient> inputs = new ArrayList<>();
     protected final List<EntryIngredient> outputs = new ArrayList<>();
 
-    protected SlimefunDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        this(Type.PROCESS, slimefunCategory, slimefunRecipe);
-    }
-
     protected SlimefunDisplay(Type type, SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
         super(type);
 

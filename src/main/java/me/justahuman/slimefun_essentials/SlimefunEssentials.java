@@ -4,6 +4,8 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.compat.cloth_config.ConfigScreen;
+import me.justahuman.slimefun_essentials.compat.jei.JeiIntegration;
+import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.Channels;
 import me.justahuman.slimefun_essentials.utils.CompatUtils;
@@ -53,6 +55,17 @@ public class SlimefunEssentials implements ClientModInitializer {
             public void reload(ResourceManager manager) {
                 ResourceLoader.clear();
                 ResourceLoader.loadResources(manager);
+
+                // Must manually load JEI and REI so they have the custom model data correct
+                if (CompatUtils.isRecipeModLoaded()) {
+                    if (CompatUtils.isJeiLoaded()) {
+                        JeiIntegration.load();
+                    }
+
+                    if (CompatUtils.isReiLoaded()) {
+                        ReiIntegration.load();
+                    }
+                }
             }
         });
         
@@ -117,20 +130,6 @@ public class SlimefunEssentials implements ClientModInitializer {
 
             ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> {
                 ResourceLoader.clearItemBlacklist();
-            }));
-        }
-
-        if (ModConfig.autoItemModels()) {
-            ClientPlayNetworking.registerGlobalReceiver(Channels.ITEM_MODELS_CHANNEL, ((client, handler, buf, sender) -> {
-                final ByteArrayDataInput packet = ByteStreams.newDataInput(buf.array());
-                final long model = packet.readLong();
-                final String id = packet.readUTF();
-
-                ResourceLoader.addItemModel(id, model);
-            }));
-
-            ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> {
-                ResourceLoader.clearItemModels();
             }));
         }
     }

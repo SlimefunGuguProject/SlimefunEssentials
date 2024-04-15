@@ -34,6 +34,9 @@ import org.jetbrains.annotations.NotNull;
 @JeiPlugin
 public class JeiIntegration implements IModPlugin {
     public static final JeiRecipeInterpreter RECIPE_INTERPRETER = new JeiRecipeInterpreter();
+    private static IRecipeCategoryRegistration categoryRegistration;
+    private static IRecipeRegistration recipeRegistration;
+    private static IRecipeCatalystRegistration catalystRegistration;
 
     @Override
     @NotNull
@@ -64,11 +67,7 @@ public class JeiIntegration implements IModPlugin {
             return;
         }
 
-        IJeiHelpers jeiHelpers = registration.getJeiHelpers();
-        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            registration.addRecipeCategories(getJeiCategory(guiHelper, slimefunCategory, ResourceLoader.getSlimefunItems().get(slimefunCategory.id()).itemStack()));
-        }
+        categoryRegistration = registration;
     }
     
     @Override
@@ -77,9 +76,7 @@ public class JeiIntegration implements IModPlugin {
             return;
         }
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            registration.addRecipes(RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class), slimefunCategory.recipes());
-        }
+        recipeRegistration = registration;
     }
 
     @Override
@@ -88,9 +85,7 @@ public class JeiIntegration implements IModPlugin {
             return;
         }
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            registration.addRecipeCatalyst(ResourceLoader.getSlimefunItems().get(slimefunCategory.id()).itemStack(), RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class));
-        }
+        catalystRegistration = registration;
     }
 
     @Override
@@ -104,6 +99,23 @@ public class JeiIntegration implements IModPlugin {
             if (slimefunCategory.type().contains("grid")) {
                 registration.addRecipeTransferHandler(Generic3x3ContainerScreenHandler.class, ScreenHandlerType.GENERIC_3X3, recipeType, 0, 9, 9, 36);
             }
+        }
+    }
+
+    public static void load() {
+        if (categoryRegistration == null || recipeRegistration == null || catalystRegistration == null) {
+            return;
+        }
+
+        IJeiHelpers jeiHelpers = categoryRegistration.getJeiHelpers();
+        IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
+            categoryRegistration.addRecipeCategories(getJeiCategory(guiHelper, slimefunCategory, slimefunCategory.getItemFromId()));
+        }
+
+        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
+            recipeRegistration.addRecipes(RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class), slimefunCategory.recipes());
+            catalystRegistration.addRecipeCatalyst(slimefunCategory.getItemFromId(), RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class));
         }
     }
 

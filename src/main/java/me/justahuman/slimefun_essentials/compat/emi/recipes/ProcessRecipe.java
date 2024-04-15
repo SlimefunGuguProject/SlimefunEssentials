@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.emi.recipes;
 
 import dev.emi.emi.api.recipe.EmiRecipe;
-import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
@@ -25,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
 
 public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
     protected final SlimefunCategory slimefunCategory;

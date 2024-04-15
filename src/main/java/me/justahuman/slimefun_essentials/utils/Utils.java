@@ -6,11 +6,12 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Locale;
 
 public class Utils {
     public static final String ID = "slimefun_essentials";
@@ -49,7 +50,17 @@ public class Utils {
 
         final String path = identifier.getPath();
         final String id = getFileName(path);
-        return ResourceLoader.getSlimefunItems().containsKey(id.toUpperCase());
+        return ResourceLoader.getSlimefunItems().containsKey(id.toUpperCase(Locale.ROOT));
+    }
+
+    public static boolean filterVanillaItems(Identifier identifier) {
+        if (!filterResources(identifier)) {
+            return false;
+        }
+
+        final String path = identifier.getPath();
+        final String item = getFileName(path);
+        return ResourceLoader.getVanillaItems().contains(item);
     }
 
     public static String getFileName(String path) {
