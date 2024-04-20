@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.jei;
 
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.jei.categories.AncientAltarCategory;
@@ -91,13 +91,13 @@ public class JeiIntegration implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            if (slimefunCategory.type().contains("ancient_altar")) {
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            if (slimefunRecipeCategory.type().contains("ancient_altar")) {
                 return;
             }
 
-            final RecipeType<SlimefunRecipe> recipeType = RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class);
-            if (slimefunCategory.type().contains("grid")) {
+            final RecipeType<SlimefunRecipe> recipeType = RecipeType.create(Utils.ID, slimefunRecipeCategory.id().toLowerCase(), SlimefunRecipe.class);
+            if (slimefunRecipeCategory.type().contains("grid")) {
                 registration.addRecipeTransferHandler(Generic3x3ContainerScreenHandler.class, ScreenHandlerType.GENERIC_3X3, recipeType, 0, 9, 9, 36);
             }
         }
@@ -110,28 +110,28 @@ public class JeiIntegration implements IModPlugin {
 
         IJeiHelpers jeiHelpers = categoryRegistration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            categoryRegistration.addRecipeCategories(getJeiCategory(guiHelper, slimefunCategory, slimefunCategory.getItemFromId()));
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            categoryRegistration.addRecipeCategories(getJeiCategory(guiHelper, slimefunRecipeCategory, slimefunRecipeCategory.getItemFromId()));
         }
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            recipeRegistration.addRecipes(RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class), slimefunCategory.recipes());
-            catalystRegistration.addRecipeCatalyst(slimefunCategory.getItemFromId(), RecipeType.create(Utils.ID, slimefunCategory.id().toLowerCase(), SlimefunRecipe.class));
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            recipeRegistration.addRecipes(RecipeType.create(Utils.ID, slimefunRecipeCategory.id().toLowerCase(), SlimefunRecipe.class), slimefunRecipeCategory.recipes());
+            catalystRegistration.addRecipeCatalyst(slimefunRecipeCategory.getItemFromId(), RecipeType.create(Utils.ID, slimefunRecipeCategory.id().toLowerCase(), SlimefunRecipe.class));
         }
     }
 
-    public static IRecipeCategory<SlimefunRecipe> getJeiCategory(IGuiHelper guiHelper, SlimefunCategory slimefunCategory, ItemStack catalyst) {
-        final String type = slimefunCategory.type();
+    public static IRecipeCategory<SlimefunRecipe> getJeiCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack catalyst) {
+        final String type = slimefunRecipeCategory.type();
         if (type.equals("ancient_altar")) {
-            return new AncientAltarCategory(guiHelper, slimefunCategory, catalyst);
+            return new AncientAltarCategory(guiHelper, slimefunRecipeCategory, catalyst);
         } else if (type.equals("smeltery")) {
-            return new SmelteryCategory(guiHelper, slimefunCategory, catalyst);
+            return new SmelteryCategory(guiHelper, slimefunRecipeCategory, catalyst);
         } else if (type.equals("reactor")) {
-            return new ReactorCategory(guiHelper, slimefunCategory, catalyst);
+            return new ReactorCategory(guiHelper, slimefunRecipeCategory, catalyst);
         } else if (type.contains("grid")) {
-            return new GridCategory(guiHelper, slimefunCategory, catalyst, TextureUtils.getSideSafe(type));
+            return new GridCategory(guiHelper, slimefunRecipeCategory, catalyst, TextureUtils.getSideSafe(type));
         } else {
-            return new ProcessCategory(guiHelper, slimefunCategory, catalyst);
+            return new ProcessCategory(guiHelper, slimefunRecipeCategory, catalyst);
         }
     }
 }

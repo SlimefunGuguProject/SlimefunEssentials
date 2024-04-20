@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei;
 
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class ReiIntegration implements REIClientPlugin {
     public static final ReiRecipeInterpreter RECIPE_INTERPRETER = new ReiRecipeInterpreter();
-    private static final Map<SlimefunCategory, DisplayCategory<?>> CATEGORIES = new HashMap<>();
+    private static final Map<SlimefunRecipeCategory, DisplayCategory<?>> CATEGORIES = new HashMap<>();
     private static EntryRegistry entryRegistry = null;
     private static CategoryRegistry categoryRegistry = null;
     private static DisplayRegistry displayRegistry = null;
@@ -88,7 +88,7 @@ public class ReiIntegration implements REIClientPlugin {
 
     @Override
     public void registerTransferHandlers(TransferHandlerRegistry registry) {
-        for (SlimefunCategory category : CATEGORIES.keySet()) {
+        for (SlimefunRecipeCategory category : CATEGORIES.keySet()) {
             if (category.type().contains("grid")) {
                 registry.register(SimpleTransferHandler.create(
                         Generic3x3ContainerScreenHandler.class,
@@ -109,48 +109,48 @@ public class ReiIntegration implements REIClientPlugin {
         }
 
         CATEGORIES.clear();
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            final ItemStack icon = slimefunCategory.getItemFromId();
-            final DisplayCategory<?> displayCategory = getReiCategory(slimefunCategory, icon);
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            final ItemStack icon = slimefunRecipeCategory.getItemFromId();
+            final DisplayCategory<?> displayCategory = getReiCategory(slimefunRecipeCategory, icon);
             categoryRegistry.add(displayCategory);
             categoryRegistry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
-            CATEGORIES.put(slimefunCategory, displayCategory);
+            CATEGORIES.put(slimefunRecipeCategory, displayCategory);
         }
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            for (SlimefunRecipe slimefunRecipe : slimefunCategory.recipes()) {
-                displayRegistry.add(getDisplay(slimefunCategory, slimefunRecipe));
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+                displayRegistry.add(getDisplay(slimefunRecipeCategory, slimefunRecipe));
             }
         }
     }
 
-    public static SlimefunReiCategory<? extends SlimefunDisplay> getReiCategory(SlimefunCategory slimefunCategory, ItemStack icon) {
-        final String type = slimefunCategory.type();
+    public static SlimefunReiCategory<? extends SlimefunDisplay> getReiCategory(SlimefunRecipeCategory slimefunRecipeCategory, ItemStack icon) {
+        final String type = slimefunRecipeCategory.type();
         if (type.equals("ancient_altar")) {
-            return new AncientAltarCategory(slimefunCategory, icon);
+            return new AncientAltarCategory(slimefunRecipeCategory, icon);
         } else if (type.equals("smeltery")) {
-            return new SmelteryCategory(slimefunCategory, icon);
+            return new SmelteryCategory(slimefunRecipeCategory, icon);
         } else if (type.equals("reactor")) {
-            return new ReactorCategory(slimefunCategory, icon);
+            return new ReactorCategory(slimefunRecipeCategory, icon);
         } else if (type.contains("grid")) {
-            return new GridCategory(slimefunCategory, icon, TextureUtils.getSideSafe(type));
+            return new GridCategory(slimefunRecipeCategory, icon, TextureUtils.getSideSafe(type));
         } else {
-            return new ProcessCategory(slimefunCategory, icon);
+            return new ProcessCategory(slimefunRecipeCategory, icon);
         }
     }
 
-    public static SlimefunDisplay getDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        final String type = slimefunCategory.type();
+    public static SlimefunDisplay getDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        final String type = slimefunRecipeCategory.type();
         if (type.equals("ancient_altar")) {
-            return new AncientAltarDisplay(slimefunCategory, slimefunRecipe);
+            return new AncientAltarDisplay(slimefunRecipeCategory, slimefunRecipe);
         } else if (type.equals("smeltery")) {
-            return new SmelteryDisplay(slimefunCategory, slimefunRecipe);
+            return new SmelteryDisplay(slimefunRecipeCategory, slimefunRecipe);
         } else if (type.equals("reactor")) {
-            return new ReactorDisplay(slimefunCategory, slimefunRecipe);
+            return new ReactorDisplay(slimefunRecipeCategory, slimefunRecipe);
         } else if (type.contains("grid")) {
-            return new GridDisplay(slimefunCategory, slimefunRecipe, TextureUtils.getSideSafe(type));
+            return new GridDisplay(slimefunRecipeCategory, slimefunRecipe, TextureUtils.getSideSafe(type));
         } else {
-            return new ProcessDisplay(slimefunCategory, slimefunRecipe);
+            return new ProcessDisplay(slimefunRecipeCategory, slimefunRecipe);
         }
     }
 

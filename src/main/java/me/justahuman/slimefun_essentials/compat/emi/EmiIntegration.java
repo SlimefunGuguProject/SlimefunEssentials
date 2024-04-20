@@ -6,7 +6,7 @@ import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.stack.Comparison;
 import dev.emi.emi.api.stack.EmiStack;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.handler.GridHandler;
@@ -39,8 +39,8 @@ public class EmiIntegration implements EmiPlugin {
         }
         slimefunCategories.clear();
 
-        for (SlimefunCategory slimefunCategory : SlimefunCategory.getSlimefunCategories().values()) {
-            final String workstationId = slimefunCategory.id();
+        for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
+            final String workstationId = slimefunRecipeCategory.id();
             final Identifier categoryIdentifier = Utils.newIdentifier(workstationId);
             final EmiStack workStation = RECIPE_INTERPRETER.emiStackFromId(workstationId + ":1");
             final SlimefunEmiCategory slimefunEmiCategory;
@@ -53,8 +53,8 @@ public class EmiIntegration implements EmiPlugin {
                 emiRegistry.addWorkstation(slimefunEmiCategory, workStation);
             }
             
-            for (SlimefunRecipe slimefunRecipe : slimefunCategory.recipes()) {
-                emiRegistry.addRecipe(getEmiRecipe(slimefunCategory, slimefunRecipe, slimefunEmiCategory));
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+                emiRegistry.addRecipe(getEmiRecipe(slimefunRecipeCategory, slimefunRecipe, slimefunEmiCategory));
             }
         }
 
@@ -72,18 +72,18 @@ public class EmiIntegration implements EmiPlugin {
         // emiRegistry.addRecipeHandler(ScreenHandlerType.GENERIC_9X6, new MachineHandler());
     }
 
-    public static EmiRecipe getEmiRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory category) {
-        final String type = slimefunCategory.type();
+    public static EmiRecipe getEmiRecipe(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory category) {
+        final String type = slimefunRecipeCategory.type();
         if (type.equals("ancient_altar")) {
-            return new AncientAltarRecipe(slimefunCategory, slimefunRecipe, category);
+            return new AncientAltarRecipe(slimefunRecipeCategory, slimefunRecipe, category);
         } else if (type.equals("smeltery")) {
-            return new SmelteryRecipe(slimefunCategory, slimefunRecipe, category);
+            return new SmelteryRecipe(slimefunRecipeCategory, slimefunRecipe, category);
         } else if (type.equals("reactor")) {
-            return new ReactorRecipe(slimefunCategory, slimefunRecipe, category);
+            return new ReactorRecipe(slimefunRecipeCategory, slimefunRecipe, category);
         } else if (type.contains("grid")) {
-            return new GridRecipe(slimefunCategory, slimefunRecipe, category, TextureUtils.getSideSafe(type));
+            return new GridRecipe(slimefunRecipeCategory, slimefunRecipe, category, TextureUtils.getSideSafe(type));
         } else {
-            return new ProcessRecipe(slimefunCategory, slimefunRecipe, category);
+            return new ProcessRecipe(slimefunRecipeCategory, slimefunRecipe, category);
         }
     }
 }

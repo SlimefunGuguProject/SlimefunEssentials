@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
@@ -22,12 +22,12 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ProcessDisplay extends SlimefunDisplay {
-    public ProcessDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        this(Type.PROCESS, slimefunCategory, slimefunRecipe);
+    public ProcessDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        this(Type.PROCESS, slimefunRecipeCategory, slimefunRecipe);
     }
 
-    public ProcessDisplay(Type type, SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        super(type, slimefunCategory, slimefunRecipe);
+    public ProcessDisplay(Type type, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        super(type, slimefunRecipeCategory, slimefunRecipe);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class ProcessDisplay extends SlimefunDisplay {
     
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return CategoryIdentifier.of(Utils.newIdentifier(this.slimefunCategory.id().toLowerCase()));
+        return CategoryIdentifier.of(Utils.newIdentifier(this.slimefunRecipeCategory.id().toLowerCase()));
     }
 
     @Override
@@ -87,7 +87,7 @@ public class ProcessDisplay extends SlimefunDisplay {
     }
 
     protected void addEnergy(List<Widget> widgets, int x, int y) {
-        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1));
+        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
         widgets.add(ReiIntegration.widgetFromSlimefunLabel(TextureUtils.ENERGY, x, y));
         widgets.add(ReiIntegration.widgetFromSlimefunLabel((totalEnergy >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, totalEnergy < 0, totalEnergy < 0));
         widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT), Text.translatable("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy)))));
@@ -132,7 +132,7 @@ public class ProcessDisplay extends SlimefunDisplay {
         widgets.add(ReiIntegration.widgetFromSlimefunLabel((backwards ? TextureUtils.BACKWARDS_ARROW : TextureUtils.ARROW), x, y));
 
         if (this.slimefunRecipe.hasTime()) {
-            final int sfTicks = Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1));
+            final int sfTicks = Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
             final int millis =  sfTicks * 500;
             widgets.add(ReiIntegration.widgetFromSlimefunLabel((backwards ? TextureUtils.FILLED_BACKWARDS_ARROW : TextureUtils.FILLED_ARROW), x, y, millis, true, backwards, false));
             widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ARROW_WIDTH, TextureUtils.ARROW_HEIGHT), Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(sfTicks / 2), TextureUtils.numberFormat.format(sfTicks * 10L))));

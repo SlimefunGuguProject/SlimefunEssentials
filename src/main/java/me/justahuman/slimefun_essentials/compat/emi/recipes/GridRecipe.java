@@ -2,7 +2,7 @@ package me.justahuman.slimefun_essentials.compat.emi.recipes;
 
 import dev.emi.emi.api.widget.WidgetHolder;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.EmiUtils;
 import me.justahuman.slimefun_essentials.compat.emi.SlimefunEmiCategory;
@@ -10,8 +10,8 @@ import me.justahuman.slimefun_essentials.utils.TextureUtils;
 
 public class GridRecipe extends ProcessRecipe {
     protected final int side;
-    public GridRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory, int side) {
-        super(Type.grid(side), slimefunCategory, slimefunRecipe, emiRecipeCategory);
+    public GridRecipe(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory, int side) {
+        super(Type.grid(side), slimefunRecipeCategory, slimefunRecipe, emiRecipeCategory);
 
         this.side = side;
         EmiUtils.fillInputs(this.inputs, this.side * this.side);

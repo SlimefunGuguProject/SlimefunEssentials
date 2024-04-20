@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.jei.categories;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.jei.JeiIntegration;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReactorCategory extends ProcessCategory {
-    public ReactorCategory(IGuiHelper guiHelper, SlimefunCategory slimefunCategory, ItemStack catalyst) {
-        super(Type.REACTOR, guiHelper, slimefunCategory, catalyst);
+    public ReactorCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack catalyst) {
+        super(Type.REACTOR, guiHelper, slimefunRecipeCategory, catalyst);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, SlimefunRecipe recipe, IFocusGroup focuses) {
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe), calculateYOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe), calculateYOffset(this.slimefunRecipeCategory, recipe));
         recipe.fillInputs(4);
 
         JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.getY() + 1), recipe.inputs().get(0));
@@ -57,7 +57,7 @@ public class ReactorCategory extends ProcessCategory {
 
     @Override
     public void draw(SlimefunRecipe recipe, IRecipeSlotsView recipeSlotsView, DrawContext graphics, double mouseX, double mouseY) {
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe), calculateYOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe), calculateYOffset(this.slimefunRecipeCategory, recipe));
         recipe.fillInputs(4);
 
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
@@ -93,7 +93,7 @@ public class ReactorCategory extends ProcessCategory {
     @Override
     public List<Text> getTooltipStrings(SlimefunRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         final List<Text> tooltips = new ArrayList<>();
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe), calculateYOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe), calculateYOffset(this.slimefunRecipeCategory, recipe));
 
         offsets.y().addSlot(false).addSlot(false);
         offsets.x().addSlot();

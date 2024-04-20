@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.rei.ReiUtils;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
@@ -13,8 +13,8 @@ import java.util.List;
 
 public class GridDisplay extends ProcessDisplay {
     protected final int side;
-    public GridDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, int side) {
-        super(Type.grid(side), slimefunCategory, slimefunRecipe);
+    public GridDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe, int side) {
+        super(Type.grid(side), slimefunRecipeCategory, slimefunRecipe);
 
         this.side = side;
         ReiUtils.fillEntries(this.inputs, side * side);

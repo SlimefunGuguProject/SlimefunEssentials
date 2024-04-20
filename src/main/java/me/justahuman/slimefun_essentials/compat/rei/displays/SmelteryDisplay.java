@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.rei.ReiUtils;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
@@ -12,8 +12,8 @@ import net.minecraft.item.ItemStack;
 import java.util.List;
 
 public class SmelteryDisplay extends ProcessDisplay {
-    public SmelteryDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        super(Type.SMELTERY, slimefunCategory, slimefunRecipe);
+    public SmelteryDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        super(Type.SMELTERY, slimefunRecipeCategory, slimefunRecipe);
 
         ReiUtils.fillEntries(this.inputs, 6);
         ReiUtils.fillEntries(this.outputs, 1);

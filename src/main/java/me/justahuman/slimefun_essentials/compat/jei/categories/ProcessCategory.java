@@ -5,7 +5,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.api.RecipeRenderer;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<SlimefunRecipe> {
     protected final IGuiHelper guiHelper;
-    protected final SlimefunCategory slimefunCategory;
+    protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final ItemStack catalyst;
     protected final IDrawable icon;
     protected final IDrawable background;
@@ -41,15 +41,15 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
     protected final LoadingCache<Integer, IDrawableAnimated> cachedArrows;
     protected final LoadingCache<Integer, IDrawableAnimated> cachedBackwardsArrows;
 
-    public ProcessCategory(IGuiHelper guiHelper, SlimefunCategory slimefunCategory, ItemStack catalyst) {
-        this(Type.PROCESS, guiHelper, slimefunCategory, catalyst);
+    public ProcessCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack catalyst) {
+        this(Type.PROCESS, guiHelper, slimefunRecipeCategory, catalyst);
     }
     
-    public ProcessCategory(Type type, IGuiHelper guiHelper, SlimefunCategory slimefunCategory, ItemStack catalyst) {
+    public ProcessCategory(Type type, IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack catalyst) {
         super(type);
 
         this.guiHelper = guiHelper;
-        this.slimefunCategory = slimefunCategory;
+        this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.catalyst = catalyst;
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, catalyst);
         this.background = guiHelper.drawableBuilder(TextureUtils.WIDGETS, 0, 0, 0, 0).addPadding(yPadding(), yPadding(), xPadding(), xPadding()).build();
@@ -76,17 +76,17 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
     }
     
     public int xPadding() {
-        return getDisplayWidth(this.slimefunCategory) / 2;
+        return getDisplayWidth(this.slimefunRecipeCategory) / 2;
     }
     
     public int yPadding() {
-        return getDisplayHeight(this.slimefunCategory) / 2;
+        return getDisplayHeight(this.slimefunRecipeCategory) / 2;
     }
 
     @Override
     @NotNull
     public RecipeType<SlimefunRecipe> getRecipeType() {
-        return RecipeType.create(Utils.ID, this.slimefunCategory.id().toLowerCase(), SlimefunRecipe.class);
+        return RecipeType.create(Utils.ID, this.slimefunRecipeCategory.id().toLowerCase(), SlimefunRecipe.class);
     }
     
     @Override
@@ -109,7 +109,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
     
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, SlimefunRecipe recipe, IFocusGroup focuses) {
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe));
 
         if (recipe.hasLabels()) {
             offsets.x().add((TextureUtils.LABEL_SIZE + TextureUtils.PADDING) * recipe.labels().size());
@@ -141,7 +141,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
 
     @Override
     public void draw(SlimefunRecipe recipe, IRecipeSlotsView recipeSlotsView, DrawContext graphics, double mouseX, double mouseY) {
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe));
 
         // Display Labels
         if (recipe.hasLabels()) {
@@ -176,7 +176,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
     @Override
     public List<Text> getTooltipStrings(SlimefunRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         final List<Text> tooltips = new ArrayList<>();
-        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunCategory, recipe));
+        final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe));
 
         // Label Tooltips
         if (recipe.hasLabels()) {
@@ -267,7 +267,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
 
     protected int getSfTicks(SlimefunRecipe slimefunRecipe) {
         if (slimefunRecipe.hasTime()) {
-            return slimefunRecipe.sfTicks(this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1);
+            return slimefunRecipe.sfTicks(this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1);
         } else {
             return 2;
         }
@@ -290,7 +290,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
     }
 
     protected Text energyTooltip(SlimefunRecipe recipe) {
-        final int totalEnergy = recipe.energy() * Math.max(1, recipe.time() / 10 / (this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1));
+        final int totalEnergy = recipe.energy() * Math.max(1, recipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
         return Text.translatable("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy)));
     }
 }

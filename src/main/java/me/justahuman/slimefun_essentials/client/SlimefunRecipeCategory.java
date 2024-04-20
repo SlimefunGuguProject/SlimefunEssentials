@@ -13,8 +13,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public record SlimefunCategory(String id, String type, Integer speed, Integer energy, List<SlimefunRecipe> recipes) {
-    private static final Map<String, SlimefunCategory> slimefunCategories = new LinkedHashMap<>();
+public record SlimefunRecipeCategory(String id, String type, Integer speed, Integer energy, List<SlimefunRecipe> recipes) {
+    private static final Map<String, SlimefunRecipeCategory> recipeCategories = new LinkedHashMap<>();
     
     public static void deserialize(String id, JsonObject categoryObject) {
         final String type = JsonUtils.getStringOrDefault(categoryObject, "type", "process");
@@ -30,24 +30,24 @@ public record SlimefunCategory(String id, String type, Integer speed, Integer en
         }
         
         final String copy = JsonUtils.getStringOrDefault(categoryObject, "copy", "");
-        final List<SlimefunRecipe> copiedRecipes = slimefunCategories.containsKey(copy) ? slimefunCategories.get(copy).recipes() : new ArrayList<>();
+        final List<SlimefunRecipe> copiedRecipes = recipeCategories.containsKey(copy) ? recipeCategories.get(copy).recipes() : new ArrayList<>();
         recipes.addAll(copiedRecipes);
     
-        slimefunCategories.put(id, new SlimefunCategory(id, type, speed, energy, recipes));
+        recipeCategories.put(id, new SlimefunRecipeCategory(id, type, speed, energy, recipes));
     }
     
     /**
-     * Returns an unmodifiable version of {@link SlimefunCategory#slimefunCategories}
+     * Returns an unmodifiable version of {@link SlimefunRecipeCategory#recipeCategories}
      *
      * @return {@link Map}
      */
     @NonNull
-    public static Map<String, SlimefunCategory> getSlimefunCategories() {
-        return Collections.unmodifiableMap(slimefunCategories);
+    public static Map<String, SlimefunRecipeCategory> getRecipeCategories() {
+        return Collections.unmodifiableMap(recipeCategories);
     }
 
     public static void clear() {
-        slimefunCategories.clear();
+        recipeCategories.clear();
     }
 
     public ItemStack getItemFromId() {

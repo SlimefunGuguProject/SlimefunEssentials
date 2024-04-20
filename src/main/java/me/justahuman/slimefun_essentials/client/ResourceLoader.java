@@ -47,14 +47,14 @@ public class ResourceLoader {
     private static final Map<BlockPos, String> placedBlocks = new HashMap<>();
 
     /**
-     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link SlimefunLabel#clear()}, {@link SlimefunCategory#clear()}
+     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link SlimefunLabel#clear()}, {@link SlimefunRecipeCategory#clear()}
      */
     public static void clear() {
         slimefunItems.clear();
         itemBlacklist.clear();
         blockModels.clear();
         SlimefunLabel.clear();
-        SlimefunCategory.clear();
+        SlimefunRecipeCategory.clear();
     }
 
     /**
@@ -74,7 +74,7 @@ public class ResourceLoader {
         if (CompatUtils.isRecipeModLoaded() && ModConfig.recipeFeatures()) {
             loadItems(manager);
             loadLabels(manager);
-            loadCategories(manager);
+            loadRecipes(manager);
         }
 
         if (ModConfig.blockFeatures()) {
@@ -213,22 +213,22 @@ public class ResourceLoader {
      *
      * @param manager The {@link ResourceManager} to load from
      */
-    public static void loadCategories(ResourceManager manager) {
-        for (Resource resource : manager.findResources("slimefun/categories", Utils::filterAddons).values()) {
-            ResourceLoader.loadCategories(resource);
+    public static void loadRecipes(ResourceManager manager) {
+        for (Resource resource : manager.findResources("slimefun/recipes", Utils::filterAddons).values()) {
+            ResourceLoader.loadRecipes(resource);
         }
     }
 
     /**
-     * Load the {@link SlimefunCategory} from a given {@link Resource}
+     * Load the {@link SlimefunRecipeCategory} from a given {@link Resource}
      *
-     * @param resource The {@link Resource} that contains an {@link SlimefunCategory} for a Slimefun Item
+     * @param resource The {@link Resource} that contains an {@link SlimefunRecipeCategory} for a Slimefun Item
      */
-    public static void loadCategories(Resource resource) {
-        final JsonObject slimefunCategories = jsonObjectFromResource(resource);
-        for (String id : slimefunCategories.keySet()) {
-            final JsonObject categoryObject = slimefunCategories.getAsJsonObject(id);
-            SlimefunCategory.deserialize(id, categoryObject);
+    public static void loadRecipes(Resource resource) {
+        final JsonObject slimefunRecipes = jsonObjectFromResource(resource);
+        for (String id : slimefunRecipes.keySet()) {
+            final JsonObject categoryObject = slimefunRecipes.getAsJsonObject(id);
+            SlimefunRecipeCategory.deserialize(id, categoryObject);
         }
     }
 

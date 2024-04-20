@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
 import me.justahuman.slimefun_essentials.compat.rei.ReiUtils;
@@ -13,8 +13,8 @@ import net.minecraft.item.ItemStack;
 import java.util.List;
 
 public class AncientAltarDisplay extends ProcessDisplay {
-    public AncientAltarDisplay(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe) {
-        super(Type.ANCIENT_ALTAR, slimefunCategory, slimefunRecipe);
+    public AncientAltarDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        super(Type.ANCIENT_ALTAR, slimefunRecipeCategory, slimefunRecipe);
 
         ReiUtils.fillEntries(this.inputs, 9);
         ReiUtils.fillEntries(this.outputs, 1);

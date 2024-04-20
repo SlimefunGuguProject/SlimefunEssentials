@@ -8,7 +8,7 @@ import dev.emi.emi.api.widget.FillingArrowWidget;
 import dev.emi.emi.api.widget.WidgetHolder;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.api.RecipeRenderer;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.EmiIntegration;
@@ -26,20 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
-    protected final SlimefunCategory slimefunCategory;
+    protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final SlimefunRecipe slimefunRecipe;
     protected final SlimefunEmiCategory emiRecipeCategory;
     protected final List<EmiIngredient> inputs = new ArrayList<>();
     protected final List<EmiStack> outputs = new ArrayList<>();
 
-    public ProcessRecipe(SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
-        this(Type.PROCESS, slimefunCategory, slimefunRecipe, emiRecipeCategory);
+    public ProcessRecipe(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
+        this(Type.PROCESS, slimefunRecipeCategory, slimefunRecipe, emiRecipeCategory);
     }
 
-    public ProcessRecipe(Type type, SlimefunCategory slimefunCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
+    public ProcessRecipe(Type type, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe, SlimefunEmiCategory emiRecipeCategory) {
         super(type);
 
-        this.slimefunCategory = slimefunCategory;
+        this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.slimefunRecipe = slimefunRecipe;
         this.emiRecipeCategory = emiRecipeCategory;
         this.inputs.addAll(EmiIntegration.RECIPE_INTERPRETER.getInputIngredients(this.slimefunRecipe));
@@ -127,7 +127,7 @@ public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
     }
 
     protected void addEnergy(WidgetHolder widgets, int x, int y) {
-        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1));
+        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
         widgets.addTexture(EmiUtils.EMPTY_CHARGE, x, y);
         widgets.addAnimatedTexture(totalEnergy >= 0 ? EmiUtils.GAIN_CHARGE : EmiUtils.LOOSE_CHARGE, x, y, 1000, false, totalEnergy < 0, totalEnergy < 0).tooltip(tooltip("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy))));
     }
@@ -139,7 +139,7 @@ public class ProcessRecipe extends RecipeRenderer implements EmiRecipe {
 
     protected void addArrowWithCheck(WidgetHolder widgets, int x, int y, boolean backwards) {
         if (this.slimefunRecipe.hasTime()) {
-            final int sfTicks = this.slimefunRecipe.sfTicks(this.slimefunCategory.hasSpeed() ? this.slimefunCategory.speed() : 1);
+            final int sfTicks = this.slimefunRecipe.sfTicks(this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1);
             final int millis =  sfTicks * 500;
             addFillingArrow(widgets, x, y, backwards, sfTicks, millis);
         } else {

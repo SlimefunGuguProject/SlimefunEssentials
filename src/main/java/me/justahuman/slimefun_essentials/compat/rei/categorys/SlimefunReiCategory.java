@@ -2,7 +2,7 @@ package me.justahuman.slimefun_essentials.compat.rei.categorys;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.api.RecipeRenderer;
-import me.justahuman.slimefun_essentials.client.SlimefunCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.compat.rei.displays.SlimefunDisplay;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
@@ -21,20 +21,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlimefunReiCategory<T extends SlimefunDisplay> extends RecipeRenderer implements DisplayCategory<T> {
-    protected final SlimefunCategory slimefunCategory;
+    protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final ItemStack icon;
 
-    public SlimefunReiCategory(Type type, SlimefunCategory slimefunCategory, ItemStack icon) {
+    public SlimefunReiCategory(Type type, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack icon) {
         super(type);
 
-        this.slimefunCategory = slimefunCategory;
+        this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.icon = icon;
     }
 
     @Override
     @NotNull
     public CategoryIdentifier<T> getCategoryIdentifier() {
-        return CategoryIdentifier.of(Utils.newIdentifier(this.slimefunCategory.id().toLowerCase()));
+        return CategoryIdentifier.of(Utils.newIdentifier(this.slimefunRecipeCategory.id().toLowerCase()));
     }
 
     @NotNull
@@ -49,7 +49,7 @@ public class SlimefunReiCategory<T extends SlimefunDisplay> extends RecipeRender
 
     @Override
     public int getDisplayHeight() {
-        return getDisplayHeight(this.slimefunCategory) + TextureUtils.REI_PADDING;
+        return getDisplayHeight(this.slimefunRecipeCategory) + TextureUtils.REI_PADDING;
     }
 
     @Override
