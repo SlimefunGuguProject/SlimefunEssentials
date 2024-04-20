@@ -4,6 +4,7 @@
   "package": "me.justahuman.slimefun_essentials.mixins",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "custom_guide.InteractionManagerMixin",
     "mbp.MBPDataMixin",
     "mbp.MBPProviderMixin",
     "server_list.AddServerScreenMixin",

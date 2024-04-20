@@ -38,4 +38,8 @@ public class CompatUtils {
     public static boolean isBlockFeatureModLoaded() {
         return isMoreBlockPredicatesLoaded() || isJadeLoaded();
     }
+
+    public static boolean isPatchouliLoaded() {
+        return isModLoaded("patchouli");
+    }
 }

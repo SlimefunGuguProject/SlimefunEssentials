@@ -30,6 +30,13 @@ public class ConfigScreen {
                 .setSaveConsumer(ModConfig::setBlockFeatures)
                 .build());
 
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.custom_guide"), ModConfig.blockFeatures())
+                .setDefaultValue(true)
+                .setTooltip(Text.translatable("slimefun_essentials.config.option.custom_guide.tooltip"))
+                .setRequirement(CompatUtils::isPatchouliLoaded)
+                .setSaveConsumer(ModConfig::setCustomGuide)
+                .build());
+
         generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.recipe_features"), ModConfig.recipeFeatures())
                 .setDefaultValue(true)
                 .setTooltip(Text.translatable("slimefun_essentials.config.option.recipe_features.tooltip"))

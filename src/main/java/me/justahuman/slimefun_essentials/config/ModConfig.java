@@ -29,12 +29,14 @@ public class ModConfig {
     }
 
     private static @Setter boolean blockFeatures = true;
+    private static @Setter boolean customGuide = true;
     private static @Setter boolean recipeFeatures = true;
     private static @Setter @Getter List<String> addons = new ArrayList<>();
 
     private static @Setter boolean requireServerConnection = true;
     private static @Setter boolean enableServerWhitelist = false;
     private static @Setter @Getter List<String> serverWhitelist = new ArrayList<>();
+
     private static @Setter boolean autoToggleAddons = true;
     private static @Setter boolean autoManageItems = true;
     
@@ -50,6 +52,7 @@ public class ModConfig {
         }
 
         loadConfigOption(() -> blockFeatures = JsonUtils.getBooleanOrDefault(root, "block_features", true, true));
+        loadConfigOption(() -> customGuide = JsonUtils.getBooleanOrDefault(root, "custom_guide", true, true));
         loadConfigOption(() -> recipeFeatures = JsonUtils.getBooleanOrDefault(root, "recipe_features", true, true));
         loadConfigOption(() -> {
             for (JsonElement addon : JsonUtils.getArrayOrDefault(root, "addons", defaultAddons, true)) {
@@ -68,6 +71,7 @@ public class ModConfig {
                 }
             }
         });
+
         loadConfigOption(() -> autoToggleAddons = JsonUtils.getBooleanOrDefault(root, "auto_toggle_addons", true, true));
         loadConfigOption(() -> autoManageItems = JsonUtils.getBooleanOrDefault(root, "auto_manage_items", true, true));
     }
@@ -96,12 +100,14 @@ public class ModConfig {
         }
 
         root.addProperty("block_features", blockFeatures);
+        root.addProperty("custom_guide", customGuide);
         root.addProperty("recipe_features", recipeFeatures);
         root.add("addons", addonArray);
 
         root.addProperty("require_server_connection", requireServerConnection);
         root.addProperty("enable_server_whitelist", enableServerWhitelist);
         root.add("enabled_servers", serverArray);
+
         root.addProperty("auto_toggle_addons", autoToggleAddons);
         root.addProperty("auto_manage_items", autoManageItems);
         
@@ -116,6 +122,10 @@ public class ModConfig {
     
     public static boolean blockFeatures() {
         return blockFeatures;
+    }
+
+    public static boolean customGuide() {
+        return customGuide;
     }
 
     public static boolean recipeFeatures() {

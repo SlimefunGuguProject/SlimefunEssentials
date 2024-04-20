@@ -16,6 +16,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -50,14 +51,14 @@ public class JeiIntegration implements IModPlugin {
     }
 
     @Override
-    public void registerItemSubtypes(ISubtypeRegistration registration) {
-        if (!Utils.shouldFunction() || !(registration instanceof SubtypeRegistration subtypeRegistration)) {
+    public void registerItemSubtypes(ISubtypeRegistration iregistration) {
+        if (!Utils.shouldFunction() || !(iregistration instanceof SubtypeRegistration registration)) {
             return;
         }
 
         for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
-            registration.registerSubtypeInterpreter(slimefunItemStack.itemStack().getItem(),
-                    new SlimefunIdInterpreter(subtypeRegistration.getInterpreters().get(VanillaTypes.ITEM_STACK, slimefunItemStack.itemStack()).orElse(null)));
+            IIngredientSubtypeInterpreter<ItemStack> oldInterpreter = registration.getInterpreters().get(VanillaTypes.ITEM_STACK, slimefunItemStack.itemStack()).orElse(null);
+            registration.getInterpreters().addInterpreter(VanillaTypes.ITEM_STACK, slimefunItemStack.itemStack().getItem(), new SlimefunIdInterpreter(oldInterpreter));
         }
     }
     

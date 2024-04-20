@@ -6,6 +6,8 @@
   "slimefun_essentials.config.category.general": "General",
   "slimefun_essentials.config.option.block_features": "Enable Block Features",
   "slimefun_essentials.config.option.block_features.tooltip": "-> Enables custom block textures (MBP required)\n-> Enables Jade compatibility (Jade required)\n*Requires SlimefunServerEssentials to be installed on the server*",
+  "slimefun_essentials.config.option.custom_guide": "Enable Custom Guide",
+  "slimefun_essentials.config.option.custom_guide.tooltip": "-> Enables the custom guide (Patchouli required)",
   "slimefun_essentials.config.option.recipe_features": "Enable Recipe Features",
   "slimefun_essentials.config.option.recipe_features.tooltip": "-> Enables Jei, Rei, & Emi compatibility",
   "slimefun_essentials.config.option.addons": "Enabled Slimefun Addons:",
@@ -34,5 +36,8 @@
   "slimefun_essentials.recipes.energy.use": "%sJ Used",
   "slimefun_essentials.recipes.energy.generate": "%sJ Generated",
   "slimefun_essentials.recipes.label.day": "This block must be exposed to the Sun to process this Recipe!",
-  "slimefun_essentials.recipes.label.night": "This block must be exposed to the Moon to process this Recipe!"
+  "slimefun_essentials.recipes.label.night": "This block must be exposed to the Moon to process this Recipe!",
+
+  "slimefun_essentials.guide.name": "Slimefun Guide",
+  "slimefun_essentials.guide.landing_text": "Welcome, to the world of Slimefun"
 }

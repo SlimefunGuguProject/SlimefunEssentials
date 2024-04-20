@@ -31,7 +31,7 @@ repositories {
         }
     }
     maven {
-        name = "MoreBlockPredicates"
+        name = "MoreBlockPredicates, Patchouli"
         url = "https://api.modrinth.com/maven"
         content {
             includeGroup "maven.modrinth"
@@ -45,6 +45,8 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modImplementation "maven.modrinth:patchouli:${project.patchouli_version}"
 
     modImplementation "curse.maven:jade-324717:${project.jade_version}"
     modImplementation "curse.maven:just-enough-calculation-242223:${project.jec_version}"
