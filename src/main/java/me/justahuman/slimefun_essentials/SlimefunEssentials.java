@@ -57,20 +57,9 @@ public class SlimefunEssentials implements ClientModInitializer {
                 ResourceLoader.clear();
                 ResourceLoader.loadResources(manager);
 
-                // Must manually load JEI and REI so they have the custom model data correct
-                if (CompatUtils.isRecipeModLoaded()) {
-                    if (CompatUtils.isJeiLoaded()) {
-                        JeiIntegration.load();
-                    }
-
-                    if (CompatUtils.isReiLoaded()) {
-                        ReiIntegration.load();
-                    }
-                }
-
-                // Load the Book Contents
-                if (CompatUtils.isPatchouliLoaded()) {
-                    CustomGuide.load();
+                // Must manually load REI so it has the custom model data correct
+                if (CompatUtils.isReiLoaded()) {
+                    ReiIntegration.load();
                 }
             }
         });

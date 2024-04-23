@@ -1,0 +1,264 @@
+{
+  "components": [
+    {
+      "type": "patchouli:item",
+      "item": "#item1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class1",
+      "entry": "#entry1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item2",
+      "x": 16,
+      "y": 0
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class2",
+      "entry": "#entry2",
+      "x": 16,
+      "y": 0
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item3",
+      "x": 32,
+      "y": 0
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class3",
+      "entry": "#entry3",
+      "x": 32,
+      "y": 0
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item4",
+      "x": 48,
+      "y": 0
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class4",
+      "entry": "#entry4",
+      "x": 48,
+      "y": 0
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item5",
+      "x": 0,
+      "y": 16
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class5",
+      "entry": "#entry5",
+      "x": 0,
+      "y": 16
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item6",
+      "x": 16,
+      "y": 16
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class6",
+      "entry": "#entry6",
+      "x": 16,
+      "y": 16
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item7",
+      "x": 32,
+      "y": 16
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class7",
+      "entry": "#entry7",
+      "x": 32,
+      "y": 16
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item8",
+      "x": 48,
+      "y": 16
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class8",
+      "entry": "#entry8",
+      "x": 48,
+      "y": 16
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item9",
+      "x": 0,
+      "y": 32
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class9",
+      "entry": "#entry9",
+      "x": 0,
+      "y": 32
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item10",
+      "x": 16,
+      "y": 32
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class10",
+      "entry": "#entry10",
+      "x": 16,
+      "y": 32
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item11",
+      "x": 32,
+      "y": 32
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class11",
+      "entry": "#entry11",
+      "x": 32,
+      "y": 32
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item12",
+      "x": 48,
+      "y": 32
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class12",
+      "entry": "#entry12",
+      "x": 48,
+      "y": 32
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item13",
+      "x": 0,
+      "y": 48
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class13",
+      "entry": "#entry13",
+      "x": 0,
+      "y": 48
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item14",
+      "x": 16,
+      "y": 48
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class14",
+      "entry": "#entry14",
+      "x": 16,
+      "y": 48
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item15",
+      "x": 32,
+      "y": 48
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class15",
+      "entry": "#entry15",
+      "x": 32,
+      "y": 48
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item16",
+      "x": 48,
+      "y": 48
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class16",
+      "entry": "#entry16",
+      "x": 48,
+      "y": 48
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item17",
+      "x": 0,
+      "y": 64
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class17",
+      "entry": "#entry17",
+      "x": 0,
+      "y": 64
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item18",
+      "x": 16,
+      "y": 64
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class18",
+      "entry": "#entry18",
+      "x": 16,
+      "y": 64
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item19",
+      "x": 32,
+      "y": 64
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class19",
+      "entry": "#entry19",
+      "x": 32,
+      "y": 64
+    },
+    {
+      "type": "patchouli:item",
+      "item": "#item20",
+      "x": 48,
+      "y": 64
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "#class20",
+      "entry": "#entry20",
+      "x": 48,
+      "y": 64
+    }
+  ]
+}

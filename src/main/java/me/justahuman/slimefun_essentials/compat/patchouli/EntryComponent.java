@@ -1,11 +1,14 @@
 package me.justahuman.slimefun_essentials.compat.patchouli;
 
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.util.Identifier;
 import vazkii.patchouli.api.IComponentRenderContext;
 import vazkii.patchouli.api.ICustomComponent;
 import vazkii.patchouli.api.IVariable;
 import vazkii.patchouli.client.book.BookEntry;
 import vazkii.patchouli.client.book.BookIcon;
+import vazkii.patchouli.common.book.Book;
+import vazkii.patchouli.common.book.BookRegistry;
 
 import java.util.function.UnaryOperator;
 
@@ -22,7 +25,10 @@ public class EntryComponent implements ICustomComponent {
     }
 
     public void onVariablesAvailable(UnaryOperator<IVariable> lookup) {
-        this.bookEntry = CustomGuide.getEntries().get(lookup.apply(entry).asString());
+        final Book book = BookRegistry.INSTANCE.books.get(CustomGuide.BOOK_IDENTIFIER);
+        if (book != null) {
+            this.bookEntry = book.getContents().entries.get(new Identifier(lookup.apply(entry).asString()));
+        }
     }
 
     @Override
@@ -34,7 +40,7 @@ public class EntryComponent implements ICustomComponent {
 
     @Override
     public boolean mouseClicked(IComponentRenderContext context, double mouseX, double mouseY, int mouseButton) {
-        if (context.isAreaHovered((int) mouseX, (int) mouseY, this.x, this.y, 16, 16)) {
+        if (this.bookEntry != null && context.isAreaHovered((int) mouseX, (int) mouseY, this.x, this.y, 16, 16)) {
             context.navigateToEntry(bookEntry.getId(), 0, true);
             return true;
         }
