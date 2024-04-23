@@ -47,7 +47,7 @@ public class ResourceLoader {
     private static final Map<BlockPos, String> placedBlocks = new HashMap<>();
 
     /**
-     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link SlimefunLabel#clear()}, {@link SlimefunRecipeCategory#clear()}
+     * Clears {@link ResourceLoader#slimefunItems}, {@link ResourceLoader#itemBlacklist}, {@link ResourceLoader#blockModels}, {@link SlimefunLabel#clear()}, {@link SlimefunRecipeCategory#clear()}, {@link SlimefunItemGroup#clear()}
      */
     public static void clear() {
         slimefunItems.clear();
@@ -55,6 +55,7 @@ public class ResourceLoader {
         blockModels.clear();
         SlimefunLabel.clear();
         SlimefunRecipeCategory.clear();
+        SlimefunItemGroup.clear();
     }
 
     /**
@@ -71,10 +72,13 @@ public class ResourceLoader {
      * @param manager The {@link ResourceManager} to load from
      */
     public static void loadResources(ResourceManager manager) {
-        if (CompatUtils.isRecipeModLoaded() && ModConfig.recipeFeatures()) {
+        if (ModConfig.recipeFeatures() && CompatUtils.isRecipeModLoaded()) {
             loadItems(manager);
             loadLabels(manager);
             loadRecipes(manager);
+            loadItemGroups(manager);
+        } else if (ModConfig.customGuide() && CompatUtils.isPatchouliLoaded()) {
+            loadItemGroups(manager);
         }
 
         if (ModConfig.blockFeatures()) {
@@ -209,7 +213,35 @@ public class ResourceLoader {
     }
 
     /**
-     * Locates and loads every Category from the "slimefun/categories" directory
+     * Locates and loads every ItemGroup from the "slimefun/item_groups" directory
+     *
+     * @param manager The {@link ResourceManager} to load from
+     */
+    public static void loadItemGroups(ResourceManager manager) {
+        for (Map.Entry<Identifier, Resource> entry : manager.findResources("slimefun/item_groups", Utils::filterAddons).entrySet()) {
+            ResourceLoader.loadItemGroups(entry.getKey(), entry.getValue());
+        }
+    }
+
+    /**
+     * Load the {@link SlimefunItemGroup} from a given {@link Resource}
+     *
+     * @param resource The {@link Resource} that contains an {@link SlimefunItemGroup}
+     */
+    public static void loadItemGroups(Identifier identifier, Resource resource) {
+        final String addon = Utils.getFileName(identifier.getPath());
+        final JsonObject itemGroups = jsonObjectFromResource(resource);
+        for (String id : itemGroups.keySet()) {
+            final JsonObject categoryObject = itemGroups.getAsJsonObject(id);
+            SlimefunItemGroup.deserialize(id, addon, categoryObject);
+        }
+
+        // Need to add parents post loading all of them
+        SlimefunItemGroup.addParents();
+    }
+
+    /**
+     * Locates and loads every RecipeCategory from the "slimefun/recipes" directory
      *
      * @param manager The {@link ResourceManager} to load from
      */

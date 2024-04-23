@@ -5,6 +5,7 @@ import com.google.common.io.ByteStreams;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.compat.cloth_config.ConfigScreen;
 import me.justahuman.slimefun_essentials.compat.jei.JeiIntegration;
+import me.justahuman.slimefun_essentials.compat.patchouli.CustomGuide;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.Channels;
@@ -65,6 +66,11 @@ public class SlimefunEssentials implements ClientModInitializer {
                     if (CompatUtils.isReiLoaded()) {
                         ReiIntegration.load();
                     }
+                }
+
+                // Load the Book Contents
+                if (CompatUtils.isPatchouliLoaded()) {
+                    CustomGuide.load();
                 }
             }
         });
@@ -128,9 +134,7 @@ public class SlimefunEssentials implements ClientModInitializer {
                 ResourceLoader.blacklistItem(id);
             }));
 
-            ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> {
-                ResourceLoader.clearItemBlacklist();
-            }));
+            ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> ResourceLoader.clearItemBlacklist()));
         }
     }
 }

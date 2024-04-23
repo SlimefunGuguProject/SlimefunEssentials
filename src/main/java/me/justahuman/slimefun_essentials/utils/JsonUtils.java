@@ -1,5 +1,6 @@
 package me.justahuman.slimefun_essentials.utils;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -12,6 +13,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 
 public class JsonUtils {
+    private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
+
     public static JsonObject getObjectOrDefault(JsonObject jsonObject, String key, JsonObject defaultValue) {
         return jsonObject.get(key) instanceof JsonObject otherObject ? otherObject : defaultValue;
     }
@@ -51,8 +54,27 @@ public class JsonUtils {
     public static Integer getIntegerOrDefault(JsonObject jsonObject, String key, Integer defaultValue) {
         return jsonObject.get(key) instanceof JsonPrimitive jsonPrimitive && jsonPrimitive.isNumber() ? jsonPrimitive.getAsInt() : defaultValue;
     }
+
+    public static String serializeItem(ItemStack itemStack) {
+        final JsonObject itemObject = new JsonObject();
+        final NbtCompound nbtCompound = itemStack.getNbt();
+        itemObject.addProperty("item", Registries.ITEM.getId(itemStack.getItem()).toString());
+        itemObject.addProperty("amount", itemStack.getCount());
+        if (nbtCompound != null) {
+            itemObject.addProperty("nbt", nbtCompound.toString());
+        }
+        return itemObject.toString();
+    }
+
+    public static ItemStack deserializeItem(String string) {
+        return deserializeItem(gson.fromJson(string, JsonObject.class));
+    }
     
     public static ItemStack deserializeItem(JsonObject itemObject) {
+        if (itemObject == null || itemObject.isEmpty() || !itemObject.has("item")) {
+            return null;
+        }
+
         final ItemStack itemStack = new ItemStack(Registries.ITEM.get(new Identifier(itemObject.get("item").getAsString())));
         itemStack.setCount(JsonHelper.getInt(itemObject, "amount", 1));
         if (JsonHelper.hasString(itemObject, "nbt")) {
