@@ -10,13 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlimefunRecipe {
+    protected String type;
     protected Integer time;
     protected Integer energy;
     protected List<SlimefunRecipeComponent> inputs;
     protected List<SlimefunRecipeComponent> outputs;
     protected List<SlimefunLabel> labels;
 
-    public SlimefunRecipe(Integer time, Integer energy, List<SlimefunRecipeComponent> inputs, List<SlimefunRecipeComponent> outputs, List<SlimefunLabel> labels) {
+    public SlimefunRecipe(String type, Integer time, Integer energy, List<SlimefunRecipeComponent> inputs, List<SlimefunRecipeComponent> outputs, List<SlimefunLabel> labels) {
+        this.type = type;
         this.time = time;
         this.energy = energy;
         this.inputs = inputs;
@@ -24,7 +26,7 @@ public class SlimefunRecipe {
         this.labels = labels;
     }
 
-    public static SlimefunRecipe deserialize(JsonObject recipeObject, Integer workstationEnergy) {
+    public static SlimefunRecipe deserialize(String type, JsonObject recipeObject, Integer workstationEnergy) {
         final Integer time = JsonUtils.getIntegerOrDefault(recipeObject, "time", null);
         final Integer energy = JsonUtils.getIntegerOrDefault(recipeObject, "energy", workstationEnergy);
         final List<SlimefunRecipeComponent> inputs = new ArrayList<>();
@@ -56,7 +58,7 @@ public class SlimefunRecipe {
             }
         }
         
-        return new SlimefunRecipe(time, energy, inputs, outputs, labels);
+        return new SlimefunRecipe(type, time, energy, inputs, outputs, labels);
     }
 
     public void fillInputs(int size) {
@@ -111,6 +113,10 @@ public class SlimefunRecipe {
 
     public Integer sfTicks(int speed) {
         return hasTime() ? Math.max(1, time() / 10 / speed) : null;
+    }
+
+    public String type() {
+        return this.type;
     }
 
     public Integer time() {

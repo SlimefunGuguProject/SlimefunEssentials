@@ -8,12 +8,17 @@
       "multiblock": {
         "mapping": {
           "P": "minecraft:dispenser[facing=up]",
-          "A": "minecraft:enchanting_table"
+          "0": "minecraft:enchanting_table"
         },
-        "pattern": [
-          ["   P   ", " P   P ", "       ", "P  A  P", "       ", " P   P ", "   P   "],
-          ["       ", "       ", "       ", "   0   ", "       ", "       ", "       "]
-        ]
+        "pattern": [[
+          "   P   ",
+          " P   P ",
+          "       ",
+          "P  0  P",
+          "       ",
+          " P   P ",
+          "   P   "
+        ]]
       },
       "text": "Comprised of an Ancient Altar and 8 Ancient Pedestals, this multiblock is used to craft magical items and gadgets and transforms Broken Spawners into Reinforced Spawners."
     }

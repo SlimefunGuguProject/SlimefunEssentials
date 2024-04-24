@@ -2,61 +2,83 @@ package me.justahuman.slimefun_essentials.compat.patchouli;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.utils.JsonUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import vazkii.patchouli.api.PatchouliAPI;
 import vazkii.patchouli.client.book.BookCategory;
 
-import java.util.List;
-import java.util.Locale;
-
 public class CustomGuide {
     public static final Identifier BOOK_IDENTIFIER = Utils.newIdentifier("slimefun");
 
-    public static Identifier bookIdentifier(String path) {
-        return new Identifier("slimefun", path.toLowerCase(Locale.ROOT));
+    public static JsonObject getItemGroupCategory(SlimefunItemGroup itemGroup, int sortnum) {
+        final JsonObject category = new JsonObject();
+        final String itemName = itemGroup.itemStack().getName().getString();
+        category.addProperty("name", itemName);
+        category.addProperty("description", "The " + itemName + " Item Group!");
+        category.addProperty("icon", JsonUtils.serializeItem(itemGroup.itemStack()));
+        category.addProperty("sortnum", sortnum);
+
+        for (String requirement : itemGroup.requirements()) {
+            if (requirement.startsWith("parent: ")) {
+                category.addProperty("parent", requirement.substring(8));
+                break;
+            }
+        }
+
+        if (!category.has("parent")) {
+            category.addProperty("parent", "slimefun_essentials:item_groups");
+        }
+
+        return category;
     }
 
-    public static JsonObject getItemGroupEntry(SlimefunItemGroup itemGroup, BookCategory category, int entryIndex) {
+    public static JsonObject getRecipeEntry(BookCategory category, SlimefunRecipeCategory recipeCategory, int sortnum) {
         final JsonObject entry = new JsonObject();
-        entry.addProperty("name", itemGroup.itemStack().getName().getString());
-        entry.addProperty("icon", JsonUtils.serializeItem(itemGroup.itemStack()));
+        final ItemStack itemStack = recipeCategory.getItemFromId();
         entry.addProperty("category", category.getId().toString());
-        entry.addProperty("sortnum", entryIndex);
+        entry.addProperty("name", itemStack.getName().getString());
+        entry.addProperty("icon", JsonUtils.serializeItem(itemStack));
+        entry.addProperty("sortnum", sortnum);
 
-        int contentSize = itemGroup.content().size();
-        int pageCount = (int) Math.ceil(contentSize / 20D);
         final JsonArray pages = new JsonArray();
-        for (int pageNum = 0; pageNum < pageCount; pageNum++) {
-            final JsonObject page = new JsonObject();
-            final List<String> subContent = itemGroup.content().subList(pageNum * 20, Math.min(contentSize, (pageNum + 1) * 20));
-
-            int i = 1;
-            for (String content : subContent) {
-                final SlimefunItemStack itemStack = ResourceLoader.getSlimefunItem(content);
-                if (itemStack != null) {
-                    page.addProperty("item" + i, JsonUtils.serializeItem(itemStack.itemStack()));
-                } else {
-                    page.addProperty("class" + i, "me.justahuman.slimefun_essentials.compat.patchouli.EntryComponent");
-                    page.addProperty("entry" + i, bookIdentifier(content.replace(":", "_")).toString());
-                }
-                i++;
-            }
-
-            for (int r = i; r <= 20; r++) {
-                page.addProperty("class" + r, "me.justahuman.slimefun_essentials.compat.patchouli.EmptyComponent");
-            }
-
-            page.addProperty("type", "slimefun_essentials:item_group");
-            pages.add(page);
+        for (SlimefunRecipe recipe : recipeCategory.recipesFor()) {
+            pages.add(getPage(recipeCategory, recipe));
         }
         entry.add("pages", pages);
 
         return entry;
+    }
+
+    public static JsonObject getPage(SlimefunRecipeCategory category, SlimefunRecipe recipe) {
+        final String type = category.type();
+        final JsonObject page = new JsonObject();
+        if (type.contains("grid")) {
+            page.addProperty("type", "slimefun_essentials:grid_recipe");
+        } else if (type.equals("ancient_altar")) {
+            page.addProperty("type", "slimefun_essentials:ancient_altar_recipe");
+            page.addProperty("item1", "minecraft:barrier");
+            page.addProperty("item2", "minecraft:barrier");
+            page.addProperty("item3", "minecraft:barrier");
+            page.addProperty("item4", "minecraft:barrier");
+            page.addProperty("item5", "minecraft:barrier");
+            page.addProperty("item6", "minecraft:barrier");
+            page.addProperty("item7", "minecraft:barrier");
+            page.addProperty("item8", "minecraft:barrier");
+            page.addProperty("item9", "minecraft:barrier");
+        } else if (type.equals("smeltery")) {
+            page.addProperty("type", "slimefun_essentials:smeltery_recipe");
+        } else if (type.equals("reactor")) {
+            page.addProperty("type", "slimefun_essentials:reactor_recipe");
+        } else {
+            page.addProperty("type", "slimefun_essentials:process_recipe");
+        }
+        return page;
     }
 
     public static void openGuide() {

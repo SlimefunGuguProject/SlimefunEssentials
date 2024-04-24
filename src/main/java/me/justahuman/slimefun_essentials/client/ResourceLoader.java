@@ -249,6 +249,7 @@ public class ResourceLoader {
         for (Resource resource : manager.findResources("slimefun/recipes", Utils::filterAddons).values()) {
             ResourceLoader.loadRecipes(resource);
         }
+        SlimefunRecipeCategory.finalizeCategories();
     }
 
     /**

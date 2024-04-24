@@ -19,7 +19,7 @@ public class Utils {
     private static final String ERROR_MESSAGE = "[SFE] Failed to load data";
 
     public static Identifier newIdentifier(String path) {
-        return new Identifier(ID, path.toLowerCase());
+        return new Identifier(ID, path.toLowerCase(Locale.ROOT));
     }
 
     public static boolean filterResources(Identifier identifier) {
