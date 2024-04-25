@@ -134,7 +134,7 @@ public class ReiIntegration implements REIClientPlugin {
     }
 
     public static Widget widgetFromSlimefunLabel(SlimefunLabel slimefunLabel, int x, int y) {
-        return Widgets.createDrawableWidget((graphics, mouseX, mouseY, delta) -> slimefunLabel.draw(graphics, x, y, REIRuntime.getInstance().isDarkThemeEnabled()));
+        return Widgets.createDrawableWidget((graphics, mouseX, mouseY, delta) -> slimefunLabel.draw(graphics, x, y, REIRuntime.getInstance().isDarkThemeEnabled() ? SlimefunLabel.DrawMode.DARK : SlimefunLabel.DrawMode.LIGHT));
     }
 
     public static Widget toolTipForSlimefunLabel(SlimefunLabel slimefunLabel, int x, int y) {
@@ -188,7 +188,7 @@ public class ReiIntegration implements REIClientPlugin {
                 }
             }
 
-            slimefunLabel.draw(graphics, mx, my, mw, mh, mu, mv, mrw, mrh, REIRuntime.getInstance().isDarkThemeEnabled());
+            slimefunLabel.draw(graphics, mx, my, mw, mh, mu, mv, mrw, mrh, REIRuntime.getInstance().isDarkThemeEnabled() ? SlimefunLabel.DrawMode.DARK : SlimefunLabel.DrawMode.LIGHT);
         });
     }
 }

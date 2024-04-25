@@ -147,33 +147,10 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
     @Override
     public void draw(SlimefunRecipe recipe, IRecipeSlotsView recipeSlotsView, DrawContext graphics, double mouseX, double mouseY) {
         final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe));
-
-        // Display Labels
-        if (recipe.hasLabels()) {
-            for (SlimefunLabel slimefunLabel : recipe.labels()) {
-                slimefunLabel.draw(graphics, offsets.getX(), offsets.label());
-                offsets.x().addLabel();
-            }
-        }
-
-        // Display Energy
+        addLabels(graphics, offsets, recipe);
         addEnergyWithCheck(graphics, offsets, recipe);
-
-        // Display Inputs, only the slot icon
-        if (recipe.hasInputs()) {
-            for (int i = 0; i < recipe.inputs().size(); i++) {
-                TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.slot());
-                offsets.x().addSlot();
-            }
-        } else {
-            TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.slot());
-            offsets.x().addSlot();
-        }
-
-        // Display Arrow
+        addInputsOrCatalyst(graphics, offsets, recipe);
         addArrow(graphics, offsets, recipe);
-
-        // Display Outputs
         addOutputsOrEnergy(graphics, offsets, recipe);
     }
 

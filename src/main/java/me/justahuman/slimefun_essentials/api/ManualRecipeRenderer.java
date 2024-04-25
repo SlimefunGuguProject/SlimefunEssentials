@@ -7,6 +7,19 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 
 public interface ManualRecipeRenderer extends RecipeRenderer {
+    default SlimefunLabel.DrawMode getDrawMode() {
+        return SlimefunLabel.DrawMode.LIGHT;
+    }
+
+    default void addLabels(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
+        if (recipe.hasLabels()) {
+            for (SlimefunLabel slimefunLabel : recipe.labels()) {
+                slimefunLabel.draw(graphics, offsets.getX(), offsets.label());
+                offsets.x().addLabel();
+            }
+        }
+    }
+
     default void addEnergyWithCheck(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         if (recipe.hasEnergy() && recipe.hasOutputs()) {
             addEnergy(graphics, offsets, recipe.energy() < 0);
@@ -19,7 +32,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
     }
 
     default void addEnergy(DrawContext graphics, int x, int y, boolean negative) {
-        TextureUtils.ENERGY.draw(graphics, x, y);
+        TextureUtils.ENERGY.draw(graphics, x, y, getDrawMode());
         drawEnergyFill(graphics, x, y, negative);
     }
     
@@ -39,7 +52,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
     }
 
     default void addArrow(DrawContext graphics, int x, int y, boolean backwards) {
-        (backwards ? TextureUtils.BACKWARDS_ARROW : TextureUtils.ARROW).draw(graphics, x, y);
+        (backwards ? TextureUtils.BACKWARDS_ARROW : TextureUtils.ARROW).draw(graphics, x, y, getDrawMode());
     }
 
     default void addFillingArrow(DrawContext graphics, int x, int y, int sfTicks, boolean backwards) {
@@ -48,6 +61,24 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
     }
     
     void drawArrowFill(DrawContext graphics, int x, int y, int sfTicks, boolean backwards);
+
+    default void addInputsOrCatalyst(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
+        if (recipe.hasInputs()) {
+            addInputs(graphics, offsets, recipe);
+        } else {
+            addCatalyst(graphics, offsets, recipe);
+        }
+    }
+
+    default void addInputs(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
+        for (int i = 0; i < recipe.inputs().size(); i++) {
+            addSlot(graphics, offsets, false);
+        }
+    }
+
+    default void addCatalyst(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
+        addSlot(graphics, offsets, false);
+    }
 
     default void addOutputsOrEnergy(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         if (recipe.hasOutputs()) {
@@ -59,9 +90,17 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
 
     default void addOutputs(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         for (int i = 0; i < recipe.outputs().size(); i++) {
-            TextureUtils.OUTPUT.draw(graphics, offsets.getX(), offsets.output());
-            offsets.x().addOutput();
+            addSlot(graphics, offsets, true);
         }
+    }
+
+    default void addSlot(DrawContext graphics, OffsetBuilder offsets, boolean output) {
+        addSlot(graphics, offsets.getX(), output ? offsets.output() : offsets.slot(), output);
+        offsets.x().add((output ? TextureUtils.OUTPUT_SIZE : TextureUtils.SLOT_SIZE) + TextureUtils.PADDING);
+    }
+
+    default void addSlot(DrawContext graphics, int x, int y, boolean output) {
+        (output ? TextureUtils.OUTPUT : TextureUtils.SLOT).draw(graphics, x, y, getDrawMode());
     }
 
     default boolean tooltipActive(double mouseX, double mouseY, OffsetBuilder offsets, SlimefunLabel label) {

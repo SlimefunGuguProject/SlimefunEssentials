@@ -21,6 +21,8 @@ import vazkii.patchouli.api.PatchouliAPI;
 import vazkii.patchouli.client.book.BookCategory;
 import vazkii.patchouli.client.book.ClientBookRegistry;
 
+import java.util.List;
+
 public class PatchouliIntegration {
     public static final Identifier BOOK_IDENTIFIER = Utils.newIdentifier("slimefun");
     public static final PatchouliIdInterpreter INTERPRETER = new PatchouliIdInterpreter();
@@ -64,56 +66,28 @@ public class PatchouliIntegration {
         entry.addProperty("sortnum", sortnum);
 
         final JsonArray pages = new JsonArray();
-        for (SlimefunRecipe recipe : recipeCategory.recipesFor()) {
-            pages.add(getPage(recipe));
+        List<SlimefunRecipe> recipesFor = recipeCategory.recipesFor();
+        for (int i = 0; i < recipesFor.size(); i++) {
+            SlimefunRecipe recipe = recipesFor.get(i);
+            pages.add(getPage(recipeCategory, recipe, i));
         }
         entry.add("pages", pages);
 
         return entry;
     }
 
-    public static JsonObject getPage(SlimefunRecipe recipe) {
+    public static JsonObject getPage(SlimefunRecipeCategory category, SlimefunRecipe recipe, int recipeIndex) {
         final String type = recipe.parent().type();
         final JsonObject page = new JsonObject();
-        page.addProperty("id", recipe.parent().id());
+
+        page.addProperty("id", category.id());
+        page.addProperty("recipe_index", recipeIndex);
 
         if (type.contains("grid")) {
             page.addProperty("type", "slimefun_essentials:grid_recipe");
             page.addProperty("side", TextureUtils.getSideSafe(type));
         } else {
             page.addProperty("type", "slimefun_essentials:" + type);
-        }
-
-        if (recipe.hasTime()) {
-            page.addProperty("sfTicks", recipe.sfTicks());
-        }
-
-        if (recipe.hasEnergy()) {
-            page.addProperty("energy", recipe.energy());
-        }
-
-        if (recipe.hasLabels()) {
-            final JsonArray labels = new JsonArray();
-            for (SlimefunLabel label : recipe.labels()) {
-                labels.add(label.id());
-            }
-            page.add("labels", labels);
-        }
-
-        if (recipe.hasInputs()) {
-            final JsonArray inputs = new JsonArray();
-            for (SlimefunRecipeComponent input : recipe.inputs()) {
-                inputs.add(input.serialize());
-            }
-            page.add("inputs", inputs);
-        }
-
-        if (recipe.hasOutputs()) {
-            final JsonArray outputs = new JsonArray();
-            for (SlimefunRecipeComponent output : recipe.outputs()) {
-                outputs.add(output.serialize());
-            }
-            page.add("outputs", outputs);
         }
 
         return page;
