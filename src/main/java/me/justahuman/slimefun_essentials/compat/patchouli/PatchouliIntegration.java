@@ -3,10 +3,8 @@ package me.justahuman.slimefun_essentials.compat.patchouli;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
-import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
-import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.compat.patchouli.pages.AncientAltarPage;
 import me.justahuman.slimefun_essentials.compat.patchouli.pages.GridPage;
 import me.justahuman.slimefun_essentials.compat.patchouli.pages.ProcessPage;
@@ -84,7 +82,7 @@ public class PatchouliIntegration {
         page.addProperty("recipe_index", recipeIndex);
 
         if (type.contains("grid")) {
-            page.addProperty("type", "slimefun_essentials:grid_recipe");
+            page.addProperty("type", "slimefun_essentials:grid");
             page.addProperty("side", TextureUtils.getSideSafe(type));
         } else {
             page.addProperty("type", "slimefun_essentials:" + type);

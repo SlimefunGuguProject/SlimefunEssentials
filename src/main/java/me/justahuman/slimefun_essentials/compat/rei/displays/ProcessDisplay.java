@@ -1,6 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
@@ -9,6 +10,7 @@ import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
+import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.gui.widgets.Slot;
 import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.client.gui.widgets.Widgets;
@@ -85,7 +87,7 @@ public class ProcessDisplay extends SlimefunDisplay {
     protected void addEnergy(List<Widget> widgets, int x, int y) {
         widgets.add(ReiIntegration.widgetFromSlimefunLabel(TextureUtils.ENERGY, x, y));
         widgets.add(ReiIntegration.widgetFromSlimefunLabel((this.slimefunRecipe.totalEnergy() >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, this.slimefunRecipe.totalEnergy() < 0, this.slimefunRecipe.totalEnergy() < 0));
-        widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT), Text.translatable("slimefun_essentials.recipes.energy." + (this.slimefunRecipe.totalEnergy() >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(this.slimefunRecipe.totalEnergy())))));
+        widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ENERGY.width(getDrawMode()), TextureUtils.ENERGY.height(getDrawMode())), Text.translatable("slimefun_essentials.recipes.energy." + (this.slimefunRecipe.totalEnergy() >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(this.slimefunRecipe.totalEnergy())))));
     }
 
     protected void addSlot(List<Widget> widgets, OffsetBuilder offsets, EntryIngredient entryIngredient) {
@@ -130,7 +132,7 @@ public class ProcessDisplay extends SlimefunDisplay {
             final int sfTicks = this.slimefunRecipe.sfTicks();
             final int millis =  sfTicks * 500;
             widgets.add(ReiIntegration.widgetFromSlimefunLabel((backwards ? TextureUtils.FILLED_BACKWARDS_ARROW : TextureUtils.FILLED_ARROW), x, y, millis, true, backwards, false));
-            widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ARROW_WIDTH, TextureUtils.ARROW_HEIGHT), Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(sfTicks / 2), TextureUtils.numberFormat.format(sfTicks * 10L))));
+            widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ARROW.width(getDrawMode()), TextureUtils.ARROW.height(getDrawMode())), Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(sfTicks / 2), TextureUtils.numberFormat.format(sfTicks * 10L))));
         }
     }
 
@@ -148,5 +150,10 @@ public class ProcessDisplay extends SlimefunDisplay {
             widgets.add(Widgets.createSlot(new Point(offsets.getX() + 5, offsets.output() + 5)).entries(entryIngredient).disableBackground().markOutput());
             offsets.x().addOutput();
         }
+    }
+
+    @Override
+    public DrawMode getDrawMode() {
+        return REIRuntime.getInstance().isDarkThemeEnabled() ? DrawMode.DARK : DrawMode.LIGHT;
     }
 }

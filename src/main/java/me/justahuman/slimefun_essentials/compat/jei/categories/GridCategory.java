@@ -43,10 +43,10 @@ public class GridCategory extends ProcessCategory {
                 offsets.x().addSlot(false);
                 i++;
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * this.side);
+            offsets.x().subtract(TextureUtils.SLOT.size() * this.side);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * this.side).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size() * this.side).addPadding();
 
         offsets.x().addArrow();
 
@@ -70,10 +70,10 @@ public class GridCategory extends ProcessCategory {
                 TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
                 offsets.x().addSlot(false);
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * this.side);
+            offsets.x().subtract(TextureUtils.SLOT.size() * this.side);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * this.side).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size() * this.side).addPadding();
 
         // Display Arrow
         addArrow(graphics, offsets, recipe);
@@ -96,8 +96,8 @@ public class GridCategory extends ProcessCategory {
             offsets.x().addEnergy();
         }
 
-        offsets.x().add(TextureUtils.SLOT_SIZE * this.side).addPadding();
-        offsets.y().add(TextureUtils.SLOT_SIZE * this.side);
+        offsets.x().add(TextureUtils.SLOT.size() * this.side).addPadding();
+        offsets.y().add(TextureUtils.SLOT.size() * this.side);
 
         if (recipe.hasTime() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.arrow(), TextureUtils.ARROW)) {
             tooltips.add(timeTooltip(recipe));

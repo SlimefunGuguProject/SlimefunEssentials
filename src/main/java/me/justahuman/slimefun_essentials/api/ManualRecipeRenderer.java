@@ -1,18 +1,21 @@
 package me.justahuman.slimefun_essentials.api;
 
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
+import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 
 public interface ManualRecipeRenderer extends RecipeRenderer {
-    default SlimefunLabel.DrawMode getDrawMode() {
-        return SlimefunLabel.DrawMode.LIGHT;
+    default DrawMode getDrawMode() {
+        return DrawMode.LIGHT;
     }
 
     default void addLabels(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         if (recipe.hasLabels()) {
+            Utils.warn("WHAT THE FUCK IS HAPPENING (labels)");
             for (SlimefunLabel slimefunLabel : recipe.labels()) {
                 slimefunLabel.draw(graphics, offsets.getX(), offsets.label());
                 offsets.x().addLabel();
@@ -22,6 +25,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
 
     default void addEnergyWithCheck(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         if (recipe.hasEnergy() && recipe.hasOutputs()) {
+            Utils.warn("WHAT THE FUCK IS HAPPENING (energy)");
             addEnergy(graphics, offsets, recipe.energy() < 0);
         }
     }
@@ -64,8 +68,10 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
 
     default void addInputsOrCatalyst(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         if (recipe.hasInputs()) {
+            Utils.warn("WHAT THE FUCK IS HAPPENING (inputs)");
             addInputs(graphics, offsets, recipe);
         } else {
+            Utils.warn("WHAT THE FUCK IS HAPPENING (catalyst)");
             addCatalyst(graphics, offsets, recipe);
         }
     }
@@ -96,7 +102,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
 
     default void addSlot(DrawContext graphics, OffsetBuilder offsets, boolean output) {
         addSlot(graphics, offsets.getX(), output ? offsets.output() : offsets.slot(), output);
-        offsets.x().add((output ? TextureUtils.OUTPUT_SIZE : TextureUtils.SLOT_SIZE) + TextureUtils.PADDING);
+        offsets.x().add((output ? TextureUtils.OUTPUT.size(getDrawMode()) : TextureUtils.SLOT.size(getDrawMode())) + TextureUtils.PADDING);
     }
 
     default void addSlot(DrawContext graphics, int x, int y, boolean output) {

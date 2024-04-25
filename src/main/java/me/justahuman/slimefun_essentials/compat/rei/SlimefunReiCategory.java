@@ -2,11 +2,13 @@ package me.justahuman.slimefun_essentials.compat.rei;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.api.SimpleRecipeRenderer;
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.compat.rei.displays.SlimefunDisplay;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import me.shedaniel.math.Rectangle;
+import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.gui.Renderer;
 import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.client.gui.widgets.Widgets;
@@ -29,6 +31,11 @@ public class SlimefunReiCategory<T extends SlimefunDisplay> extends SimpleRecipe
 
         this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.icon = icon;
+    }
+
+    @Override
+    public DrawMode getDrawMode() {
+        return REIRuntime.getInstance().isDarkThemeEnabled() ? DrawMode.DARK : DrawMode.LIGHT;
     }
 
     @Override

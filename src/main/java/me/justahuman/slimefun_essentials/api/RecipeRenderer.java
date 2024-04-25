@@ -1,26 +1,28 @@
 package me.justahuman.slimefun_essentials.api;
 
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 
 public interface RecipeRenderer {
     Type getType();
+    DrawMode getDrawMode();
 
     default int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-        return getType().getContentsWidth(slimefunRecipeCategory);
+        return getType().getContentsWidth(getDrawMode(), slimefunRecipeCategory);
     }
 
     default int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-        return getType().getContentsWidth(slimefunRecipe);
+        return getType().getContentsWidth(getDrawMode(), slimefunRecipe);
     }
 
     default int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-        return getType().getContentsHeight(slimefunRecipeCategory);
+        return getType().getContentsHeight(getDrawMode(), slimefunRecipeCategory);
     }
 
     default int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-        return getType().getContentsHeight(slimefunRecipe);
+        return getType().getContentsHeight(getDrawMode(), slimefunRecipe);
     }
 
     default int getDisplayWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
@@ -28,7 +30,7 @@ public interface RecipeRenderer {
     }
 
     default int getDisplayWidth(SlimefunRecipe slimefunRecipe) {
-        return getContentsWidth(slimefunRecipe) + TextureUtils.PADDING * 2;
+        return getDrawMode() == DrawMode.BOOK ? TextureUtils.PAGE_WIDTH : getContentsWidth(slimefunRecipe) + TextureUtils.PADDING * 2;
     }
 
     default int getDisplayHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
@@ -58,112 +60,112 @@ public interface RecipeRenderer {
     abstract class Type {
         public static final Type ANCIENT_ALTAR = new Type() {
             @Override
-            public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
                 return 140;
             }
 
             @Override
-            public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
                 return 140;
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
                 return 90;
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
                 return 90;
             }
         };
 
         public static final Type PROCESS = new Type() {
             @Override
-            public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.getProcessWidth(slimefunRecipeCategory);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.getProcessWidth(drawMode, slimefunRecipeCategory);
             }
 
             @Override
-            public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.getProcessWidth(slimefunRecipe);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.getProcessWidth(drawMode, slimefunRecipe);
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.getProcessHeight(slimefunRecipeCategory);
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.getProcessHeight(drawMode, slimefunRecipeCategory);
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.getProcessHeight(slimefunRecipe);
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.getProcessHeight(drawMode, slimefunRecipe);
             }
         };
 
         public static final Type REACTOR = new Type() {
             @Override
-            public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.getReactorWidth(slimefunRecipeCategory);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.getReactorWidth(drawMode, slimefunRecipeCategory);
             }
 
             @Override
-            public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.getReactorWidth(slimefunRecipe);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.getReactorWidth(drawMode, slimefunRecipe);
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.getReactorHeight(slimefunRecipeCategory);
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.getReactorHeight(drawMode, slimefunRecipeCategory);
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.getReactorHeight(slimefunRecipe);
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.getReactorHeight(drawMode, slimefunRecipe);
             }
         };
 
         public static final Type SMELTERY = new Type() {
             @Override
-            public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.getSmelteryWidth(slimefunRecipeCategory);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.getSmelteryWidth(drawMode, slimefunRecipeCategory);
             }
 
             @Override
-            public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.getSmelteryWidth(slimefunRecipe);
+            public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.getSmelteryWidth(drawMode, slimefunRecipe);
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-                return TextureUtils.SLOT_SIZE * 3;
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                return TextureUtils.SLOT.size(drawMode) * 3;
             }
 
             @Override
-            public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-                return TextureUtils.SLOT_SIZE * 3;
+            public int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                return TextureUtils.SLOT.size(drawMode) * 3;
             }
         };
 
         public static Type grid(int side) {
             return new Type() {
                 @Override
-                public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-                    return TextureUtils.getGridWidth(slimefunRecipeCategory, side);
+                public int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                    return TextureUtils.getGridWidth(drawMode, slimefunRecipeCategory, side);
                 }
 
                 @Override
-                public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-                    return TextureUtils.getGridWidth(slimefunRecipe, side);
+                public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                    return TextureUtils.getGridWidth(drawMode, slimefunRecipe, side);
                 }
 
                 @Override
-                public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-                    return TextureUtils.getGridHeight(side);
+                public int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
+                    return TextureUtils.getGridHeight(drawMode, side);
                 }
 
                 @Override
-                public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-                    return TextureUtils.getGridHeight(side);
+                public int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+                    return TextureUtils.getGridHeight(drawMode, side);
                 }
             };
         }
@@ -182,12 +184,12 @@ public interface RecipeRenderer {
             }
         }
 
-        public abstract int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory);
+        public abstract int getContentsWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory);
 
-        public abstract int getContentsWidth(SlimefunRecipe slimefunRecipe);
+        public abstract int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe);
 
-        public abstract int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory);
+        public abstract int getContentsHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory);
 
-        public abstract int getContentsHeight(SlimefunRecipe slimefunRecipe);
+        public abstract int getContentsHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe);
     }
 }

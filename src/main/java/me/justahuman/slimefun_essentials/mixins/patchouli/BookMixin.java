@@ -1,4 +1,4 @@
-package me.justahuman.slimefun_essentials.mixins.custom_guide;
+package me.justahuman.slimefun_essentials.mixins.patchouli;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;

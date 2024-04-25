@@ -41,10 +41,10 @@ public class SmelteryCategory extends ProcessCategory {
                 offsets.x().addSlot(false);
                 i++;
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * 2);
+            offsets.x().subtract(TextureUtils.SLOT.size() * 2);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * 2).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size() * 2).addPadding();
 
         offsets.x().addArrow();
 
@@ -70,10 +70,10 @@ public class SmelteryCategory extends ProcessCategory {
                 TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
                 offsets.x().addSlot(false);
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * 2);
+            offsets.x().subtract(TextureUtils.SLOT.size() * 2);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * 2).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size() * 2).addPadding();
 
         // Display Arrow
         addArrow(graphics, offsets, recipe);

@@ -42,11 +42,11 @@ public class ReactorCategory extends ProcessCategory {
         }
 
         if (recipe.hasEnergy()) {
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH).addPadding();
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         offsets.x().addArrow();
-        offsets.y().subtract(TextureUtils.SLOT_SIZE * 2);
+        offsets.y().subtract(TextureUtils.SLOT.size() * 2);
 
         JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.getY() + 1), recipe.inputs().get(1));
         offsets.y().addSlot(false);
@@ -75,13 +75,13 @@ public class ReactorCategory extends ProcessCategory {
         }
 
         if (recipe.hasEnergy()) {
-            addEnergy(graphics, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT_SIZE - TextureUtils.ENERGY_WIDTH) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY_HEIGHT - TextureUtils.PADDING : TextureUtils.PADDING), recipe.energy() < 0);
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH).addPadding();
+            addEnergy(graphics, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), recipe.energy() < 0);
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         addFillingArrow(graphics, offsets.getX(), offsets.getY(), recipe.sfTicks(), true);
         offsets.x().addArrow();
-        offsets.y().subtract(TextureUtils.SLOT_SIZE * 2);
+        offsets.y().subtract(TextureUtils.SLOT.size() * 2);
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
         offsets.y().addSlot(false);
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
@@ -104,10 +104,10 @@ public class ReactorCategory extends ProcessCategory {
         offsets.x().addArrow();
 
         if (recipe.hasEnergy()) {
-            if (tooltipActive(mouseX, mouseY, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT_SIZE - TextureUtils.ENERGY_WIDTH) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY_HEIGHT - TextureUtils.PADDING : TextureUtils.PADDING), TextureUtils.ENERGY)) {
+            if (tooltipActive(mouseX, mouseY, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), TextureUtils.ENERGY)) {
                 tooltips.add(energyTooltip(recipe));
             }
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH).addPadding();
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         if (tooltipActive(mouseX, mouseY, offsets.getX(), offsets.getY(), TextureUtils.ARROW)) {

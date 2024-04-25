@@ -1,4 +1,4 @@
-package me.justahuman.slimefun_essentials.mixins.custom_guide;
+package me.justahuman.slimefun_essentials.mixins.patchouli;
 
 import me.justahuman.slimefun_essentials.utils.JsonUtils;
 import net.minecraft.item.ItemStack;

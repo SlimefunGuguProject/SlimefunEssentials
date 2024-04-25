@@ -1,5 +1,6 @@
 package me.justahuman.slimefun_essentials.utils;
 
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
@@ -10,29 +11,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TextureUtils {
+    public static final int PAGE_WIDTH = 116;
+    public static final int PAGE_HEIGHT = 156;
     public static final int PADDING = 4;
     public static final int REI_PADDING = 6;
-    public static final int SLOT_SIZE = 18;
-    public static final int OUTPUT_SIZE = 26;
-    public static final int ARROW_HEIGHT = 17;
-    public static final int ARROW_WIDTH = 24;
-    public static final int ENERGY_WIDTH = 7;
-    public static final int ENERGY_HEIGHT = 9;
-    public static final int LABEL_SIZE = 13;
     public static final Identifier WIDGETS = new Identifier(Utils.ID, "textures/gui/widgets.png");
     public static final Identifier WIDGETS_DARK = new Identifier(Utils.ID, "textures/gui/widgets_dark.png");
     public static final Identifier WIDGETS_BOOK = new Identifier(Utils.ID, "textures/gui/widgets_book.png");
-    public static final SlimefunLabel ENERGY = new SlimefunLabel("energy", 36, 0, ENERGY_WIDTH, ENERGY_HEIGHT);
-    public static final SlimefunLabel ENERGY_POSITIVE = new SlimefunLabel("energy_positive", 43, 0, ENERGY_WIDTH, ENERGY_HEIGHT);
-    public static final SlimefunLabel ENERGY_NEGATIVE = new SlimefunLabel("energy_negative", 50, 0, ENERGY_WIDTH, ENERGY_HEIGHT);
-    public static final SlimefunLabel SLOT = new SlimefunLabel("slot", 0, 238, SLOT_SIZE, SLOT_SIZE);
-    public static final SlimefunLabel OUTPUT = new SlimefunLabel("output", 18, 230, OUTPUT_SIZE, OUTPUT_SIZE);
-    public static final SlimefunLabel ARROW = new SlimefunLabel("arrow", 44, 222, ARROW_WIDTH, ARROW_HEIGHT);
-    public static final SlimefunLabel FILLED_ARROW = new SlimefunLabel("filled_arrow", 44, 239, ARROW_WIDTH, ARROW_HEIGHT);
-    public static final SlimefunLabel BACKWARDS_ARROW = new SlimefunLabel("backwards_arrow", 67, 222, ARROW_WIDTH, ARROW_HEIGHT);
-    public static final SlimefunLabel FILLED_BACKWARDS_ARROW = new SlimefunLabel("filled_backwards_arrow", 67, 239, ARROW_WIDTH, ARROW_HEIGHT);
-    public static final SlimefunLabel PEDESTAL = new SlimefunLabel("pedestal", 0, 0, SLOT_SIZE, SLOT_SIZE);
-    public static final SlimefunLabel ALTAR = new SlimefunLabel("altar", 18, 0, SLOT_SIZE, SLOT_SIZE);
+    public static final SlimefunLabel ENERGY = SlimefunLabel.of("energy", 36, 0, 7, 9);
+    public static final SlimefunLabel ENERGY_POSITIVE = SlimefunLabel.of("energy_positive", 43, 0, 7, 9);
+    public static final SlimefunLabel ENERGY_NEGATIVE = SlimefunLabel.of("energy_negative", 50, 0, 7, 9);
+    public static final SlimefunLabel SLOT = SlimefunLabel.of("slot", 0, 238, 18, 18);
+    public static final SlimefunLabel OUTPUT = SlimefunLabel.of("output", 18, 230, 26, 26);
+    public static final SlimefunLabel ARROW = SlimefunLabel.builder().id("arrow")
+            .mode(DrawMode.LIGHT, 44, 222, 24, 17)
+            .mode(DrawMode.BOOK, 44, 245, 14, 11).build();
+    public static final SlimefunLabel FILLED_ARROW = SlimefunLabel.of("filled_arrow", 44, 239, 24, 17);
+    public static final SlimefunLabel BACKWARDS_ARROW = SlimefunLabel.builder().id("backwards_arrow")
+            .mode(DrawMode.LIGHT, 67, 222, 24, 17)
+            .mode(DrawMode.BOOK, 58, 245, 14, 11).build();
+    public static final SlimefunLabel FILLED_BACKWARDS_ARROW = SlimefunLabel.of("filled_backwards_arrow", 67, 239, 24, 17);
+    public static final SlimefunLabel PEDESTAL = SlimefunLabel.of("pedestal", 0, 0, 18, 18);
+    public static final SlimefunLabel ALTAR = SlimefunLabel.of("altar", 18, 0, 18, 18);
+    public static final SlimefunLabel SPOTLIGHT = SlimefunLabel.of("spotlight", 72, 232, 64, 24);
     public static final Map<SlimefunRecipeCategory, Integer> CACHED_WIDTH = new HashMap<>();
     public static final Map<SlimefunRecipeCategory, Integer> CACHED_HEIGHT = new HashMap<>();
     public static final NumberFormat numberFormat = NumberFormat.getInstance();
@@ -49,96 +50,95 @@ public class TextureUtils {
         }
     }
 
-    public static int getGridWidth(SlimefunRecipeCategory slimefunRecipeCategory, int side) {
+    public static int getGridWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory, int side) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
-                width = Math.max(width, getGridWidth(slimefunRecipe, side));
+                width = Math.max(width, getGridWidth(drawMode, slimefunRecipe, side));
             }
             return width;
         });
     }
 
-    public static int getGridWidth(SlimefunRecipe slimefunRecipe, int side) {
-        return (side * TextureUtils.SLOT_SIZE + TextureUtils.PADDING) + (slimefunRecipe.hasEnergy() ? TextureUtils.ENERGY_WIDTH + TextureUtils.PADDING : 0) + (TextureUtils.ARROW_WIDTH + TextureUtils.PADDING) + (slimefunRecipe.hasOutputs()? TextureUtils.OUTPUT_SIZE * slimefunRecipe.outputs().size() : 0);
+    public static int getGridWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe, int side) {
+        return (side * SLOT.size(drawMode) + TextureUtils.PADDING) + (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs()? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() : 0);
     }
 
-    public static int getGridHeight(int side) {
-        return side * SLOT_SIZE;
+    public static int getGridHeight(DrawMode drawMode, int side) {
+        return side * SLOT.size(drawMode);
     }
 
-    public static int getProcessWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+    public static int getProcessWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
-                width = Math.max(width, getProcessWidth(slimefunRecipe));
+                width = Math.max(width, getProcessWidth(drawMode, slimefunRecipe));
             }
             return width;
         });
     }
     
-    public static int getProcessWidth(SlimefunRecipe slimefunRecipe) {
-        return (slimefunRecipe.hasLabels() ? (LABEL_SIZE + PADDING) * slimefunRecipe.labels().size() : 0) + (slimefunRecipe.hasEnergy() ? ENERGY_WIDTH + PADDING : 0) + ((SLOT_SIZE + PADDING) * (slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size(): 1)) + (ARROW_WIDTH + PADDING) + (slimefunRecipe.hasOutputs() ? OUTPUT_SIZE * slimefunRecipe.outputs().size() + PADDING * (slimefunRecipe.outputs().size() - 1) : 0);
+    public static int getProcessWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+        return (slimefunRecipe.hasLabels() ? slimefunRecipe.labels().stream().mapToInt(label -> label.size(drawMode)).sum() : 0) + (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + ((SLOT.size(drawMode) + PADDING) * (slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() : 1)) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() + PADDING * (slimefunRecipe.outputs().size() - 1) : 0);
     }
 
-    public static int getProcessHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
+    public static int getProcessHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_HEIGHT.computeIfAbsent(slimefunRecipeCategory, value -> {
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
                 if (slimefunRecipe.hasOutputs()) {
-                    return OUTPUT_SIZE;
+                    return OUTPUT.size(drawMode);
                 }
             }
-
-            return SLOT_SIZE;
+            return SLOT.size(drawMode);
         });
     }
 
-    public static int getProcessHeight(SlimefunRecipe slimefunRecipe) {
-        return slimefunRecipe.hasOutputs() ? OUTPUT_SIZE : SLOT_SIZE;
+    public static int getProcessHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+        return slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode);
     }
 
-    public static int getReactorWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+    public static int getReactorWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
-                width = Math.max(width, getReactorWidth(slimefunRecipe));
+                width = Math.max(width, getReactorWidth(drawMode, slimefunRecipe));
             }
             return width;
         });
     }
 
-    public static int getReactorWidth(SlimefunRecipe slimefunRecipe) {
-        return (TextureUtils.SLOT_SIZE + TextureUtils.ARROW_WIDTH) * 2 + TextureUtils.PADDING * 4 + (slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH);
+    public static int getReactorWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+        return (SLOT.size(drawMode) + ARROW.width(drawMode)) * 2 + PADDING * 4 + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : ENERGY.width(drawMode));
     }
 
-    public static int getReactorHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
+    public static int getReactorHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_HEIGHT.computeIfAbsent(slimefunRecipeCategory, value -> {
-            final int baseAmount = TextureUtils.SLOT_SIZE * 2;
+            final int baseAmount = SLOT.size(drawMode) * 2;
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
                 if (slimefunRecipe.hasOutputs()) {
-                    return baseAmount + OUTPUT_SIZE;
+                    return baseAmount + OUTPUT.size(drawMode);
                 }
             }
 
-            return baseAmount + SLOT_SIZE;
+            return baseAmount + SLOT.size(drawMode);
         });
     }
 
-    public static int getReactorHeight(SlimefunRecipe slimefunRecipe) {
-        return TextureUtils.SLOT_SIZE * 2 + (slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.SLOT_SIZE);
+    public static int getReactorHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+        return SLOT.size(drawMode) * 2 + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode));
     }
 
-    public static int getSmelteryWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+    public static int getSmelteryWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
-                width = Math.max(width, getSmelteryWidth(slimefunRecipe));
+                width = Math.max(width, getSmelteryWidth(drawMode, slimefunRecipe));
             }
             return width;
         });
     }
 
-    public static int getSmelteryWidth(SlimefunRecipe slimefunRecipe) {
-        return (slimefunRecipe.hasEnergy() ? TextureUtils.ENERGY_WIDTH + TextureUtils.PADDING : 0) + (slimefunRecipe.hasInputs() ? TextureUtils.SLOT_SIZE * 2 + TextureUtils.PADDING : TextureUtils.SLOT_SIZE + TextureUtils.PADDING) + (TextureUtils.ARROW_WIDTH + TextureUtils.PADDING) + (slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE * slimefunRecipe.outputs().size() + TextureUtils.PADDING * (slimefunRecipe.outputs().size() - 1): 0);
+    public static int getSmelteryWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
+        return (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + (slimefunRecipe.hasInputs() ? SLOT.size(drawMode) * 2 + PADDING : SLOT.size(drawMode) + PADDING) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() + PADDING * (slimefunRecipe.outputs().size() - 1): 0);
     }
 }

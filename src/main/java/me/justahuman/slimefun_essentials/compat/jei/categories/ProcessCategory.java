@@ -54,15 +54,15 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
         this.catalyst = catalyst;
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, catalyst.itemStack());
         this.background = guiHelper.drawableBuilder(TextureUtils.WIDGETS, 0, 0, 0, 0).addPadding(yPadding(), yPadding(), xPadding(), xPadding()).build();
-        this.positiveEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_POSITIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT).buildAnimated(20, IDrawableAnimated.StartDirection.TOP, false);
-        this.negativeEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_NEGATIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT).buildAnimated(20, IDrawableAnimated.StartDirection.BOTTOM, true);
+        this.positiveEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_POSITIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY.width(getDrawMode()), TextureUtils.ENERGY.height(getDrawMode())).buildAnimated(20, IDrawableAnimated.StartDirection.TOP, false);
+        this.negativeEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_NEGATIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY.width(getDrawMode()), TextureUtils.ENERGY.height(getDrawMode())).buildAnimated(20, IDrawableAnimated.StartDirection.BOTTOM, true);
         this.cachedArrows = CacheBuilder.newBuilder()
                 .maximumSize(25)
                 .build(new CacheLoader<>() {
                     @Override
                     @NotNull
                     public IDrawableAnimated load(@NotNull Integer sfTicks) {
-                        return guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ARROW.u(), TextureUtils.ARROW.v() + TextureUtils.ARROW_HEIGHT, TextureUtils.ARROW_WIDTH, TextureUtils.ARROW_HEIGHT).buildAnimated(sfTicks * 10, IDrawableAnimated.StartDirection.LEFT, false);
+                        return guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ARROW.u(), TextureUtils.ARROW.v() + TextureUtils.ARROW.height(getDrawMode()), TextureUtils.ARROW.width(getDrawMode()), TextureUtils.ARROW.height(getDrawMode())).buildAnimated(sfTicks * 10, IDrawableAnimated.StartDirection.LEFT, false);
                     }
                 });
         this.cachedBackwardsArrows = CacheBuilder.newBuilder()
@@ -71,7 +71,7 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
                     @Override
                     @NotNull
                     public IDrawableAnimated load(@NotNull Integer sfTicks) {
-                        return guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.BACKWARDS_ARROW.u(), TextureUtils.BACKWARDS_ARROW.v() + TextureUtils.ARROW_HEIGHT, TextureUtils.ARROW_WIDTH, TextureUtils.ARROW_HEIGHT).buildAnimated(sfTicks * 10, IDrawableAnimated.StartDirection.RIGHT, false);
+                        return guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.BACKWARDS_ARROW.u(), TextureUtils.BACKWARDS_ARROW.v() + TextureUtils.ARROW.height(getDrawMode()), TextureUtils.ARROW.width(getDrawMode()), TextureUtils.ARROW.height(getDrawMode())).buildAnimated(sfTicks * 10, IDrawableAnimated.StartDirection.RIGHT, false);
                     }
                 });
     }
@@ -117,7 +117,9 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
         final OffsetBuilder offsets = new OffsetBuilder(this, recipe, calculateXOffset(this.slimefunRecipeCategory, recipe));
 
         if (recipe.hasLabels()) {
-            offsets.x().add((TextureUtils.LABEL_SIZE + TextureUtils.PADDING) * recipe.labels().size());
+            for (SlimefunLabel label : recipe.labels()) {
+                offsets.x().add((label.width(getDrawMode()) + TextureUtils.PADDING) * recipe.labels().size());
+            }
         }
 
         if (recipe.hasEnergy() && recipe.hasOutputs()) {
@@ -178,7 +180,7 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
             offsets.x().addEnergy();
         }
 
-        offsets.x().add((TextureUtils.SLOT_SIZE + TextureUtils.PADDING) * (recipe.hasInputs() ? recipe.inputs().size() : 1));
+        offsets.x().add((TextureUtils.SLOT.size(getDrawMode()) + TextureUtils.PADDING) * (recipe.hasInputs() ? recipe.inputs().size() : 1));
 
         // Arrow Tooltip
         if (recipe.hasTime() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.arrow(), TextureUtils.ARROW)) {

@@ -2,37 +2,105 @@ package me.justahuman.slimefun_essentials.client;
 
 import com.google.gson.JsonObject;
 import com.mojang.blaze3d.systems.RenderSystem;
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import me.justahuman.slimefun_essentials.utils.JsonUtils;
-import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public record SlimefunLabel(String id, Identifier light, Identifier dark, Identifier book, int u, int v, int width, int height) {
+public class SlimefunLabel {
     private static final Map<String, SlimefunLabel> slimefunLabels = new LinkedHashMap<>();
 
-    public SlimefunLabel(String id, int u, int v, int width, int height) {
-        this(id, TextureUtils.WIDGETS, TextureUtils.WIDGETS_DARK, TextureUtils.WIDGETS_BOOK, u, v, width, height);
+    private final String id;
+    private final Map<DrawMode, LabelSettings> settings;
+
+    public SlimefunLabel(String id, Map<DrawMode, LabelSettings> settings) {
+        this.id = id;
+        this.settings = settings;
     }
 
-    public SlimefunLabel(String id, Identifier light, Identifier dark, Identifier book, int u, int v) {
-        this(id, light, dark, book, u, v, TextureUtils.LABEL_SIZE, TextureUtils.LABEL_SIZE);
+    public static SlimefunLabel of(String id, int u, int v, int width, int height) {
+        return new LabelBuilder().id(id).mode(DrawMode.LIGHT, u, v, width, height).build();
+    }
+
+    public String id() {
+        return this.id;
+    }
+
+    public Identifier identifier() {
+        return identifier(DrawMode.LIGHT);
+    }
+
+    public Identifier identifier(DrawMode drawMode) {
+        return this.settings.get(drawMode).identifier;
+    }
+
+    public int u() {
+        return u(DrawMode.LIGHT);
+    }
+
+    public int u(DrawMode drawMode) {
+        return this.settings.get(drawMode).u;
+    }
+
+    public int v() {
+        return v(DrawMode.LIGHT);
+    }
+
+    public int v(DrawMode drawMode) {
+        return this.settings.get(drawMode).v;
+    }
+
+    public int size() {
+        return width(DrawMode.LIGHT);
+    }
+
+    public int size(boolean y) {
+        return y ? height() : width();
+    }
+
+    public int size(DrawMode drawMode) {
+        return width(drawMode);
+    }
+
+    public int size(DrawMode drawMode, boolean y) {
+        return y ? height(drawMode) : width(drawMode);
+    }
+
+    public int width() {
+        return width(DrawMode.LIGHT);
+    }
+
+    public int width(DrawMode drawMode) {
+        return this.settings.get(drawMode).width;
+    }
+
+    public int height() {
+        return height(DrawMode.LIGHT);
+    }
+
+    public int height(DrawMode drawMode) {
+        return this.settings.get(drawMode).height;
     }
 
     public static void deserialize(String id, JsonObject labelObject) {
-        slimefunLabels.put(id, new SlimefunLabel(
-                id,
-                new Identifier(JsonUtils.getStringOrDefault(labelObject, "light", "slimefun_essentials:textures/gui/widgets.png")),
-                new Identifier(JsonUtils.getStringOrDefault(labelObject, "dark", "slimefun_essentials:textures/gui/widgets_dark.png")),
-                new Identifier(JsonUtils.getStringOrDefault(labelObject, "dark", "slimefun_essentials:textures/gui/widgets_book.png")),
-                JsonUtils.getIntegerOrDefault(labelObject, "u", 0),
-                JsonUtils.getIntegerOrDefault(labelObject, "v", 0)
-        ));
+        final LabelBuilder builder = builder().id(id);
+        for (String mode : labelObject.keySet()) {
+            if (labelObject.get(mode) instanceof JsonObject settings) {
+                builder.mode(DrawMode.valueOf(mode),
+                        JsonUtils.getIntegerOrDefault(settings, "u", 0),
+                        JsonUtils.getIntegerOrDefault(settings, "v", 0),
+                        JsonUtils.getIntegerOrDefault(settings, "width", 13),
+                        JsonUtils.getIntegerOrDefault(settings, "height", 13));
+            }
+        }
+        slimefunLabels.put(id, builder.build());
     }
     
     /**
@@ -49,14 +117,17 @@ public record SlimefunLabel(String id, Identifier light, Identifier dark, Identi
         slimefunLabels.clear();
     }
 
-    public void draw(DrawContext graphics, int x, int y, int width, int height, int u, int v, int regionWidth, int regionHeight, DrawMode drawMode) {
+    public void draw(DrawContext graphics, Identifier identifier, int x, int y, int width, int height, int u, int v, int regionWidth, int regionHeight) {
+        RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        graphics.drawTexture(drawMode.get(this), x, y, width, height, u, v, regionWidth, regionHeight, 256, 256);
+        graphics.drawTexture(identifier, x, y, width, height, u, v, width, height, 256, 256);
     }
 
     public void draw(DrawContext graphics, int x, int y, DrawMode drawMode) {
-        draw(graphics, x, y, this.width, this.height, this.u, this.v, this.width, this.height, drawMode);
+        final LabelSettings options = this.settings.get(drawMode);
+        draw(graphics, options.identifier, x, y, options.width, options.height, options.u, options.v, options.width, options.height);
     }
+
 
     public void draw(DrawContext graphics, int x, int y) {
         draw(graphics, x, y, DrawMode.LIGHT);
@@ -66,14 +137,53 @@ public record SlimefunLabel(String id, Identifier light, Identifier dark, Identi
         return Text.translatable("slimefun_essentials.recipes.label." + this.id);
     }
 
-    public enum DrawMode {
-        LIGHT, DARK, BOOK;
-        public Identifier get(SlimefunLabel slimefunLabel) {
-            return switch (this) {
-                case LIGHT -> slimefunLabel.light();
-                case DARK -> slimefunLabel.dark();
-                case BOOK -> slimefunLabel.book();
-            };
+    public static LabelBuilder builder() {
+        return new LabelBuilder();
+    }
+
+    public static class LabelBuilder {
+        private LabelBuilder() {}
+
+        private String id = "";
+        private final Map<DrawMode, LabelSettings> settings = new EnumMap<>(DrawMode.class);
+
+        public LabelBuilder id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        public LabelBuilder mode(DrawMode mode, int u, int v, int width, int height) {
+            this.settings.put(mode, new LabelSettings(mode.defaultIdentifier(), u, v, width, height));
+            return this;
+        }
+
+        public SlimefunLabel build() {
+            if (id.isBlank()) {
+                throw new IllegalArgumentException("Id must be set!");
+            }
+
+            if (!settings.containsKey(DrawMode.LIGHT)) {
+                throw new IllegalArgumentException("Options must have light mode!");
+            }
+
+            final LabelSettings lightMode = settings.get(DrawMode.LIGHT);
+            for (DrawMode otherMode : DrawMode.values()) {
+                if (!settings.containsKey(otherMode)) {
+                    mode(otherMode, lightMode.u, lightMode.v, lightMode.width, lightMode.height);
+                }
+            }
+
+            return new SlimefunLabel(this.id, this.settings);
         }
     }
+
+    @AllArgsConstructor
+    public static class LabelSettings {
+        private final Identifier identifier;
+        private final int u;
+        private final int v;
+        private final int width;
+        private final int height;
+    }
+
 }

@@ -34,13 +34,13 @@ public class ReactorRecipe extends ProcessRecipe {
         }
         
         if (this.slimefunRecipe.hasEnergy()) {
-            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.OUTPUT_SIZE - TextureUtils.ENERGY_WIDTH) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY_HEIGHT - TextureUtils.PADDING : TextureUtils.PADDING));
-            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH).addPadding();
+            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING));
+            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
         
         addArrowWithCheck(widgets, offsets.getX(), offsets.getY(), true);
         offsets.x().addArrow();
-        offsets.y().subtract(TextureUtils.SLOT_SIZE * 2);
+        offsets.y().subtract(TextureUtils.SLOT.size() * 2);
         widgets.addSlot(inputs.get(1), offsets.getX(), offsets.getY());
         offsets.y().addSlot(false);
         widgets.addSlot(inputs.get(2), offsets.getX(), offsets.getY());

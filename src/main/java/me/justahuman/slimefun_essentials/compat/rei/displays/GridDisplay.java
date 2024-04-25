@@ -22,7 +22,7 @@ public class GridDisplay extends ProcessDisplay {
 
     @Override
     public List<Widget> setupDisplay(OffsetBuilder offsets, List<Widget> widgets, Rectangle bounds, ItemStack icon) {
-        offsets.setY(calculateYOffset(slimefunRecipe, TextureUtils.SLOT_SIZE * 3) + offsets.minY());
+        offsets.setY(calculateYOffset(slimefunRecipe, TextureUtils.SLOT.size(getDrawMode()) * 3) + offsets.minY());
 
         // Display Energy
         addEnergyWithCheck(widgets, offsets);
@@ -34,10 +34,10 @@ public class GridDisplay extends ProcessDisplay {
                 offsets.x().addSlot(false);
                 i++;
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * this.side);
+            offsets.x().subtract(TextureUtils.SLOT.size(getDrawMode()) * this.side);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * this.side).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size(getDrawMode()) * this.side).addPadding();
 
         // Display Arrow
         addArrow(widgets, offsets);

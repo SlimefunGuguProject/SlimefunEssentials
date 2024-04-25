@@ -1,5 +1,6 @@
 package me.justahuman.slimefun_essentials.api;
 
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 
@@ -10,6 +11,7 @@ public class OffsetBuilder {
     protected final int arrowOffset;
     protected final int outputOffset;
     protected final int minY;
+    protected DrawMode drawMode;
     protected Offset xOffset;
     protected Offset yOffset;
 
@@ -26,14 +28,15 @@ public class OffsetBuilder {
     }
 
     public OffsetBuilder(RecipeRenderer recipeRenderer, SlimefunRecipe slimefunRecipe, int x, int y, int minY) {
-        this.labelOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.LABEL_SIZE) + minY;
-        this.energyOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ENERGY_HEIGHT) + minY;
-        this.slotOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.SLOT_SIZE) + minY;
-        this.arrowOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ARROW_HEIGHT) + minY;
-        this.outputOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.OUTPUT_SIZE) + minY;
+        this.drawMode = recipeRenderer.getDrawMode();
+        this.labelOffset = recipeRenderer.calculateYOffset(slimefunRecipe, 14) + minY;
+        this.energyOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ENERGY.height(this.drawMode)) + minY;
+        this.slotOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.SLOT.size(this.drawMode)) + minY;
+        this.arrowOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ARROW.height(this.drawMode)) + minY;
+        this.outputOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.OUTPUT.height(this.drawMode)) + minY;
         this.minY = minY;
-        this.xOffset = new Offset(x);
-        this.yOffset = new Offset(y);
+        this.xOffset = new Offset(this.drawMode, x, false);
+        this.yOffset = new Offset(this.drawMode, y, true);
     }
 
     public Offset x() {
@@ -87,10 +90,14 @@ public class OffsetBuilder {
     }
 
     public static class Offset {
+        DrawMode drawMode;
         int value;
+        boolean y;
 
-        public Offset(int value) {
+        public Offset(DrawMode drawMode, int value, boolean y) {
+            this.drawMode = drawMode;
             this.value = value;
+            this.y = y;
         }
 
         public int get() {
@@ -117,7 +124,7 @@ public class OffsetBuilder {
         }
 
         public Offset addLabel(boolean padding) {
-            this.value += TextureUtils.LABEL_SIZE + (padding ? TextureUtils.PADDING : 0);
+            this.value += 14 + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 
@@ -126,7 +133,7 @@ public class OffsetBuilder {
         }
 
         public Offset addEnergy(boolean padding) {
-            this.value += TextureUtils.ENERGY_WIDTH + (padding ? TextureUtils.PADDING : 0);
+            this.value += TextureUtils.ENERGY.size(this.drawMode, this.y) + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 
@@ -135,7 +142,7 @@ public class OffsetBuilder {
         }
 
         public Offset addSlot(boolean padding) {
-            this.value += TextureUtils.SLOT_SIZE + (padding ? TextureUtils.PADDING : 0);
+            this.value += TextureUtils.SLOT.size(this.drawMode, this.y) + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 
@@ -144,7 +151,7 @@ public class OffsetBuilder {
         }
 
         public Offset addArrow(boolean padding) {
-            this.value += TextureUtils.ARROW_WIDTH + (padding ? TextureUtils.PADDING : 0);
+            this.value += TextureUtils.ARROW.size(this.drawMode, this.y) + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 
@@ -153,7 +160,7 @@ public class OffsetBuilder {
         }
 
         public Offset addOutput(boolean padding) {
-            this.value += TextureUtils.OUTPUT_SIZE + (padding ? TextureUtils.PADDING : 0);
+            this.value += TextureUtils.OUTPUT.size(this.drawMode) + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 

@@ -30,10 +30,10 @@ public class SmelteryRecipe extends ProcessRecipe {
                 offsets.x().addSlot(false);
                 i++;
             }
-            offsets.x().subtract(TextureUtils.SLOT_SIZE * 2);
+            offsets.x().subtract(TextureUtils.SLOT.size(getDrawMode()) * 2);
             offsets.y().addSlot(false);
         }
-        offsets.x().add(TextureUtils.SLOT_SIZE * 2).addPadding();
+        offsets.x().add(TextureUtils.SLOT.size(getDrawMode()) * 2).addPadding();
     
         // Display Arrow
         addArrowWithCheck(widgets, offsets);

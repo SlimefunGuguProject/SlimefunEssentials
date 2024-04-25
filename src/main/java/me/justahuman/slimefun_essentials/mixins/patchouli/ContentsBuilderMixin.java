@@ -1,4 +1,4 @@
-package me.justahuman.slimefun_essentials.mixins.custom_guide;
+package me.justahuman.slimefun_essentials.mixins.patchouli;
 
 import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;

@@ -1,18 +1,26 @@
 package me.justahuman.slimefun_essentials.compat.emi;
 
-import dev.emi.emi.EmiRenderHelper;
 import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
-import me.justahuman.slimefun_essentials.utils.TextureUtils;
+import dev.emi.emi.api.widget.TextureWidget;
+import me.justahuman.slimefun_essentials.client.SlimefunLabel;
+import net.minecraft.client.gui.tooltip.TooltipComponent;
+import net.minecraft.text.Text;
 
 import java.util.List;
 
 public class EmiUtils {
-    public static final EmiTexture EMPTY_CHARGE = new EmiTexture(TextureUtils.WIDGETS, 36, 0, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT);
-    public static final EmiTexture GAIN_CHARGE = new EmiTexture(TextureUtils.WIDGETS, 43, 0, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT);
-    public static final EmiTexture LOOSE_CHARGE = new EmiTexture(TextureUtils.WIDGETS, 50, 0, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT);
-    public static final EmiTexture BACKWARDS_EMPTY_ARROW = new EmiTexture(EmiRenderHelper.WIDGETS, 68, 0, 24, 17);
+    public static EmiTexture wrap(SlimefunLabel slimefunLabel) {
+        return new EmiTexture(slimefunLabel.identifier(), slimefunLabel.u(), slimefunLabel.v(), slimefunLabel.width(), slimefunLabel.height());
+    }
+
+    public static TextureWidget wrap(SlimefunLabel slimefunLabel, int x, int y) {
+        return new TextureWidget(slimefunLabel.identifier(), x, y,
+                slimefunLabel.width(), slimefunLabel.height(), slimefunLabel.u(), slimefunLabel.v(),
+                slimefunLabel.width(), slimefunLabel.height(), 256, 256)
+                .tooltip((mx, my) -> List.of(TooltipComponent.of(Text.translatable("slimefun_essentials.recipes.label." + slimefunLabel.id()).asOrderedText())));
+    }
 
     public static void fillInputs(List<EmiIngredient> list, int size) {
         if (list.size() >= size) {

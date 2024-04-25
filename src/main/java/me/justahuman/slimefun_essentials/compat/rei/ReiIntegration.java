@@ -1,5 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.rei;
 
+import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
@@ -134,7 +135,7 @@ public class ReiIntegration implements REIClientPlugin {
     }
 
     public static Widget widgetFromSlimefunLabel(SlimefunLabel slimefunLabel, int x, int y) {
-        return Widgets.createDrawableWidget((graphics, mouseX, mouseY, delta) -> slimefunLabel.draw(graphics, x, y, REIRuntime.getInstance().isDarkThemeEnabled() ? SlimefunLabel.DrawMode.DARK : SlimefunLabel.DrawMode.LIGHT));
+        return Widgets.createDrawableWidget((graphics, mouseX, mouseY, delta) -> slimefunLabel.draw(graphics, x, y, REIRuntime.getInstance().isDarkThemeEnabled() ? DrawMode.DARK : DrawMode.LIGHT));
     }
 
     public static Widget toolTipForSlimefunLabel(SlimefunLabel slimefunLabel, int x, int y) {
@@ -188,7 +189,8 @@ public class ReiIntegration implements REIClientPlugin {
                 }
             }
 
-            slimefunLabel.draw(graphics, mx, my, mw, mh, mu, mv, mrw, mrh, REIRuntime.getInstance().isDarkThemeEnabled() ? SlimefunLabel.DrawMode.DARK : SlimefunLabel.DrawMode.LIGHT);
+            final DrawMode drawMode = REIRuntime.getInstance().isDarkThemeEnabled() ? DrawMode.DARK : DrawMode.LIGHT;
+            slimefunLabel.draw(graphics, slimefunLabel.identifier(drawMode), mx, my, mw, mh, mu, mv, mrw, mrh);
         });
     }
 }
