@@ -5,12 +5,6 @@ import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.AncientAltarCategory;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.GridCategory;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.ProcessCategory;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.ReactorCategory;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.SlimefunReiCategory;
-import me.justahuman.slimefun_essentials.compat.rei.categorys.SmelteryCategory;
 import me.justahuman.slimefun_essentials.compat.rei.displays.AncientAltarDisplay;
 import me.justahuman.slimefun_essentials.compat.rei.displays.GridDisplay;
 import me.justahuman.slimefun_essentials.compat.rei.displays.ProcessDisplay;
@@ -111,7 +105,7 @@ public class ReiIntegration implements REIClientPlugin {
         CATEGORIES.clear();
         for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
             final ItemStack icon = slimefunRecipeCategory.getItemFromId();
-            final DisplayCategory<?> displayCategory = getReiCategory(slimefunRecipeCategory, icon);
+            final DisplayCategory<?> displayCategory = new SlimefunReiCategory<>(slimefunRecipeCategory, icon);
             categoryRegistry.add(displayCategory);
             categoryRegistry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
             CATEGORIES.put(slimefunRecipeCategory, displayCategory);
@@ -121,21 +115,6 @@ public class ReiIntegration implements REIClientPlugin {
             for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
                 displayRegistry.add(getDisplay(slimefunRecipeCategory, slimefunRecipe));
             }
-        }
-    }
-
-    public static SlimefunReiCategory<? extends SlimefunDisplay> getReiCategory(SlimefunRecipeCategory slimefunRecipeCategory, ItemStack icon) {
-        final String type = slimefunRecipeCategory.type();
-        if (type.equals("ancient_altar")) {
-            return new AncientAltarCategory(slimefunRecipeCategory, icon);
-        } else if (type.equals("smeltery")) {
-            return new SmelteryCategory(slimefunRecipeCategory, icon);
-        } else if (type.equals("reactor")) {
-            return new ReactorCategory(slimefunRecipeCategory, icon);
-        } else if (type.contains("grid")) {
-            return new GridCategory(slimefunRecipeCategory, icon, TextureUtils.getSideSafe(type));
-        } else {
-            return new ProcessCategory(slimefunRecipeCategory, icon);
         }
     }
 

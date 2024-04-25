@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,21 +41,12 @@ public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List
             }
         }
 
-        if (groupObject.has("sub")) {
-            requirements.add("sub");
-        }
-
         itemGroups.put(identifier.toString(), new SlimefunItemGroup(identifier, itemStack, content, requirements));
     }
 
-    /**
-     * Returns an unmodifiable version of {@link SlimefunItemGroup#itemGroups}
-     *
-     * @return {@link Map}
-     */
     @NonNull
     public static Map<String, SlimefunItemGroup> getItemGroups() {
-        return Collections.unmodifiableMap(itemGroups);
+        return itemGroups;
     }
 
     public static void clear() {
@@ -64,13 +54,11 @@ public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List
     }
 
     public static void addParents() {
-        for (SlimefunItemGroup parent : itemGroups.values()) {
-            for (String content : parent.content()) {
-                if (content.contains(":")) {
-                    final SlimefunItemGroup child = itemGroups.get(content);
-                    if (child != null) {
-                        child.requirements().add("parent: " + parent.identifier().toString());
-                    }
+        for (SlimefunItemGroup itemGroup : itemGroups.values()) {
+            for (String content : itemGroup.content()) {
+                final SlimefunItemGroup child = itemGroups.get(content);
+                if (child != null) {
+                    child.requirements().add("slimefun_essentials:" + itemGroup.identifier().toString().replace(":", "_"));
                 }
             }
         }

@@ -1,7 +1,7 @@
-package me.justahuman.slimefun_essentials.compat.rei.categorys;
+package me.justahuman.slimefun_essentials.compat.rei;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.api.RecipeRenderer;
+import me.justahuman.slimefun_essentials.api.SimpleRecipeRenderer;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.compat.rei.displays.SlimefunDisplay;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
@@ -20,12 +20,12 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SlimefunReiCategory<T extends SlimefunDisplay> extends RecipeRenderer implements DisplayCategory<T> {
+public class SlimefunReiCategory<T extends SlimefunDisplay> extends SimpleRecipeRenderer implements DisplayCategory<T> {
     protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final ItemStack icon;
 
-    public SlimefunReiCategory(Type type, SlimefunRecipeCategory slimefunRecipeCategory, ItemStack icon) {
-        super(type);
+    public SlimefunReiCategory(SlimefunRecipeCategory slimefunRecipeCategory, ItemStack icon) {
+        super(Type.from(slimefunRecipeCategory.type()));
 
         this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.icon = icon;

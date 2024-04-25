@@ -4,13 +4,14 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.api.RecipeRenderer;
+import me.justahuman.slimefun_essentials.api.SimpleRecipeRenderer;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.compat.jei.JeiIntegration;
+import me.justahuman.slimefun_essentials.api.ManualRecipeRenderer;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import mezz.jei.api.constants.VanillaTypes;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<SlimefunRecipe> {
+public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCategory<SlimefunRecipe>, ManualRecipeRenderer {
     protected final IGuiHelper guiHelper;
     protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final SlimefunItemStack catalyst;
@@ -160,7 +161,7 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
 
         // Display Inputs, only the slot icon
         if (recipe.hasInputs()) {
-            for (SlimefunRecipeComponent ignored : recipe.inputs()) {
+            for (int i = 0; i < recipe.inputs().size(); i++) {
                 TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.slot());
                 offsets.x().addSlot();
             }
@@ -216,85 +217,12 @@ public class ProcessCategory extends RecipeRenderer implements IRecipeCategory<S
         return tooltips;
     }
 
-    protected void addEnergyWithCheck(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
-        if (recipe.hasEnergy() && recipe.hasOutputs()) {
-            addEnergy(graphics, offsets, recipe.energy() < 0);
-        }
-    }
-
-    protected void addEnergy(DrawContext graphics, OffsetBuilder offsets, boolean negative) {
-        addEnergy(graphics, offsets.getX(), offsets.energy(), negative);
-        offsets.x().addEnergy();
-    }
-
-    protected void addEnergy(DrawContext graphics, int x, int y, boolean negative) {
-        TextureUtils.ENERGY.draw(graphics, x, y);
+    public void drawEnergyFill(DrawContext graphics, int x, int y, boolean negative) {
         (negative ? this.negativeEnergy : this.positiveEnergy).draw(graphics, x, y);
     }
 
-    protected void addArrow(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
-        addArrow(graphics, recipe, offsets.getX(), offsets.arrow(),false);
-        offsets.x().addArrow();
-    }
-
-    protected void addArrow(DrawContext graphics, SlimefunRecipe recipe, int x, int y, boolean backwards) {
-        if (recipe.hasTime()) {
-            addFillingArrow(graphics, x, y, backwards, getSfTicks(recipe));
-        } else {
-            addArrow(graphics, x, y, backwards);
-        }
-    }
-
-    protected void addArrow(DrawContext graphics, int x, int y, boolean backwards) {
-        (backwards ? TextureUtils.BACKWARDS_ARROW : TextureUtils.ARROW).draw(graphics, x, y);
-    }
-
-    protected void addFillingArrow(DrawContext graphics, int x, int y, boolean backwards, int sfTicks) {
-        addArrow(graphics, x, y, backwards);
+    @Override
+    public void drawArrowFill(DrawContext graphics, int x, int y, int sfTicks, boolean backwards) {
         (backwards ? this.cachedBackwardsArrows.getUnchecked(sfTicks) : this.cachedArrows.getUnchecked(sfTicks)).draw(graphics, x, y);
-    }
-
-    protected void addOutputsOrEnergy(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
-        if (recipe.hasOutputs()) {
-            addOutputs(graphics, offsets, recipe);
-        } else {
-            addEnergy(graphics, offsets, recipe.energy() < 0);
-        }
-    }
-
-    protected void addOutputs(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
-        for (SlimefunRecipeComponent ignored : recipe.outputs()) {
-            TextureUtils.OUTPUT.draw(graphics, offsets.getX(), offsets.output());
-            offsets.x().addOutput();
-        }
-    }
-
-    protected int getSfTicks(SlimefunRecipe slimefunRecipe) {
-        if (slimefunRecipe.hasTime()) {
-            return slimefunRecipe.sfTicks(this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1);
-        } else {
-            return 2;
-        }
-    }
-
-    protected boolean tooltipActive(double mouseX, double mouseY, OffsetBuilder offsets, SlimefunLabel label) {
-        return tooltipActive(mouseX, mouseY, offsets.getX(), offsets.getY(), label);
-    }
-
-    protected boolean tooltipActive(double mouseX, double mouseY, int x, int y, SlimefunLabel label) {
-        return mouseX >= x && mouseX <= x + label.width() && mouseY >= y && mouseY <= y + label.height();
-    }
-
-    protected Text labelTooltip(SlimefunLabel label) {
-        return Text.translatable("slimefun_essentials.recipes.label." + label.id());
-    }
-
-    protected Text timeTooltip(SlimefunRecipe recipe) {
-        return Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(getSfTicks(recipe) / 2), TextureUtils.numberFormat.format(getSfTicks(recipe) * 10L));
-    }
-
-    protected Text energyTooltip(SlimefunRecipe recipe) {
-        final int totalEnergy = recipe.energy() * Math.max(1, recipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
-        return Text.translatable("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy)));
     }
 }

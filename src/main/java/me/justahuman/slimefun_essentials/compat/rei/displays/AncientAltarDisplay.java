@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AncientAltarDisplay extends ProcessDisplay {
     public AncientAltarDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        super(Type.ANCIENT_ALTAR, slimefunRecipeCategory, slimefunRecipe);
+        super(slimefunRecipeCategory, slimefunRecipe);
 
         ReiUtils.fillEntries(this.inputs, 9);
         ReiUtils.fillEntries(this.outputs, 1);

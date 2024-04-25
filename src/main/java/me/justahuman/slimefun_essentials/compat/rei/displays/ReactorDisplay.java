@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ReactorDisplay extends ProcessDisplay {
     public ReactorDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        super(Type.REACTOR, slimefunRecipeCategory, slimefunRecipe);
+        super(slimefunRecipeCategory, slimefunRecipe);
 
         ReiUtils.fillEntries(this.inputs, 4);
     }

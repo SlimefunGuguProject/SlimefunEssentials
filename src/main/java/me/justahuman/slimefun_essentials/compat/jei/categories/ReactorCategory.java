@@ -67,7 +67,7 @@ public class ReactorCategory extends ProcessCategory {
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());
         offsets.x().addSlot();
 
-        addFillingArrow(graphics, offsets.getX(), offsets.getY(), false, getSfTicks(recipe));
+        addFillingArrow(graphics, offsets.getX(), offsets.getY(), recipe.sfTicks(), false);
         offsets.x().addArrow();
 
         if (recipe.hasOutputs()) {
@@ -79,7 +79,7 @@ public class ReactorCategory extends ProcessCategory {
             offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT_SIZE : TextureUtils.ENERGY_WIDTH).addPadding();
         }
 
-        addFillingArrow(graphics, offsets.getX(), offsets.getY(), true, getSfTicks(recipe));
+        addFillingArrow(graphics, offsets.getX(), offsets.getY(), recipe.sfTicks(), true);
         offsets.x().addArrow();
         offsets.y().subtract(TextureUtils.SLOT_SIZE * 2);
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY());

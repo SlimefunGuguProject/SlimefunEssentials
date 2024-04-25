@@ -1,7 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.rei.displays;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.api.RecipeRenderer;
+import me.justahuman.slimefun_essentials.api.SimpleRecipeRenderer;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
@@ -14,14 +14,14 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class SlimefunDisplay extends RecipeRenderer implements Display {
+public abstract class SlimefunDisplay extends SimpleRecipeRenderer implements Display {
     protected final SlimefunRecipeCategory slimefunRecipeCategory;
     protected final SlimefunRecipe slimefunRecipe;
     protected final List<EntryIngredient> inputs = new ArrayList<>();
     protected final List<EntryIngredient> outputs = new ArrayList<>();
 
-    protected SlimefunDisplay(Type type, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        super(type);
+    protected SlimefunDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+        super(Type.from(slimefunRecipeCategory.type()));
 
         this.slimefunRecipeCategory = slimefunRecipeCategory;
         this.slimefunRecipe = slimefunRecipe;

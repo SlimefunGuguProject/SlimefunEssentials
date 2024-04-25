@@ -23,11 +23,7 @@ import java.util.List;
 
 public class ProcessDisplay extends SlimefunDisplay {
     public ProcessDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        this(Type.PROCESS, slimefunRecipeCategory, slimefunRecipe);
-    }
-
-    public ProcessDisplay(Type type, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        super(type, slimefunRecipeCategory, slimefunRecipe);
+        super(slimefunRecipeCategory, slimefunRecipe);
     }
 
     @Override
@@ -87,10 +83,9 @@ public class ProcessDisplay extends SlimefunDisplay {
     }
 
     protected void addEnergy(List<Widget> widgets, int x, int y) {
-        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
         widgets.add(ReiIntegration.widgetFromSlimefunLabel(TextureUtils.ENERGY, x, y));
-        widgets.add(ReiIntegration.widgetFromSlimefunLabel((totalEnergy >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, totalEnergy < 0, totalEnergy < 0));
-        widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT), Text.translatable("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy)))));
+        widgets.add(ReiIntegration.widgetFromSlimefunLabel((this.slimefunRecipe.totalEnergy() >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, this.slimefunRecipe.totalEnergy() < 0, this.slimefunRecipe.totalEnergy() < 0));
+        widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ENERGY_WIDTH, TextureUtils.ENERGY_HEIGHT), Text.translatable("slimefun_essentials.recipes.energy." + (this.slimefunRecipe.totalEnergy() >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(this.slimefunRecipe.totalEnergy())))));
     }
 
     protected void addSlot(List<Widget> widgets, OffsetBuilder offsets, EntryIngredient entryIngredient) {
@@ -132,7 +127,7 @@ public class ProcessDisplay extends SlimefunDisplay {
         widgets.add(ReiIntegration.widgetFromSlimefunLabel((backwards ? TextureUtils.BACKWARDS_ARROW : TextureUtils.ARROW), x, y));
 
         if (this.slimefunRecipe.hasTime()) {
-            final int sfTicks = Math.max(1, this.slimefunRecipe.time() / 10 / (this.slimefunRecipeCategory.hasSpeed() ? this.slimefunRecipeCategory.speed() : 1));
+            final int sfTicks = this.slimefunRecipe.sfTicks();
             final int millis =  sfTicks * 500;
             widgets.add(ReiIntegration.widgetFromSlimefunLabel((backwards ? TextureUtils.FILLED_BACKWARDS_ARROW : TextureUtils.FILLED_ARROW), x, y, millis, true, backwards, false));
             widgets.add(Widgets.createTooltip(new Rectangle(x, y, TextureUtils.ARROW_WIDTH, TextureUtils.ARROW_HEIGHT), Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(sfTicks / 2), TextureUtils.numberFormat.format(sfTicks * 10L))));

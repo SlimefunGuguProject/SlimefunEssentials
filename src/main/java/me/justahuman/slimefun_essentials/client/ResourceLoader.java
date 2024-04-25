@@ -221,6 +221,7 @@ public class ResourceLoader {
         for (Map.Entry<Identifier, Resource> entry : manager.findResources("slimefun/item_groups", Utils::filterAddons).entrySet()) {
             ResourceLoader.loadItemGroups(entry.getKey(), entry.getValue());
         }
+        SlimefunItemGroup.addParents();
     }
 
     /**
@@ -233,11 +234,8 @@ public class ResourceLoader {
         final JsonObject itemGroups = jsonObjectFromResource(resource);
         for (String id : itemGroups.keySet()) {
             final JsonObject categoryObject = itemGroups.getAsJsonObject(id);
-            SlimefunItemGroup.deserialize(id, addon, categoryObject);
+            SlimefunItemGroup.deserialize(addon, id, categoryObject);
         }
-
-        // Need to add parents post loading all of them
-        SlimefunItemGroup.addParents();
     }
 
     /**

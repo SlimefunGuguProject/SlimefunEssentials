@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SmelteryDisplay extends ProcessDisplay {
     public SmelteryDisplay(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
-        super(Type.SMELTERY, slimefunRecipeCategory, slimefunRecipe);
+        super(slimefunRecipeCategory, slimefunRecipe);
 
         ReiUtils.fillEntries(this.inputs, 6);
         ReiUtils.fillEntries(this.outputs, 1);

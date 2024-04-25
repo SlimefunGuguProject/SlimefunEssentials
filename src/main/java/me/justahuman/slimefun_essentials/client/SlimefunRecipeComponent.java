@@ -8,10 +8,9 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class SlimefunRecipeComponent {
-    @Getter
     private final String id;
-    @Getter
     private final List<String> multiId;
     
     public SlimefunRecipeComponent(String id) {
@@ -22,6 +21,19 @@ public class SlimefunRecipeComponent {
     public SlimefunRecipeComponent(List<String> multiId) {
         this.id = null;
         this.multiId = multiId;
+    }
+
+    public JsonElement serialize() {
+        if (this.id != null) {
+            return new JsonPrimitive(this.id);
+        } else if (this.multiId != null) {
+            final JsonArray components = new JsonArray();
+            for (String id : this.multiId) {
+                components.add(id);
+            }
+            return components;
+        }
+        return null;
     }
     
     public static SlimefunRecipeComponent deserialize(JsonElement componentElement) {

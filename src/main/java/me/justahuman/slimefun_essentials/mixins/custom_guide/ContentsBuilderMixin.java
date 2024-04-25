@@ -2,7 +2,7 @@ package me.justahuman.slimefun_essentials.mixins.custom_guide;
 
 import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
-import me.justahuman.slimefun_essentials.compat.patchouli.CustomGuide;
+import me.justahuman.slimefun_essentials.compat.patchouli.PatchouliIntegration;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -33,7 +33,7 @@ public abstract class ContentsBuilderMixin {
 
     @Inject(method = "build", at = @At("HEAD"), remap = false)
     private void buildSlimefun(World level, CallbackInfoReturnable<BookContents> cir) {
-        if (!CustomGuide.BOOK_IDENTIFIER.equals(this.book.id)) {
+        if (!PatchouliIntegration.BOOK_IDENTIFIER.equals(this.book.id)) {
             return;
         }
 
@@ -41,7 +41,7 @@ public abstract class ContentsBuilderMixin {
         final Map<String, SlimefunRecipeCategory> recipeCategories = SlimefunRecipeCategory.getAllCategories();
         for (SlimefunItemGroup itemGroup : SlimefunItemGroup.getItemGroups().values()) {
             final Identifier identifier = Utils.newIdentifier(itemGroup.identifier().toString().replace(":", "_"));
-            final BookCategory category = new BookCategory(CustomGuide.getItemGroupCategory(itemGroup, i), identifier, this.book);
+            final BookCategory category = new BookCategory(PatchouliIntegration.getItemGroupCategory(itemGroup, i), identifier, this.book);
             this.categories.put(identifier, category);
 
             int c = 0;
@@ -49,7 +49,7 @@ public abstract class ContentsBuilderMixin {
                 final SlimefunRecipeCategory recipeCategory = recipeCategories.get(content);
                 if (recipeCategory != null) {
                     final Identifier recipe = Utils.newIdentifier(content);
-                    final BookEntry recipeEntry = new BookEntry(CustomGuide.getRecipeEntry(category, recipeCategory, c), recipe, book, null);
+                    final BookEntry recipeEntry = new BookEntry(PatchouliIntegration.getRecipeEntry(category, recipeCategory, c), recipe, book, null);
                     recipeEntry.initCategory(recipe, ignored -> category);
                     this.entries.put(recipe, recipeEntry);
                 }

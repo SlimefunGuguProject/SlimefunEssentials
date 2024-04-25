@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlimefunRecipe {
-    protected String type;
+    protected SlimefunRecipeCategory parent;
     protected Integer time;
     protected Integer energy;
     protected List<SlimefunRecipeComponent> inputs;
     protected List<SlimefunRecipeComponent> outputs;
     protected List<SlimefunLabel> labels;
 
-    public SlimefunRecipe(String type, Integer time, Integer energy, List<SlimefunRecipeComponent> inputs, List<SlimefunRecipeComponent> outputs, List<SlimefunLabel> labels) {
-        this.type = type;
+    public SlimefunRecipe(SlimefunRecipeCategory parent, Integer time, Integer energy, List<SlimefunRecipeComponent> inputs, List<SlimefunRecipeComponent> outputs, List<SlimefunLabel> labels) {
+        this.parent = parent;
         this.time = time;
         this.energy = energy;
         this.inputs = inputs;
@@ -26,7 +26,7 @@ public class SlimefunRecipe {
         this.labels = labels;
     }
 
-    public static SlimefunRecipe deserialize(String type, JsonObject recipeObject, Integer workstationEnergy) {
+    public static SlimefunRecipe deserialize(SlimefunRecipeCategory parent, JsonObject recipeObject, Integer workstationEnergy) {
         final Integer time = JsonUtils.getIntegerOrDefault(recipeObject, "time", null);
         final Integer energy = JsonUtils.getIntegerOrDefault(recipeObject, "energy", workstationEnergy);
         final List<SlimefunRecipeComponent> inputs = new ArrayList<>();
@@ -58,7 +58,7 @@ public class SlimefunRecipe {
             }
         }
         
-        return new SlimefunRecipe(type, time, energy, inputs, outputs, labels);
+        return new SlimefunRecipe(parent, time, energy, inputs, outputs, labels);
     }
 
     public void fillInputs(int size) {
@@ -111,20 +111,24 @@ public class SlimefunRecipe {
         return this.outputs != null && !this.outputs.isEmpty();
     }
 
-    public Integer sfTicks(int speed) {
-        return hasTime() ? Math.max(1, time() / 10 / speed) : null;
-    }
-
-    public String type() {
-        return this.type;
+    public SlimefunRecipeCategory parent() {
+        return this.parent;
     }
 
     public Integer time() {
         return this.time;
     }
 
+    public Integer sfTicks() {
+        return hasTime() ? Math.max(1, time() / 10 / this.parent.speed()) : 1;
+    }
+
     public Integer energy() {
         return this.energy;
+    }
+
+    public Integer totalEnergy() {
+        return this.hasEnergy() ? sfTicks() * this.energy : null;
     }
 
     public List<SlimefunRecipeComponent> inputs() {
@@ -137,5 +141,9 @@ public class SlimefunRecipe {
 
     public List<SlimefunLabel> labels() {
         return this.labels;
+    }
+
+    public SlimefunRecipe copy(SlimefunRecipeCategory newParent) {
+        return new SlimefunRecipe(newParent, this.time, this.energy, new ArrayList<>(this.inputs), new ArrayList<>(this.outputs), new ArrayList<>(this.labels));
     }
 }

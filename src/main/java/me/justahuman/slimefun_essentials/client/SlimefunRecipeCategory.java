@@ -25,14 +25,16 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
         final Integer speed = JsonUtils.getIntegerOrDefault(categoryObject, "speed", null);
         final Integer energy = JsonUtils.getIntegerOrDefault(categoryObject, "energy", null);
         final List<SlimefunRecipe> recipes = new ArrayList<>();
+
+        final SlimefunRecipeCategory category = new SlimefunRecipeCategory(id, type, speed, energy, new ArrayList<>(), recipes);
         for (JsonElement recipeElement : JsonUtils.getArrayOrDefault(categoryObject, "recipes", new JsonArray())) {
             if (recipeElement instanceof JsonObject recipeObject) {
-                recipes.add(SlimefunRecipe.deserialize(type, recipeObject, energy));
+                recipes.add(SlimefunRecipe.deserialize(category, recipeObject, energy));
             }
         }
 
         toCopy.put(id, JsonUtils.getStringOrDefault(categoryObject, "copy", ""));
-        recipeCategories.put(id, new SlimefunRecipeCategory(id, type, speed, energy, new ArrayList<>(), recipes));
+        recipeCategories.put(id, category);
     }
 
     public static void finalizeCategories() {
@@ -40,7 +42,9 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
             final SlimefunRecipeCategory target = recipeCategories.get(copyMap.getKey());
             final SlimefunRecipeCategory parent = recipeCategories.get(copyMap.getValue());
             if (target != null && parent != null) {
-                target.recipes().addAll(parent.recipes());
+                for (SlimefunRecipe slimefunRecipe : parent.recipes()) {
+                    target.recipes().add(slimefunRecipe.copy(target));
+                }
             }
         }
         toCopy.clear();
@@ -72,7 +76,7 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
     }
 
     public static int weight(SlimefunRecipe recipe) {
-        final String type = recipe.type();
+        final String type = recipe.parent().type();
         if (type.contains("grid")) {
             return 10;
         } else if (type.equals("ancient_altar")) {
@@ -127,7 +131,7 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
         return ResourceLoader.getSlimefunItem(this.id).itemStack();
     }
 
-    public boolean hasSpeed() {
-        return this.speed != null && this.speed != 1;
+    public Integer speed() {
+        return this.speed == null ? 1 : this.speed;
     }
 }

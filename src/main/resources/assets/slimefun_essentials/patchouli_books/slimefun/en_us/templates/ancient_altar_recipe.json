@@ -6,7 +6,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 48
@@ -18,7 +18,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 16,
@@ -32,7 +32,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 80,
@@ -46,7 +46,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 0,
@@ -60,7 +60,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "u": 18,
@@ -75,7 +75,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 96,
@@ -89,7 +89,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 16,
@@ -103,7 +103,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 80,
@@ -117,7 +117,7 @@
     },
     {
       "type": "patchouli:image",
-      "image": "textures/gui/widgets.png",
+      "image": "slimefun_essentials:textures/gui/widgets.png",
       "width": 18,
       "height": 18,
       "x": 48,

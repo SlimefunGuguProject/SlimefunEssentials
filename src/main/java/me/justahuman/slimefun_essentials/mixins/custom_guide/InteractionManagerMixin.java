@@ -1,6 +1,6 @@
 package me.justahuman.slimefun_essentials.mixins.custom_guide;
 
-import me.justahuman.slimefun_essentials.compat.patchouli.CustomGuide;
+import me.justahuman.slimefun_essentials.compat.patchouli.PatchouliIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.CompatUtils;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -51,7 +51,7 @@ public class InteractionManagerMixin {
 
         final NbtCompound bukkitValues = nbt.getCompound("PublicBukkitValues");
         if (bukkitValues.contains(GUIDE_KEY)) {
-            CustomGuide.openGuide();
+            PatchouliIntegration.openGuide();
             cir.setReturnValue(ActionResult.SUCCESS);
         }
     }

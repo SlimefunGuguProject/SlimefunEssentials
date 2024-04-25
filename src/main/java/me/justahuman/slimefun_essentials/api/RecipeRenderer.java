@@ -1,65 +1,61 @@
 package me.justahuman.slimefun_essentials.api;
 
-import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 
-public abstract class RecipeRenderer {
-    private final Type type;
+public interface RecipeRenderer {
+    Type getType();
 
-    protected RecipeRenderer(Type type) {
-        this.type = type;
+    default int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+        return getType().getContentsWidth(slimefunRecipeCategory);
     }
 
-    public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
-        return this.type.getContentsWidth(slimefunRecipeCategory);
+    default int getContentsWidth(SlimefunRecipe slimefunRecipe) {
+        return getType().getContentsWidth(slimefunRecipe);
     }
 
-    public int getContentsWidth(SlimefunRecipe slimefunRecipe) {
-        return this.type.getContentsWidth(slimefunRecipe);
+    default int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
+        return getType().getContentsHeight(slimefunRecipeCategory);
     }
 
-    public int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
-        return this.type.getContentsHeight(slimefunRecipeCategory);
+    default int getContentsHeight(SlimefunRecipe slimefunRecipe) {
+        return getType().getContentsHeight(slimefunRecipe);
     }
 
-    public int getContentsHeight(SlimefunRecipe slimefunRecipe) {
-        return this.type.getContentsHeight(slimefunRecipe);
-    }
-
-    public int getDisplayWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
+    default int getDisplayWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
         return getContentsWidth(slimefunRecipeCategory) + TextureUtils.PADDING * 2;
     }
 
-    public int getDisplayWidth(SlimefunRecipe slimefunRecipe) {
+    default int getDisplayWidth(SlimefunRecipe slimefunRecipe) {
         return getContentsWidth(slimefunRecipe) + TextureUtils.PADDING * 2;
     }
 
-    public int getDisplayHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
+    default int getDisplayHeight(SlimefunRecipeCategory slimefunRecipeCategory) {
         return getContentsHeight(slimefunRecipeCategory) + TextureUtils.PADDING * 2;
     }
 
-    public int getDisplayHeight(SlimefunRecipe slimefunRecipe) {
+    default int getDisplayHeight(SlimefunRecipe slimefunRecipe) {
         return getContentsHeight(slimefunRecipe) + TextureUtils.PADDING * 2;
     }
 
-    protected int calculateXOffset(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+    default int calculateXOffset(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
         return (getDisplayWidth(slimefunRecipeCategory) - getContentsWidth(slimefunRecipe)) / 2;
     }
 
-    protected int calculateXOffset(SlimefunRecipe slimefunRecipe) {
+    default int calculateXOffset(SlimefunRecipe slimefunRecipe) {
         return (getDisplayWidth(slimefunRecipe) - getContentsWidth(slimefunRecipe)) / 2;
     }
 
-    protected int calculateYOffset(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
+    default int calculateYOffset(SlimefunRecipeCategory slimefunRecipeCategory, SlimefunRecipe slimefunRecipe) {
         return (getDisplayHeight(slimefunRecipeCategory) - getContentsHeight(slimefunRecipe)) / 2;
     }
 
-    protected int calculateYOffset(SlimefunRecipe slimefunRecipe, int height) {
+    default int calculateYOffset(SlimefunRecipe slimefunRecipe, int height) {
         return (getDisplayHeight(slimefunRecipe) - height) / 2;
     }
 
-    public abstract static class Type {
+    abstract class Type {
         public static final Type ANCIENT_ALTAR = new Type() {
             @Override
             public int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory) {
@@ -172,9 +168,26 @@ public abstract class RecipeRenderer {
             };
         }
 
+        public static Type from(String type) {
+            if (type.contains("grid")) {
+                return grid(TextureUtils.getSideSafe(type));
+            } else if (type.equals("ancient_altar")) {
+                return ANCIENT_ALTAR;
+            } else if (type.equals("reactor")) {
+                return REACTOR;
+            } else if (type.equals("smeltery")) {
+                return SMELTERY;
+            } else {
+                return PROCESS;
+            }
+        }
+
         public abstract int getContentsWidth(SlimefunRecipeCategory slimefunRecipeCategory);
+
         public abstract int getContentsWidth(SlimefunRecipe slimefunRecipe);
+
         public abstract int getContentsHeight(SlimefunRecipeCategory slimefunRecipeCategory);
+
         public abstract int getContentsHeight(SlimefunRecipe slimefunRecipe);
     }
 }
