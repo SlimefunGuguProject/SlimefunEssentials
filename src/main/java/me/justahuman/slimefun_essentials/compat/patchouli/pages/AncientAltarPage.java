@@ -5,6 +5,7 @@ import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.compat.patchouli.PatchouliWidget;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import vazkii.patchouli.client.book.BookContentsBuilder;
 import vazkii.patchouli.client.book.BookEntry;
@@ -19,10 +20,7 @@ public class AncientAltarPage extends SlimefunPage {
     }
 
     @Override
-    public void render(DrawContext graphics, int mouseX, int mouseY, float pTicks) {
-        super.render(graphics, mouseX, mouseY, pTicks);
-        final OffsetBuilder offsets = new OffsetBuilder(this, this.recipe);
-
+    public void render(DrawContext graphics, OffsetBuilder offsets, int mouseX, int mouseY, float pTicks) {
         TextureUtils.PEDESTAL.draw(graphics, offsets.getX(), offsets.slot(), DrawMode.BOOK);
         this.inputWidgets.get(3).render(this.parent, graphics, offsets.getX() + 1, offsets.slot() + 1, mouseX, mouseY, pTicks);
         offsets.x().addSlot(false);

@@ -9,24 +9,71 @@ import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public record SlimefunRecipeCategory(String id, String type, Integer speed, Integer energy, List<SlimefunRecipe> recipesFor, List<SlimefunRecipe> recipes) {
+public class SlimefunRecipeCategory {
     private static final Map<String, SlimefunRecipeCategory> recipeCategories = new LinkedHashMap<>();
     private static final Map<String, SlimefunRecipeCategory> emptyCategories = new HashMap<>();
     private static final Map<String, String> toCopy = new HashMap<>();
+
+    private final SlimefunItemStack itemStack;
+    private final String type;
+    private final Integer speed;
+    private final Integer energy;
+    private final List<SlimefunRecipe> childRecipes;
+    private SlimefunRecipe recipe = null;
+
+    public SlimefunRecipeCategory(SlimefunItemStack itemStack, String type, Integer speed, Integer energy, List<SlimefunRecipe> childRecipes) {
+        this.itemStack = itemStack;
+        this.type = type;
+        this.speed = speed;
+        this.energy = energy;
+        this.childRecipes = childRecipes;
+    }
+
+    public String id() {
+        return this.itemStack.id();
+    }
+
+    public SlimefunItemStack slimefunItem() {
+        return this.itemStack;
+    }
+
+    public ItemStack itemStack() {
+        return this.itemStack.itemStack();
+    }
+
+    public String type() {
+        return this.type;
+    }
+
+    public Integer speed() {
+        return this.speed == null ? 1 : this.speed;
+    }
+
+    public Integer energy() {
+        return this.energy;
+    }
+
+    public SlimefunRecipe recipe() {
+        return this.recipe;
+    }
+
+    public List<SlimefunRecipe> childRecipes() {
+        return this.childRecipes;
+    }
     
     public static void deserialize(String id, JsonObject categoryObject) {
+        final SlimefunItemStack itemStack = ResourceLoader.getSlimefunItem(id);
         final String type = JsonUtils.getStringOrDefault(categoryObject, "type", "process");
         final Integer speed = JsonUtils.getIntegerOrDefault(categoryObject, "speed", null);
         final Integer energy = JsonUtils.getIntegerOrDefault(categoryObject, "energy", null);
         final List<SlimefunRecipe> recipes = new ArrayList<>();
 
-        final SlimefunRecipeCategory category = new SlimefunRecipeCategory(id, type, speed, energy, new ArrayList<>(), recipes);
+        final SlimefunRecipeCategory category = new SlimefunRecipeCategory(itemStack, type, speed, energy, recipes);
         for (JsonElement recipeElement : JsonUtils.getArrayOrDefault(categoryObject, "recipes", new JsonArray())) {
             if (recipeElement instanceof JsonObject recipeObject) {
                 recipes.add(SlimefunRecipe.deserialize(category, recipeObject, energy));
@@ -42,40 +89,41 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
             final SlimefunRecipeCategory target = recipeCategories.get(copyMap.getKey());
             final SlimefunRecipeCategory parent = recipeCategories.get(copyMap.getValue());
             if (target != null && parent != null) {
-                for (SlimefunRecipe slimefunRecipe : parent.recipes()) {
-                    target.recipes().add(slimefunRecipe.copy(target));
+                for (SlimefunRecipe slimefunRecipe : parent.childRecipes()) {
+                    target.childRecipes().add(slimefunRecipe.copy(target));
                 }
             }
         }
         toCopy.clear();
 
         for (SlimefunRecipeCategory category : recipeCategories.values()) {
-            for (SlimefunRecipe recipe : category.recipes()) {
+            for (SlimefunRecipe recipe : category.childRecipes()) {
+                final int weight = weight(recipe);
                 for (SlimefunRecipeComponent output : recipe.outputs()) {
                     final List<String> multiId = output.getMultiId();
                     if (multiId != null) {
                         for (String id : multiId) {
                             final SlimefunRecipeCategory forCategory = fromId(id);
-                            if (forCategory != null && !forCategory.recipesFor().contains(recipe)) {
-                                forCategory.recipesFor().add(recipe);
+                            if (forCategory != null && weight >= weight(forCategory.recipe)) {
+                                forCategory.recipe = recipe;
                             }
                         }
                     } else {
                         final SlimefunRecipeCategory forCategory = fromId(output.getId());
-                        if (forCategory != null && !forCategory.recipesFor().contains(recipe)) {
-                            forCategory.recipesFor().add(recipe);
+                        if (forCategory != null && weight >= weight(forCategory.recipe)) {
+                            forCategory.recipe = recipe;
                         }
                     }
                 }
             }
         }
-
-        for (SlimefunRecipeCategory category : recipeCategories.values()) {
-            category.recipesFor().sort(Comparator.comparingInt(SlimefunRecipeCategory::weight));
-        }
     }
 
     public static int weight(SlimefunRecipe recipe) {
+        if (recipe == null) {
+            return 0;
+        }
+
         final String type = recipe.parent().type();
         if (type.contains("grid")) {
             return 10;
@@ -101,7 +149,8 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
         } else if (emptyCategories.containsKey(id)) {
             return emptyCategories.get(id);
         } else if (ResourceLoader.getSlimefunItem(id) != null) {
-            final SlimefunRecipeCategory category = new SlimefunRecipeCategory(id, "empty", null, null, new ArrayList<>(), new ArrayList<>());
+            final SlimefunItemStack itemStack = ResourceLoader.getSlimefunItem(id);
+            final SlimefunRecipeCategory category = new SlimefunRecipeCategory(itemStack, "empty", null, null, new ArrayList<>());
             emptyCategories.put(id, category);
         }
         return null;
@@ -125,13 +174,5 @@ public record SlimefunRecipeCategory(String id, String type, Integer speed, Inte
         final Map<String, SlimefunRecipeCategory> categories = new HashMap<>(recipeCategories);
         categories.putAll(emptyCategories);
         return categories;
-    }
-
-    public ItemStack getItemFromId() {
-        return ResourceLoader.getSlimefunItem(this.id).itemStack();
-    }
-
-    public Integer speed() {
-        return this.speed == null ? 1 : this.speed;
     }
 }

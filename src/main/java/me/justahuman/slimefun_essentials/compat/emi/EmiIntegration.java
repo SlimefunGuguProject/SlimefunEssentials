@@ -53,7 +53,7 @@ public class EmiIntegration implements EmiPlugin {
                 emiRegistry.addWorkstation(slimefunEmiCategory, workStation);
             }
             
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 emiRegistry.addRecipe(getEmiRecipe(slimefunRecipeCategory, slimefunRecipe, slimefunEmiCategory));
             }
         }

@@ -53,7 +53,7 @@ public class TextureUtils {
     public static int getGridWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory, int side) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 width = Math.max(width, getGridWidth(drawMode, slimefunRecipe, side));
             }
             return width;
@@ -61,7 +61,16 @@ public class TextureUtils {
     }
 
     public static int getGridWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe, int side) {
-        return (side * SLOT.size(drawMode) + TextureUtils.PADDING) + (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs()? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() : 0);
+        int width = 0;
+        width += side * SLOT.size(drawMode);
+        width += PADDING;
+
+        if (slimefunRecipe.hasEnergy()) {
+            width += ENERGY.width(drawMode);
+            width += PADDING;
+        }
+
+        return withOutputWidth(drawMode, slimefunRecipe, width);
     }
 
     public static int getGridHeight(DrawMode drawMode, int side) {
@@ -71,7 +80,7 @@ public class TextureUtils {
     public static int getProcessWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 width = Math.max(width, getProcessWidth(drawMode, slimefunRecipe));
             }
             return width;
@@ -79,12 +88,29 @@ public class TextureUtils {
     }
     
     public static int getProcessWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-        return (slimefunRecipe.hasLabels() ? slimefunRecipe.labels().stream().mapToInt(label -> label.size(drawMode)).sum() : 0) + (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + ((SLOT.size(drawMode) + PADDING) * (slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() : 1)) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() + PADDING * (slimefunRecipe.outputs().size() - 1) : 0);
+        int width = 0;
+        if (slimefunRecipe.hasLabels()) {
+            for (SlimefunLabel label : slimefunRecipe.labels()) {
+                width += label.width(drawMode);
+                width += PADDING;
+            }
+        }
+
+        if (slimefunRecipe.hasEnergy()) {
+            width += ENERGY.width(drawMode);
+            width += PADDING;
+        }
+
+        int slots = slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() : 1;
+        width += SLOT.size(drawMode) * slots;
+        width += PADDING * (slots - 1);
+
+        return withOutputWidth(drawMode, slimefunRecipe, width);
     }
 
     public static int getProcessHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_HEIGHT.computeIfAbsent(slimefunRecipeCategory, value -> {
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 if (slimefunRecipe.hasOutputs()) {
                     return OUTPUT.size(drawMode);
                 }
@@ -94,13 +120,13 @@ public class TextureUtils {
     }
 
     public static int getProcessHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-        return slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode);
+        return drawMode != DrawMode.BOOK && slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode);
     }
 
     public static int getReactorWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 width = Math.max(width, getReactorWidth(drawMode, slimefunRecipe));
             }
             return width;
@@ -108,13 +134,24 @@ public class TextureUtils {
     }
 
     public static int getReactorWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-        return (SLOT.size(drawMode) + ARROW.width(drawMode)) * 2 + PADDING * 4 + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : ENERGY.width(drawMode));
+        int width = 0;
+        width += SLOT.size(drawMode) * 2;
+        width += PADDING * 2;
+
+        if (drawMode != DrawMode.BOOK) {
+            width += ARROW.width(drawMode) * 2;
+            width += PADDING * 2;
+            width += slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : ENERGY.width(drawMode);
+        } else {
+            width += ENERGY.width(drawMode);
+        }
+        return width;
     }
 
     public static int getReactorHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_HEIGHT.computeIfAbsent(slimefunRecipeCategory, value -> {
             final int baseAmount = SLOT.size(drawMode) * 2;
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 if (slimefunRecipe.hasOutputs()) {
                     return baseAmount + OUTPUT.size(drawMode);
                 }
@@ -125,13 +162,13 @@ public class TextureUtils {
     }
 
     public static int getReactorHeight(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-        return SLOT.size(drawMode) * 2 + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode));
+        return SLOT.size(drawMode) * 2 + (drawMode != DrawMode.BOOK && slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) : SLOT.size(drawMode));
     }
 
     public static int getSmelteryWidth(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {
         return CACHED_WIDTH.computeIfAbsent(slimefunRecipeCategory, value -> {
             int width = 0;
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 width = Math.max(width, getSmelteryWidth(drawMode, slimefunRecipe));
             }
             return width;
@@ -139,6 +176,31 @@ public class TextureUtils {
     }
 
     public static int getSmelteryWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-        return (slimefunRecipe.hasEnergy() ? ENERGY.width(drawMode) + PADDING : 0) + (slimefunRecipe.hasInputs() ? SLOT.size(drawMode) * 2 + PADDING : SLOT.size(drawMode) + PADDING) + (ARROW.width(drawMode) + PADDING) + (slimefunRecipe.hasOutputs() ? OUTPUT.size(drawMode) * slimefunRecipe.outputs().size() + PADDING * (slimefunRecipe.outputs().size() - 1): 0);
+        int width = 0;
+        if (slimefunRecipe.hasEnergy()) {
+            width += ENERGY.width(drawMode);
+            width += PADDING;
+        }
+
+        int slots = slimefunRecipe.hasInputs() ? 2 : 1;
+        width += SLOT.size(drawMode) * slots;
+        width += PADDING;
+
+        return withOutputWidth(drawMode, slimefunRecipe, width);
+    }
+
+    private static int withOutputWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe, int width) {
+        if (drawMode != DrawMode.BOOK) {
+            width += PADDING;
+            width += ARROW.width(drawMode);
+            width += PADDING;
+
+            if (slimefunRecipe.hasOutputs()) {
+                int outputs = slimefunRecipe.outputs().size();
+                width += OUTPUT.size(drawMode) * outputs;
+                width += PADDING * (outputs - 1);
+            }
+        }
+        return width;
     }
 }

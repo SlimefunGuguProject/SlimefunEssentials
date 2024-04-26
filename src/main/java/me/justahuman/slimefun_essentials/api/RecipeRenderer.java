@@ -66,7 +66,7 @@ public interface RecipeRenderer {
 
             @Override
             public int getContentsWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe) {
-                return 140;
+                return drawMode == DrawMode.BOOK ? 90 : 140;
             }
 
             @Override

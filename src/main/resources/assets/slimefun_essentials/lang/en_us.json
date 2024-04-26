@@ -37,6 +37,9 @@
   "slimefun_essentials.recipes.energy.generate": "%sJ Generated",
   "slimefun_essentials.recipes.label.day": "This block must be exposed to the Sun to process this Recipe!",
   "slimefun_essentials.recipes.label.night": "This block must be exposed to the Moon to process this Recipe!",
+  "slimefun_essentials.recipes.detail.time": "  - Takes %s second(s)",
+  "slimefun_essentials.recipes.detail.energy.use": "  - Uses %s joule(s)",
+  "slimefun_essentials.recipes.detail.energy.generate": "  - Generates %s joule(s)",
 
   "slimefun_essentials.guide.name": "Slimefun Guide",
   "slimefun_essentials.guide.landing_text": "Welcome, to the world of Slimefun"

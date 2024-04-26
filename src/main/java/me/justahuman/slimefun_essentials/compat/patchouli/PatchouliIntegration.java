@@ -19,8 +19,6 @@ import vazkii.patchouli.api.PatchouliAPI;
 import vazkii.patchouli.client.book.BookCategory;
 import vazkii.patchouli.client.book.ClientBookRegistry;
 
-import java.util.List;
-
 public class PatchouliIntegration {
     public static final Identifier BOOK_IDENTIFIER = Utils.newIdentifier("slimefun");
     public static final PatchouliIdInterpreter INTERPRETER = new PatchouliIdInterpreter();
@@ -57,29 +55,26 @@ public class PatchouliIntegration {
 
     public static JsonObject getRecipeEntry(BookCategory category, SlimefunRecipeCategory recipeCategory, int sortnum) {
         final JsonObject entry = new JsonObject();
-        final ItemStack itemStack = recipeCategory.getItemFromId();
+        final ItemStack itemStack = recipeCategory.itemStack();
         entry.addProperty("category", category.getId().toString());
         entry.addProperty("name", itemStack.getName().getString());
         entry.addProperty("icon", JsonUtils.serializeItem(itemStack));
         entry.addProperty("sortnum", sortnum);
 
         final JsonArray pages = new JsonArray();
-        List<SlimefunRecipe> recipesFor = recipeCategory.recipesFor();
-        for (int i = 0; i < recipesFor.size(); i++) {
-            SlimefunRecipe recipe = recipesFor.get(i);
-            pages.add(getPage(recipeCategory, recipe, i));
+        if (recipeCategory.recipe() != null) {
+            pages.add(getPage(recipeCategory, recipeCategory.recipe()));
         }
         entry.add("pages", pages);
 
         return entry;
     }
 
-    public static JsonObject getPage(SlimefunRecipeCategory category, SlimefunRecipe recipe, int recipeIndex) {
+    public static JsonObject getPage(SlimefunRecipeCategory category, SlimefunRecipe recipe) {
         final String type = recipe.parent().type();
         final JsonObject page = new JsonObject();
 
         page.addProperty("id", category.id());
-        page.addProperty("recipe_index", recipeIndex);
 
         if (type.contains("grid")) {
             page.addProperty("type", "slimefun_essentials:grid");

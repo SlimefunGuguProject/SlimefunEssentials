@@ -24,7 +24,6 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.IRecipeTransferRegistration;
 import mezz.jei.api.registration.IRuntimeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
-import mezz.jei.api.runtime.IJeiRuntime;
 import mezz.jei.library.load.registration.SubtypeRegistration;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.Generic3x3ContainerScreenHandler;
@@ -89,7 +88,7 @@ public class JeiIntegration implements IModPlugin {
         }
 
         for (SlimefunRecipeCategory recipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
-            registration.addRecipes(RecipeType.create(Utils.ID, recipeCategory.id().toLowerCase(), SlimefunRecipe.class), recipeCategory.recipes());
+            registration.addRecipes(RecipeType.create(Utils.ID, recipeCategory.id().toLowerCase(), SlimefunRecipe.class), recipeCategory.childRecipes());
         }
     }
 

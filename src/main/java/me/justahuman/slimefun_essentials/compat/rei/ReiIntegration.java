@@ -105,7 +105,7 @@ public class ReiIntegration implements REIClientPlugin {
 
         CATEGORIES.clear();
         for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
-            final ItemStack icon = slimefunRecipeCategory.getItemFromId();
+            final ItemStack icon = slimefunRecipeCategory.itemStack();
             final DisplayCategory<?> displayCategory = new SlimefunReiCategory<>(slimefunRecipeCategory, icon);
             categoryRegistry.add(displayCategory);
             categoryRegistry.addWorkstations(displayCategory.getCategoryIdentifier(), EntryStacks.of(icon));
@@ -113,7 +113,7 @@ public class ReiIntegration implements REIClientPlugin {
         }
 
         for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
-            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.recipes()) {
+            for (SlimefunRecipe slimefunRecipe : slimefunRecipeCategory.childRecipes()) {
                 displayRegistry.add(getDisplay(slimefunRecipeCategory, slimefunRecipe));
             }
         }

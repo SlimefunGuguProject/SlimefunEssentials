@@ -19,10 +19,7 @@ public class ReactorPage extends SlimefunPage {
     }
 
     @Override
-    public void render(DrawContext graphics, int mouseX, int mouseY, float pTicks) {
-        super.render(graphics, mouseX, mouseY, pTicks);
-        final OffsetBuilder offsets = new OffsetBuilder(this, this.recipe);
-
+    public void render(DrawContext graphics, OffsetBuilder offsets, int mouseX, int mouseY, float pTicks) {
         TextureUtils.SLOT.draw(graphics, offsets.getX(), offsets.getY(), DrawMode.BOOK);
         this.inputWidgets.get(0).render(this.parent, graphics, offsets.getX() + 1, offsets.getY() + 1, mouseX, mouseY, pTicks);
         offsets.y().addSlot(false);
