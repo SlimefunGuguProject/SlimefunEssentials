@@ -2,43 +2,42 @@ package me.justahuman.slimefun_essentials.client;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import lombok.Getter;
+import me.justahuman.slimefun_essentials.utils.JsonUtils;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 public class SlimefunRecipeComponent {
+    private final List<ItemStack> complexStacks = new ArrayList<>();
     private final String id;
     private final List<String> multiId;
     
-    public SlimefunRecipeComponent(String id) {
-        this.id = id;
-        this.multiId = null;
+    public SlimefunRecipeComponent(JsonArray complex, String id) {
+        this(complex, id, null);
     }
     
-    public SlimefunRecipeComponent(List<String> multiId) {
-        this.id = null;
-        this.multiId = multiId;
+    public SlimefunRecipeComponent(JsonArray complex, List<String> multiId) {
+        this(complex, null, multiId);
     }
 
-    public JsonElement serialize() {
-        if (this.id != null) {
-            return new JsonPrimitive(this.id);
-        } else if (this.multiId != null) {
-            final JsonArray components = new JsonArray();
-            for (String id : this.multiId) {
-                components.add(id);
+    private SlimefunRecipeComponent(JsonArray complex, String id, List<String> multiId) {
+        this.id = id;
+        this.multiId = multiId;
+        for (JsonElement element : complex) {
+            if (element instanceof JsonObject object) {
+                this.complexStacks.add(JsonUtils.deserializeItem(object));
             }
-            return components;
         }
-        return null;
     }
     
-    public static SlimefunRecipeComponent deserialize(JsonElement componentElement) {
+    public static SlimefunRecipeComponent deserialize(JsonArray complex, JsonElement componentElement) {
         if (componentElement instanceof JsonPrimitive componentPrimitive && componentPrimitive.isString()) {
-            return new SlimefunRecipeComponent(componentPrimitive.getAsString());
+            return new SlimefunRecipeComponent(complex, componentPrimitive.getAsString());
         } else if (componentElement instanceof JsonArray componentArray) {
             final List<String> multiId = new ArrayList<>();
             for (JsonElement idElement : componentArray) {
@@ -46,7 +45,7 @@ public class SlimefunRecipeComponent {
                     multiId.add(idPrimitive.getAsString());
                 }
             }
-            return new SlimefunRecipeComponent(multiId);
+            return new SlimefunRecipeComponent(complex, multiId);
         }
         return null;
     }

@@ -24,21 +24,6 @@ public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
         return slimefunRecipe.outputs() != null && !slimefunRecipe.outputs().isEmpty() ? slimefunRecipe.outputs().stream().map(this::emiStackFromComponent).toList() : new ArrayList<>();
     }
 
-    /**
-     * Returns an {@link EmiStack} based off of the provided id
-     * @param id The {@link String} id to retrieve the {@link EmiStack} from
-     * @return {@link EmiStack} represented by the id or {@link EmiStack#EMPTY} if the id is invalid
-     */
-    public EmiStack emiStackFromId(String id) {
-        final EmiIngredient emiIngredient = interpretId(id, EmiStack.EMPTY);
-        if (emiIngredient instanceof EmiStack emiStack) {
-            return emiStack;
-        }
-
-        Utils.warn("Invalid EmiStack Id: " + id);
-        return EmiStack.EMPTY;
-    }
-
     public EmiStack emiStackFromComponent(SlimefunRecipeComponent component) {
         final EmiIngredient emiIngredient = emiIngredientFromComponent(component);
         if (emiIngredient instanceof EmiStack emiStack) {
@@ -54,31 +39,31 @@ public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
         if (multiId != null) {
             final List<EmiIngredient> multiStack = new ArrayList<>();
             for (String id : multiId) {
-                multiStack.add(interpretId(id, EmiStack.EMPTY));
+                multiStack.add(interpretId(component, id, EmiStack.EMPTY));
             }
             return EmiIngredient.of(multiStack, multiStack.isEmpty() ? 1 : multiStack.get(0).getAmount());
         }
 
-        return interpretId(component.getId(), EmiStack.EMPTY);
+        return interpretId(component, component.getId(), EmiStack.EMPTY);
     }
 
     @Override
-    public EmiIngredient fromTag(TagKey<Item> tagKey, int amount, EmiIngredient defaultValue) {
-        return EmiIngredient.of(tagKey, amount);
+    public EmiIngredient fromTag(int chance, TagKey<Item> tagKey, int amount, EmiIngredient defaultValue) {
+        return EmiIngredient.of(tagKey, amount).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromItemStack(ItemStack itemStack, int amount, EmiIngredient defaultValue) {
-        return EmiStack.of(itemStack, amount);
+    public EmiIngredient fromItemStack(int chance, ItemStack itemStack, int amount, EmiIngredient defaultValue) {
+        return EmiStack.of(itemStack, amount).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromFluid(Fluid fluid, int amount, EmiIngredient defaultValue) {
-        return EmiStack.of(fluid);
+    public EmiIngredient fromFluid(int chance, Fluid fluid, int amount, EmiIngredient defaultValue) {
+        return EmiStack.of(fluid).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromEntityType(EntityType<?> entityType, int amount, EmiIngredient defaultValue) {
-        return new EntityEmiStack(entityType, amount);
+    public EmiIngredient fromEntityType(int chance, EntityType<?> entityType, int amount, EmiIngredient defaultValue) {
+        return new EntityEmiStack(entityType, amount).setChance(chance / 100F);
     }
 }

@@ -72,7 +72,7 @@ public class JsonUtils {
     
     public static ItemStack deserializeItem(JsonObject itemObject) {
         if (itemObject == null || itemObject.isEmpty() || !itemObject.has("item")) {
-            return null;
+            return ItemStack.EMPTY;
         }
 
         final ItemStack itemStack = new ItemStack(Registries.ITEM.get(new Identifier(itemObject.get("item").getAsString())));

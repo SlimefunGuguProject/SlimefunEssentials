@@ -35,32 +35,32 @@ public class ReiRecipeInterpreter implements IdInterpreter<EntryIngredient> {
         if (component.getMultiId() != null) {
             EntryIngredient.Builder builder = EntryIngredient.builder();
             for (String id : component.getMultiId()) {
-                builder.addAll(interpretId(id, EntryIngredient.empty()));
+                builder.addAll(interpretId(component, id, EntryIngredient.empty()));
             }
             return builder.build();
         } else {
-            return interpretId(component.getId(), EntryIngredient.empty());
+            return interpretId(component, component.getId(), EntryIngredient.empty());
         }
     }
 
     @Override
-    public EntryIngredient fromTag(TagKey<Item> tagKey, int amount, EntryIngredient defaultValue) {
+    public EntryIngredient fromTag(int chance, TagKey<Item> tagKey, int amount, EntryIngredient defaultValue) {
         return EntryIngredients.ofItemTag(tagKey);
     }
 
     @Override
-    public EntryIngredient fromItemStack(ItemStack itemStack, int amount, EntryIngredient defaultValue) {
+    public EntryIngredient fromItemStack(int chance, ItemStack itemStack, int amount, EntryIngredient defaultValue) {
         itemStack.setCount(amount);
         return EntryIngredients.of(itemStack);
     }
 
     @Override
-    public EntryIngredient fromFluid(Fluid fluid, int amount, EntryIngredient defaultValue) {
+    public EntryIngredient fromFluid(int chance, Fluid fluid, int amount, EntryIngredient defaultValue) {
         return EntryIngredients.of(fluid, amount);
     }
 
     @Override
-    public EntryIngredient fromEntityType(EntityType<?> entityType, int amount, EntryIngredient defaultValue) {
+    public EntryIngredient fromEntityType(int chance, EntityType<?> entityType, int amount, EntryIngredient defaultValue) {
         // TODO: add entity support
         return defaultValue;
     }

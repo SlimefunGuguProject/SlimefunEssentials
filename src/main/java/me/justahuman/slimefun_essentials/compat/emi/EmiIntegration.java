@@ -42,7 +42,7 @@ public class EmiIntegration implements EmiPlugin {
         for (SlimefunRecipeCategory slimefunRecipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
             final String workstationId = slimefunRecipeCategory.id();
             final Identifier categoryIdentifier = Utils.newIdentifier(workstationId);
-            final EmiStack workStation = RECIPE_INTERPRETER.emiStackFromId(workstationId + ":1");
+            final EmiStack workStation = EmiStack.of(slimefunRecipeCategory.itemStack());
             final SlimefunEmiCategory slimefunEmiCategory;
             if (slimefunCategories.containsKey(workstationId)) {
                 slimefunEmiCategory = slimefunCategories.get(workstationId);

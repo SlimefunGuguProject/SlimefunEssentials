@@ -23,7 +23,7 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
 
     public void addIngredients(IRecipeSlotBuilder slotBuilder, SlimefunRecipeComponent component) {
         for (String id : component.getMultiId() != null ? component.getMultiId() : List.of(component.getId())) {
-            addIngredientObject(slotBuilder, interpretId(id, ItemStack.EMPTY));
+            addIngredientObject(slotBuilder, interpretId(component, id, ItemStack.EMPTY));
         }
     }
 
@@ -42,28 +42,28 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromTag(TagKey<Item> tagKey, int amount, Object defaultValue) {
+    public Object fromTag(int chance, TagKey<Item> tagKey, int amount, Object defaultValue) {
         Optional<RegistryEntryList.Named<Item>> optional = Registries.ITEM.getEntryList(tagKey);
         if (optional.isEmpty()) {
             return defaultValue;
         }
 
-        return optional.get().stream().map(ItemStack::new).toList();
+        return optional.get().stream().map(item -> new ItemStack(item, amount)).toList();
     }
 
     @Override
-    public Object fromItemStack(ItemStack itemStack, int amount, Object defaultValue) {
+    public Object fromItemStack(int chance, ItemStack itemStack, int amount, Object defaultValue) {
         itemStack.setCount(amount);
         return itemStack;
     }
 
     @Override
-    public Object fromFluid(Fluid fluid, int amount, Object defaultValue) {
+    public Object fromFluid(int chance, Fluid fluid, int amount, Object defaultValue) {
         return new JeiFluidIngredient(fluid, amount);
     }
 
     @Override
-    public Object fromEntityType(EntityType<?> entityType, int amount, Object defaultValue) {
+    public Object fromEntityType(int chance, EntityType<?> entityType, int amount, Object defaultValue) {
         // TODO: add support for entities
         return defaultValue;
     }

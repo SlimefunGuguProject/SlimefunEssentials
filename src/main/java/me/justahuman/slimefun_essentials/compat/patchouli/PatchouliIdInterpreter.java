@@ -17,31 +17,31 @@ import java.util.Arrays;
 public class PatchouliIdInterpreter implements IdInterpreter<PatchouliWidget> {
     public PatchouliWidget fromRecipeComponent(SlimefunRecipeComponent component) {
         if (component.getId() != null) {
-            return interpretId(component.getId(), PatchouliWidget.EMPTY);
+            return interpretId(component, component.getId(), PatchouliWidget.EMPTY);
         } else if (component.getMultiId() != null) {
-            return PatchouliWidget.wrap(component.getMultiId().stream().map(id -> interpretId(id, PatchouliWidget.EMPTY)).toList());
+            return PatchouliWidget.wrap(component.getMultiId().stream().map(id -> interpretId(component, id, PatchouliWidget.EMPTY)).toList());
         }
         return PatchouliWidget.EMPTY;
     }
 
     @Override
-    public PatchouliWidget fromTag(TagKey<Item> tagKey, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromTag(int chance, TagKey<Item> tagKey, int amount, PatchouliWidget defaultValue) {
         return PatchouliWidget.wrap(Arrays.stream(Ingredient.fromTag(tagKey)
-                .getMatchingStacks()).map(itemStack -> fromItemStack(itemStack, amount, defaultValue)).toList());
+                .getMatchingStacks()).map(itemStack -> fromItemStack(chance, itemStack, amount, defaultValue)).toList());
     }
 
     @Override
-    public PatchouliWidget fromItemStack(ItemStack itemStack, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromItemStack(int chance, ItemStack itemStack, int amount, PatchouliWidget defaultValue) {
         return PatchouliWidget.wrap(itemStack.copyWithCount(amount));
     }
 
     @Override
-    public PatchouliWidget fromFluid(Fluid fluid, int amount, PatchouliWidget defaultValue) {
-        return fromItemStack(fluid.getBucketItem().getDefaultStack(), amount, defaultValue);
+    public PatchouliWidget fromFluid(int chance, Fluid fluid, int amount, PatchouliWidget defaultValue) {
+        return fromItemStack(chance, fluid.getBucketItem().getDefaultStack(), amount, defaultValue);
     }
 
     @Override
-    public PatchouliWidget fromEntityType(EntityType<?> entityType, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromEntityType(int chance, EntityType<?> entityType, int amount, PatchouliWidget defaultValue) {
         final ClientWorld world = MinecraftClient.getInstance().world;
         if (world == null) {
             return defaultValue;
