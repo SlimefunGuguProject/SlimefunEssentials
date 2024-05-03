@@ -67,20 +67,20 @@ public class SlimefunRecipeCategory {
     public static void deserialize(String id, JsonObject categoryObject) {
         final ItemStack itemStack = ResourceLoader.getSlimefunItem(id) != null
                 ? ResourceLoader.getSlimefunItem(id).itemStack()
-                : JsonUtils.deserializeItem(JsonUtils.getObjectOrDefault(categoryObject, "item", new JsonObject()));
-        final String type = JsonUtils.getStringOrDefault(categoryObject, "type", "process");
-        final Integer speed = JsonUtils.getIntegerOrDefault(categoryObject, "speed", null);
-        final Integer energy = JsonUtils.getIntegerOrDefault(categoryObject, "energy", null);
+                : JsonUtils.deserializeItem(JsonUtils.getObject(categoryObject, "item", new JsonObject()));
+        final String type = JsonUtils.getString(categoryObject, "type", "process");
+        final Integer speed = JsonUtils.getInt(categoryObject, "speed", null);
+        final Integer energy = JsonUtils.getInt(categoryObject, "energy", null);
         final List<SlimefunRecipe> recipes = new ArrayList<>();
 
         final SlimefunRecipeCategory category = new SlimefunRecipeCategory(id, itemStack, type, speed, energy, recipes);
-        for (JsonElement recipeElement : JsonUtils.getArrayOrDefault(categoryObject, "recipes", new JsonArray())) {
+        for (JsonElement recipeElement : JsonUtils.getArray(categoryObject, "recipes", new JsonArray())) {
             if (recipeElement instanceof JsonObject recipeObject) {
                 recipes.add(SlimefunRecipe.deserialize(category, recipeObject, energy));
             }
         }
 
-        toCopy.put(id, JsonUtils.getStringOrDefault(categoryObject, "copy", ""));
+        toCopy.put(id, JsonUtils.getString(categoryObject, "copy", ""));
         recipeCategories.put(id, category);
     }
 

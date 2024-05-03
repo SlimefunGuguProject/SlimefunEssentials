@@ -16,17 +16,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
-    public List<EmiIngredient> getInputIngredients(SlimefunRecipe slimefunRecipe) {
-        return slimefunRecipe.inputs() != null && !slimefunRecipe.inputs().isEmpty() ? slimefunRecipe.inputs().stream().map(this::emiIngredientFromComponent).toList() : new ArrayList<>();
+    public List<EmiIngredient> getInputIngredients(SlimefunRecipe recipe) {
+        return recipe.inputs() != null && !recipe.inputs().isEmpty()
+                ? recipe.inputs().stream().map(this::emiIngredientFromComponent).toList()
+                : new ArrayList<>();
     }
 
-    public List<EmiStack> getOutputStacks(SlimefunRecipe slimefunRecipe) {
-        return slimefunRecipe.outputs() != null && !slimefunRecipe.outputs().isEmpty() ? slimefunRecipe.outputs().stream().map(this::emiStackFromComponent).toList() : new ArrayList<>();
+    public List<EmiStack> getOutputStacks(SlimefunRecipe recipe) {
+        return recipe.outputs() != null && !recipe.outputs().isEmpty()
+                ? recipe.outputs().stream().map(this::emiStackFromComponent).toList()
+                : new ArrayList<>();
     }
 
     public EmiStack emiStackFromComponent(SlimefunRecipeComponent component) {
-        final EmiIngredient emiIngredient = emiIngredientFromComponent(component);
-        if (emiIngredient instanceof EmiStack emiStack) {
+        final EmiIngredient ingredient = emiIngredientFromComponent(component);
+        if (ingredient instanceof EmiStack emiStack) {
             return emiStack;
         }
 
@@ -48,22 +52,22 @@ public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
     }
 
     @Override
-    public EmiIngredient fromTag(int chance, TagKey<Item> tagKey, int amount, EmiIngredient defaultValue) {
+    public EmiIngredient fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, EmiIngredient def) {
         return EmiIngredient.of(tagKey, amount).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromItemStack(int chance, ItemStack itemStack, int amount, EmiIngredient defaultValue) {
+    public EmiIngredient fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, EmiIngredient def) {
         return EmiStack.of(itemStack, amount).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromFluid(int chance, Fluid fluid, int amount, EmiIngredient defaultValue) {
+    public EmiIngredient fromFluid(int chance, boolean consumed, Fluid fluid, int amount, EmiIngredient def) {
         return EmiStack.of(fluid).setChance(chance / 100F);
     }
 
     @Override
-    public EmiIngredient fromEntityType(int chance, EntityType<?> entityType, int amount, EmiIngredient defaultValue) {
+    public EmiIngredient fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, EmiIngredient def) {
         return new EntityEmiStack(entityType, amount).setChance(chance / 100F);
     }
 }

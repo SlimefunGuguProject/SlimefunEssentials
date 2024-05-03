@@ -51,29 +51,29 @@ public class ModConfig {
             Utils.warn(e.getMessage());
         }
 
-        loadConfigOption(() -> blockFeatures = JsonUtils.getBooleanOrDefault(root, "block_features", true, true));
-        loadConfigOption(() -> customGuide = JsonUtils.getBooleanOrDefault(root, "custom_guide", true, true));
-        loadConfigOption(() -> recipeFeatures = JsonUtils.getBooleanOrDefault(root, "recipe_features", true, true));
+        loadConfigOption(() -> blockFeatures = JsonUtils.getBool(root, "block_features", true, true));
+        loadConfigOption(() -> customGuide = JsonUtils.getBool(root, "custom_guide", true, true));
+        loadConfigOption(() -> recipeFeatures = JsonUtils.getBool(root, "recipe_features", true, true));
         loadConfigOption(() -> {
-            for (JsonElement addon : JsonUtils.getArrayOrDefault(root, "addons", defaultAddons, true)) {
+            for (JsonElement addon : JsonUtils.getArray(root, "addons", defaultAddons, true)) {
                 if (addon instanceof JsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
                     addons.add(jsonPrimitive.getAsString());
                 }
             }
         });
 
-        loadConfigOption(() -> requireServerConnection = JsonUtils.getBooleanOrDefault(root, "require_server_connection", true, true));
-        loadConfigOption(() -> enableServerWhitelist = JsonUtils.getBooleanOrDefault(root, "enable_server_whitelist", false, true));
+        loadConfigOption(() -> requireServerConnection = JsonUtils.getBool(root, "require_server_connection", true, true));
+        loadConfigOption(() -> enableServerWhitelist = JsonUtils.getBool(root, "enable_server_whitelist", false, true));
         loadConfigOption(() -> {
-            for (JsonElement server : JsonUtils.getArrayOrDefault(root, "enabled_servers", new JsonArray(), true)) {
+            for (JsonElement server : JsonUtils.getArray(root, "enabled_servers", new JsonArray(), true)) {
                 if (server instanceof JsonPrimitive jsonPrimitive && jsonPrimitive.isString()) {
                     serverWhitelist.add(jsonPrimitive.getAsString());
                 }
             }
         });
 
-        loadConfigOption(() -> autoToggleAddons = JsonUtils.getBooleanOrDefault(root, "auto_toggle_addons", true, true));
-        loadConfigOption(() -> autoManageItems = JsonUtils.getBooleanOrDefault(root, "auto_manage_items", true, true));
+        loadConfigOption(() -> autoToggleAddons = JsonUtils.getBool(root, "auto_toggle_addons", true, true));
+        loadConfigOption(() -> autoManageItems = JsonUtils.getBool(root, "auto_manage_items", true, true));
     }
 
     private static void loadConfigOption(Runnable runnable) {

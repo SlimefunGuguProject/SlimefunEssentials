@@ -42,29 +42,29 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromTag(int chance, TagKey<Item> tagKey, int amount, Object defaultValue) {
+    public Object fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, Object def) {
         Optional<RegistryEntryList.Named<Item>> optional = Registries.ITEM.getEntryList(tagKey);
         if (optional.isEmpty()) {
-            return defaultValue;
+            return def;
         }
 
         return optional.get().stream().map(item -> new ItemStack(item, amount)).toList();
     }
 
     @Override
-    public Object fromItemStack(int chance, ItemStack itemStack, int amount, Object defaultValue) {
+    public Object fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, Object def) {
         itemStack.setCount(amount);
         return itemStack;
     }
 
     @Override
-    public Object fromFluid(int chance, Fluid fluid, int amount, Object defaultValue) {
+    public Object fromFluid(int chance, boolean consumed, Fluid fluid, int amount, Object def) {
         return new JeiFluidIngredient(fluid, amount);
     }
 
     @Override
-    public Object fromEntityType(int chance, EntityType<?> entityType, int amount, Object defaultValue) {
+    public Object fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, Object def) {
         // TODO: add support for entities
-        return defaultValue;
+        return def;
     }
 }

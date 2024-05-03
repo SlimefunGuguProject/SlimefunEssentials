@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.api;
 
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.entity.EntityType;
@@ -14,14 +13,14 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 public interface IdInterpreter<T> {
-    default T interpretId(@NotNull SlimefunRecipeComponent component, @NotNull String id, @NotNull T defaultValue) {
+    default T interpretId(@NotNull SlimefunRecipeComponent component, @NotNull String id, @NotNull T def) {
         if (id.isEmpty() || id.isBlank()) {
-            return defaultValue;
+            return def;
         }
         
         if (!id.contains(":")) {
             Utils.warn("Invalid Ingredient Id:" + id);
-            return defaultValue;
+            return def;
         }
 
         int chance = 100;
@@ -31,6 +30,20 @@ public interface IdInterpreter<T> {
                 id = id.substring(0, id.indexOf("%"));
             } catch (Exception ignored) {}
         }
+
+        int damage = 0;
+        if (id.contains("^")) {
+            try {
+                damage = Integer.parseInt(id.substring(id.indexOf("^") + 1));
+                id = id.substring(0, id.indexOf("^"));
+            } catch (Exception ignored) {}
+        }
+
+        boolean consumed = true;
+        if (id.endsWith("*")) {
+            consumed = false;
+            id = id.substring(id.lastIndexOf('*'));
+        }
         
         final String type = id.substring(0, id.indexOf(":"));
         final String count = id.substring(id.indexOf(":") + 1);
@@ -38,58 +51,68 @@ public interface IdInterpreter<T> {
         try {
             amount = Integer.parseInt(count);
         } catch (Exception ignored) {}
-        
-        if (ResourceLoader.getSlimefunItems().containsKey(type)) {
-            return fromSlimefunItemStack(chance, ResourceLoader.getSlimefunItems().get(type).copy(), amount, defaultValue);
-        }
 
+        // Slimefun Item
+        if (ResourceLoader.getSlimefunItems().containsKey(type)) {
+            final ItemStack itemStack = ResourceLoader.getSlimefunItems().get(type).copy().itemStack();
+            if (damage > 0) {
+                itemStack.setDamage(damage);
+            }
+            return fromItemStack(chance, consumed, itemStack, amount, def);
+        }
         // Complex Item
-        if (type.startsWith("?")) {
+        else if (type.startsWith("?")) {
             int index = 0;
             try {
                 index = Integer.parseInt(type.substring(1));
             } catch (Exception ignored) {}
-            return fromItemStack(chance, component.getComplexStacks().get(index), amount, defaultValue);
+            return fromItemStack(chance, consumed, component.getComplexStacks().get(index), amount, def);
         }
         // Entity
         else if (type.startsWith("@")) {
             final Identifier identifier = new Identifier("minecraft:" + type.substring(1));
             if (! Registries.ENTITY_TYPE.containsId(identifier)) {
                 Utils.warn("Invalid Ingredient Entity Id: " + id);
-                return defaultValue;
+                return def;
             }
-            return fromEntityType(chance, Registries.ENTITY_TYPE.get(identifier), amount, defaultValue);
+            return fromEntityType(chance, consumed, Registries.ENTITY_TYPE.get(identifier), amount, def);
         }
         // Fluid
         else if (type.startsWith("~")) {
             final Identifier identifier = new Identifier("minecraft:" + type.substring(1));
             if (!Registries.FLUID.containsId(identifier)) {
                 Utils.warn("Invalid Ingredient Fluid Id: " + id);
-                return defaultValue;
+                return def;
             }
-            return fromFluid(chance, Registries.FLUID.get(identifier), amount, defaultValue);
+            return fromFluid(chance, consumed, Registries.FLUID.get(identifier), amount, def);
         }
         // Tag
         else if (type.startsWith("#")) {
             final Identifier identifier = new Identifier("minecraft:" + type.substring(1));
-            return fromTag(chance, TagKey.of(Registries.ITEM.getKey(), identifier), amount, defaultValue);
+            return fromTag(chance, consumed, TagKey.of(Registries.ITEM.getKey(), identifier), amount, def);
+        }
+        // Experience
+        else if (type.equals("$")) {
+            return fromEntityType(chance, consumed, EntityType.EXPERIENCE_ORB, amount, def);
         }
         // Item (Or Mistake)
         else {
             final Identifier identifier = new Identifier("minecraft:" + type.toLowerCase());
             if (!Registries.ITEM.containsId(identifier)) {
                 Utils.warn("Invalid Ingredient ItemStack Id: " + id);
-                return defaultValue;
+                return def;
             }
-            return fromItemStack(chance, Registries.ITEM.get(identifier).getDefaultStack().copy(), amount, defaultValue);
+
+            final ItemStack itemStack = Registries.ITEM.get(identifier).getDefaultStack().copy();
+            if (damage > 0) {
+                itemStack.setDamage(damage);
+            }
+            return fromItemStack(chance, consumed, itemStack, amount, def);
         }
     }
     
-    T fromTag(int chance, TagKey<Item> tagKey, int amount, T defaultValue);
-    T fromItemStack(int chance, ItemStack itemStack, int amount, T defaultValue);
-    default T fromSlimefunItemStack(int chance, SlimefunItemStack slimefunItemStack, int amount, T defaultValue) {
-        return fromItemStack(chance, slimefunItemStack.itemStack(), amount, defaultValue);
-    }
-    T fromFluid(int chance, Fluid fluid, int amount, T defaultValue);
-    T fromEntityType(int chance, EntityType<?> entityType, int amount, T defaultValue);
+    T fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, T def);
+    T fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, T def);
+    T fromFluid(int chance, boolean consumed, Fluid fluid, int amount, T def);
+    T fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, T def);
 }

@@ -13,6 +13,7 @@ import java.util.List;
 
 @Getter
 public class SlimefunRecipeComponent {
+    public static final SlimefunRecipeComponent EMPTY = new SlimefunRecipeComponent(new JsonArray(), "");
     private final List<ItemStack> complexStacks = new ArrayList<>();
     private final String id;
     private final List<String> multiId;

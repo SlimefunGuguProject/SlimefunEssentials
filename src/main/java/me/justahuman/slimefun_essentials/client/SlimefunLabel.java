@@ -94,10 +94,10 @@ public class SlimefunLabel {
         for (String mode : labelObject.keySet()) {
             if (labelObject.get(mode) instanceof JsonObject settings) {
                 builder.mode(DrawMode.valueOf(mode),
-                        JsonUtils.getIntegerOrDefault(settings, "u", 0),
-                        JsonUtils.getIntegerOrDefault(settings, "v", 0),
-                        JsonUtils.getIntegerOrDefault(settings, "width", 13),
-                        JsonUtils.getIntegerOrDefault(settings, "height", 13));
+                        JsonUtils.getInt(settings, "u", 0),
+                        JsonUtils.getInt(settings, "v", 0),
+                        JsonUtils.getInt(settings, "width", 13),
+                        JsonUtils.getInt(settings, "height", 13));
             }
         }
         slimefunLabels.put(id, builder.build());

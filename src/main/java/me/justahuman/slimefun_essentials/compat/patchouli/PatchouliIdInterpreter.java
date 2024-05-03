@@ -25,32 +25,32 @@ public class PatchouliIdInterpreter implements IdInterpreter<PatchouliWidget> {
     }
 
     @Override
-    public PatchouliWidget fromTag(int chance, TagKey<Item> tagKey, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, PatchouliWidget def) {
         return PatchouliWidget.wrap(Arrays.stream(Ingredient.fromTag(tagKey)
-                .getMatchingStacks()).map(itemStack -> fromItemStack(chance, itemStack, amount, defaultValue)).toList());
+                .getMatchingStacks()).map(itemStack -> fromItemStack(chance, consumed, itemStack, amount, def)).toList());
     }
 
     @Override
-    public PatchouliWidget fromItemStack(int chance, ItemStack itemStack, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, PatchouliWidget def) {
         return PatchouliWidget.wrap(itemStack.copyWithCount(amount));
     }
 
     @Override
-    public PatchouliWidget fromFluid(int chance, Fluid fluid, int amount, PatchouliWidget defaultValue) {
-        return fromItemStack(chance, fluid.getBucketItem().getDefaultStack(), amount, defaultValue);
+    public PatchouliWidget fromFluid(int chance, boolean consumed, Fluid fluid, int amount, PatchouliWidget def) {
+        return fromItemStack(chance, consumed, fluid.getBucketItem().getDefaultStack(), amount, def);
     }
 
     @Override
-    public PatchouliWidget fromEntityType(int chance, EntityType<?> entityType, int amount, PatchouliWidget defaultValue) {
+    public PatchouliWidget fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, PatchouliWidget def) {
         final ClientWorld world = MinecraftClient.getInstance().world;
         if (world == null) {
-            return defaultValue;
+            return def;
         }
 
         try {
             Entity entity = entityType.create(world);
-            return entity != null ? PatchouliWidget.wrap(entity, amount) : defaultValue;
+            return entity != null ? PatchouliWidget.wrap(entity, amount) : def;
         } catch (Exception ignored) {}
-        return defaultValue;
+        return def;
     }
 }

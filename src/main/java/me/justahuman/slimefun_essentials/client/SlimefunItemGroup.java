@@ -19,23 +19,23 @@ public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List
 
     public static void deserialize(String addon, String id, JsonObject groupObject) {
         final Identifier identifier = new Identifier(addon, id);
-        final ItemStack itemStack = JsonUtils.deserializeItem(JsonUtils.getObjectOrDefault(groupObject, "item", null));
+        final ItemStack itemStack = JsonUtils.deserializeItem(JsonUtils.getObject(groupObject, "item", null));
         final List<String> content = new ArrayList<>();
         final List<String> requirements = new ArrayList<>();
 
-        for (JsonElement element : JsonUtils.getArrayOrDefault(groupObject, "items", new JsonArray())) {
+        for (JsonElement element : JsonUtils.getArray(groupObject, "items", new JsonArray())) {
             if (element instanceof JsonPrimitive primitive && primitive.isString()) {
                 content.add(primitive.getAsString());
             }
         }
 
-        for (JsonElement element : JsonUtils.getArrayOrDefault(groupObject, "nested", new JsonArray())) {
+        for (JsonElement element : JsonUtils.getArray(groupObject, "nested", new JsonArray())) {
             if (element instanceof JsonPrimitive primitive && primitive.isString()) {
                 content.add(primitive.getAsString());
             }
         }
 
-        for (JsonElement element : JsonUtils.getArrayOrDefault(groupObject, "locked", new JsonArray())) {
+        for (JsonElement element : JsonUtils.getArray(groupObject, "locked", new JsonArray())) {
             if (element instanceof JsonPrimitive primitive && primitive.isString()) {
                 requirements.add(primitive.getAsString());
             }
