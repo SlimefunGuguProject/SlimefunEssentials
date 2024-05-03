@@ -9,6 +9,7 @@ import me.justahuman.slimefun_essentials.utils.JsonUtils;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -36,17 +37,13 @@ public class SlimefunRecipeComponent {
         }
     }
     
-    public static SlimefunRecipeComponent deserialize(JsonArray complex, JsonElement componentElement) {
-        if (componentElement instanceof JsonPrimitive componentPrimitive && componentPrimitive.isString()) {
-            return new SlimefunRecipeComponent(complex, componentPrimitive.getAsString());
-        } else if (componentElement instanceof JsonArray componentArray) {
-            final List<String> multiId = new ArrayList<>();
-            for (JsonElement idElement : componentArray) {
-                if (idElement instanceof JsonPrimitive idPrimitive && idPrimitive.isString()) {
-                    multiId.add(idPrimitive.getAsString());
-                }
+    public static SlimefunRecipeComponent deserialize(JsonArray complex, JsonElement element) {
+        if (element instanceof JsonPrimitive primitive && primitive.isString()) {
+            final String[] elements = primitive.getAsString().split(",");
+            if (elements.length == 1) {
+                return new SlimefunRecipeComponent(complex, primitive.getAsString());
             }
-            return new SlimefunRecipeComponent(complex, multiId);
+            return new SlimefunRecipeComponent(complex, Arrays.asList(elements));
         }
         return null;
     }

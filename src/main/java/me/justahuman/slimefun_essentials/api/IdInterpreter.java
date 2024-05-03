@@ -26,27 +26,27 @@ public interface IdInterpreter<T> {
         int chance = 100;
         if (id.contains("%")) {
             try {
-                chance = Integer.parseInt(id.substring(id.indexOf("%") + 1));
-                id = id.substring(0, id.indexOf("%"));
+                chance = Integer.parseInt(id.substring(id.indexOf('%') + 1));
+                id = id.substring(0, id.indexOf('%'));
             } catch (Exception ignored) {}
         }
 
         int damage = 0;
         if (id.contains("^")) {
             try {
-                damage = Integer.parseInt(id.substring(id.indexOf("^") + 1));
-                id = id.substring(0, id.indexOf("^"));
+                damage = Integer.parseInt(id.substring(id.indexOf('^') + 1));
+                id = id.substring(0, id.indexOf('^'));
             } catch (Exception ignored) {}
         }
 
         boolean consumed = true;
-        if (id.endsWith("*")) {
+        if (id.contains("*")) {
             consumed = false;
-            id = id.substring(id.lastIndexOf('*'));
+            id = id.substring(0, id.indexOf('*'));
         }
         
-        final String type = id.substring(0, id.indexOf(":"));
-        final String count = id.substring(id.indexOf(":") + 1);
+        final String type = id.substring(0, id.indexOf(':'));
+        final String count = id.substring(id.indexOf(':') + 1);
         int amount = 1;
         try {
             amount = Integer.parseInt(count);
