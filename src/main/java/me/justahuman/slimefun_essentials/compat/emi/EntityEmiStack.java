@@ -70,7 +70,7 @@ public class EntityEmiStack extends EmiStack {
         if (entity != null) {
             Mouse mouse = MinecraftClient.getInstance().mouse;
             if (entity instanceof LivingEntity living) {
-                drawLivingEntity(draw, x, this.baby ? y + 20 : y, scale, (float) mouse.getX(), (float) mouse.getY(), living);
+                drawLivingEntity(draw, x, this.baby ? y - 5 : y, scale, (float) mouse.getX(), (float) mouse.getY(), living);
             } else {
                 drawEntity(draw, x, y, scale, (float) mouse.getX(), (float) mouse.getY(), entity);
             }
