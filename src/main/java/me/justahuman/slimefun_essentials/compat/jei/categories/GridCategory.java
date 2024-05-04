@@ -52,7 +52,7 @@ public class GridCategory extends ProcessCategory {
 
         if (recipe.hasOutputs()) {
             for (SlimefunRecipeComponent component : recipe.outputs()) {
-                JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.OUTPUT, offsets.getX() + 5, offsets.output() + 5), component);
+                JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.OUTPUT, offsets.getX() + 5, offsets.largeSlot() + 5), component);
             }
         }
     }

@@ -44,23 +44,23 @@ public class ReiRecipeInterpreter implements IdInterpreter<EntryIngredient> {
     }
 
     @Override
-    public EntryIngredient fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, EntryIngredient def) {
+    public EntryIngredient fromTag(float chance, TagKey<Item> tagKey, int amount, EntryIngredient def) {
         return EntryIngredients.ofItemTag(tagKey);
     }
 
     @Override
-    public EntryIngredient fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, EntryIngredient def) {
+    public EntryIngredient fromItemStack(float chance, ItemStack itemStack, int amount, EntryIngredient def) {
         itemStack.setCount(amount);
         return EntryIngredients.of(itemStack);
     }
 
     @Override
-    public EntryIngredient fromFluid(int chance, boolean consumed, Fluid fluid, int amount, EntryIngredient def) {
+    public EntryIngredient fromFluid(float chance, Fluid fluid, int amount, EntryIngredient def) {
         return EntryIngredients.of(fluid, amount);
     }
 
     @Override
-    public EntryIngredient fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, EntryIngredient def) {
+    public EntryIngredient fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, EntryIngredient def) {
         // TODO: add entity support
         return def;
     }

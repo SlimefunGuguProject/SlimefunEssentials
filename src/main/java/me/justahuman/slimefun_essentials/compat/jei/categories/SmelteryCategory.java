@@ -50,8 +50,8 @@ public class SmelteryCategory extends ProcessCategory {
 
         if (recipe.hasOutputs()) {
             for (SlimefunRecipeComponent output : recipe.outputs()) {
-                JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.OUTPUT, offsets.getX() + 5, offsets.output() + 5), output);
-                offsets.x().addOutput();
+                JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.OUTPUT, offsets.getX() + 5, offsets.largeSlot() + 5), output);
+                offsets.x().addLargeSlot();
             }
         }
     }

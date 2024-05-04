@@ -41,8 +41,8 @@ public class ReactorDisplay extends ProcessDisplay {
         }
 
         if (this.slimefunRecipe.hasEnergy()) {
-            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.OUTPUT.size(getDrawMode()) - TextureUtils.ENERGY.width(getDrawMode())) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY.height(getDrawMode()) - TextureUtils.PADDING : TextureUtils.PADDING));
-            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT.size(getDrawMode()) : TextureUtils.ENERGY.width(getDrawMode())).addPadding();
+            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.LARGE_SLOT.size(getDrawMode()) - TextureUtils.ENERGY.width(getDrawMode())) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY.height(getDrawMode()) - TextureUtils.PADDING : TextureUtils.PADDING));
+            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.LARGE_SLOT.size(getDrawMode()) : TextureUtils.ENERGY.width(getDrawMode())).addPadding();
         }
 
         addArrow(widgets, offsets.getX(), offsets.getY(), true);

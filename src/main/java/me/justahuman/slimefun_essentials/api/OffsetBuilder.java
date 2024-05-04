@@ -9,7 +9,7 @@ public class OffsetBuilder {
     protected final int energyOffset;
     protected final int slotOffset;
     protected final int arrowOffset;
-    protected final int outputOffset;
+    protected final int largeSlotOffset;
     protected final int minY;
     protected DrawMode drawMode;
     protected Offset xOffset;
@@ -33,7 +33,7 @@ public class OffsetBuilder {
         this.energyOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ENERGY.height(this.drawMode)) + minY;
         this.slotOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.SLOT.size(this.drawMode)) + minY;
         this.arrowOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.ARROW.height(this.drawMode)) + minY;
-        this.outputOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.OUTPUT.height(this.drawMode)) + minY;
+        this.largeSlotOffset = recipeRenderer.calculateYOffset(slimefunRecipe, TextureUtils.LARGE_SLOT.height(this.drawMode)) + minY;
         this.minY = minY;
         this.xOffset = new Offset(this.drawMode, x, false);
         this.yOffset = new Offset(this.drawMode, y, true);
@@ -85,8 +85,8 @@ public class OffsetBuilder {
         return arrowOffset;
     }
 
-    public int output() {
-        return outputOffset;
+    public int largeSlot() {
+        return largeSlotOffset;
     }
 
     public static class Offset {
@@ -155,12 +155,12 @@ public class OffsetBuilder {
             return this;
         }
 
-        public Offset addOutput() {
-            return addOutput(true);
+        public Offset addLargeSlot() {
+            return addLargeSlot(true);
         }
 
-        public Offset addOutput(boolean padding) {
-            this.value += TextureUtils.OUTPUT.size(this.drawMode) + (padding ? TextureUtils.PADDING : 0);
+        public Offset addLargeSlot(boolean padding) {
+            this.value += TextureUtils.LARGE_SLOT.size(this.drawMode) + (padding ? TextureUtils.PADDING : 0);
             return this;
         }
 

@@ -2,21 +2,21 @@ package me.justahuman.slimefun_essentials.compat.emi;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.emi.emi.EmiPort;
+import dev.emi.emi.EmiRenderHelper;
 import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.stack.EmiStack;
+import dev.emi.emi.runtime.EmiDrawContext;
 import dev.emi.emi.screen.tooltip.RemainderTooltipComponent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.render.DiffuseLighting;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
@@ -24,83 +24,83 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("DuplicatedCode")
 public class EntityEmiStack extends EmiStack {
+    private final EntityType<?> type;
     private final @Nullable Entity entity;
-    private final double scale;
-    private final int amount;
-    
-    public EntityEmiStack(EntityType<?> entityType, int amount) {
-        this(entityType.create(MinecraftClient.getInstance().world), amount);
+    private final boolean baby;
+    private final float scale;
+
+    public EntityEmiStack(EntityType<?> type, boolean baby) {
+        this.type = type;
+        this.entity = type.create(MinecraftClient.getInstance().world);
+        this.baby = baby && this.entity instanceof MobEntity;
+        this.scale = this.baby ? 12.0F : 8.0F;
+        if (this.baby) {
+            ((MobEntity) entity).setBaby(true);
+        }
     }
-    
-    public EntityEmiStack(@Nullable Entity entity, int amount) {
-        this(entity, 8.0f, amount);
-    }
-    
-    protected EntityEmiStack(@Nullable Entity entity, double scale, int amount) {
-        this.entity = entity;
-        this.scale = scale;
-        this.amount = amount;
-    }
-    
-    public static EntityEmiStack of(@Nullable Entity entity) {
-        return new EntityEmiStack(entity, 1);
-    }
-    
-    public static EntityEmiStack ofScaled(@Nullable Entity entity, double scale) {
-        return new EntityEmiStack(entity, scale, 1);
-    }
-    
+
     @Override
     public EmiStack copy() {
-        EntityEmiStack stack = new EntityEmiStack(this.entity, this.scale, this.amount);
+        EntityEmiStack stack = new EntityEmiStack(this.type, this.baby);
         stack.setRemainder(getRemainder().copy());
         stack.comparison = this.comparison;
         return stack;
     }
-    
+
+    public boolean isBaby() {
+        return this.baby;
+    }
+
     @Override
     public boolean isEmpty() {
-        return this.entity == null;
+        return entity == null;
     }
-    
+
     @Override
-    public void render(DrawContext graphics, int x, int y, float delta, int flags) {
-        if (this.entity != null) {
-            if (this.entity instanceof LivingEntity living)
-                renderEntity(x + 8, (int) (y + 8 + this.scale), this.scale, living);
-            else
-                renderEntity((int) (x + (2 * this.scale / 2)), (int) (y + (2 * this.scale)), this.scale,this. entity);
+    public void render(DrawContext draw, int x, int y, float delta, int flags) {
+        if (entity != null) {
+            Mouse mouse = MinecraftClient.getInstance().mouse;
+            if (entity instanceof LivingEntity living) {
+                drawLivingEntity(draw, x, this.baby ? y + 20 : y, scale, (float) mouse.getX(), (float) mouse.getY(), living);
+            } else {
+                drawEntity(draw, x, y, scale, (float) mouse.getX(), (float) mouse.getY(), entity);
+            }
+
+            if (this.amount > 1) {
+                EmiRenderHelper.renderAmount(EmiDrawContext.wrap(draw), x, y, Text.literal(String.valueOf(this.amount)));
+            }
         }
     }
-    
+
     @Override
     public NbtCompound getNbt() {
-        throw new UnsupportedOperationException("EntityEmiStack is not intended for NBT handling");
+        return Optional.ofNullable(entity).map(e -> e.writeNbt(new NbtCompound())).orElse(new NbtCompound());
     }
-    
+
     @Override
     public Object getKey() {
-        return this.entity;
+        return entity;
     }
-    
+
     @Override
     public Identifier getId() {
-        if (this.entity == null) throw new RuntimeException("Entity is null");
-        return Registries.ENTITY_TYPE.getId(this.entity.getType());
+        return Registries.ENTITY_TYPE.getId(this.type);
     }
-    
+
     @Override
     public List<Text> getTooltipText() {
         return List.of(getName());
     }
-    
+
     @Override
     public List<TooltipComponent> getTooltip() {
         final List<TooltipComponent> list = new ArrayList<>();
@@ -119,55 +119,75 @@ public class EntityEmiStack extends EmiStack {
         }
         return list;
     }
-    
+
     @Override
     public Text getName() {
-        return this.entity != null ? Text.literal(this.entity.getName().getString() + "x" + this.amount) : EmiPort.literal("yet another missingno");
+        return entity != null ? entity.getName() : EmiPort.literal("yet another missingno");
     }
-    
-    public static void renderEntity(int x, int y, double size, Entity entity) {
-        final MinecraftClient client = MinecraftClient.getInstance();
-        final EntityRenderDispatcher entityRenderDispatcher = client.getEntityRenderDispatcher();
-        final Screen screen = client.currentScreen;
-        final Mouse mouse = client.mouse;
-        float width = screen == null ? 1920 : screen.width;
-        float height = screen == null ? 1080 : screen.height;
-        float mouseX = (float) ((width + 51) - mouse.getX());
-        float mouseY = (float) ((height + 75 - 50) - mouse.getY());
-        float f = (float) Math.atan(mouseX / 40.0F);
-        float g = (float) Math.atan(mouseY / 40.0F);
-    
-        final MatrixStack matrixStack = RenderSystem.getModelViewStack();
-        matrixStack.push();
-        matrixStack.translate(x, y, 1050.0);
-        matrixStack.scale(1.0F, 1.0F, -1.0F);
-        RenderSystem.applyModelViewMatrix();
-    
-        final MatrixStack matrixStack2 = new MatrixStack();
-        matrixStack2.translate(0.0, 0.0, 1000.0);
-        matrixStack2.scale((float) size, (float) size, (float) size);
-        
-        final Quaternionf quaternion = new Quaternionf().rotateZ(3.1415927F);
-        final Quaternionf quaternion2 = new Quaternionf().rotateX(g * 20.0F * 0.017453292F);
-        quaternion.mul(quaternion2);
-        matrixStack2.multiply(quaternion);
-        
-        final float yaw = entity.getYaw();
-        final float pitch = entity.getPitch();
+
+    public static void drawLivingEntity(DrawContext ctx, int x, int y, float size, float mouseX, float mouseY, LivingEntity entity) {
+        float mouseX0 = (ctx.getScaledWindowWidth() + 51) - mouseX;
+        float mouseY0 = (ctx.getScaledWindowHeight() + 75 - 50) - mouseY;
+        float f = (float) Math.atan(mouseX0 / 40.0F);
+        float g = (float) Math.atan(mouseY0 / 40.0F);
+        Quaternionf quaternionf = (new Quaternionf()).rotateZ(3.1415927F);
+        Quaternionf quaternionf2 = (new Quaternionf()).rotateX(g * 20.0F * 0.017453292F);
+        quaternionf.mul(quaternionf2);
+        float h = entity.bodyYaw;
+        float i = entity.getYaw();
+        float j = entity.getPitch();
+        float k = entity.prevHeadYaw;
+        float l = entity.headYaw;
+        entity.bodyYaw = 180.0F + f * 20.0F;
         entity.setYaw(180.0F + f * 40.0F);
         entity.setPitch(-g * 20.0F);
+        entity.headYaw = entity.getYaw();
+        entity.prevHeadYaw = entity.getYaw();
+        draw(ctx, x, y, size, quaternionf, quaternionf2, entity);
+        entity.bodyYaw = h;
+        entity.setYaw(i);
+        entity.setPitch(j);
+        entity.prevHeadYaw = k;
+        entity.headYaw = l;
+    }
+
+    public static void drawEntity(DrawContext ctx, int x, int y, float size, float mouseX, float mouseY, Entity entity) {
+        float mouseX0 = (ctx.getScaledWindowWidth() + 51) - mouseX;
+        float mouseY0 = (ctx.getScaledWindowHeight() + 75 - 50) - mouseY;
+        float f = (float) Math.atan(mouseX0 / 40.0F);
+        float g = (float) Math.atan(mouseY0 / 40.0F);
+        Quaternionf quaternionf = (new Quaternionf()).rotateZ(3.1415927F);
+        Quaternionf quaternionf2 = (new Quaternionf()).rotateX(g * 20.0F * 0.017453292F);
+        quaternionf.mul(quaternionf2);
+        float i = entity.getYaw();
+        float j = entity.getPitch();
+        entity.setYaw(180.0F + f * 40.0F);
+        entity.setPitch(-g * 20.0F);
+        draw(ctx, x, y, size, quaternionf, quaternionf2, entity);
+        entity.setYaw(i);
+        entity.setPitch(j);
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void draw(DrawContext ctx, int x, int y, float size, Quaternionf quaternion, @Nullable Quaternionf quaternion2, Entity entity) {
+        ctx.getMatrices().push();
+        ctx.getMatrices().translate(x + 8, y + 16, 50.0);
+        ctx.getMatrices().multiplyPositionMatrix((new Matrix4f()).scaling(size, size, -size));
+        ctx.getMatrices().multiply(quaternion);
         DiffuseLighting.method_34742();
-        quaternion2.conjugate();
-        entityRenderDispatcher.setRotation(quaternion2);
-        entityRenderDispatcher.setRenderShadows(false);
-        VertexConsumerProvider.Immediate immediate = client.getBufferBuilders().getEntityVertexConsumers();
-        RenderSystem.runAsFancy(() -> entityRenderDispatcher.render(entity, 0.0, 0.0, 0.0, 0.0F, 1.0F, matrixStack2, immediate, 15728880));
-        immediate.draw();
-        entityRenderDispatcher.setRenderShadows(true);
-        entity.setYaw(yaw);
-        entity.setPitch(pitch);
-        matrixStack.pop();
-        RenderSystem.applyModelViewMatrix();
+        EntityRenderDispatcher dispatcher = MinecraftClient.getInstance().getEntityRenderDispatcher();
+        if (quaternion2 != null) {
+            quaternion2.conjugate();
+            dispatcher.setRotation(quaternion2);
+        }
+
+        dispatcher.setRenderShadows(false);
+        RenderSystem.runAsFancy(() ->
+                dispatcher.render(entity, 0.0, 0.0, 0.0, 0.0F, 1.0F, ctx.getMatrices(), ctx.getVertexConsumers(), 15728880)
+        );
+        ctx.draw();
+        dispatcher.setRenderShadows(true);
+        ctx.getMatrices().pop();
         DiffuseLighting.enableGuiDepthLighting();
     }
 }

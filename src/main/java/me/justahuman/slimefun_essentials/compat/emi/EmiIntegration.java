@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EmiIntegration implements EmiPlugin {
-    public static final EmiRecipeInterpreter RECIPE_INTERPRETER = new EmiRecipeInterpreter();
+    public static final EmiIdInterpreter RECIPE_INTERPRETER = new EmiIdInterpreter();
     private static final Comparison SLIMEFUN_ID = Comparison.compareData(stack -> Utils.getSlimefunId(stack.getNbt()));
     private static final Map<String, SlimefunEmiCategory> slimefunCategories = new HashMap<>();
     

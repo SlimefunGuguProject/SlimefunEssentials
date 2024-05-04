@@ -34,8 +34,8 @@ public class ReactorRecipe extends ProcessRecipe {
         }
         
         if (this.slimefunRecipe.hasEnergy()) {
-            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING));
-            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
+            addEnergy(widgets, offsets.getX() + (this.slimefunRecipe.hasOutputs() ? (TextureUtils.LARGE_SLOT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (this.slimefunRecipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING));
+            offsets.x().add(this.slimefunRecipe.hasOutputs() ? TextureUtils.LARGE_SLOT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
         
         addArrowWithCheck(widgets, offsets.getX(), offsets.getY(), true);

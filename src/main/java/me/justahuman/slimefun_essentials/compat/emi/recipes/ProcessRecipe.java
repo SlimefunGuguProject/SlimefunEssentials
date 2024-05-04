@@ -13,6 +13,7 @@ import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.EmiIntegration;
 import me.justahuman.slimefun_essentials.compat.emi.EmiUtils;
+import me.justahuman.slimefun_essentials.compat.emi.EntityEmiStack;
 import me.justahuman.slimefun_essentials.compat.emi.ReverseFillingArrowWidget;
 import me.justahuman.slimefun_essentials.compat.emi.SlimefunEmiCategory;
 import me.justahuman.slimefun_essentials.utils.TextureUtils;
@@ -88,7 +89,7 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
         // Display Labels
         if (this.slimefunRecipe.hasLabels()) {
             for (SlimefunLabel slimefunLabel : this.slimefunRecipe.labels()) {
-                widgets.add(EmiUtils.wrap(slimefunLabel, offsets.getX(), offsets.label()));
+                widgets.add(EmiUtils.wrap(slimefunLabel, offsets.getX(), offsets.label(), true));
                 offsets.x().addLabel();
             }
         }
@@ -99,8 +100,9 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
         //Display Inputs
         if (this.slimefunRecipe.hasInputs()) {
             for (EmiIngredient input : this.inputs) {
-                widgets.addSlot(input, offsets.getX(), offsets.slot());
-                offsets.x().addSlot();
+                final boolean large = input instanceof EntityEmiStack stack && !stack.isBaby();
+                widgets.addSlot(input, offsets.getX(), large ? offsets.largeSlot() : offsets.slot()).large(large);
+                offsets.x().add((large ? TextureUtils.LARGE_SLOT.width() : TextureUtils.SLOT.width()));
             }
         } else {
             widgets.addSlot((EmiIngredient) this.emiRecipeCategory.icon, offsets.getX(), offsets.slot());
@@ -127,7 +129,7 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
 
     protected void addEnergy(WidgetHolder widgets, int x, int y) {
         final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / this.slimefunRecipeCategory.speed());
-        widgets.add(EmiUtils.wrap(TextureUtils.ENERGY, x, y));
+        widgets.add(EmiUtils.wrap(TextureUtils.ENERGY, x, y, false));
         widgets.addAnimatedTexture(EmiUtils.wrap(totalEnergy >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, totalEnergy < 0, totalEnergy < 0).tooltip(tooltip("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy))));
     }
 
@@ -164,8 +166,8 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
 
     protected void addOutputs(WidgetHolder widgets, OffsetBuilder offsets) {
         for (EmiStack output : this.outputs) {
-            widgets.addSlot(output, offsets.getX(), offsets.output()).large(true);
-            offsets.x().addOutput();
+            widgets.addSlot(output, offsets.getX(), offsets.largeSlot()).recipeContext(this).large(true);
+            offsets.x().addLargeSlot();
         }
     }
 

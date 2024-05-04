@@ -15,7 +15,7 @@ public class EmiUtils {
         return new EmiTexture(slimefunLabel.identifier(), slimefunLabel.u(), slimefunLabel.v(), slimefunLabel.width(), slimefunLabel.height());
     }
 
-    public static TextureWidget wrap(SlimefunLabel slimefunLabel, int x, int y) {
+    public static TextureWidget wrap(SlimefunLabel slimefunLabel, int x, int y, boolean tooltip) {
         return new TextureWidget(slimefunLabel.identifier(), x, y,
                 slimefunLabel.width(), slimefunLabel.height(), slimefunLabel.u(), slimefunLabel.v(),
                 slimefunLabel.width(), slimefunLabel.height(), 256, 256)

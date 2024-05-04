@@ -42,7 +42,7 @@ public class ReactorCategory extends ProcessCategory {
         }
 
         if (recipe.hasEnergy()) {
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.LARGE_SLOT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         offsets.x().addArrow();
@@ -71,12 +71,12 @@ public class ReactorCategory extends ProcessCategory {
         offsets.x().addArrow();
 
         if (recipe.hasOutputs()) {
-            TextureUtils.OUTPUT.draw(graphics, offsets.getX(), offsets.getY());
+            TextureUtils.LARGE_SLOT.draw(graphics, offsets.getX(), offsets.getY());
         }
 
         if (recipe.hasEnergy()) {
-            addEnergy(graphics, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), recipe.energy() < 0);
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
+            addEnergy(graphics, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.LARGE_SLOT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), recipe.energy() < 0);
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.LARGE_SLOT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         addFillingArrow(graphics, offsets.getX(), offsets.getY(), recipe.sfTicks(), true);
@@ -104,10 +104,10 @@ public class ReactorCategory extends ProcessCategory {
         offsets.x().addArrow();
 
         if (recipe.hasEnergy()) {
-            if (tooltipActive(mouseX, mouseY, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.OUTPUT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), TextureUtils.ENERGY)) {
+            if (tooltipActive(mouseX, mouseY, offsets.getX() + (recipe.hasOutputs() ? (TextureUtils.LARGE_SLOT.size() - TextureUtils.ENERGY.width()) / 2 : 0), offsets.getY() + (recipe.hasOutputs() ? - TextureUtils.ENERGY.height() - TextureUtils.PADDING : TextureUtils.PADDING), TextureUtils.ENERGY)) {
                 tooltips.add(energyTooltip(recipe));
             }
-            offsets.x().add(recipe.hasOutputs() ? TextureUtils.OUTPUT.size() : TextureUtils.ENERGY.width()).addPadding();
+            offsets.x().add(recipe.hasOutputs() ? TextureUtils.LARGE_SLOT.size() : TextureUtils.ENERGY.width()).addPadding();
         }
 
         if (tooltipActive(mouseX, mouseY, offsets.getX(), offsets.getY(), TextureUtils.ARROW)) {

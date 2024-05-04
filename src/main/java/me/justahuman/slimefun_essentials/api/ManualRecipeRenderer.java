@@ -96,12 +96,12 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
     }
 
     default void addSlot(DrawContext graphics, OffsetBuilder offsets, boolean output) {
-        addSlot(graphics, offsets.getX(), output ? offsets.output() : offsets.slot(), output);
-        offsets.x().add((output ? TextureUtils.OUTPUT.size(getDrawMode()) : TextureUtils.SLOT.size(getDrawMode())) + TextureUtils.PADDING);
+        addSlot(graphics, offsets.getX(), output ? offsets.largeSlot() : offsets.slot(), output);
+        offsets.x().add((output ? TextureUtils.LARGE_SLOT.size(getDrawMode()) : TextureUtils.SLOT.size(getDrawMode())) + TextureUtils.PADDING);
     }
 
     default void addSlot(DrawContext graphics, int x, int y, boolean output) {
-        (output ? TextureUtils.OUTPUT : TextureUtils.SLOT).draw(graphics, x, y, getDrawMode());
+        (output ? TextureUtils.LARGE_SLOT : TextureUtils.SLOT).draw(graphics, x, y, getDrawMode());
     }
 
     default boolean tooltipActive(double mouseX, double mouseY, OffsetBuilder offsets, SlimefunLabel label) {

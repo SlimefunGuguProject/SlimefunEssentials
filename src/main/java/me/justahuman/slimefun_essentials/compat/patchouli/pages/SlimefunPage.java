@@ -107,7 +107,7 @@ public abstract class SlimefunPage extends BookPage implements ManualRecipeRende
     @Override
     public void addInputs(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         for (int i = 0; i < recipe.inputs().size(); i++) {
-            addSlot(graphics, offsets.getX(), offsets.output(), false);
+            addSlot(graphics, offsets.getX(), offsets.largeSlot(), false);
             this.inputWidgets.get(i).render(this.parent, graphics, offsets.getX() + 1, offsets.slot() + 1, this.mouseX, this.mouseY, this.pTicks);
             offsets.x().addSlot();
         }

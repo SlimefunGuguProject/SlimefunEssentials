@@ -146,9 +146,9 @@ public class ProcessDisplay extends SlimefunDisplay {
 
     protected void addOutputs(List<Widget> widgets, OffsetBuilder offsets) {
         for (EntryIngredient entryIngredient : getOutputEntries()) {
-            widgets.add(Widgets.createResultSlotBackground(new Point(offsets.getX() + 5, offsets.output() + 5)));
-            widgets.add(Widgets.createSlot(new Point(offsets.getX() + 5, offsets.output() + 5)).entries(entryIngredient).disableBackground().markOutput());
-            offsets.x().addOutput();
+            widgets.add(Widgets.createResultSlotBackground(new Point(offsets.getX() + 5, offsets.largeSlot() + 5)));
+            widgets.add(Widgets.createSlot(new Point(offsets.getX() + 5, offsets.largeSlot() + 5)).entries(entryIngredient).disableBackground().markOutput());
+            offsets.x().addLargeSlot();
         }
     }
 

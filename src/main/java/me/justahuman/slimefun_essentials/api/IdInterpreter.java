@@ -23,14 +23,6 @@ public interface IdInterpreter<T> {
             return def;
         }
 
-        int chance = 100;
-        if (id.contains("%")) {
-            try {
-                chance = Integer.parseInt(id.substring(id.indexOf('%') + 1));
-                id = id.substring(0, id.indexOf('%'));
-            } catch (Exception ignored) {}
-        }
-
         int damage = 0;
         if (id.contains("^")) {
             try {
@@ -39,10 +31,12 @@ public interface IdInterpreter<T> {
             } catch (Exception ignored) {}
         }
 
-        boolean consumed = true;
-        if (id.contains("*")) {
-            consumed = false;
-            id = id.substring(0, id.indexOf('*'));
+        float chance = 1;
+        if (id.contains("%")) {
+            try {
+                chance = Float.parseFloat(id.substring(id.indexOf('%') + 1));
+                id = id.substring(0, id.indexOf('%'));
+            } catch (Exception ignored) {}
         }
         
         final String type = id.substring(0, id.indexOf(':'));
@@ -58,7 +52,7 @@ public interface IdInterpreter<T> {
             if (damage > 0) {
                 itemStack.setDamage(damage);
             }
-            return fromItemStack(chance, consumed, itemStack, amount, def);
+            return fromItemStack(chance, itemStack, amount, def);
         }
         // Complex Item
         else if (type.startsWith("?")) {
@@ -66,16 +60,17 @@ public interface IdInterpreter<T> {
             try {
                 index = Integer.parseInt(type.substring(1));
             } catch (Exception ignored) {}
-            return fromItemStack(chance, consumed, component.getComplexStacks().get(index), amount, def);
+            return fromItemStack(chance, component.getComplexStacks().get(index), amount, def);
         }
         // Entity
         else if (type.startsWith("@")) {
-            final Identifier identifier = new Identifier("minecraft:" + type.substring(1));
+            final boolean baby = type.startsWith("baby_", 1);
+            final Identifier identifier = new Identifier("minecraft:" + type.substring(baby ? 6 : 1));
             if (! Registries.ENTITY_TYPE.containsId(identifier)) {
                 Utils.warn("Invalid Ingredient Entity Id: " + id);
                 return def;
             }
-            return fromEntityType(chance, consumed, Registries.ENTITY_TYPE.get(identifier), amount, def);
+            return fromEntityType(chance, Registries.ENTITY_TYPE.get(identifier), baby, amount, def);
         }
         // Fluid
         else if (type.startsWith("~")) {
@@ -84,16 +79,16 @@ public interface IdInterpreter<T> {
                 Utils.warn("Invalid Ingredient Fluid Id: " + id);
                 return def;
             }
-            return fromFluid(chance, consumed, Registries.FLUID.get(identifier), amount, def);
+            return fromFluid(chance, Registries.FLUID.get(identifier), amount, def);
         }
         // Tag
         else if (type.startsWith("#")) {
             final Identifier identifier = new Identifier("minecraft:" + type.substring(1));
-            return fromTag(chance, consumed, TagKey.of(Registries.ITEM.getKey(), identifier), amount, def);
+            return fromTag(chance, TagKey.of(Registries.ITEM.getKey(), identifier), amount, def);
         }
         // Experience
         else if (type.equals("$")) {
-            return fromEntityType(chance, consumed, EntityType.EXPERIENCE_ORB, amount, def);
+            return fromEntityType(chance, EntityType.EXPERIENCE_ORB, false, amount, def);
         }
         // Item (Or Mistake)
         else {
@@ -107,12 +102,12 @@ public interface IdInterpreter<T> {
             if (damage > 0) {
                 itemStack.setDamage(damage);
             }
-            return fromItemStack(chance, consumed, itemStack, amount, def);
+            return fromItemStack(chance, itemStack, amount, def);
         }
     }
     
-    T fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, T def);
-    T fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, T def);
-    T fromFluid(int chance, boolean consumed, Fluid fluid, int amount, T def);
-    T fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, T def);
+    T fromTag(float chance, TagKey<Item> tagKey, int amount, T def);
+    T fromItemStack(float chance, ItemStack itemStack, int amount, T def);
+    T fromFluid(float chance, Fluid fluid, int amount, T def);
+    T fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, T def);
 }

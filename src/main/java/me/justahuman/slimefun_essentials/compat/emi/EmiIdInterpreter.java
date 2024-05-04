@@ -15,7 +15,7 @@ import net.minecraft.registry.tag.TagKey;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
+public class EmiIdInterpreter implements IdInterpreter<EmiIngredient> {
     public List<EmiIngredient> getInputIngredients(SlimefunRecipe recipe) {
         return recipe.inputs() != null && !recipe.inputs().isEmpty()
                 ? recipe.inputs().stream().map(this::emiIngredientFromComponent).toList()
@@ -52,22 +52,22 @@ public class EmiRecipeInterpreter implements IdInterpreter<EmiIngredient> {
     }
 
     @Override
-    public EmiIngredient fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, EmiIngredient def) {
-        return EmiIngredient.of(tagKey, amount).setChance(chance / 100F);
+    public EmiIngredient fromTag(float chance, TagKey<Item> tagKey, int amount, EmiIngredient def) {
+        return EmiIngredient.of(tagKey, amount).setChance(chance);
     }
 
     @Override
-    public EmiIngredient fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, EmiIngredient def) {
-        return EmiStack.of(itemStack, amount).setChance(chance / 100F);
+    public EmiIngredient fromItemStack(float chance, ItemStack itemStack, int amount, EmiIngredient def) {
+        return EmiStack.of(itemStack, amount).setChance(chance);
     }
 
     @Override
-    public EmiIngredient fromFluid(int chance, boolean consumed, Fluid fluid, int amount, EmiIngredient def) {
-        return EmiStack.of(fluid).setChance(chance / 100F);
+    public EmiIngredient fromFluid(float chance, Fluid fluid, int amount, EmiIngredient def) {
+        return EmiStack.of(fluid).setChance(chance);
     }
 
     @Override
-    public EmiIngredient fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, EmiIngredient def) {
-        return new EntityEmiStack(entityType, amount).setChance(chance / 100F);
+    public EmiIngredient fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, EmiIngredient def) {
+        return new EntityEmiStack(entityType, baby).setAmount(amount).setChance(chance);
     }
 }

@@ -25,23 +25,23 @@ public class PatchouliIdInterpreter implements IdInterpreter<PatchouliWidget> {
     }
 
     @Override
-    public PatchouliWidget fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, PatchouliWidget def) {
+    public PatchouliWidget fromTag(float chance, TagKey<Item> tagKey, int amount, PatchouliWidget def) {
         return PatchouliWidget.wrap(Arrays.stream(Ingredient.fromTag(tagKey)
-                .getMatchingStacks()).map(itemStack -> fromItemStack(chance, consumed, itemStack, amount, def)).toList());
+                .getMatchingStacks()).map(itemStack -> fromItemStack(chance, itemStack, amount, def)).toList());
     }
 
     @Override
-    public PatchouliWidget fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, PatchouliWidget def) {
+    public PatchouliWidget fromItemStack(float chance, ItemStack itemStack, int amount, PatchouliWidget def) {
         return PatchouliWidget.wrap(itemStack.copyWithCount(amount));
     }
 
     @Override
-    public PatchouliWidget fromFluid(int chance, boolean consumed, Fluid fluid, int amount, PatchouliWidget def) {
-        return fromItemStack(chance, consumed, fluid.getBucketItem().getDefaultStack(), amount, def);
+    public PatchouliWidget fromFluid(float chance, Fluid fluid, int amount, PatchouliWidget def) {
+        return fromItemStack(chance, fluid.getBucketItem().getDefaultStack(), amount, def);
     }
 
     @Override
-    public PatchouliWidget fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, PatchouliWidget def) {
+    public PatchouliWidget fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, PatchouliWidget def) {
         final ClientWorld world = MinecraftClient.getInstance().world;
         if (world == null) {
             return def;

@@ -42,7 +42,7 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromTag(int chance, boolean consumed, TagKey<Item> tagKey, int amount, Object def) {
+    public Object fromTag(float chance, TagKey<Item> tagKey, int amount, Object def) {
         Optional<RegistryEntryList.Named<Item>> optional = Registries.ITEM.getEntryList(tagKey);
         if (optional.isEmpty()) {
             return def;
@@ -52,18 +52,18 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromItemStack(int chance, boolean consumed, ItemStack itemStack, int amount, Object def) {
+    public Object fromItemStack(float chance, ItemStack itemStack, int amount, Object def) {
         itemStack.setCount(amount);
         return itemStack;
     }
 
     @Override
-    public Object fromFluid(int chance, boolean consumed, Fluid fluid, int amount, Object def) {
+    public Object fromFluid(float chance, Fluid fluid, int amount, Object def) {
         return new JeiFluidIngredient(fluid, amount);
     }
 
     @Override
-    public Object fromEntityType(int chance, boolean consumed, EntityType<?> entityType, int amount, Object def) {
+    public Object fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, Object def) {
         // TODO: add support for entities
         return def;
     }
