@@ -4,6 +4,7 @@
   "package": "me.justahuman.slimefun_essentials.mixins",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "items.ItemStackMixin",
     "patchouli.BookMixin",
     "patchouli.ContentsBuilderMixin",
     "patchouli.ItemStackUtilMixin",
