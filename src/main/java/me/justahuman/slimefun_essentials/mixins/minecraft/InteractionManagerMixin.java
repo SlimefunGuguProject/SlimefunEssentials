@@ -1,14 +1,13 @@
-package me.justahuman.slimefun_essentials.mixins.patchouli;
+package me.justahuman.slimefun_essentials.mixins.minecraft;
 
 import me.justahuman.slimefun_essentials.compat.patchouli.PatchouliIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.CompatUtils;
+import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -20,9 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientPlayerInteractionManager.class)
 public class InteractionManagerMixin {
-    @Unique
-    private static final String GUIDE_KEY = "slimefun:slimefun_guide_mode";
-
     @Inject(at = @At("HEAD"), method = "interactBlock", cancellable = true)
     public void openBookBlock(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
         handleGuide(player, hand, cir);
@@ -40,17 +36,9 @@ public class InteractionManagerMixin {
         }
 
         final ItemStack itemStack = player.getStackInHand(hand);
-        if (!(itemStack.getItem() instanceof EnchantedBookItem)) {
-            return;
-        }
-
-        final NbtCompound nbt = itemStack.getNbt();
-        if (nbt == null || nbt.isEmpty() || !nbt.contains("PublicBukkitValues")) {
-            return;
-        }
-
-        final NbtCompound bukkitValues = nbt.getCompound("PublicBukkitValues");
-        if (bukkitValues.contains(GUIDE_KEY)) {
+        final String guideMode = Utils.getGuideMode(itemStack);
+        if (guideMode != null) {
+            //TODO handle cheat sheet
             PatchouliIntegration.openGuide();
             cir.setReturnValue(ActionResult.SUCCESS);
         }

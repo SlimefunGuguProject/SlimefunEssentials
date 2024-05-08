@@ -67,21 +67,39 @@ public class Utils {
         return path.substring(path.lastIndexOf("/") + 1, path.indexOf(".json"));
     }
 
+    public static NbtCompound getPluginNbt(@Nullable ItemStack itemStack) {
+        return itemStack == null ? null : getPluginNbt(itemStack.getNbt());
+    }
+
+    public static NbtCompound getPluginNbt(@Nullable NbtCompound nbt) {
+        if (nbt == null || nbt.isEmpty() || !nbt.contains("PublicBukkitValues")) {
+            return null;
+        }
+        return nbt.getCompound("PublicBukkitValues");
+    }
+
     public static String getSlimefunId(@Nullable ItemStack itemStack) {
         return itemStack == null ? null : getSlimefunId(itemStack.getNbt());
     }
 
     public static String getSlimefunId(@Nullable NbtCompound nbt) {
-        if (nbt == null || nbt.isEmpty() || !nbt.contains("PublicBukkitValues")) {
+        final NbtCompound pluginNbt = getPluginNbt(nbt);
+        if (pluginNbt == null || !pluginNbt.contains("slimefun:slimefun_item")) {
             return null;
         }
+        return pluginNbt.getString("slimefun:slimefun_item");
+    }
 
-        final NbtCompound bukkitValues = nbt.getCompound("PublicBukkitValues");
-        if (!bukkitValues.contains("slimefun:slimefun_item")) {
+    public static String getGuideMode(@Nullable ItemStack itemStack) {
+        return itemStack == null ? null : getGuideMode(itemStack.getNbt());
+    }
+
+    public static String getGuideMode(@Nullable NbtCompound nbt) {
+        final NbtCompound pluginNbt = getPluginNbt(nbt);
+        if (pluginNbt == null || !pluginNbt.contains("slimefun:slimefun_guide_mode")) {
             return null;
         }
-
-        return bukkitValues.getString("slimefun:slimefun_item");
+        return pluginNbt.getString("slimefun:slimefun_guide_mode");
     }
 
     public static boolean shouldFunction() {

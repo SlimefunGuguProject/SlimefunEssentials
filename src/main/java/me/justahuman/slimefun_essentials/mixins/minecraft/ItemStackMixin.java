@@ -20,11 +20,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 @Mixin(value = ItemStack.class, priority = 100000)
 public abstract class ItemStackMixin {
     @Unique
-    private static final String MINECRAFT = "Minecraft";
+    private static final Set<String> HIDDEN = Set.of("_UI_BACKGROUND", "_UI_INPUT_SLOT", "_UI_OUTPUT_SLOT");
 
     @Shadow @Nullable
     public abstract NbtCompound getNbt();
@@ -34,20 +35,25 @@ public abstract class ItemStackMixin {
 
     @Inject(method = "getTooltip", at = @At(value = "RETURN"))
     public void changeTooltip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
-        final String id = Utils.getSlimefunId(getNbt());
+        final String guideMode = Utils.getGuideMode(getNbt());
+        final String id = guideMode == null ? Utils.getSlimefunId(getNbt()) : guideMode + "_guide";
         if (id == null) {
             return;
         }
 
         final List<Text> lore = cir.getReturnValue();
+        if (HIDDEN.contains(id)) {
+            lore.clear();
+            return;
+        }
+
         final Identifier identifier = Registries.ITEM.getId(getItem());
         final String idLine = identifier.toString();
-
         for (int i = 0; i < lore.size(); i++) {
             String line = lore.get(i).getString();
             if (line.equals(idLine)) {
                 lore.set(i, Text.literal("slimefun:" + id.toLowerCase(Locale.ROOT)).formatted(Formatting.DARK_GRAY));
-            } else if (line.equals(MINECRAFT)) {
+            } else if (line.equals("Minecraft")) {
                 lore.set(i, Text.literal("Slimefun").formatted(Formatting.BLUE).formatted(Formatting.ITALIC));
             }
         }

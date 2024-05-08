@@ -9,7 +9,7 @@
     "patchouli.BookMixin",
     "patchouli.ContentsBuilderMixin",
     "patchouli.ItemStackUtilMixin",
-    "patchouli.InteractionManagerMixin",
+    "minecraft.InteractionManagerMixin",
     "mbp.MBPDataMixin",
     "mbp.MBPProviderMixin",
     "minecraft.AddServerScreenMixin",
