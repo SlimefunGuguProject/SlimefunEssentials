@@ -100,20 +100,23 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
         //Display Inputs
         if (this.slimefunRecipe.hasInputs()) {
             for (EmiIngredient input : this.inputs) {
-                final boolean large = input instanceof EntityEmiStack stack && !stack.isBaby();
+                final boolean large = input instanceof EntityEmiStack stack && stack.isLarge();
                 widgets.addSlot(input, offsets.getX(), large ? offsets.largeSlot() : offsets.slot()).large(large);
                 offsets.x().add((large ? TextureUtils.LARGE_SLOT.width() : TextureUtils.SLOT.width()));
             }
+            offsets.x().addPadding();
         } else {
             widgets.addSlot((EmiIngredient) this.emiRecipeCategory.icon, offsets.getX(), offsets.slot());
             offsets.x().addSlot();
         }
-    
-        // Display Arrow
-        addArrowWithCheck(widgets, offsets);
-    
-        // Display Outputs
-        addOutputsOrEnergy(widgets, offsets);
+
+        if (this.slimefunRecipe.hasEnergy() || this.slimefunRecipe.hasOutputs()) {
+            // Display Arrow
+            addArrowWithCheck(widgets, offsets);
+
+            // Display Outputs
+            addOutputsOrEnergy(widgets, offsets);
+        }
     }
 
     protected void addEnergyWithCheck(WidgetHolder widgets, OffsetBuilder offsets) {
@@ -167,8 +170,9 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
     protected void addOutputs(WidgetHolder widgets, OffsetBuilder offsets) {
         for (EmiStack output : this.outputs) {
             widgets.addSlot(output, offsets.getX(), offsets.largeSlot()).recipeContext(this).large(true);
-            offsets.x().addLargeSlot();
+            offsets.x().addLargeSlot(false);
         }
+        offsets.x().addPadding();
     }
 
     protected List<TooltipComponent> tooltip(String key, Object... args) {

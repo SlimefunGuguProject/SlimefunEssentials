@@ -129,20 +129,21 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
         if (recipe.hasInputs()) {
             for (SlimefunRecipeComponent input : recipe.inputs()) {
                 JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.slot() + 1), input);
-                offsets.x().addSlot();
+                offsets.x().addSlot(false);
             }
+            offsets.x().addPadding();
         } else {
             JeiIntegration.RECIPE_INTERPRETER.addIngredient(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.slot() + 1), this.catalyst.itemStack());
             offsets.x().addSlot();
         }
 
-        offsets.x().addArrow();
-
         if (recipe.hasOutputs()) {
+            offsets.x().addArrow();
             for (SlimefunRecipeComponent output : recipe.outputs()) {
                 JeiIntegration.RECIPE_INTERPRETER.addIngredients(builder.addSlot(RecipeIngredientRole.OUTPUT, offsets.getX() + 5, offsets.largeSlot() + 5), output);
-                offsets.x().addLargeSlot();
+                offsets.x().addLargeSlot(false);
             }
+            offsets.x().addPadding();
         }
     }
 
@@ -152,8 +153,10 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
         addLabels(graphics, offsets, recipe);
         addEnergyWithCheck(graphics, offsets, recipe);
         addInputsOrCatalyst(graphics, offsets, recipe);
-        addArrow(graphics, offsets, recipe);
-        addOutputsOrEnergy(graphics, offsets, recipe);
+        if (recipe.hasEnergy() || recipe.hasOutputs()) {
+            addArrow(graphics, offsets, recipe);
+            addOutputsOrEnergy(graphics, offsets, recipe);
+        }
     }
 
     @NotNull
@@ -180,17 +183,19 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
             offsets.x().addEnergy();
         }
 
-        offsets.x().add((TextureUtils.SLOT.size(getDrawMode()) + TextureUtils.PADDING) * (recipe.hasInputs() ? recipe.inputs().size() : 1));
+        offsets.x().add((TextureUtils.SLOT.size(getDrawMode())) * (recipe.hasInputs() ? recipe.inputs().size() : 1)).addPadding();
 
-        // Arrow Tooltip
-        if (recipe.hasTime() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.arrow(), TextureUtils.ARROW)) {
-            tooltips.add(timeTooltip(recipe));
-        }
-        offsets.x().addArrow();
+        if (recipe.hasEnergy() || recipe.hasOutputs()) {
+            // Arrow Tooltip
+            if (recipe.hasTime() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.arrow(), TextureUtils.ARROW)) {
+                tooltips.add(timeTooltip(recipe));
+            }
+            offsets.x().addArrow();
 
-        // Energy Tooltip Option 2
-        if (!recipe.hasOutputs() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.energy(), TextureUtils.ENERGY)) {
-            tooltips.add(energyTooltip(recipe));
+            // Energy Tooltip Option 2
+            if (!recipe.hasOutputs() && tooltipActive(mouseX, mouseY, offsets.getX(), offsets.energy(), TextureUtils.ENERGY)) {
+                tooltips.add(energyTooltip(recipe));
+            }
         }
 
         return tooltips;

@@ -4,14 +4,15 @@
   "package": "me.justahuman.slimefun_essentials.mixins",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "items.ItemStackMixin",
+    "minecraft.ItemStackMixin",
+    "minecraft.OrbAccessor",
     "patchouli.BookMixin",
     "patchouli.ContentsBuilderMixin",
     "patchouli.ItemStackUtilMixin",
     "patchouli.InteractionManagerMixin",
     "mbp.MBPDataMixin",
     "mbp.MBPProviderMixin",
-    "server_list.AddServerScreenMixin",
+    "minecraft.AddServerScreenMixin",
     "jec.ILabelMixin"
   ],
   "server": [],

@@ -75,6 +75,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
         for (int i = 0; i < recipe.inputs().size(); i++) {
             addSlot(graphics, offsets, false);
         }
+        offsets.x().addPadding();
     }
 
     default void addCatalyst(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
@@ -87,17 +88,19 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
         } else {
             addEnergy(graphics, offsets, recipe.energy() < 0);
         }
+        offsets.x().addPadding();
     }
 
     default void addOutputs(DrawContext graphics, OffsetBuilder offsets, SlimefunRecipe recipe) {
         for (int i = 0; i < recipe.outputs().size(); i++) {
             addSlot(graphics, offsets, true);
         }
+        offsets.x().addPadding();
     }
 
     default void addSlot(DrawContext graphics, OffsetBuilder offsets, boolean output) {
         addSlot(graphics, offsets.getX(), output ? offsets.largeSlot() : offsets.slot(), output);
-        offsets.x().add((output ? TextureUtils.LARGE_SLOT.size(getDrawMode()) : TextureUtils.SLOT.size(getDrawMode())) + TextureUtils.PADDING);
+        offsets.x().add(output ? TextureUtils.LARGE_SLOT.size(getDrawMode()) : TextureUtils.SLOT.size(getDrawMode()));
     }
 
     default void addSlot(DrawContext graphics, int x, int y, boolean output) {

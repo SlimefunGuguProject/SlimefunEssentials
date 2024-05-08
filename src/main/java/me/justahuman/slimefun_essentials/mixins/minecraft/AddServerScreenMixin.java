@@ -1,4 +1,4 @@
-package me.justahuman.slimefun_essentials.mixins.server_list;
+package me.justahuman.slimefun_essentials.mixins.minecraft;
 
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import net.minecraft.client.gui.screen.Screen;

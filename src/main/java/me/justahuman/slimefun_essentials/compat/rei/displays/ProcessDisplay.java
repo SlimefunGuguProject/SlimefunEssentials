@@ -63,12 +63,15 @@ public class ProcessDisplay extends SlimefunDisplay {
         } else {
             addSlot(widgets, offsets, EntryStacks.of(icon));
         }
+        offsets.x().addPadding();
 
-        // Display Arrow
-        addArrow(widgets, offsets);
+        if (this.slimefunRecipe.hasEnergy() || this.slimefunRecipe.hasOutputs()) {
+            // Display Arrow
+            addArrow(widgets, offsets);
 
-        // Display Outputs
-        addOutputsOrEnergy(widgets, offsets);
+            // Display Outputs
+            addOutputsOrEnergy(widgets, offsets);
+        }
 
         return widgets;
     }
@@ -92,7 +95,7 @@ public class ProcessDisplay extends SlimefunDisplay {
 
     protected void addSlot(List<Widget> widgets, OffsetBuilder offsets, EntryIngredient entryIngredient) {
         addSlot(widgets, entryIngredient, offsets.getX() + 1, offsets.slot() + 1);
-        offsets.x().addSlot();
+        offsets.x().addSlot(false);
     }
 
     protected void addSlot(List<Widget> widgets, EntryIngredient entryIngredient, int x, int y) {
@@ -148,8 +151,9 @@ public class ProcessDisplay extends SlimefunDisplay {
         for (EntryIngredient entryIngredient : getOutputEntries()) {
             widgets.add(Widgets.createResultSlotBackground(new Point(offsets.getX() + 5, offsets.largeSlot() + 5)));
             widgets.add(Widgets.createSlot(new Point(offsets.getX() + 5, offsets.largeSlot() + 5)).entries(entryIngredient).disableBackground().markOutput());
-            offsets.x().addLargeSlot();
+            offsets.x().addLargeSlot(false);
         }
+        offsets.x().addPadding();
     }
 
     @Override

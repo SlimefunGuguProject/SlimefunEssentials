@@ -1,4 +1,4 @@
-package me.justahuman.slimefun_essentials.mixins.items;
+package me.justahuman.slimefun_essentials.mixins.minecraft;
 
 import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.client.item.TooltipContext;
@@ -9,9 +9,11 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -19,8 +21,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.Locale;
 
-@Mixin(ItemStack.class)
+@Mixin(value = ItemStack.class, priority = 100000)
 public abstract class ItemStackMixin {
+    @Unique
+    private static final String MINECRAFT = "Minecraft";
+
     @Shadow @Nullable
     public abstract NbtCompound getNbt();
 
@@ -28,18 +33,22 @@ public abstract class ItemStackMixin {
     public abstract Item getItem();
 
     @Inject(method = "getTooltip", at = @At(value = "RETURN"))
-    public void changeIdentifierLine(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
+    public void changeTooltip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
         final String id = Utils.getSlimefunId(getNbt());
         if (id == null) {
             return;
         }
 
         final List<Text> lore = cir.getReturnValue();
-        final String idLine = Registries.ITEM.getId(getItem()).toString();
+        final Identifier identifier = Registries.ITEM.getId(getItem());
+        final String idLine = identifier.toString();
+
         for (int i = 0; i < lore.size(); i++) {
-            Text line = lore.get(i);
-            if (line.getString().equals(idLine)) {
+            String line = lore.get(i).getString();
+            if (line.equals(idLine)) {
                 lore.set(i, Text.literal("slimefun:" + id.toLowerCase(Locale.ROOT)).formatted(Formatting.DARK_GRAY));
+            } else if (line.equals(MINECRAFT)) {
+                lore.set(i, Text.literal("Slimefun").formatted(Formatting.BLUE).formatted(Formatting.ITALIC));
             }
         }
     }

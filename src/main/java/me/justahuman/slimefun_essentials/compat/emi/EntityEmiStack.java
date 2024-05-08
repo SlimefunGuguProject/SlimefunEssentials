@@ -7,6 +7,7 @@ import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.runtime.EmiDrawContext;
 import dev.emi.emi.screen.tooltip.RemainderTooltipComponent;
+import me.justahuman.slimefun_essentials.mixins.minecraft.OrbAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.Mouse;
 import net.minecraft.client.gui.DrawContext;
@@ -15,6 +16,7 @@ import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
@@ -42,9 +44,15 @@ public class EntityEmiStack extends EmiStack {
         this.type = type;
         this.entity = type.create(MinecraftClient.getInstance().world);
         this.baby = baby && this.entity instanceof MobEntity;
-        this.scale = this.baby ? 12.0F : 8.0F;
+
         if (this.baby) {
-            ((MobEntity) entity).setBaby(true);
+            this.scale = 12.0F;
+            ((MobEntity) this.entity).setBaby(true);
+        } else if (this.entity instanceof ExperienceOrbEntity orb) {
+            this.scale = 20.0F;
+            ((OrbAccessor) orb).setAmount(2477);
+        } else {
+            this.scale = 8.0F;
         }
     }
 
@@ -56,8 +64,8 @@ public class EntityEmiStack extends EmiStack {
         return stack;
     }
 
-    public boolean isBaby() {
-        return this.baby;
+    public boolean isLarge() {
+        return !this.baby && !(this.entity instanceof ExperienceOrbEntity);
     }
 
     @Override
@@ -70,7 +78,7 @@ public class EntityEmiStack extends EmiStack {
         if (entity != null) {
             Mouse mouse = MinecraftClient.getInstance().mouse;
             if (entity instanceof LivingEntity living) {
-                drawLivingEntity(draw, x, this.baby ? y - 5 : y, scale, (float) mouse.getX(), (float) mouse.getY(), living);
+                drawLivingEntity(draw, x, this.baby ? y - 3 : y, scale, (float) mouse.getX(), (float) mouse.getY(), living);
             } else {
                 drawEntity(draw, x, y, scale, (float) mouse.getX(), (float) mouse.getY(), entity);
             }
