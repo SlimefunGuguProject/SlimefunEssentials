@@ -39,6 +39,9 @@ public class ModConfig {
 
     private static @Setter boolean autoToggleAddons = true;
     private static @Setter boolean autoManageItems = true;
+
+    private static @Setter boolean replaceItemIdentifiers = true;
+    private static @Setter boolean hideBackgroundTooltips = true;
     
     public static void loadConfig() {
         final JsonObject root = new JsonObject();
@@ -74,6 +77,9 @@ public class ModConfig {
 
         loadConfigOption(() -> autoToggleAddons = JsonUtils.getBool(root, "auto_toggle_addons", true, true));
         loadConfigOption(() -> autoManageItems = JsonUtils.getBool(root, "auto_manage_items", true, true));
+
+        loadConfigOption(() -> replaceItemIdentifiers = JsonUtils.getBool(root, "replace_item_identifiers", true, true));
+        loadConfigOption(() -> hideBackgroundTooltips = JsonUtils.getBool(root, "hide_background_tooltips", true, true));
     }
 
     private static void loadConfigOption(Runnable runnable) {
@@ -110,6 +116,9 @@ public class ModConfig {
 
         root.addProperty("auto_toggle_addons", autoToggleAddons);
         root.addProperty("auto_manage_items", autoManageItems);
+
+        root.addProperty("replace_item_identifiers", replaceItemIdentifiers);
+        root.addProperty("hide_background_tooltips", hideBackgroundTooltips);
         
         try (final FileWriter fileWriter = new FileWriter(getConfigFile())) {
             gson.toJson(root, fileWriter);
@@ -146,6 +155,14 @@ public class ModConfig {
 
     public static boolean autoManageItems() {
         return autoManageItems;
+    }
+
+    public static boolean replaceItemIdentifiers() {
+        return replaceItemIdentifiers;
+    }
+
+    public static boolean hideBackgroundTooltips() {
+        return hideBackgroundTooltips;
     }
 
     public static boolean isCurrentServerEnabled() {

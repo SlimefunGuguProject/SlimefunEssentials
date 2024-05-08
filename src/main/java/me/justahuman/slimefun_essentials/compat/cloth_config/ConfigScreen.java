@@ -19,6 +19,7 @@ public class ConfigScreen {
         
         final ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         final ConfigCategory generalCategory = builder.getOrCreateCategory(Text.translatable("slimefun_essentials.config.category.general"));
+        final ConfigCategory visualCategory = builder.getOrCreateCategory(Text.translatable("slimefun_essentials.config.category.visual"));
         final ConfigCategory serverCategory = builder.getOrCreateCategory(Text.translatable("slimefun_essentials.config.category.server"));
 
         /* General Config Options */
@@ -48,6 +49,20 @@ public class ConfigScreen {
                 .setDefaultValue(new ArrayList<>(List.of("Slimefun")))
                 .setTooltip(Text.translatable("slimefun_essentials.config.option.addons.tooltip"))
                 .setSaveConsumer(ModConfig::setAddons)
+                .build());
+
+        /* Visual */
+
+        visualCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.replace_item_identifiers"), ModConfig.replaceItemIdentifiers())
+                .setDefaultValue(true)
+                .setTooltip(Text.translatable("slimefun_essentials.config.option.replace_item_identifiers.tooltip"))
+                .setSaveConsumer(ModConfig::setReplaceItemIdentifiers)
+                .build());
+
+        visualCategory.addEntry(entryBuilder.startBooleanToggle(Text.translatable("slimefun_essentials.config.option.hide_background_tooltips"), ModConfig.hideBackgroundTooltips())
+                .setDefaultValue(true)
+                .setTooltip(Text.translatable("slimefun_essentials.config.option.hide_background_tooltips.tooltip"))
+                .setSaveConsumer(ModConfig::setHideBackgroundTooltips)
                 .build());
 
         /* Server Config Options */

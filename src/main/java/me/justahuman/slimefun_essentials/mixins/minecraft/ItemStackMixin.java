@@ -1,5 +1,6 @@
 package me.justahuman.slimefun_essentials.mixins.minecraft;
 
+import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -42,8 +43,12 @@ public abstract class ItemStackMixin {
         }
 
         final List<Text> lore = cir.getReturnValue();
-        if (HIDDEN.contains(id)) {
+        if (ModConfig.hideBackgroundTooltips() && HIDDEN.contains(id)) {
             lore.clear();
+            return;
+        }
+
+        if (!ModConfig.replaceItemIdentifiers()) {
             return;
         }
 

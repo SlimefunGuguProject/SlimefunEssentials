@@ -13,6 +13,12 @@
   "slimefun_essentials.config.option.addons": "Enabled Slimefun Addons:",
   "slimefun_essentials.config.option.addons.tooltip": "Add or remove Slimefun Addons you want support for!",
 
+  "slimefun_essentials.config.category.visual": "Visual",
+  "slimefun_essentials.config.option.replace_item_identifiers": "Replace Item Ids",
+  "slimefun_essentials.config.option.replace_item_identifiers.tooltip": "E.g. \"minecraft:gunpowder\" -> \"slimefun:pure_ore_cluster\"",
+  "slimefun_essentials.config.option.hide_background_tooltips": "Hide Background Tooltips",
+  "slimefun_essentials.config.option.hide_background_tooltips.tooltip": "Hides the tooltip of items meant just as background/filler\nE.g. the grey glass panes in the Slimefun guide.",
+
   "slimefun_essentials.config.category.server": "Server",
   "slimefun_essentials.config.option.require_server_connection": "Require Server Connection",
   "slimefun_essentials.config.option.require_server_connection.tooltip": "If enabled SFE will only function on servers.\nMay require you to leave and rejoin the world/server to take effect.",
