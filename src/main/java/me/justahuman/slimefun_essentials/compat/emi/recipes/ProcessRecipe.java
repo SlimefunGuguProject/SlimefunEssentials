@@ -131,7 +131,7 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
     }
 
     protected void addEnergy(WidgetHolder widgets, int x, int y) {
-        final int totalEnergy = this.slimefunRecipe.energy() * Math.max(1, this.slimefunRecipe.time() / 10 / this.slimefunRecipeCategory.speed());
+        final int totalEnergy = this.slimefunRecipe.totalEnergy();
         widgets.add(EmiUtils.wrap(TextureUtils.ENERGY, x, y, false));
         widgets.addAnimatedTexture(EmiUtils.wrap(totalEnergy >= 0 ? TextureUtils.ENERGY_POSITIVE : TextureUtils.ENERGY_NEGATIVE), x, y, 1000, false, totalEnergy < 0, totalEnergy < 0).tooltip(tooltip("slimefun_essentials.recipes.energy." + (totalEnergy >= 0 ? "generate" : "use"), TextureUtils.numberFormat.format(Math.abs(totalEnergy))));
     }
