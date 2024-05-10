@@ -103,7 +103,7 @@ public class TextureUtils {
 
         int slots = slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() : 1;
         width += SLOT.size(drawMode) * slots;
-        width += PADDING * (slots - 1);
+        width += PADDING;
 
         return withOutputWidth(drawMode, slimefunRecipe, width);
     }
@@ -182,23 +182,20 @@ public class TextureUtils {
             width += PADDING;
         }
 
-        int slots = slimefunRecipe.hasInputs() ? 2 : 1;
-        width += SLOT.size(drawMode) * slots;
+        width += SLOT.size(drawMode) * 2;
         width += PADDING;
 
         return withOutputWidth(drawMode, slimefunRecipe, width);
     }
 
     private static int withOutputWidth(DrawMode drawMode, SlimefunRecipe slimefunRecipe, int width) {
-        if (drawMode != DrawMode.BOOK) {
-            width += PADDING;
+        if (drawMode != DrawMode.BOOK && (slimefunRecipe.hasOutputs() || slimefunRecipe.hasEnergy())) {
             width += ARROW.width(drawMode);
             width += PADDING;
 
             if (slimefunRecipe.hasOutputs()) {
                 int outputs = slimefunRecipe.outputs().size();
                 width += LARGE_SLOT.size(drawMode) * outputs;
-                width += PADDING * (outputs - 1);
             }
         }
         return width;

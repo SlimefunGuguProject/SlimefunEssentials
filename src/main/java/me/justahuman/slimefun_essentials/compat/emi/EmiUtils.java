@@ -16,10 +16,15 @@ public class EmiUtils {
     }
 
     public static TextureWidget wrap(SlimefunLabel slimefunLabel, int x, int y, boolean tooltip) {
-        return new TextureWidget(slimefunLabel.identifier(), x, y,
+        final TextureWidget widget =  new TextureWidget(slimefunLabel.identifier(), x, y,
                 slimefunLabel.width(), slimefunLabel.height(), slimefunLabel.u(), slimefunLabel.v(),
-                slimefunLabel.width(), slimefunLabel.height(), 256, 256)
-                .tooltip((mx, my) -> List.of(TooltipComponent.of(Text.translatable("slimefun_essentials.recipes.label." + slimefunLabel.id()).asOrderedText())));
+                slimefunLabel.width(), slimefunLabel.height(), 256, 256);
+
+        if (tooltip) {
+            widget.tooltip((mx, my) -> List.of(TooltipComponent.of(Text.translatable("slimefun_essentials.recipes.label." + slimefunLabel.id()).asOrderedText())));
+        }
+
+        return widget;
     }
 
     public static void fillInputs(List<EmiIngredient> list, int size) {
