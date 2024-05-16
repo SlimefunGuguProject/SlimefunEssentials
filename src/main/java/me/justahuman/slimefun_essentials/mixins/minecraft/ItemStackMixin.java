@@ -14,20 +14,15 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 @Mixin(value = ItemStack.class, priority = 100000)
 public abstract class ItemStackMixin {
-    @Unique
-    private static final Set<String> HIDDEN = Set.of("_UI_BACKGROUND", "_UI_INPUT_SLOT", "_UI_OUTPUT_SLOT");
-
     @Shadow @Nullable
     public abstract NbtCompound getNbt();
 
@@ -43,7 +38,7 @@ public abstract class ItemStackMixin {
         }
 
         final List<Text> lore = cir.getReturnValue();
-        if (ModConfig.hideBackgroundTooltips() && HIDDEN.contains(id)) {
+        if (ModConfig.hideBackgroundTooltips() && Utils.HIDDEN_SF_IDS.contains(id)) {
             lore.clear();
             return;
         }

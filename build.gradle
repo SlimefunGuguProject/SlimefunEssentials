@@ -24,7 +24,7 @@ repositories {
         url = "https://maven.shedaniel.me/"
     }
     maven {
-        name = "Jade, Just Enough Calculation"
+        name = "Jade"
         url "https://www.cursemaven.com"
         content {
             includeGroup "curse.maven"
@@ -49,7 +49,6 @@ dependencies {
     modImplementation "maven.modrinth:patchouli:${project.patchouli_version}"
 
     modImplementation "curse.maven:jade-324717:${project.jade_version}"
-    modImplementation "curse.maven:just-enough-calculation-242223:${project.jec_version}"
 
     modImplementation ("dev.emi:emi-fabric:${project.emi_version}") {
         exclude(group: "net.fabricmc.fabric-api")

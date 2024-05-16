@@ -12,9 +12,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
+import java.util.Set;
 
 public class Utils {
     public static final String ID = "slimefun_essentials";
+    public static final Set<String> HIDDEN_SF_IDS = Set.of("_UI_BACKGROUND", "_UI_INPUT_SLOT", "_UI_OUTPUT_SLOT");
     private static final Logger LOGGER = LoggerFactory.getLogger(ID);
     private static final String ERROR_MESSAGE = "[SFE] Failed to load data";
 
