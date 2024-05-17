@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.jei.categories;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
@@ -20,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SmelteryCategory extends ProcessCategory {
-    public SmelteryCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunItemStack catalyst) {
-        super(Type.SMELTERY, guiHelper, slimefunRecipeCategory, catalyst);
+    public SmelteryCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory) {
+        super(Type.SMELTERY, guiHelper, slimefunRecipeCategory);
     }
 
     @Override

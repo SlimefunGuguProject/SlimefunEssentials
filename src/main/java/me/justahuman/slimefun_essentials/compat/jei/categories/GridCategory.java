@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.jei.categories;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
@@ -21,8 +20,8 @@ import java.util.List;
 
 public class GridCategory extends ProcessCategory {
     protected final int side;
-    public GridCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunItemStack catalyst, int side) {
-        super(Type.grid(side), guiHelper, slimefunRecipeCategory, catalyst);
+    public GridCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, int side) {
+        super(Type.grid(side), guiHelper, slimefunRecipeCategory);
 
         this.side = side;
     }

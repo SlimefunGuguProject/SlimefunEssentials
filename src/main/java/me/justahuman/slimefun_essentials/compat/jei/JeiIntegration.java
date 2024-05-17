@@ -75,7 +75,7 @@ public class JeiIntegration implements IModPlugin {
         IJeiHelpers jeiHelpers = registration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
         for (SlimefunRecipeCategory recipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
-            final ProcessCategory category = getJeiCategory(guiHelper, recipeCategory, ResourceLoader.getSlimefunItems().get(recipeCategory.id()));
+            final ProcessCategory category = getJeiCategory(guiHelper, recipeCategory);
             registration.addRecipeCategories(category);
             CATEGORIES.add(category);
         }
@@ -117,18 +117,18 @@ public class JeiIntegration implements IModPlugin {
         }
     }
 
-    public static ProcessCategory getJeiCategory(IGuiHelper guiHelper, SlimefunRecipeCategory recipeCategory, SlimefunItemStack catalyst) {
+    public static ProcessCategory getJeiCategory(IGuiHelper guiHelper, SlimefunRecipeCategory recipeCategory) {
         final String type = recipeCategory.type();
         if (type.equals("ancient_altar")) {
-            return new AncientAltarCategory(guiHelper, recipeCategory, catalyst);
+            return new AncientAltarCategory(guiHelper, recipeCategory);
         } else if (type.equals("smeltery")) {
-            return new SmelteryCategory(guiHelper, recipeCategory, catalyst);
+            return new SmelteryCategory(guiHelper, recipeCategory);
         } else if (type.equals("reactor")) {
-            return new ReactorCategory(guiHelper, recipeCategory, catalyst);
+            return new ReactorCategory(guiHelper, recipeCategory);
         } else if (type.contains("grid")) {
-            return new GridCategory(guiHelper, recipeCategory, catalyst, TextureUtils.getSideSafe(type));
+            return new GridCategory(guiHelper, recipeCategory, TextureUtils.getSideSafe(type));
         } else {
-            return new ProcessCategory(guiHelper, recipeCategory, catalyst);
+            return new ProcessCategory(guiHelper, recipeCategory);
         }
     }
 }

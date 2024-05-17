@@ -1,7 +1,6 @@
 package me.justahuman.slimefun_essentials.compat.jei.categories;
 
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.jei.JeiIntegration;
@@ -19,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AncientAltarCategory extends ProcessCategory {
-    public AncientAltarCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunItemStack catalyst) {
-        super(Type.ANCIENT_ALTAR, guiHelper, slimefunRecipeCategory, catalyst);
+    public AncientAltarCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory) {
+        super(Type.ANCIENT_ALTAR, guiHelper, slimefunRecipeCategory);
     }
 
     @Override

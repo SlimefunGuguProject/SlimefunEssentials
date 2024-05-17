@@ -5,7 +5,6 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
 import me.justahuman.slimefun_essentials.api.SimpleRecipeRenderer;
-import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
@@ -34,7 +33,6 @@ import java.util.List;
 public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCategory<SlimefunRecipe>, ManualRecipeRenderer {
     protected final IGuiHelper guiHelper;
     protected final SlimefunRecipeCategory slimefunRecipeCategory;
-    protected final SlimefunItemStack catalyst;
     protected IDrawable icon;
     protected final IDrawable background;
     protected final IDrawableAnimated positiveEnergy;
@@ -42,17 +40,16 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
     protected final LoadingCache<Integer, IDrawableAnimated> cachedArrows;
     protected final LoadingCache<Integer, IDrawableAnimated> cachedBackwardsArrows;
 
-    public ProcessCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunItemStack catalyst) {
-        this(Type.PROCESS, guiHelper, slimefunRecipeCategory, catalyst);
+    public ProcessCategory(IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory) {
+        this(Type.PROCESS, guiHelper, slimefunRecipeCategory);
     }
     
-    public ProcessCategory(Type type, IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory, SlimefunItemStack catalyst) {
+    public ProcessCategory(Type type, IGuiHelper guiHelper, SlimefunRecipeCategory slimefunRecipeCategory) {
         super(type);
 
         this.guiHelper = guiHelper;
         this.slimefunRecipeCategory = slimefunRecipeCategory;
-        this.catalyst = catalyst;
-        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, catalyst.itemStack());
+        this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, slimefunRecipeCategory.itemStack());
         this.background = guiHelper.drawableBuilder(TextureUtils.WIDGETS, 0, 0, 0, 0).addPadding(yPadding(), yPadding(), xPadding(), xPadding()).build();
         this.positiveEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_POSITIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY.width(getDrawMode()), TextureUtils.ENERGY.height(getDrawMode())).buildAnimated(20, IDrawableAnimated.StartDirection.TOP, false);
         this.negativeEnergy = guiHelper.drawableBuilder(TextureUtils.WIDGETS, TextureUtils.ENERGY_NEGATIVE.u(), TextureUtils.ENERGY.v(), TextureUtils.ENERGY.width(getDrawMode()), TextureUtils.ENERGY.height(getDrawMode())).buildAnimated(20, IDrawableAnimated.StartDirection.BOTTOM, true);
@@ -93,7 +90,7 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
     @Override
     @NotNull
     public Text getTitle() {
-        return Text.translatable("slimefun_essentials.recipes.category.slimefun", this.catalyst.itemStack().getName());
+        return Text.translatable("slimefun_essentials.recipes.category.slimefun", this.slimefunRecipeCategory.itemStack().getName());
     }
     
     @Override
@@ -109,7 +106,7 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
     }
 
     public void updateIcon() {
-        this.icon = this.guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, this.catalyst.itemStack());;
+        this.icon = this.guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, this.slimefunRecipeCategory.itemStack());;
     }
     
     @Override
@@ -133,7 +130,7 @@ public class ProcessCategory extends SimpleRecipeRenderer implements IRecipeCate
             }
             offsets.x().addPadding();
         } else {
-            JeiIntegration.RECIPE_INTERPRETER.addIngredient(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.slot() + 1), this.catalyst.itemStack());
+            JeiIntegration.RECIPE_INTERPRETER.addIngredient(builder.addSlot(RecipeIngredientRole.INPUT, offsets.getX() + 1, offsets.slot() + 1), this.slimefunRecipeCategory.itemStack());
             offsets.x().addSlot();
         }
 
