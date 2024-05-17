@@ -99,7 +99,7 @@ public class JeiIntegration implements IModPlugin {
         }
 
         for (SlimefunRecipeCategory recipeCategory : SlimefunRecipeCategory.getRecipeCategories().values()) {
-            registration.addRecipeCatalyst(ResourceLoader.getSlimefunItems().get(recipeCategory.id()).itemStack(), RecipeType.create(Utils.ID, recipeCategory.id().toLowerCase(), SlimefunRecipe.class));
+            registration.addRecipeCatalyst(recipeCategory.itemStack(), RecipeType.create(Utils.ID, recipeCategory.id().toLowerCase(), SlimefunRecipe.class));
         }
     }
 
