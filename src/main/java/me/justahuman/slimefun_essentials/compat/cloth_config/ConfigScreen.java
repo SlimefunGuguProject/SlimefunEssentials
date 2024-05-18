@@ -46,7 +46,7 @@ public class ConfigScreen {
                 .build());
 
         generalCategory.addEntry(entryBuilder.startStrList(Text.translatable("slimefun_essentials.config.option.addons"), ModConfig.getAddons())
-                .setDefaultValue(new ArrayList<>(List.of("Slimefun")))
+                .setDefaultValue(new ArrayList<>(List.of("Slimefun", "InfinityExpansion")))
                 .setTooltip(Text.translatable("slimefun_essentials.config.option.addons.tooltip"))
                 .setSaveConsumer(ModConfig::setAddons)
                 .build());

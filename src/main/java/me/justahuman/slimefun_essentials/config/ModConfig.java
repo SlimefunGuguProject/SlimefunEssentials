@@ -26,6 +26,7 @@ public class ModConfig {
     private static final JsonArray defaultAddons = new JsonArray();
     static {
         defaultAddons.add("Slimefun");
+        defaultAddons.add("InfinityExpansion");
     }
 
     private static @Setter boolean blockFeatures = true;
