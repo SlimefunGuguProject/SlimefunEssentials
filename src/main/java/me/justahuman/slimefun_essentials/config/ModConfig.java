@@ -187,7 +187,6 @@ public class ModConfig {
                 if (!configFile.createNewFile()) {
                     throw new IOException();
                 }
-                
             } catch(IOException | SecurityException e) {
                 Utils.warn("Failed to create config file!");
                 Utils.warn(e.getMessage());

@@ -459,9 +459,9 @@
     "item": "minecraft:redstone",
     "nbt": "{PublicBukkitValues:{\"slimefun:slimefun_item\":\"QUARRY_OSCILLATOR_REDSTONE\"},display:{Lore:[\u0027{\"text\":\"\",\"extra\":[{\"text\":\"Increases the odds of mining this resource!\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"gray\",\"bold\":false}]}\u0027],Name:\u0027{\"text\":\"\",\"extra\":[{\"text\":\"[Redstone Dust] Oscillator\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"aqua\",\"bold\":false}]}\u0027}}"
   },
-  "QUARRY_OSCILLATOR_THE END": {
+  "QUARRY_OSCILLATOR_THE_END": {
     "item": "minecraft:end_stone",
-    "nbt": "{PublicBukkitValues:{\"slimefun:slimefun_item\":\"QUARRY_OSCILLATOR_THE END\"},display:{Lore:[\u0027{\"text\":\"\",\"extra\":[{\"text\":\"Adds a chance of mining from the targeted dimension!\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"gray\",\"bold\":false}]}\u0027],Name:\u0027{\"text\":\"\",\"extra\":[{\"text\":\"[The End] Oscillator\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"aqua\",\"bold\":false}]}\u0027}}"
+    "nbt": "{PublicBukkitValues:{\"slimefun:slimefun_item\":\"QUARRY_OSCILLATOR_THE_END\"},display:{Lore:[\u0027{\"text\":\"\",\"extra\":[{\"text\":\"Adds a chance of mining from the targeted dimension!\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"gray\",\"bold\":false}]}\u0027],Name:\u0027{\"text\":\"\",\"extra\":[{\"text\":\"[The End] Oscillator\",\"obfuscated\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"color\":\"aqua\",\"bold\":false}]}\u0027}}"
   },
   "QUARTZ_SINGULARITY": {
     "item": "minecraft:quartz_block",

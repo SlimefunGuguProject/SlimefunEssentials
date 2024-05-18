@@ -720,12 +720,12 @@
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "end_stone:2%0.0125"
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "obsidian:2%0.1125"
       },
       {
@@ -1596,12 +1596,12 @@
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "end_stone:1%0.008333334"
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "obsidian:1%0.075"
       },
       {
@@ -8220,12 +8220,12 @@
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "end_stone:64%0.05"
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "obsidian:64%0.45"
       },
       {
@@ -10199,12 +10199,12 @@
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "end_stone:6%0.025"
       },
       {
         "time": 100,
-        "inputs": "QUARRY_OSCILLATOR_THE END:1%0.0",
+        "inputs": "QUARRY_OSCILLATOR_THE_END:1%0.0",
         "outputs": "obsidian:6%0.225"
       },
       {
