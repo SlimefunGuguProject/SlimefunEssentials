@@ -56,7 +56,7 @@ public class ModConfig {
         }
 
         loadConfigOption(() -> blockFeatures = JsonUtils.getBool(root, "block_features", true, true));
-        loadConfigOption(() -> customGuide = JsonUtils.getBool(root, "custom_guide", true, true));
+        //loadConfigOption(() -> customGuide = JsonUtils.getBool(root, "custom_guide", true, true));
         loadConfigOption(() -> recipeFeatures = JsonUtils.getBool(root, "recipe_features", true, true));
         loadConfigOption(() -> {
             for (JsonElement addon : JsonUtils.getArray(root, "addons", defaultAddons, true)) {
@@ -107,7 +107,7 @@ public class ModConfig {
         }
 
         root.addProperty("block_features", blockFeatures);
-        root.addProperty("custom_guide", customGuide);
+        //root.addProperty("custom_guide", customGuide);
         root.addProperty("recipe_features", recipeFeatures);
         root.add("addons", addonArray);
 

@@ -3,6 +3,7 @@ package me.justahuman.slimefun_essentials.compat.emi.recipes;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
+import dev.emi.emi.api.stack.ListEmiIngredient;
 import dev.emi.emi.api.widget.FillingArrowWidget;
 import dev.emi.emi.api.widget.WidgetHolder;
 import me.justahuman.slimefun_essentials.api.OffsetBuilder;
@@ -97,10 +98,10 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
         // Display Energy
         addEnergyWithCheck(widgets, offsets);
     
-        //Display Inputs
+        // Display Inputs
         if (this.slimefunRecipe.hasInputs()) {
             for (EmiIngredient input : this.inputs) {
-                final boolean large = input instanceof EntityEmiStack stack && stack.isLarge();
+                final boolean large = isLarge(input);
                 widgets.addSlot(input, offsets.getX(), large ? offsets.largeSlot() : offsets.slot()).large(large);
                 offsets.x().add((large ? TextureUtils.LARGE_SLOT.width() : TextureUtils.SLOT.width()));
             }
@@ -117,6 +118,13 @@ public class ProcessRecipe extends SimpleRecipeRenderer implements EmiRecipe {
             // Display Outputs
             addOutputsOrEnergy(widgets, offsets);
         }
+    }
+
+    protected boolean isLarge(EmiIngredient ingredient) {
+        if (ingredient instanceof ListEmiIngredient list) {
+            return list.getEmiStacks().stream().anyMatch(this::isLarge);
+        }
+        return ingredient instanceof EntityEmiStack stack && stack.isLarge();
     }
 
     protected void addEnergyWithCheck(WidgetHolder widgets, OffsetBuilder offsets) {

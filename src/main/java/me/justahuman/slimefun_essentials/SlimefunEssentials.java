@@ -4,7 +4,6 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.compat.cloth_config.ConfigScreen;
-import me.justahuman.slimefun_essentials.compat.patchouli.PatchouliIntegration;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.Channels;
@@ -36,10 +35,10 @@ public class SlimefunEssentials implements ClientModInitializer {
     public void onInitializeClient() {
         ModConfig.loadConfig();
 
-        if (CompatUtils.isPatchouliLoaded()) {
+        /*if (CompatUtils.isPatchouliLoaded()) {
             PatchouliIntegration.init();
-        }
-        
+        }*/
+
         if (CompatUtils.isClothConfigLoaded()) {
             final KeyBinding keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding("slimefun_essentials.key_bind.open_config", GLFW.GLFW_KEY_F6, "slimefun_essentials.title"));
             ClientTickEvents.END_CLIENT_TICK.register(client -> {

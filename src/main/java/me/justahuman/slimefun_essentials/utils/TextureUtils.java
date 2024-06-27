@@ -4,9 +4,11 @@ import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import net.minecraft.util.Identifier;
 
 import java.text.NumberFormat;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,6 +42,22 @@ public class TextureUtils {
 
     static {
         numberFormat.setGroupingUsed(true);
+    }
+
+    public static boolean isLargeInput(String component) {
+        return component != null && component.startsWith("@") && !component.startsWith("@baby_");
+    }
+
+    public static int countLargeInputs(Collection<SlimefunRecipeComponent> inputs) {
+        int count = 0;
+        for (SlimefunRecipeComponent component : inputs) {
+            if (component.getMultiId() != null && component.getMultiId().stream().anyMatch(TextureUtils::isLargeInput)) {
+                count++;
+            } else if (isLargeInput(component.getId())) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public static int getSideSafe(String type) {
@@ -101,11 +119,13 @@ public class TextureUtils {
             width += PADDING;
         }
 
-        int slots = slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() : 1;
-        width += SLOT.size(drawMode) * slots;
-        width += PADDING;
+        int largeSlots = slimefunRecipe.hasInputs() ? countLargeInputs(slimefunRecipe.inputs()) : 0;
+        int smallSlots = slimefunRecipe.hasInputs() ? slimefunRecipe.inputs().size() - largeSlots : 1;
+        width += LARGE_SLOT.size(drawMode) * largeSlots;
+        width += SLOT.size(drawMode) * smallSlots;
 
-        return withOutputWidth(drawMode, slimefunRecipe, width);
+        int withOutput = withOutputWidth(drawMode, slimefunRecipe, width);
+        return withOutput > width ? withOutput + PADDING : width;
     }
 
     public static int getProcessHeight(DrawMode drawMode, SlimefunRecipeCategory slimefunRecipeCategory) {

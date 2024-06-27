@@ -5,15 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "minecraft.AddServerScreenMixin",
-    "minecraft.InteractionManagerMixin",
     "minecraft.ItemStackMixin",
     "minecraft.OrbAccessor",
     "minecraft.SlotMixin",
-    "patchouli.BookMixin",
-    "patchouli.ContentsBuilderMixin",
-    "patchouli.ItemStackUtilMixin",
     "mbp.MBPDataMixin",
-    "mbp.MBPProviderMixin",
+    "mbp.MBPProviderMixin"
   ],
   "server": [],
   "injectors": {
