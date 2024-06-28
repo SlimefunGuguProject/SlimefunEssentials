@@ -120,7 +120,7 @@ public interface ManualRecipeRenderer extends RecipeRenderer {
     }
 
     default Text timeTooltip(SlimefunRecipe recipe) {
-        return Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(recipe.sfTicks() / 2), TextureUtils.numberFormat.format(recipe.sfTicks() / 2 * 10L));
+        return Text.translatable("slimefun_essentials.recipes.time", TextureUtils.numberFormat.format(recipe.sfTicks() / 2), TextureUtils.numberFormat.format(recipe.sfTicks() * 10L));
     }
 
     default Text energyTooltip(SlimefunRecipe recipe) {
