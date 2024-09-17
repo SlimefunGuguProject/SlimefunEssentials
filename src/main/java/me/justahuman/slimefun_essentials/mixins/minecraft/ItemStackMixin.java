@@ -2,16 +2,15 @@ package me.justahuman.slimefun_essentials.mixins.minecraft;
 
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import me.justahuman.slimefun_essentials.utils.Utils;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,16 +22,16 @@ import java.util.Locale;
 
 @Mixin(value = ItemStack.class, priority = 100000)
 public abstract class ItemStackMixin {
-    @Shadow @Nullable
-    public abstract NbtCompound getNbt();
 
     @Shadow
     public abstract Item getItem();
 
+    @Shadow public abstract ComponentChanges getComponentChanges();
+
     @Inject(method = "getTooltip", at = @At(value = "RETURN"))
-    public void changeTooltip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir) {
-        final String guideMode = Utils.getGuideMode(getNbt());
-        final String id = guideMode == null ? Utils.getSlimefunId(getNbt()) : guideMode + "_guide";
+    public void changeTooltip(Item.TooltipContext context, PlayerEntity player, TooltipType type, CallbackInfoReturnable<List<Text>> cir) {
+        final String guideMode = Utils.getGuideMode(getComponentChanges());
+        final String id = guideMode == null ? Utils.getSlimefunId(getComponentChanges()) : guideMode + "_guide";
         if (id == null) {
             return;
         }

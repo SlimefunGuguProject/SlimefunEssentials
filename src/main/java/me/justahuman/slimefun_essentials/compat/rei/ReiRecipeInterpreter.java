@@ -5,8 +5,8 @@ import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.TagKey;
@@ -55,8 +55,8 @@ public class ReiRecipeInterpreter implements IdInterpreter<EntryIngredient> {
     }
 
     @Override
-    public EntryIngredient fromFluid(float chance, Fluid fluid, int amount, EntryIngredient def) {
-        return EntryIngredients.of(fluid, amount);
+    public EntryIngredient fromFluid(float chance, FluidVariant fluid, int amount, EntryIngredient def) {
+        return EntryIngredients.of(fluid.getFluid(), amount);
     }
 
     @Override

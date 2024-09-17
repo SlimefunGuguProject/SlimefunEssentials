@@ -14,13 +14,13 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.component.ComponentChanges;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -31,7 +31,6 @@ import org.joml.Quaternionf;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @SuppressWarnings("DuplicatedCode")
 public class EntityEmiStack extends EmiStack {
@@ -90,8 +89,8 @@ public class EntityEmiStack extends EmiStack {
     }
 
     @Override
-    public NbtCompound getNbt() {
-        return Optional.ofNullable(entity).map(e -> e.writeNbt(new NbtCompound())).orElse(new NbtCompound());
+    public ComponentChanges getComponentChanges() {
+        return ComponentChanges.EMPTY;
     }
 
     @Override

@@ -2,11 +2,11 @@ package me.justahuman.slimefun_essentials.compat.patchouli;
 
 import me.justahuman.slimefun_essentials.api.IdInterpreter;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -36,8 +36,8 @@ public class PatchouliIdInterpreter implements IdInterpreter<PatchouliWidget> {
     }
 
     @Override
-    public PatchouliWidget fromFluid(float chance, Fluid fluid, int amount, PatchouliWidget def) {
-        return fromItemStack(chance, fluid.getBucketItem().getDefaultStack(), amount, def);
+    public PatchouliWidget fromFluid(float chance, FluidVariant fluid, int amount, PatchouliWidget def) {
+        return fromItemStack(chance, fluid.getFluid().getBucketItem().getDefaultStack(), amount, def);
     }
 
     @Override

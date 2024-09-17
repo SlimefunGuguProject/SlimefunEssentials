@@ -4,6 +4,9 @@ import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.config.ModConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
+import net.minecraft.component.ComponentChanges;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
@@ -12,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
 
 public class Utils {
@@ -25,8 +29,7 @@ public class Utils {
     }
 
     public static boolean filterResources(Identifier identifier) {
-        final String path = identifier.getPath();
-        return path.endsWith(".json");
+        return identifier.getPath().endsWith(".json");
     }
 
     public static boolean filterAddons(Identifier identifier) {
@@ -70,22 +73,23 @@ public class Utils {
     }
 
     public static NbtCompound getPluginNbt(@Nullable ItemStack itemStack) {
-        return itemStack == null ? null : getPluginNbt(itemStack.getNbt());
+        return itemStack == null ? null : getPluginNbt(itemStack.getComponentChanges());
     }
 
-    public static NbtCompound getPluginNbt(@Nullable NbtCompound nbt) {
-        if (nbt == null || nbt.isEmpty() || !nbt.contains("PublicBukkitValues")) {
+    public static NbtCompound getPluginNbt(@Nullable ComponentChanges components) {
+        if (components == null || components.isEmpty()) {
             return null;
         }
-        return nbt.getCompound("PublicBukkitValues");
+        Optional<? extends NbtComponent> customData = components.get(DataComponentTypes.CUSTOM_DATA);
+        return customData != null ? customData.map(NbtComponent::getNbt).orElse(null) : null;
     }
 
     public static String getSlimefunId(@Nullable ItemStack itemStack) {
-        return itemStack == null ? null : getSlimefunId(itemStack.getNbt());
+        return itemStack == null ? null : getSlimefunId(itemStack.getComponentChanges());
     }
 
-    public static String getSlimefunId(@Nullable NbtCompound nbt) {
-        final NbtCompound pluginNbt = getPluginNbt(nbt);
+    public static String getSlimefunId(@Nullable ComponentChanges components) {
+        final NbtCompound pluginNbt = getPluginNbt(components);
         if (pluginNbt == null || !pluginNbt.contains("slimefun:slimefun_item")) {
             return null;
         }
@@ -93,11 +97,11 @@ public class Utils {
     }
 
     public static String getGuideMode(@Nullable ItemStack itemStack) {
-        return itemStack == null ? null : getGuideMode(itemStack.getNbt());
+        return itemStack == null ? null : getGuideMode(itemStack.getComponentChanges());
     }
 
-    public static String getGuideMode(@Nullable NbtCompound nbt) {
-        final NbtCompound pluginNbt = getPluginNbt(nbt);
+    public static String getGuideMode(@Nullable ComponentChanges components) {
+        final NbtCompound pluginNbt = getPluginNbt(components);
         if (pluginNbt == null || !pluginNbt.contains("slimefun:slimefun_guide_mode")) {
             return null;
         }

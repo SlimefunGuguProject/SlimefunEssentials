@@ -5,9 +5,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.serialization.DynamicOps;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.component.ComponentChanges;
+import net.minecraft.component.ComponentMapImpl;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
@@ -67,11 +70,11 @@ public class JsonUtils {
 
     public static String serializeItem(ItemStack itemStack) {
         final JsonObject json = new JsonObject();
-        final NbtCompound nbt = itemStack.getNbt();
+        final ComponentChanges changes = itemStack.getComponentChanges();
         json.addProperty("item", Registries.ITEM.getId(itemStack.getItem()).toString());
         json.addProperty("amount", itemStack.getCount());
-        if (nbt != null) {
-            json.addProperty("nbt", nbt.toString());
+        if (changes != ComponentChanges.EMPTY) {
+            json.addProperty("components", ComponentChanges.CODEC.encodeStart(withRegistryAccess(NbtOps.INSTANCE), changes).getOrThrow().asString());
         }
         return json.toString();
     }
@@ -87,22 +90,24 @@ public class JsonUtils {
 
         final ItemStack itemStack = new ItemStack(Registries.ITEM.get(new Identifier(json.get("item").getAsString())));
         itemStack.setCount(JsonHelper.getInt(json, "amount", 1));
-        if (JsonHelper.hasString(json, "nbt")) {
-            itemStack.setNbt(parseNbt(json));
+
+        try {
+            if (itemStack.getComponents() instanceof ComponentMapImpl components && JsonHelper.hasString(json, "components")) {
+                components.setChanges(ComponentChanges.CODEC.decode(withRegistryAccess(NbtOps.INSTANCE),
+                        StringNbtReader.parse(JsonHelper.getString(json, "components"))).getOrThrow().getFirst());
+            }
+        } catch (Exception e) {
+            Utils.error(e);
         }
         
         return itemStack;
     }
-    
-    public static NbtCompound parseNbt(JsonObject json) {
-        return parseNbt(JsonHelper.getString(json, "nbt"));
-    }
-    
-    public static NbtCompound parseNbt(String nbt) {
-        try {
-            return StringNbtReader.parse(nbt);
-        } catch (CommandSyntaxException e) {
-            throw new RuntimeException(e);
+
+    private static <T> DynamicOps<T> withRegistryAccess(DynamicOps<T> ops) {
+        MinecraftClient instance = MinecraftClient.getInstance();
+        if (instance == null || instance.world == null) {
+            return ops;
         }
+        return instance.world.getRegistryManager().getOps(ops);
     }
 }

@@ -5,8 +5,8 @@ import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.fabric.ingredients.fluid.JeiFluidIngredient;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -37,7 +37,7 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
         } else if (ingredient instanceof SlimefunItemStack slimefunItemStack) {
             slotBuilder.addItemStack(slimefunItemStack.itemStack());
         } else if (ingredient instanceof JeiFluidIngredient fluidStack) {
-            slotBuilder.addFluidStack(fluidStack.getFluid(), fluidStack.getAmount());
+            slotBuilder.addFluidStack(fluidStack.getFluidVariant().getFluid(), fluidStack.getAmount());
         }
     }
 
@@ -58,7 +58,7 @@ public class JeiRecipeInterpreter implements IdInterpreter<Object> {
     }
 
     @Override
-    public Object fromFluid(float chance, Fluid fluid, int amount, Object def) {
+    public Object fromFluid(float chance, FluidVariant fluid, int amount, Object def) {
         return new JeiFluidIngredient(fluid, amount);
     }
 

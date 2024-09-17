@@ -6,8 +6,8 @@ import me.justahuman.slimefun_essentials.api.IdInterpreter;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.utils.Utils;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.TagKey;
@@ -62,8 +62,8 @@ public class EmiIdInterpreter implements IdInterpreter<EmiIngredient> {
     }
 
     @Override
-    public EmiIngredient fromFluid(float chance, Fluid fluid, int amount, EmiIngredient def) {
-        return EmiStack.of(fluid).setChance(chance);
+    public EmiIngredient fromFluid(float chance, FluidVariant fluid, int amount, EmiIngredient def) {
+        return EmiStack.of(fluid.getFluid()).setChance(chance);
     }
 
     @Override

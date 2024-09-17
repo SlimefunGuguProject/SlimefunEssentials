@@ -7,9 +7,7 @@
     "minecraft.AddServerScreenMixin",
     "minecraft.ItemStackMixin",
     "minecraft.OrbAccessor",
-    "minecraft.SlotMixin",
-    "mbp.MBPDataMixin",
-    "mbp.MBPProviderMixin"
+    "minecraft.SlotMixin"
   ],
   "server": [],
   "injectors": {

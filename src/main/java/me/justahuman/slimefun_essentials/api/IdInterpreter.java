@@ -3,8 +3,8 @@ package me.justahuman.slimefun_essentials.api;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeComponent;
 import me.justahuman.slimefun_essentials.utils.Utils;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -79,7 +79,7 @@ public interface IdInterpreter<T> {
                 Utils.warn("Invalid Ingredient Fluid Id: " + id);
                 return def;
             }
-            return fromFluid(chance, Registries.FLUID.get(identifier), amount, def);
+            return fromFluid(chance, FluidVariant.of(Registries.FLUID.get(identifier)), amount, def);
         }
         // Tag
         else if (type.startsWith("#")) {
@@ -108,6 +108,6 @@ public interface IdInterpreter<T> {
     
     T fromTag(float chance, TagKey<Item> tagKey, int amount, T def);
     T fromItemStack(float chance, ItemStack itemStack, int amount, T def);
-    T fromFluid(float chance, Fluid fluid, int amount, T def);
+    T fromFluid(float chance, FluidVariant fluid, int amount, T def);
     T fromEntityType(float chance, EntityType<?> entityType, boolean baby, int amount, T def);
 }

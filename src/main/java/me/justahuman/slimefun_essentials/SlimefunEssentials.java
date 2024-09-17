@@ -1,8 +1,9 @@
 package me.justahuman.slimefun_essentials;
 
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteStreams;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
+import me.justahuman.slimefun_essentials.client.payloads.DisabledItemPayload;
+import me.justahuman.slimefun_essentials.client.payloads.SlimefunAddonPayload;
+import me.justahuman.slimefun_essentials.client.payloads.SlimefunBlockPayload;
 import me.justahuman.slimefun_essentials.compat.cloth_config.ConfigScreen;
 import me.justahuman.slimefun_essentials.compat.rei.ReiIntegration;
 import me.justahuman.slimefun_essentials.config.ModConfig;
@@ -16,6 +17,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.client.option.KeyBinding;
@@ -23,7 +25,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import org.lwjgl.glfw.GLFW;
 
@@ -33,6 +34,9 @@ import java.util.List;
 public class SlimefunEssentials implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        PayloadTypeRegistry.playS2C().register(Channels.ADDON_CHANNEL, SlimefunAddonPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(Channels.BLOCK_CHANNEL, SlimefunBlockPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(Channels.ITEM_CHANNEL, DisabledItemPayload.CODEC);
         ModConfig.loadConfig();
 
         /*if (CompatUtils.isPatchouliLoaded()) {
@@ -72,43 +76,35 @@ public class SlimefunEssentials implements ClientModInitializer {
                 final ChunkPos chunkPos = chunk.getPos();
                 packetByteBuf.writeInt(chunkPos.x);
                 packetByteBuf.writeInt(chunkPos.z);
-                ClientPlayNetworking.send(Channels.BLOCK_CHANNEL, packetByteBuf);
+
             }));
 
             ClientChunkEvents.CHUNK_UNLOAD.register((world, chunk) -> ResourceLoader.removePlacedChunk(chunk.getPos()));
 
-            ClientPlayNetworking.registerGlobalReceiver(Channels.BLOCK_CHANNEL, ((client, handler, buf, sender) -> {
-                final ByteArrayDataInput packet = ByteStreams.newDataInput(buf.array());
-                final int x = packet.readInt();
-                final int y = packet.readInt();
-                final int z = packet.readInt();
-                final String id = packet.readUTF();
-                final BlockPos blockPos = new BlockPos(x, y, z);
-
+            ClientPlayNetworking.registerGlobalReceiver(Channels.BLOCK_CHANNEL, (payload, context) -> {
                 // If the id is a space that means it's no longer a slimefun block
-                if (id.equals(" ")) {
-                    ResourceLoader.removePlacedBlock(blockPos);
+                if (payload.id().equals(" ")) {
+                    ResourceLoader.removePlacedBlock(payload.pos());
                     return;
                 }
 
-                ResourceLoader.addPlacedBlock(blockPos, id.toLowerCase());
-            }));
+                ResourceLoader.addPlacedBlock(payload.pos(), payload.id().toLowerCase());
+            });
 
             ClientPlayConnectionEvents.DISCONNECT.register((handler, minecraftClient) -> ResourceLoader.clearPlacedBlocks());
         }
 
         if (ModConfig.autoToggleAddons()) {
             final List<String> normalAddons = new ArrayList<>();
-            ClientPlayNetworking.registerGlobalReceiver(Channels.ADDON_CHANNEL, ((client, handler, buf, sender) -> {
-                final String utf = ByteStreams.newDataInput(buf.array()).readUTF();
-                if (utf.equals("clear")) {
+            ClientPlayNetworking.registerGlobalReceiver(Channels.ADDON_CHANNEL, (payload, context) -> {
+                if (payload.addon().equals("clear")) {
                     normalAddons.addAll(ModConfig.getAddons());
                     ModConfig.getAddons().clear();
                     return;
                 }
 
-                ModConfig.getAddons().add(utf);
-            }));
+                ModConfig.getAddons().add(payload.addon());
+            });
 
             ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> {
                 if (!normalAddons.isEmpty()) {
@@ -120,10 +116,9 @@ public class SlimefunEssentials implements ClientModInitializer {
         }
 
         if (ModConfig.autoManageItems()) {
-            ClientPlayNetworking.registerGlobalReceiver(Channels.ITEM_CHANNEL, ((client, handler, buf, sender) -> {
-                final String id = ByteStreams.newDataInput(buf.array()).readUTF();
-                ResourceLoader.blacklistItem(id);
-            }));
+            ClientPlayNetworking.registerGlobalReceiver(Channels.ITEM_CHANNEL, (payload, context) -> {
+                ResourceLoader.blacklistItem(payload.id());
+            });
 
             ClientPlayConnectionEvents.DISCONNECT.register(((handler, client) -> ResourceLoader.clearItemBlacklist()));
         }

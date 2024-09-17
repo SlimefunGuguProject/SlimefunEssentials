@@ -152,7 +152,7 @@ public class ResourceLoader {
     public static void loadCustomModels(ResourceManager manager, String directory) {
         for (Map.Entry<Identifier, Resource> entry : manager.findResources("models/" + directory, Utils::filterVanillaItems).entrySet()) {
             final Resource resource = entry.getValue();
-            if (VanillaResourcePackProvider.VANILLA_KEY.equals(resource.getResourcePackName())) {
+            if (VanillaResourcePackProvider.VANILLA_KEY.equals(resource.getPackId())) {
                 continue;
             }
 
@@ -176,7 +176,7 @@ public class ResourceLoader {
             return;
         }
 
-        final long customModelData = modelData.getAsLong();
+        final int customModelData = modelData.getAsInt();
         final String modelId = model.getAsString();
         final int idStart = modelId.lastIndexOf("/");
         final int idEnd = modelId.lastIndexOf(".");
