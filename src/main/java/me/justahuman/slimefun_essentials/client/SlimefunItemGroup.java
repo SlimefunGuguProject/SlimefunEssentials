@@ -10,12 +10,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List<String> content, List<String> requirements) {
     private static final Map<String, SlimefunItemGroup> itemGroups = new LinkedHashMap<>();
+    private static final Map<String, SlimefunItemGroup> byContent = new HashMap<>();
+    private static final SlimefunItemGroup EMPTY = new SlimefunItemGroup(new Identifier("slimefun_essentials", "empty"), ItemStack.EMPTY, List.of(), List.of());
 
     public static void deserialize(String addon, String id, JsonObject groupObject) {
         final Identifier identifier = new Identifier(addon, id);
@@ -41,7 +45,9 @@ public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List
             }
         }
 
-        itemGroups.put(identifier.toString(), new SlimefunItemGroup(identifier, itemStack, content, requirements));
+        SlimefunItemGroup itemGroup = new SlimefunItemGroup(identifier, itemStack, content, requirements);
+        itemGroups.put(identifier.toString(), itemGroup);
+        content.forEach(contentId -> byContent.put(contentId, itemGroup));
     }
 
     @NonNull
@@ -62,5 +68,15 @@ public record SlimefunItemGroup(Identifier identifier, ItemStack itemStack, List
                 }
             }
         }
+    }
+
+    public static List<SlimefunItemStack> sort(List<SlimefunItemStack> itemStacks) {
+        final List<SlimefunItemGroup> groups = new ArrayList<>(itemGroups.values());
+        itemStacks = new ArrayList<>(itemStacks);
+        groups.add(EMPTY);
+
+        itemStacks.sort(Comparator.comparingInt(stack -> byContent.getOrDefault(stack.id(), EMPTY).content().indexOf(stack.id())));
+        itemStacks.sort(Comparator.comparingInt(stack -> groups.indexOf(byContent.getOrDefault(stack.id(), EMPTY))));
+        return itemStacks;
     }
 }

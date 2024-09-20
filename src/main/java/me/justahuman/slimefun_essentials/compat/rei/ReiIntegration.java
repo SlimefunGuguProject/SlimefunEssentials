@@ -2,6 +2,7 @@ package me.justahuman.slimefun_essentials.compat.rei;
 
 import me.justahuman.slimefun_essentials.client.DrawMode;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
+import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunLabel;
@@ -31,6 +32,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.Generic3x3ContainerScreenHandler;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ReiIntegration implements REIClientPlugin {
@@ -99,7 +101,7 @@ public class ReiIntegration implements REIClientPlugin {
             return;
         }
 
-        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
+        for (SlimefunItemStack slimefunItemStack : SlimefunItemGroup.sort(List.copyOf(ResourceLoader.getSlimefunItems().values()))) {
             entryRegistry.addEntry(EntryStacks.of(slimefunItemStack.itemStack()));
         }
 

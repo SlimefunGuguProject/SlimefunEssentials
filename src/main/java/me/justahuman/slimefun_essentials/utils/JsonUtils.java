@@ -93,8 +93,9 @@ public class JsonUtils {
 
         try {
             if (itemStack.getComponents() instanceof ComponentMapImpl components && JsonHelper.hasString(json, "components")) {
+                String componentsString = JsonHelper.getString(json, "components");
                 components.setChanges(ComponentChanges.CODEC.decode(withRegistryAccess(NbtOps.INSTANCE),
-                        StringNbtReader.parse(JsonHelper.getString(json, "components"))).getOrThrow().getFirst());
+                        StringNbtReader.parse(componentsString)).getOrThrow().getFirst());
             }
         } catch (Exception e) {
             Utils.error(e);

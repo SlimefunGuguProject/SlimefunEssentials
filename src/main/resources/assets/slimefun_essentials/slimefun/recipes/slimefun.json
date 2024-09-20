@@ -4,21 +4,21 @@
       {
         "complex": {
           "item": "minecraft:lava_bucket",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 96 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 96 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:player_head",
-          "nbt": "{PublicBukkitValues:{\"slimefun:slimefun_item\":\"BUCKET_OF_OIL\"},SkullOwner:{Id:[I;-2097021526,-1846136273,-1343267869,-1098073999],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlMDRiNDFkMTllYzc5MjdmOTgyYTYzYTk0YTNkNzlmNzhlY2VjMzMzNjMwNTFmZGUwODMxYmZhYmRiZCJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 128 Ores\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"Bucket of Oil\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"BUCKET_OF_OIL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Bucket of Oil\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 128 Ores\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-2097021526,-1846136273,-1343267869,-1098073999],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlMDRiNDFkMTllYzc5MjdmOTgyYTYzYTk0YTNkNzlmNzhlY2VjMzMzNjMwNTFmZGUwODMxYmZhYmRiZCJ9fX0\u003d\"}]}}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:player_head",
-          "nbt": "{PublicBukkitValues:{\"slimefun:slimefun_item\":\"BUCKET_OF_FUEL\"},SkullOwner:{Id:[I;-646220426,-2011611428,-1213813692,-668300540],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg0ZGRjYTc2NjcyNWI4Yjk3NDEzZjI1OWMzZjc2NjgwNzBmNmFlNTU0ODNhOTBjOGU1NTI1Mzk0ZjljMDk5In19fQ\u003d\u003d\"}]}},display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 256 Ores\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"Bucket of Fuel\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"BUCKET_OF_FUEL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Bucket of Fuel\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 256 Ores\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-646220426,-2011611428,-1213813692,-668300540],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg0ZGRjYTc2NjcyNWI4Yjk3NDEzZjI1OWMzZjc2NjgwNzBmNmFlNTU0ODNhOTBjOGU1NTI1Mzk0ZjljMDk5In19fQ\u003d\u003d\"}]}}"
         },
         "inputs": "?0:1"
       }
@@ -1521,7 +1521,7 @@
       {
         "time": 120,
         "inputs": "gravel:1",
-        "outputs": "SIFTED_ORE:1%0.35"
+        "outputs": "flint:1%0.4"
       },
       {
         "time": 120,
@@ -1531,36 +1531,36 @@
       {
         "time": 120,
         "inputs": "gravel:1",
-        "outputs": "flint:1%0.4"
+        "outputs": "SIFTED_ORE:1%0.35"
       },
       {
         "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "glowstone_dust:1%0.05"
       },
       {
         "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "gold_nugget:1%0.25"
-      },
-      {
-        "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "blaze_powder:1%0.08"
-      },
-      {
-        "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "quartz:1%0.5"
       },
       {
         "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "gold_nugget:1%0.25"
+      },
+      {
+        "time": 120,
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "blaze_powder:1%0.08"
+      },
+      {
+        "time": 120,
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "nether_wart:1%0.1"
       },
       {
         "time": 120,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "ghast_tear:1%0.02"
       }
     ]
@@ -1757,11 +1757,47 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "fermented_spider_eye:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "redstone:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           }
         ],
         "inputs": [
@@ -1775,83 +1811,11 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:turtle_master\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "turtle_helmet:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:swiftness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "sugar:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:regeneration\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "ghast_tear:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:leaping\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "rabbit_foot:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:strength\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:strength\"}}"
           }
         ],
         "inputs": [
@@ -1865,16 +1829,16 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:poison\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:swiftness\"}}"
           }
         ],
         "inputs": [
           "?0:1",
-          "spider_eye:1"
+          "sugar:1"
         ],
         "outputs": "?1:1"
       },
@@ -1883,16 +1847,16 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:night_vision\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:turtle_master\"}}"
           }
         ],
         "inputs": [
           "?0:1",
-          "golden_carrot:1"
+          "turtle_helmet:1"
         ],
         "outputs": "?1:1"
       },
@@ -1901,29 +1865,11 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:fire_resistance\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "magma_cream:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:water_breathing\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water_breathing\"}}"
           }
         ],
         "inputs": [
@@ -1937,11 +1883,29 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:healing\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:night_vision\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "golden_carrot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:healing\"}}"
           }
         ],
         "inputs": [
@@ -1955,11 +1919,65 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:slow_falling\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:fire_resistance\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "magma_cream:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:leaping\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "rabbit_foot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:poison\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "spider_eye:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:slow_falling\"}}"
           }
         ],
         "inputs": [
@@ -1973,11 +1991,29 @@
         "complex": [
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:regeneration\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "ghast_tear:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:splash_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           },
           {
             "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           }
         ],
         "inputs": [
@@ -1991,515 +2027,11 @@
         "complex": [
           {
             "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           },
           {
             "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "fermented_spider_eye:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "fermented_spider_eye:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
-          },
-          {
-            "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:long_weakness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "redstone:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "nether_wart:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:turtle_master\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "turtle_helmet:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:swiftness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "sugar:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:regeneration\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "ghast_tear:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:leaping\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "rabbit_foot:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:strength\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "blaze_powder:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:poison\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "spider_eye:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:night_vision\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "golden_carrot:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:fire_resistance\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "magma_cream:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:water_breathing\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "pufferfish:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:healing\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "glistering_melon_slice:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:slow_falling\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "phantom_membrane:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
-          },
-          {
-            "item": "minecraft:lingering_potion",
-            "nbt": "{Potion:\"minecraft:long_weakness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "redstone:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "nether_wart:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:turtle_master\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "turtle_helmet:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:swiftness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "sugar:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:regeneration\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "ghast_tear:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:leaping\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "rabbit_foot:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:strength\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "blaze_powder:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:poison\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "spider_eye:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:night_vision\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "golden_carrot:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:fire_resistance\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "magma_cream:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:water_breathing\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "pufferfish:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:healing\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "glistering_melon_slice:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:awkward\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:slow_falling\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "phantom_membrane:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
           }
         ],
         "inputs": [
@@ -2513,34 +2045,502 @@
         "complex": [
           {
             "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:weakness\"}"
-          },
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:long_weakness\"}"
-          }
-        ],
-        "inputs": [
-          "?0:1",
-          "redstone:1"
-        ],
-        "outputs": "?1:1"
-      },
-      {
-        "time": 600,
-        "complex": [
-          {
-            "item": "minecraft:potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           },
           {
             "item": "minecraft:splash_potion",
-            "nbt": "{Potion:\"minecraft:water\"}"
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
           }
         ],
         "inputs": [
           "?0:1",
           "gunpowder:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "fermented_spider_eye:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "redstone:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "nether_wart:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:strength\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "blaze_powder:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:swiftness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "sugar:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:turtle_master\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "turtle_helmet:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water_breathing\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "pufferfish:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:night_vision\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "golden_carrot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:healing\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "glistering_melon_slice:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:fire_resistance\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "magma_cream:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:leaping\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "rabbit_foot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:poison\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "spider_eye:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:slow_falling\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "phantom_membrane:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:regeneration\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "ghast_tear:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:weakness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "redstone:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "nether_wart:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:strength\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "blaze_powder:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:swiftness\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "sugar:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:turtle_master\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "turtle_helmet:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:water_breathing\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "pufferfish:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:night_vision\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "golden_carrot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:healing\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "glistering_melon_slice:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:fire_resistance\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "magma_cream:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:leaping\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "rabbit_foot:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:poison\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "spider_eye:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:slow_falling\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "phantom_membrane:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
+        "time": 600,
+        "complex": [
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:awkward\"}}"
+          },
+          {
+            "item": "minecraft:lingering_potion",
+            "components": "{\"minecraft:potion_contents\":{potion:\"minecraft:regeneration\"}}"
+          }
+        ],
+        "inputs": [
+          "?0:1",
+          "ghast_tear:1"
         ],
         "outputs": "?1:1"
       }
@@ -2555,11 +2555,11 @@
         "complex": [
           {
             "item": "minecraft:wooden_hoe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2573,11 +2573,11 @@
         "complex": [
           {
             "item": "minecraft:leather_helmet",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:aqua_affinity\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:projectile_protection\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:aqua_affinity\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:projectile_protection\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2591,11 +2591,11 @@
         "complex": [
           {
             "item": "minecraft:stone_shovel",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2609,11 +2609,11 @@
         "complex": [
           {
             "item": "minecraft:diamond_chestplate",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:protection\":1,\"minecraft:thorns\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:protection\":1,\"minecraft:thorns\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2627,11 +2627,11 @@
         "complex": [
           {
             "item": "minecraft:shield",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2645,11 +2645,11 @@
         "complex": [
           {
             "item": "minecraft:iron_pickaxe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:fortune\":1,\"minecraft:silk_touch\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:fortune\":1,\"minecraft:silk_touch\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2663,11 +2663,11 @@
         "complex": [
           {
             "item": "minecraft:iron_leggings",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:protection\":1,\"minecraft:thorns\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:protection\":1,\"minecraft:thorns\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2681,11 +2681,11 @@
         "complex": [
           {
             "item": "minecraft:diamond_axe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2699,11 +2699,11 @@
         "complex": [
           {
             "item": "minecraft:golden_boots",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:depth_strider\",lvl:1s},{id:\"minecraft:feather_falling\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:feather_falling\":1,\"minecraft:protection\":1,\"minecraft:soul_speed\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:depth_strider\",lvl:1s},{id:\"minecraft:feather_falling\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:feather_falling\":1,\"minecraft:protection\":1,\"minecraft:soul_speed\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2717,11 +2717,11 @@
         "complex": [
           {
             "item": "minecraft:netherite_sword",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:smite\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:smite\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2741,11 +2741,11 @@
         "complex": [
           {
             "item": "minecraft:wooden_hoe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:silk_touch\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:silk_touch\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2759,11 +2759,11 @@
         "complex": [
           {
             "item": "minecraft:leather_helmet",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2777,11 +2777,11 @@
         "complex": [
           {
             "item": "minecraft:stone_shovel",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2795,11 +2795,11 @@
         "complex": [
           {
             "item": "minecraft:diamond_chestplate",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:thorns\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:thorns\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2813,11 +2813,11 @@
         "complex": [
           {
             "item": "minecraft:shield",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2831,11 +2831,11 @@
         "complex": [
           {
             "item": "minecraft:iron_pickaxe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:efficiency\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:efficiency\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2849,11 +2849,11 @@
         "complex": [
           {
             "item": "minecraft:iron_leggings",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:swift_sneak\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1,\"minecraft:thorns\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:swift_sneak\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1,\"minecraft:thorns\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2867,11 +2867,11 @@
         "complex": [
           {
             "item": "minecraft:diamond_axe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:fortune\":1,\"minecraft:silk_touch\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:fortune\":1,\"minecraft:silk_touch\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2885,11 +2885,11 @@
         "complex": [
           {
             "item": "minecraft:golden_boots",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:depth_strider\":1,\"minecraft:feather_falling\":1,\"minecraft:projectile_protection\":1,\"minecraft:protection\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:depth_strider\":1,\"minecraft:feather_falling\":1,\"minecraft:projectile_protection\":1,\"minecraft:protection\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2903,11 +2903,11 @@
         "complex": [
           {
             "item": "minecraft:netherite_sword",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:sweeping\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1,\"minecraft:sweeping_edge\":1}}}"
           },
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:sweeping\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1,\"minecraft:sweeping_edge\":1}}}"
           }
         ],
         "inputs": "?0:1",
@@ -2984,12 +2984,12 @@
       },
       {
         "time": 120,
-        "inputs": "flowering_azalea:1,spruce_sapling:1,mangrove_propagule:1,birch_sapling:1,cherry_sapling:1,azalea:1,jungle_sapling:1,acacia_sapling:1,dark_oak_sapling:1,oak_sapling:1",
+        "inputs": "birch_sapling:1,azalea:1,flowering_azalea:1,oak_sapling:1,cherry_sapling:1,acacia_sapling:1,jungle_sapling:1,mangrove_propagule:1,spruce_sapling:1,dark_oak_sapling:1",
         "outputs": "stick:2"
       },
       {
         "time": 120,
-        "inputs": "jungle_leaves:1,spruce_leaves:1,oak_leaves:1,acacia_leaves:1,dark_oak_leaves:1,flowering_azalea_leaves:1,mangrove_leaves:1,cherry_leaves:1,azalea_leaves:1,birch_leaves:1",
+        "inputs": "oak_leaves:1,acacia_leaves:1,azalea_leaves:1,flowering_azalea_leaves:1,mangrove_leaves:1,cherry_leaves:1,jungle_leaves:1,dark_oak_leaves:1,spruce_leaves:1,birch_leaves:1",
         "outputs": "stick:1"
       }
     ]
@@ -3003,11 +3003,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1}}}"
           },
           {
             "item": "minecraft:wooden_hoe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1}}}"
           }
         ],
         "inputs": [
@@ -3021,11 +3021,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:respiration\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1}}}"
           },
           {
             "item": "minecraft:leather_helmet",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:respiration\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1}}}"
           }
         ],
         "inputs": [
@@ -3039,11 +3039,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:efficiency\",lvl:1s},{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:silk_touch\":1}}}"
           },
           {
             "item": "minecraft:stone_shovel",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:efficiency\",lvl:1s},{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:silk_touch\":1}}}"
           }
         ],
         "inputs": [
@@ -3057,11 +3057,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:protection\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:diamond_chestplate",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:protection\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:protection\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3071,15 +3071,33 @@
         "outputs": "?1:1"
       },
       {
+        "time": 3000,
+        "complex": [
+          {
+            "item": "minecraft:enchanted_book",
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1}}}"
+          },
+          {
+            "item": "minecraft:shield",
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1}}}"
+          }
+        ],
+        "inputs": [
+          "shield:1",
+          "?0:1"
+        ],
+        "outputs": "?1:1"
+      },
+      {
         "time": 4500,
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:iron_pickaxe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3093,11 +3111,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s},{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1,\"minecraft:projectile_protection\":1,\"minecraft:swift_sneak\":1}}}"
           },
           {
             "item": "minecraft:iron_leggings",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s},{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:blast_protection\":1,\"minecraft:projectile_protection\":1,\"minecraft:swift_sneak\":1}}}"
           }
         ],
         "inputs": [
@@ -3111,11 +3129,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:diamond_axe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:silk_touch\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3129,11 +3147,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:depth_strider\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:thorns\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:depth_strider\":1,\"minecraft:feather_falling\":1,\"minecraft:fire_protection\":1,\"minecraft:mending\":1}}}"
           },
           {
             "item": "minecraft:golden_boots",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:depth_strider\",lvl:1s},{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:thorns\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:depth_strider\":1,\"minecraft:feather_falling\":1,\"minecraft:fire_protection\":1,\"minecraft:mending\":1}}}"
           }
         ],
         "inputs": [
@@ -3147,11 +3165,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:sweeping\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:looting\":1,\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1}}}"
           },
           {
             "item": "minecraft:netherite_sword",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s},{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:sweeping\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:looting\":1,\"minecraft:mending\":1,\"minecraft:sharpness\":1,\"minecraft:smite\":1}}}"
           }
         ],
         "inputs": [
@@ -3171,11 +3189,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1}}}"
           },
           {
             "item": "minecraft:wooden_hoe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1}}}"
           }
         ],
         "inputs": [
@@ -3189,11 +3207,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:thorns\":1}}}"
           },
           {
             "item": "minecraft:leather_helmet",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:blast_protection\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:thorns\":1}}}"
           }
         ],
         "inputs": [
@@ -3207,11 +3225,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:silk_touch\":1}}}"
           },
           {
             "item": "minecraft:stone_shovel",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:silk_touch\":1}}}"
           }
         ],
         "inputs": [
@@ -3225,11 +3243,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:mending\":1}}}"
           },
           {
             "item": "minecraft:diamond_chestplate",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:mending\":1}}}"
           }
         ],
         "inputs": [
@@ -3243,11 +3261,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:shield",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3261,11 +3279,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:iron_pickaxe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fortune\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:efficiency\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3279,11 +3297,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:swift_sneak\",lvl:1s},{id:\"minecraft:thorns\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:swift_sneak\":1,\"minecraft:thorns\":1}}}"
           },
           {
             "item": "minecraft:iron_leggings",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:projectile_protection\",lvl:1s},{id:\"minecraft:swift_sneak\",lvl:1s},{id:\"minecraft:thorns\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:swift_sneak\":1,\"minecraft:thorns\":1}}}"
           }
         ],
         "inputs": [
@@ -3297,11 +3315,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:sharpness\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:diamond_axe",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:bane_of_arthropods\",lvl:1s},{id:\"minecraft:efficiency\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fortune\":1,\"minecraft:sharpness\":1,\"minecraft:silk_touch\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3315,11 +3333,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:mending\":1,\"minecraft:projectile_protection\":1,\"minecraft:soul_speed\":1}}}"
           },
           {
             "item": "minecraft:golden_boots",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fire_protection\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:soul_speed\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:fire_protection\":1,\"minecraft:mending\":1,\"minecraft:projectile_protection\":1,\"minecraft:soul_speed\":1}}}"
           }
         ],
         "inputs": [
@@ -3333,11 +3351,11 @@
         "complex": [
           {
             "item": "minecraft:enchanted_book",
-            "nbt": "{Enchantments:[{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:looting\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:bane_of_arthropods\":1,\"minecraft:fire_aspect\":1,\"minecraft:smite\":1,\"minecraft:sweeping_edge\":1,\"minecraft:unbreaking\":1}}}"
           },
           {
             "item": "minecraft:netherite_sword",
-            "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:knockback\",lvl:1s},{id:\"minecraft:looting\",lvl:1s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:smite\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+            "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:bane_of_arthropods\":1,\"minecraft:fire_aspect\":1,\"minecraft:smite\":1,\"minecraft:sweeping_edge\":1,\"minecraft:unbreaking\":1}}}"
           }
         ],
         "inputs": [
@@ -3353,15 +3371,15 @@
     "recipes": [
       {
         "time": 20,
-        "inputs": "flowering_azalea_leaves:1,white_tulip:1,cornflower:1,acacia_sapling:1,allium:1,seagrass:1,wither_rose:1,red_tulip:1,kelp:1,lily_of_the_valley:1,cherry_sapling:1,birch_leaves:1,mangrove_propagule:1,dark_oak_leaves:1,cherry_leaves:1,spruce_leaves:1,dark_oak_sapling:1,oak_sapling:1,oak_leaves:1,azalea_leaves:1,azure_bluet:1,oxeye_daisy:1,orange_tulip:1,azalea:1,flowering_azalea:1,mangrove_leaves:1,dandelion:1,bamboo:1,jungle_sapling:1,poppy:1,acacia_leaves:1,blue_orchid:1,birch_sapling:1,jungle_leaves:1,torchflower:1,spruce_sapling:1,pink_tulip:1"
+        "inputs": "allium:1,acacia_leaves:1,blue_orchid:1,jungle_sapling:1,birch_sapling:1,oak_leaves:1,orange_tulip:1,wither_rose:1,cherry_sapling:1,oak_sapling:1,azalea_leaves:1,cornflower:1,pink_tulip:1,acacia_sapling:1,white_tulip:1,mangrove_propagule:1,dark_oak_leaves:1,mangrove_leaves:1,flowering_azalea:1,jungle_leaves:1,oxeye_daisy:1,dark_oak_sapling:1,lily_of_the_valley:1,cherry_leaves:1,seagrass:1,poppy:1,azalea:1,bamboo:1,kelp:1,red_tulip:1,birch_leaves:1,flowering_azalea_leaves:1,azure_bluet:1,spruce_sapling:1,spruce_leaves:1,torchflower:1,dandelion:1"
       },
       {
         "time": 40,
-        "inputs": "horn_coral_block:1,horn_coral_fan:1,spider_eye:1,dried_kelp:1,brain_coral:1,bubble_coral:1,glow_berries:1,sweet_berries:1,bubble_coral_fan:1,brain_coral_fan:1,bone:1,cactus:1,lily_pad:1,crimson_fungus:1,string:1,cocoa_beans:1,sea_pickle:1,brown_mushroom:1,rotten_flesh:1,glow_lichen:1,tube_coral:1,fire_coral_block:1,brain_coral_block:1,fire_coral_fan:1,red_mushroom:1,warped_fungus:1,vine:1,horn_coral:1,fire_coral:1,tube_coral_block:1,tube_coral_fan:1,bubble_coral_block:1"
+        "inputs": "string:1,dried_kelp:1,brain_coral_block:1,tube_coral:1,glow_berries:1,tube_coral_block:1,cocoa_beans:1,lily_pad:1,bubble_coral_fan:1,vine:1,horn_coral_fan:1,warped_fungus:1,tube_coral_fan:1,spider_eye:1,rotten_flesh:1,bone:1,cactus:1,glow_lichen:1,fire_coral_block:1,bubble_coral:1,red_mushroom:1,brain_coral_fan:1,bubble_coral_block:1,brown_mushroom:1,fire_coral_fan:1,brain_coral:1,horn_coral:1,crimson_fungus:1,sweet_berries:1,horn_coral_block:1,fire_coral:1,sea_pickle:1"
       },
       {
         "time": 60,
-        "inputs": "potato:1,pumpkin_seeds:1,melon_seeds:1,small_dripleaf:1,nether_wart:1,melon_slice:1,big_dripleaf:1,beetroot_seeds:1,sugar_cane:1,wheat:1,apple:1,pumpkin:1,carrot:1,beetroot:1,wheat_seeds:1"
+        "inputs": "carrot:1,sugar_cane:1,pumpkin:1,beetroot_seeds:1,nether_wart:1,wheat:1,melon_seeds:1,wheat_seeds:1,small_dripleaf:1,big_dripleaf:1,apple:1,melon_slice:1,pumpkin_seeds:1,potato:1,beetroot:1"
       },
       {
         "time": 80,
@@ -3397,15 +3415,15 @@
       "complex": [
         {
           "item": "minecraft:enchanted_book",
-          "nbt": "{Enchantments:[{id:\"minecraft:sharpness\",lvl:1s}]}"
+          "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:sharpness\":1}}}"
         },
         {
           "item": "minecraft:enchanted_book",
-          "nbt": "{Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+          "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:unbreaking\":1}}}"
         },
         {
           "item": "minecraft:enchanted_book",
-          "nbt": "{Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:unbreaking\",lvl:1s}]}"
+          "components": "{\"minecraft:enchantments\":{levels:{\"minecraft:sharpness\":1,\"minecraft:unbreaking\":1}}}"
         }
       ],
       "inputs": [
@@ -3477,7 +3495,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"DURALUMIN_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Duralumin\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 20.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"I\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"DURALUMIN_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"I\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Duralumin\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 20.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "DURALUMIN_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3486,7 +3504,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"SOLDER_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Solder\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 30.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"II\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"SOLDER_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"II\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Solder\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 30.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "SOLDER_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3495,7 +3513,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"BILLON_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Billon\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 40.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"III\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"BILLON_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"III\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Billon\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 40.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "BILLON_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3504,7 +3522,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"STEEL_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 50.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"IV\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"STEEL_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"IV\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 50.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "STEEL_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3513,7 +3531,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"DAMASCUS_STEEL_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Damascus Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 60.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"V\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"DAMASCUS_STEEL_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"V\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Damascus Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 60.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "DAMASCUS_STEEL_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3522,7 +3540,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"REINFORCED_ALLOY_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Reinforced Alloy\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 75.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"VI\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"REINFORCED_ALLOY_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"VI\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Reinforced Alloy\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 75.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "REINFORCED_ALLOY_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3531,7 +3549,7 @@
         "time": 10,
         "complex": {
           "item": "minecraft:shears",
-          "nbt": "{Damage:0,PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"CARBONADO_MULTI_TOOL\"},Unbreakable:1b,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Carbonado\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"5.0 / 100.0 J\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch \u0026 Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Multi Tool \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"- \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"VII\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:item_charge\":5.0f,\"slimefun:slimefun_item\":\"CARBONADO_MULTI_TOOL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Multi Tool \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"- \"},{\"color\":\"yellow\",\"italic\":false,\"text\":\"VII\"}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Carbonado\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"5.0 / 100.0 J\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch \u0026 Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to switch modes\"}],\"text\":\"\"}\u0027],\"minecraft:unbreakable\":{}}"
         },
         "inputs": "CARBONADO_MULTI_TOOL:1",
         "outputs": "?0:1"
@@ -3543,23 +3561,23 @@
     "recipes": [
       {
         "time": 20,
-        "inputs": "dark_oak_slab:1,jungle_planks:1,spruce_slab:1,warped_fence:1,oak_fence:1,bamboo_fence:1,crimson_button:1,birch_planks:1,bamboo_button:1,oak_button:1,crimson_fence:1,crimson_planks:1,acacia_button:1,jungle_fence:1,warped_planks:1,mangrove_button:1,birch_slab:1,jungle_slab:1,crimson_slab:1,bamboo_slab:1,mangrove_slab:1,acacia_slab:1,spruce_fence:1,dark_oak_planks:1,spruce_button:1,dark_oak_fence:1,acacia_planks:1,warped_button:1,birch_fence:1,birch_button:1,bamboo_planks:1,oak_planks:1,dark_oak_button:1,oak_slab:1,cherry_planks:1,mangrove_planks:1,jungle_button:1,cherry_button:1,cherry_slab:1,warped_slab:1,spruce_planks:1,mangrove_fence:1,cherry_fence:1,acacia_fence:1"
+        "inputs": "crimson_slab:1,cherry_button:1,crimson_button:1,bamboo_fence:1,jungle_button:1,acacia_slab:1,mangrove_fence:1,mangrove_planks:1,cherry_planks:1,dark_oak_fence:1,cherry_slab:1,oak_slab:1,acacia_button:1,oak_planks:1,oak_fence:1,acacia_fence:1,bamboo_planks:1,spruce_button:1,mangrove_button:1,mangrove_slab:1,spruce_slab:1,birch_button:1,spruce_planks:1,jungle_fence:1,dark_oak_button:1,warped_button:1,warped_slab:1,birch_slab:1,warped_planks:1,jungle_planks:1,bamboo_button:1,oak_button:1,birch_planks:1,warped_fence:1,acacia_planks:1,bamboo_slab:1,dark_oak_slab:1,birch_fence:1,jungle_slab:1,spruce_fence:1,crimson_planks:1,cherry_fence:1,dark_oak_planks:1,crimson_fence:1"
       },
       {
         "time": 40,
-        "inputs": "bamboo_sign:1,spruce_pressure_plate:1,spruce_door:1,oak_door:1,bamboo_door:1,birch_pressure_plate:1,warped_pressure_plate:1,crimson_door:1,crimson_sign:1,jungle_pressure_plate:1,cherry_pressure_plate:1,dark_oak_sign:1,mangrove_sign:1,cherry_sign:1,birch_door:1,warped_sign:1,acacia_door:1,oak_sign:1,acacia_pressure_plate:1,birch_sign:1,warped_door:1,mangrove_pressure_plate:1,cherry_door:1,acacia_sign:1,bamboo_pressure_plate:1,mangrove_door:1,dark_oak_pressure_plate:1,dark_oak_door:1,crimson_pressure_plate:1,spruce_sign:1,jungle_sign:1,oak_pressure_plate:1,jungle_door:1"
+        "inputs": "jungle_sign:1,crimson_door:1,oak_pressure_plate:1,cherry_door:1,cherry_sign:1,bamboo_pressure_plate:1,acacia_pressure_plate:1,mangrove_pressure_plate:1,dark_oak_door:1,jungle_door:1,warped_pressure_plate:1,oak_sign:1,bamboo_sign:1,dark_oak_pressure_plate:1,mangrove_sign:1,warped_door:1,crimson_sign:1,birch_sign:1,bamboo_door:1,jungle_pressure_plate:1,spruce_door:1,spruce_sign:1,birch_door:1,acacia_door:1,dark_oak_sign:1,mangrove_door:1,oak_door:1,cherry_pressure_plate:1,warped_sign:1,spruce_pressure_plate:1,birch_pressure_plate:1,acacia_sign:1,crimson_pressure_plate:1"
       },
       {
         "time": 60,
-        "inputs": "cherry_trapdoor:1,mangrove_trapdoor:1,warped_trapdoor:1,acacia_trapdoor:1,bamboo_trapdoor:1,oak_trapdoor:1,spruce_trapdoor:1,crimson_trapdoor:1,birch_trapdoor:1,dark_oak_trapdoor:1,jungle_trapdoor:1"
+        "inputs": "bamboo_trapdoor:1,jungle_trapdoor:1,cherry_trapdoor:1,dark_oak_trapdoor:1,spruce_trapdoor:1,crimson_trapdoor:1,acacia_trapdoor:1,mangrove_trapdoor:1,oak_trapdoor:1,birch_trapdoor:1,warped_trapdoor:1"
       },
       {
         "time": 80,
-        "inputs": "stripped_acacia_log:1,stripped_mangrove_wood:1,stripped_warped_stem:1,stripped_cherry_log:1,stripped_birch_log:1,stripped_mangrove_log:1,stripped_oak_log:1,stripped_crimson_stem:1,oak_wood:1,crimson_hyphae:1,jungle_wood:1,stripped_oak_wood:1,mangrove_log:1,stripped_birch_wood:1,spruce_log:1,stripped_acacia_wood:1,cherry_wood:1,birch_wood:1,stripped_dark_oak_wood:1,warped_stem:1,oak_log:1,stripped_jungle_wood:1,dark_oak_log:1,stripped_dark_oak_log:1,crimson_stem:1,acacia_wood:1,stripped_warped_hyphae:1,acacia_log:1,stripped_spruce_wood:1,mangrove_wood:1,warped_hyphae:1,dark_oak_wood:1,spruce_wood:1,stripped_crimson_hyphae:1,stripped_spruce_log:1,stripped_jungle_log:1,cherry_log:1,birch_log:1,jungle_log:1,stripped_cherry_wood:1"
+        "inputs": "stripped_acacia_wood:1,spruce_log:1,stripped_birch_log:1,stripped_jungle_wood:1,jungle_wood:1,oak_wood:1,stripped_crimson_hyphae:1,stripped_oak_wood:1,stripped_birch_wood:1,stripped_mangrove_wood:1,stripped_spruce_wood:1,birch_wood:1,crimson_stem:1,stripped_dark_oak_wood:1,stripped_spruce_log:1,stripped_cherry_log:1,acacia_wood:1,stripped_warped_stem:1,stripped_mangrove_log:1,jungle_log:1,stripped_acacia_log:1,spruce_wood:1,stripped_crimson_stem:1,cherry_wood:1,mangrove_wood:1,birch_log:1,warped_hyphae:1,stripped_warped_hyphae:1,cherry_log:1,dark_oak_wood:1,mangrove_log:1,stripped_jungle_log:1,oak_log:1,stripped_oak_log:1,stripped_cherry_wood:1,dark_oak_log:1,stripped_dark_oak_log:1,crimson_hyphae:1,acacia_log:1,warped_stem:1"
       },
       {
         "time": 100,
-        "inputs": "dark_oak_boat:1,oak_chest_boat:1,dark_oak_chest_boat:1,cherry_boat:1,mangrove_boat:1,acacia_boat:1,spruce_chest_boat:1,mangrove_chest_boat:1,jungle_chest_boat:1,oak_boat:1,birch_boat:1,cherry_chest_boat:1,spruce_boat:1,bamboo_chest_raft:1,acacia_chest_boat:1,birch_chest_boat:1,bamboo_raft:1,jungle_boat:1"
+        "inputs": "cherry_boat:1,spruce_boat:1,dark_oak_chest_boat:1,oak_boat:1,birch_boat:1,mangrove_chest_boat:1,dark_oak_boat:1,spruce_chest_boat:1,cherry_chest_boat:1,jungle_chest_boat:1,acacia_chest_boat:1,oak_chest_boat:1,bamboo_raft:1,acacia_boat:1,jungle_boat:1,mangrove_boat:1,bamboo_chest_raft:1,birch_chest_boat:1"
       },
       {
         "time": 160,
@@ -3599,7 +3617,7 @@
   "COMPOSTER": {
     "recipes": [
       {
-        "inputs": "flowering_azalea:8,spruce_sapling:8,mangrove_propagule:8,birch_sapling:8,cherry_sapling:8,azalea:8,jungle_sapling:8,acacia_sapling:8,dark_oak_sapling:8,oak_sapling:8,jungle_leaves:8,spruce_leaves:8,oak_leaves:8,acacia_leaves:8,dark_oak_leaves:8,flowering_azalea_leaves:8,mangrove_leaves:8,cherry_leaves:8,azalea_leaves:8,birch_leaves:8",
+        "inputs": "birch_sapling:8,azalea:8,flowering_azalea:8,oak_sapling:8,cherry_sapling:8,acacia_sapling:8,jungle_sapling:8,mangrove_propagule:8,spruce_sapling:8,dark_oak_sapling:8,oak_leaves:8,acacia_leaves:8,azalea_leaves:8,flowering_azalea_leaves:8,mangrove_leaves:8,cherry_leaves:8,jungle_leaves:8,dark_oak_leaves:8,spruce_leaves:8,birch_leaves:8",
         "outputs": "dirt:1"
       },
       {
@@ -3620,7 +3638,7 @@
     "type": "grid3",
     "recipes": [
       {
-        "inputs": "flint:8",
+        "inputs": "flint:8,STONE_CHUNK:4",
         "outputs": "cobblestone:1"
       },
       {
@@ -3656,11 +3674,11 @@
       "complex": [
         {
           "item": "minecraft:potato",
-          "nbt": "{display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Stage 0 Growth\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Stage 0 Growth\",\"underlined\":false}],\"text\":\"\"}\u0027}"
         },
         {
           "item": "minecraft:potato",
-          "nbt": "{display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Stage 1 Growth\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Stage 1 Growth\",\"underlined\":false}],\"text\":\"\"}\u0027}"
         }
       ],
       "inputs": "?0:1",
@@ -3678,7 +3696,7 @@
         "outputs": "lava_bucket:1"
       },
       {
-        "inputs": "jungle_leaves:16,spruce_leaves:16,oak_leaves:16,acacia_leaves:16,dark_oak_leaves:16,flowering_azalea_leaves:16,mangrove_leaves:16,cherry_leaves:16,azalea_leaves:16,birch_leaves:16",
+        "inputs": "oak_leaves:16,acacia_leaves:16,azalea_leaves:16,flowering_azalea_leaves:16,mangrove_leaves:16,cherry_leaves:16,jungle_leaves:16,dark_oak_leaves:16,spruce_leaves:16,birch_leaves:16",
         "outputs": "water_bucket:1"
       }
     ]
@@ -3872,218 +3890,8 @@
     "recipes": [
       {
         "time": 80,
-        "inputs": "deepslate_emerald_ore:1,emerald_ore:1",
-        "outputs": "emerald:1"
-      },
-      {
-        "time": 80,
-        "inputs": "chorus_fruit:1",
-        "outputs": "popped_chorus_fruit:1"
-      },
-      {
-        "time": 80,
-        "inputs": "brown_terracotta:1",
-        "outputs": "brown_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "netherrack:1",
-        "outputs": "nether_brick:1"
-      },
-      {
-        "time": 80,
-        "inputs": "clay:1",
-        "outputs": "terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_redstone_ore:1,redstone_ore:1",
-        "outputs": "redstone:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_copper_ore:1,copper_ore:1,raw_copper:1",
-        "outputs": "copper_ingot:1"
-      },
-      {
-        "time": 80,
-        "inputs": "diamond_ore:1,deepslate_diamond_ore:1",
-        "outputs": "diamond:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_iron_ore:1,raw_iron:1,iron_ore:1",
-        "outputs": "iron_ingot:1"
-      },
-      {
-        "time": 80,
-        "inputs": "blue_terracotta:1",
-        "outputs": "blue_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "cobbled_deepslate:1",
-        "outputs": "deepslate:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_gold_ore:1,raw_gold:1,gold_ore:1,nether_gold_ore:1",
-        "outputs": "gold_ingot:1"
-      },
-      {
-        "time": 80,
-        "inputs": "red_sand:1,sand:1",
-        "outputs": "glass:1"
-      },
-      {
-        "time": 80,
-        "inputs": "magenta_terracotta:1",
-        "outputs": "magenta_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "cactus:1",
-        "outputs": "green_dye:1"
-      },
-      {
-        "time": 80,
-        "inputs": "rabbit:1",
-        "outputs": "cooked_rabbit:1"
-      },
-      {
-        "time": 80,
-        "inputs": "purple_terracotta:1",
-        "outputs": "purple_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "green_terracotta:1",
-        "outputs": "green_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "nether_bricks:1",
-        "outputs": "cracked_nether_bricks:1"
-      },
-      {
-        "time": 80,
-        "inputs": "coal_ore:1,deepslate_coal_ore:1",
-        "outputs": "coal:1"
-      },
-      {
-        "time": 80,
-        "inputs": "basalt:1",
-        "outputs": "smooth_basalt:1"
-      },
-      {
-        "time": 80,
-        "inputs": "stone_bricks:1",
-        "outputs": "cracked_stone_bricks:1"
-      },
-      {
-        "time": 80,
-        "inputs": "pink_terracotta:1",
-        "outputs": "pink_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "porkchop:1",
-        "outputs": "cooked_porkchop:1"
-      },
-      {
-        "time": 80,
-        "inputs": "cyan_terracotta:1",
-        "outputs": "cyan_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "cod:1",
-        "outputs": "cooked_cod:1"
-      },
-      {
-        "time": 80,
-        "inputs": "golden_horse_armor:1,golden_boots:1,golden_leggings:1,golden_chestplate:1,golden_helmet:1,golden_sword:1,golden_hoe:1,golden_axe:1,golden_shovel:1,golden_pickaxe:1",
-        "outputs": "gold_nugget:1"
-      },
-      {
-        "time": 80,
-        "inputs": "potato:1",
-        "outputs": "baked_potato:1"
-      },
-      {
-        "time": 80,
-        "inputs": "white_terracotta:1",
-        "outputs": "white_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_tiles:1",
-        "outputs": "cracked_deepslate_tiles:1"
-      },
-      {
-        "time": 80,
-        "inputs": "ancient_debris:1",
-        "outputs": "netherite_scrap:1"
-      },
-      {
-        "time": 80,
-        "inputs": "red_terracotta:1",
-        "outputs": "red_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "kelp:1",
-        "outputs": "dried_kelp:1"
-      },
-      {
-        "time": 80,
-        "inputs": "beef:1",
-        "outputs": "cooked_beef:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_bricks:1",
-        "outputs": "cracked_deepslate_bricks:1"
-      },
-      {
-        "time": 80,
-        "inputs": "orange_terracotta:1",
-        "outputs": "orange_glazed_terracotta:1"
-      },
-      {
-        "time": 80,
-        "inputs": "sea_pickle:1",
-        "outputs": "lime_dye:1"
-      },
-      {
-        "time": 80,
-        "inputs": "chicken:1",
-        "outputs": "cooked_chicken:1"
-      },
-      {
-        "time": 80,
-        "inputs": "clay_ball:1",
-        "outputs": "brick:1"
-      },
-      {
-        "time": 80,
-        "inputs": "wet_sponge:1",
-        "outputs": "sponge:1"
-      },
-      {
-        "time": 80,
-        "inputs": "quartz_block:1",
-        "outputs": "smooth_quartz:1"
-      },
-      {
-        "time": 80,
-        "inputs": "deepslate_lapis_ore:1,lapis_ore:1",
+        "inputs": "lapis_ore:1,deepslate_lapis_ore:1",
         "outputs": "lapis_lazuli:1"
-      },
-      {
-        "time": 80,
-        "inputs": "chainmail_boots:1,chainmail_leggings:1,chainmail_chestplate:1,chainmail_helmet:1,iron_horse_armor:1,iron_boots:1,iron_leggings:1,iron_chestplate:1,iron_helmet:1,iron_sword:1,iron_hoe:1,iron_axe:1,iron_shovel:1,iron_pickaxe:1",
-        "outputs": "iron_nugget:1"
       },
       {
         "time": 80,
@@ -4092,13 +3900,193 @@
       },
       {
         "time": 80,
-        "inputs": "light_blue_terracotta:1",
-        "outputs": "light_blue_glazed_terracotta:1"
+        "inputs": "clay:1",
+        "outputs": "terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "nether_quartz_ore:1",
+        "outputs": "quartz:1"
+      },
+      {
+        "time": 80,
+        "inputs": "green_terracotta:1",
+        "outputs": "green_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "magenta_terracotta:1",
+        "outputs": "magenta_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "mutton:1",
+        "outputs": "cooked_mutton:1"
+      },
+      {
+        "time": 80,
+        "inputs": "netherrack:1",
+        "outputs": "nether_brick:1"
+      },
+      {
+        "time": 80,
+        "inputs": "cod:1",
+        "outputs": "cooked_cod:1"
+      },
+      {
+        "time": 80,
+        "inputs": "stone:1",
+        "outputs": "smooth_stone:1"
+      },
+      {
+        "time": 80,
+        "inputs": "deepslate_bricks:1",
+        "outputs": "cracked_deepslate_bricks:1"
+      },
+      {
+        "time": 80,
+        "inputs": "brown_terracotta:1",
+        "outputs": "brown_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "stone_bricks:1",
+        "outputs": "cracked_stone_bricks:1"
+      },
+      {
+        "time": 80,
+        "inputs": "redstone_ore:1,deepslate_redstone_ore:1",
+        "outputs": "redstone:1"
+      },
+      {
+        "time": 80,
+        "inputs": "gold_ore:1,deepslate_gold_ore:1,nether_gold_ore:1,raw_gold:1",
+        "outputs": "gold_ingot:1"
+      },
+      {
+        "time": 80,
+        "inputs": "purple_terracotta:1",
+        "outputs": "purple_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "golden_horse_armor:1,golden_boots:1,golden_leggings:1,golden_chestplate:1,golden_helmet:1,golden_sword:1,golden_hoe:1,golden_axe:1,golden_shovel:1,golden_pickaxe:1",
+        "outputs": "gold_nugget:1"
+      },
+      {
+        "time": 80,
+        "inputs": "porkchop:1",
+        "outputs": "cooked_porkchop:1"
+      },
+      {
+        "time": 80,
+        "inputs": "white_terracotta:1",
+        "outputs": "white_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "red_sandstone:1",
+        "outputs": "smooth_red_sandstone:1"
+      },
+      {
+        "time": 80,
+        "inputs": "chainmail_boots:1,chainmail_leggings:1,chainmail_chestplate:1,chainmail_helmet:1,iron_horse_armor:1,iron_boots:1,iron_leggings:1,iron_chestplate:1,iron_helmet:1,iron_sword:1,iron_hoe:1,iron_axe:1,iron_shovel:1,iron_pickaxe:1",
+        "outputs": "iron_nugget:1"
+      },
+      {
+        "time": 80,
+        "inputs": "cobbled_deepslate:1",
+        "outputs": "deepslate:1"
+      },
+      {
+        "time": 80,
+        "inputs": "deepslate_copper_ore:1,raw_copper:1,copper_ore:1",
+        "outputs": "copper_ingot:1"
+      },
+      {
+        "time": 80,
+        "inputs": "beef:1",
+        "outputs": "cooked_beef:1"
+      },
+      {
+        "time": 80,
+        "inputs": "chorus_fruit:1",
+        "outputs": "popped_chorus_fruit:1"
+      },
+      {
+        "time": 80,
+        "inputs": "deepslate_coal_ore:1,coal_ore:1",
+        "outputs": "coal:1"
+      },
+      {
+        "time": 80,
+        "inputs": "rabbit:1",
+        "outputs": "cooked_rabbit:1"
       },
       {
         "time": 80,
         "inputs": "polished_blackstone_bricks:1",
         "outputs": "cracked_polished_blackstone_bricks:1"
+      },
+      {
+        "time": 80,
+        "inputs": "gray_terracotta:1",
+        "outputs": "gray_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "blue_terracotta:1",
+        "outputs": "blue_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "kelp:1",
+        "outputs": "dried_kelp:1"
+      },
+      {
+        "time": 80,
+        "inputs": "emerald_ore:1,deepslate_emerald_ore:1",
+        "outputs": "emerald:1"
+      },
+      {
+        "time": 80,
+        "inputs": "light_gray_terracotta:1",
+        "outputs": "light_gray_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "ancient_debris:1",
+        "outputs": "netherite_scrap:1"
+      },
+      {
+        "time": 80,
+        "inputs": "potato:1",
+        "outputs": "baked_potato:1"
+      },
+      {
+        "time": 80,
+        "inputs": "raw_iron:1,iron_ore:1,deepslate_iron_ore:1",
+        "outputs": "iron_ingot:1"
+      },
+      {
+        "time": 80,
+        "inputs": "salmon:1",
+        "outputs": "cooked_salmon:1"
+      },
+      {
+        "time": 80,
+        "inputs": "nether_bricks:1",
+        "outputs": "cracked_nether_bricks:1"
+      },
+      {
+        "time": 80,
+        "inputs": "cyan_terracotta:1",
+        "outputs": "cyan_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "deepslate_tiles:1",
+        "outputs": "cracked_deepslate_tiles:1"
       },
       {
         "time": 80,
@@ -4112,43 +4100,48 @@
       },
       {
         "time": 80,
-        "inputs": "nether_quartz_ore:1",
-        "outputs": "quartz:1"
+        "inputs": "deepslate_diamond_ore:1,diamond_ore:1",
+        "outputs": "diamond:1"
       },
       {
         "time": 80,
-        "inputs": "salmon:1",
-        "outputs": "cooked_salmon:1"
+        "inputs": "clay_ball:1",
+        "outputs": "brick:1"
       },
       {
         "time": 80,
-        "inputs": "gray_terracotta:1",
-        "outputs": "gray_glazed_terracotta:1"
+        "inputs": "basalt:1",
+        "outputs": "smooth_basalt:1"
       },
       {
         "time": 80,
-        "inputs": "cobblestone:1",
-        "outputs": "stone:1"
+        "inputs": "orange_terracotta:1",
+        "outputs": "orange_glazed_terracotta:1"
       },
       {
         "time": 80,
-        "inputs": "stone:1",
-        "outputs": "smooth_stone:1"
+        "inputs": "quartz_block:1",
+        "outputs": "smooth_quartz:1"
       },
       {
         "time": 80,
-        "inputs": "mutton:1",
-        "outputs": "cooked_mutton:1"
+        "inputs": "cactus:1",
+        "outputs": "green_dye:1"
       },
       {
         "time": 80,
-        "inputs": "light_gray_terracotta:1",
-        "outputs": "light_gray_glazed_terracotta:1"
+        "inputs": "chicken:1",
+        "outputs": "cooked_chicken:1"
       },
       {
         "time": 80,
-        "inputs": "sandstone:1",
-        "outputs": "smooth_sandstone:1"
+        "inputs": "pink_terracotta:1",
+        "outputs": "pink_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "sea_pickle:1",
+        "outputs": "lime_dye:1"
       },
       {
         "time": 80,
@@ -4157,8 +4150,33 @@
       },
       {
         "time": 80,
-        "inputs": "red_sandstone:1",
-        "outputs": "smooth_red_sandstone:1"
+        "inputs": "wet_sponge:1",
+        "outputs": "sponge:1"
+      },
+      {
+        "time": 80,
+        "inputs": "red_terracotta:1",
+        "outputs": "red_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "red_sand:1,sand:1",
+        "outputs": "glass:1"
+      },
+      {
+        "time": 80,
+        "inputs": "cobblestone:1",
+        "outputs": "stone:1"
+      },
+      {
+        "time": 80,
+        "inputs": "light_blue_terracotta:1",
+        "outputs": "light_blue_glazed_terracotta:1"
+      },
+      {
+        "time": 80,
+        "inputs": "sandstone:1",
+        "outputs": "smooth_sandstone:1"
       }
     ]
   },
@@ -4184,7 +4202,7 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "SIFTED_ORE:1%0.35"
+        "outputs": "flint:1%0.4"
       },
       {
         "time": 60,
@@ -4194,36 +4212,36 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "flint:1%0.4"
+        "outputs": "SIFTED_ORE:1%0.35"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "glowstone_dust:1%0.05"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "gold_nugget:1%0.25"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "blaze_powder:1%0.08"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "quartz:1%0.5"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "gold_nugget:1%0.25"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "blaze_powder:1%0.08"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "nether_wart:1%0.1"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "ghast_tear:1%0.02"
       }
     ]
@@ -4240,7 +4258,7 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "SIFTED_ORE:1%0.35"
+        "outputs": "flint:1%0.4"
       },
       {
         "time": 60,
@@ -4250,36 +4268,36 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "flint:1%0.4"
+        "outputs": "SIFTED_ORE:1%0.35"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "glowstone_dust:1%0.05"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "gold_nugget:1%0.25"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "blaze_powder:1%0.08"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "quartz:1%0.5"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "gold_nugget:1%0.25"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "blaze_powder:1%0.08"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "nether_wart:1%0.1"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "ghast_tear:1%0.02"
       }
     ]
@@ -4296,7 +4314,7 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "SIFTED_ORE:1%0.35"
+        "outputs": "flint:1%0.4"
       },
       {
         "time": 60,
@@ -4306,36 +4324,36 @@
       {
         "time": 60,
         "inputs": "gravel:1",
-        "outputs": "flint:1%0.4"
+        "outputs": "SIFTED_ORE:1%0.35"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "glowstone_dust:1%0.05"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "gold_nugget:1%0.25"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "blaze_powder:1%0.08"
-      },
-      {
-        "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "quartz:1%0.5"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "gold_nugget:1%0.25"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "blaze_powder:1%0.08"
+      },
+      {
+        "time": 80,
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "nether_wart:1%0.1"
       },
       {
         "time": 80,
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "ghast_tear:1%0.02"
       }
     ]
@@ -4475,6 +4493,11 @@
         "time": 80,
         "inputs": "cobbled_deepslate:1,granite:1,diorite:1,blackstone:1,andesite:1,cobblestone:1",
         "outputs": "gravel:1"
+      },
+      {
+        "time": 80,
+        "inputs": "dirt:1",
+        "outputs": "STONE_CHUNK:1"
       },
       {
         "time": 80,
@@ -5223,7 +5246,7 @@
         "time": 200,
         "inputs": [
           "bucket:1",
-          "jungle_leaves:16,spruce_leaves:16,oak_leaves:16,acacia_leaves:16,dark_oak_leaves:16,flowering_azalea_leaves:16,mangrove_leaves:16,cherry_leaves:16,azalea_leaves:16,birch_leaves:16"
+          "oak_leaves:16,acacia_leaves:16,azalea_leaves:16,flowering_azalea_leaves:16,mangrove_leaves:16,cherry_leaves:16,jungle_leaves:16,dark_oak_leaves:16,spruce_leaves:16,birch_leaves:16"
         ],
         "outputs": "water_bucket:1"
       }
@@ -8704,7 +8727,7 @@
       },
       {
         "inputs": "gravel:1",
-        "outputs": "SIFTED_ORE:1%0.35"
+        "outputs": "flint:1%0.4"
       },
       {
         "inputs": "gravel:1",
@@ -8712,7 +8735,7 @@
       },
       {
         "inputs": "gravel:1",
-        "outputs": "flint:1%0.4"
+        "outputs": "SIFTED_ORE:1%0.35"
       }
     ]
   },
@@ -8734,6 +8757,10 @@
       {
         "inputs": "cobbled_deepslate:1,granite:1,diorite:1,blackstone:1,andesite:1,cobblestone:1",
         "outputs": "gravel:1"
+      },
+      {
+        "inputs": "dirt:1",
+        "outputs": "STONE_CHUNK:1"
       },
       {
         "inputs": "sandstone:1",
@@ -8875,315 +8902,315 @@
       {
         "complex": {
           "item": "minecraft:coal",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:charcoal",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:coal_block",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 80 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 80 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:dried_kelp_block",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 20 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 20 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:blaze_rod",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:acacia_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_birch_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_spruce_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:dark_oak_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_oak_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_mangrove_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_birch_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:cherry_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_warped_hyphae",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_jungle_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_warped_stem",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:jungle_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_crimson_hyphae",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:acacia_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_cherry_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:mangrove_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:spruce_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:crimson_hyphae",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 8 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:stripped_oak_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:cherry_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_spruce_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_crimson_stem",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:birch_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_mangrove_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:spruce_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:oak_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:mangrove_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_jungle_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:stripped_acacia_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:oak_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:jungle_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:warped_stem",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_acacia_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_dark_oak_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:stripped_cherry_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:crimson_stem",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:dark_oak_log",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:birch_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
-        },
-        "inputs": "?0:1"
-      },
-      {
-        "complex": {
-          "item": "minecraft:warped_hyphae",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       },
       {
         "complex": {
           "item": "minecraft:stripped_dark_oak_wood",
-          "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}}"
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_crimson_stem",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_birch_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:dark_oak_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:oak_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_oak_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_cherry_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_spruce_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:oak_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_jungle_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_crimson_hyphae",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:crimson_hyphae",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_cherry_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_jungle_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:birch_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:acacia_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_acacia_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_warped_hyphae",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_mangrove_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:mangrove_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_birch_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:jungle_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_dark_oak_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:birch_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:dark_oak_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_warped_stem",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:mangrove_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:warped_stem",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:acacia_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:spruce_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:spruce_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:crimson_stem",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:jungle_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:cherry_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:cherry_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_spruce_wood",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:stripped_mangrove_log",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
+        },
+        "inputs": "?0:1"
+      },
+      {
+        "complex": {
+          "item": "minecraft:warped_hyphae",
+          "components": "{\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Lasts for max. 2 Ores\"}],\"text\":\"\"}\u0027]}"
         },
         "inputs": "?0:1"
       }
@@ -10283,27 +10310,27 @@
   "NETHER_GOLD_PAN": {
     "recipes": [
       {
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "glowstone_dust:1%0.05"
       },
       {
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "gold_nugget:1%0.25"
-      },
-      {
-        "inputs": "soul_sand:1,soul_soil:1",
-        "outputs": "blaze_powder:1%0.08"
-      },
-      {
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "quartz:1%0.5"
       },
       {
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "gold_nugget:1%0.25"
+      },
+      {
+        "inputs": "soul_soil:1,soul_sand:1",
+        "outputs": "blaze_powder:1%0.08"
+      },
+      {
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "nether_wart:1%0.1"
       },
       {
-        "inputs": "soul_sand:1,soul_soil:1",
+        "inputs": "soul_soil:1,soul_sand:1",
         "outputs": "ghast_tear:1%0.02"
       }
     ]
@@ -10892,11 +10919,11 @@
       "complex": [
         {
           "item": "minecraft:oak_sapling",
-          "nbt": "{display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Age 0 Sapling\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Age 0 Sapling\",\"underlined\":false}],\"text\":\"\"}\u0027}"
         },
         {
           "item": "minecraft:oak_sapling",
-          "nbt": "{display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Age 1 Sapling\"}],\"text\":\"\"}\u0027}}"
+          "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Age 1 Sapling\",\"underlined\":false}],\"text\":\"\"}\u0027}"
         }
       ],
       "inputs": [
@@ -10929,7 +10956,7 @@
     "recipes": [],
     "item": {
       "item": "minecraft:bricks",
-      "nbt": "{display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"Build it in the World\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"MultiBlock\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"MultiBlock\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":true,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Build it in the World\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     }
   },
   "mob_drop": {
@@ -10941,7 +10968,7 @@
     ],
     "item": {
       "item": "minecraft:iron_sword",
-      "nbt": "{Damage:0,display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"text\":\"Kill the specified Mob to obtain this Item\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"Mob Drop\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Mob Drop\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Kill the specified Mob to obtain this Item\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     }
   },
   "interact": {
@@ -10953,7 +10980,7 @@
     ],
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"Right click with this item\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"Interact\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Interact\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":true,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right click with this item\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "type": "grid3"
   },
@@ -10969,7 +10996,7 @@
     ],
     "item": {
       "item": "minecraft:gold_ingot",
-      "nbt": "{display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"Barter with piglins for a chance\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"to obtain this item\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"Barter Drop\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Barter Drop\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Barter with piglins for a chance\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"to obtain this item\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     }
   }
 }

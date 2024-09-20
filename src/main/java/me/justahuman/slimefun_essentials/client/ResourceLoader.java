@@ -132,7 +132,7 @@ public class ResourceLoader {
         final JsonObject items = jsonObjectFromResource(resource);
         for (String id : items.keySet()) {
             final JsonElement itemElement = items.get(id);
-            if (!(itemElement instanceof JsonObject itemObject) || !itemObject.has("item") || !itemObject.has("nbt")) {
+            if (!(itemElement instanceof JsonObject itemObject) || !itemObject.has("item") || !itemObject.has("components")) {
                 continue;
             }
 

@@ -81,7 +81,7 @@ public class Utils {
             return null;
         }
         Optional<? extends NbtComponent> customData = components.get(DataComponentTypes.CUSTOM_DATA);
-        return customData != null ? customData.map(NbtComponent::getNbt).orElse(null) : null;
+        return customData != null ? customData.map(NbtComponent::getNbt).map(compound -> compound.getCompound("PublicBukkitValues")).orElse(null) : null;
     }
 
     public static String getSlimefunId(@Nullable ItemStack itemStack) {

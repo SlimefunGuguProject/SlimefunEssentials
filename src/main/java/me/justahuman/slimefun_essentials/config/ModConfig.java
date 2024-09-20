@@ -34,7 +34,7 @@ public class ModConfig {
     private static @Setter boolean recipeFeatures = true;
     private static @Setter @Getter List<String> addons = new ArrayList<>();
 
-    private static @Setter boolean requireServerConnection = true;
+    private static @Setter boolean requireServerConnection = false;
     private static @Setter boolean enableServerWhitelist = false;
     private static @Setter @Getter List<String> serverWhitelist = new ArrayList<>();
 

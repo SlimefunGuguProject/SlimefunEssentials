@@ -6,8 +6,9 @@ import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.stack.Comparison;
 import dev.emi.emi.api.stack.EmiStack;
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
-import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
+import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
+import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.compat.emi.handler.GridHandler;
 import me.justahuman.slimefun_essentials.compat.emi.recipes.AncientAltarRecipe;
@@ -20,7 +21,10 @@ import me.justahuman.slimefun_essentials.utils.Utils;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EmiIntegration implements EmiPlugin {
@@ -58,7 +62,7 @@ public class EmiIntegration implements EmiPlugin {
             }
         }
 
-        for (SlimefunItemStack slimefunItemStack : ResourceLoader.getSlimefunItems().values()) {
+        for (SlimefunItemStack slimefunItemStack : SlimefunItemGroup.sort(List.copyOf(ResourceLoader.getSlimefunItems().values()))) {
             emiRegistry.addEmiStack(EmiStack.of(slimefunItemStack.itemStack()));
         }
 

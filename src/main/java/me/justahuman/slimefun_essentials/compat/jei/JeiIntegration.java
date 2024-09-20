@@ -1,6 +1,7 @@
 package me.justahuman.slimefun_essentials.compat.jei;
 
 import me.justahuman.slimefun_essentials.client.ResourceLoader;
+import me.justahuman.slimefun_essentials.client.SlimefunItemGroup;
 import me.justahuman.slimefun_essentials.client.SlimefunItemStack;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipe;
 import me.justahuman.slimefun_essentials.client.SlimefunRecipeCategory;
@@ -32,6 +33,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @JeiPlugin
@@ -51,7 +53,8 @@ public class JeiIntegration implements IModPlugin {
             category.updateIcon();
         }
 
-        registration.getIngredientManager().addIngredientsAtRuntime(VanillaTypes.ITEM_STACK, ResourceLoader.getSlimefunItems().values().stream().map(SlimefunItemStack::itemStack).toList());
+        registration.getIngredientManager().addIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                SlimefunItemGroup.sort(List.copyOf(ResourceLoader.getSlimefunItems().values())).stream().map(SlimefunItemStack::itemStack).toList());
     }
 
     @Override

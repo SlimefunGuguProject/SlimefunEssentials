@@ -2,7 +2,7 @@
   "items": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"MEDIUM_BACKPACK\"},SkullOwner:{Id:[I;-198377739,1921335127,-1218858788,793121819],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDBjYjFlNjdiNTEyYWIyZDRiZjNkN2FjZTBlYWFmNjFjMzJjZDQ2ODFkZGMzOTg3Y2ViMzI2NzA2YTMzZmEifX19\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Size: \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"18\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"ID: \u003cID\u003e\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Right Click\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to open\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Useful Items\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"MEDIUM_BACKPACK\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Useful Items\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Size: \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"18\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"ID: \u003cID\u003e\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Right Click\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to open\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-198377739,1921335127,-1218858788,793121819],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDBjYjFlNjdiNTEyYWIyZDRiZjNkN2FjZTBlYWFmNjFjMzJjZDQ2ODFkZGMzOTg3Y2ViMzI2NzA2YTMzZmEifX19\"}]}}"
     },
     "items": [
       "PORTABLE_CRAFTER",
@@ -25,7 +25,7 @@
   "tools": {
     "item": {
       "item": "minecraft:diamond_pickaxe",
-      "nbt": "{Damage:0,HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"SMELTERS_PICKAXE\"},display:{Lore:[\u0027{\"extra\":[{\"bold\":true,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"red\",\"text\":\"Auto-Smelting\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"blue\",\"text\":\"Works with Fortune\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Tools\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"SMELTERS_PICKAXE\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Tools\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":true,\"color\":\"red\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Auto-Smelting\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"blue\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Works with Fortune\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "GOLD_PAN",
@@ -49,7 +49,7 @@
   "birthday": {
     "item": {
       "item": "minecraft:firework_rocket",
-      "nbt": "{HideFlags:35,display:{Name:\u0027{\"extra\":[{\"bold\":true,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"TheBusyBiscuit\\\u0027s Birthday \"},{\"bold\":false,\"italic\":false,\"color\":\"gray\",\"text\":\"(26th October)\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":true,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"TheBusyBiscuit\\\u0027s Birthday \",\"underlined\":false},{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"text\":\"(26th October)\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "BIRTHDAY_CAKE"
@@ -59,7 +59,7 @@
   "christmas": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,SkullOwner:{Id:[I;207269672,-1040305337,-1602620232,434563902],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE1YmEzMWNkZTI2NzFiOGYxNzZkZTZhOWZmZDAwODAzNWYwNTkwZDYzZWUyNDBiZTZlODkyMWNkMjAzN2E0NSJ9fX0\u003d\"}]}},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"C\"},{\"italic\":false,\"color\":\"red\",\"text\":\"h\"},{\"italic\":false,\"color\":\"green\",\"text\":\"r\"},{\"italic\":false,\"color\":\"red\",\"text\":\"i\"},{\"italic\":false,\"color\":\"green\",\"text\":\"s\"},{\"italic\":false,\"color\":\"red\",\"text\":\"t\"},{\"italic\":false,\"color\":\"green\",\"text\":\"m\"},{\"italic\":false,\"color\":\"red\",\"text\":\"a\"},{\"italic\":false,\"color\":\"green\",\"text\":\"s \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"(December only)\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"C\",\"underlined\":false},{\"color\":\"red\",\"italic\":false,\"text\":\"h\"},{\"color\":\"green\",\"italic\":false,\"text\":\"r\"},{\"color\":\"red\",\"italic\":false,\"text\":\"i\"},{\"color\":\"green\",\"italic\":false,\"text\":\"s\"},{\"color\":\"red\",\"italic\":false,\"text\":\"t\"},{\"color\":\"green\",\"italic\":false,\"text\":\"m\"},{\"color\":\"red\",\"italic\":false,\"text\":\"a\"},{\"color\":\"green\",\"italic\":false,\"text\":\"s \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"(December only)\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:profile\":{id:[I;207269672,-1040305337,-1602620232,434563902],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjE1YmEzMWNkZTI2NzFiOGYxNzZkZTZhOWZmZDAwODAzNWYwNTkwZDYzZWUyNDBiZTZlODkyMWNkMjAzN2E0NSJ9fX0\u003d\"}]}}"
     },
     "items": [
       "CHRISTMAS_MILK",
@@ -87,7 +87,7 @@
   "basic_machines": {
     "item": {
       "item": "minecraft:crafting_table",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENHANCED_CRAFTING_TABLE\"},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"A regular Crafting Table cannot\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"hold this massive Amount of Power...\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Basic Machines\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENHANCED_CRAFTING_TABLE\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Basic Machines\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"A regular Crafting Table cannot\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"hold this massive Amount of Power...\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "OUTPUT_CHEST",
@@ -128,7 +128,7 @@
   "weapons": {
     "item": {
       "item": "minecraft:golden_sword",
-      "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:fire_aspect\",lvl:2s},{id:\"minecraft:sharpness\",lvl:2s},{id:\"minecraft:unbreaking\",lvl:4s}],HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"BLADE_OF_VAMPIRES\"},display:{Lore:[\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Life Steal I\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"Everytime you attack something\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"you have a 45% chance to\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"recover 2 Hearts of your Health\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Weapons\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"BLADE_OF_VAMPIRES\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Weapons\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:enchantments\":{levels:{\"minecraft:fire_aspect\":2,\"minecraft:sharpness\":2,\"minecraft:unbreaking\":4},show_in_tooltip:0b},\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Life Steal I\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Everytime you attack something\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"you have a 45% chance to\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"recover 2 Hearts of your Health\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "GRANDMAS_WALKING_STICK",
@@ -146,7 +146,7 @@
   "resources": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"SYNTHETIC_SAPPHIRE\"},SkullOwner:{Id:[I;-1552970433,966475394,-1534563787,-187702059],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTM1MDMyZjRkN2QwMWRlOGVjOTlkODlmODcyMzAxMmQ0ZTc0ZmE3MzAyMmM0ZmFjZjFiNTdjN2ZmNmZmMCJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"This item can be used in a\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"workbench and acts like Lapis Lazuli\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Resources\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"SYNTHETIC_SAPPHIRE\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Resources\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"This item can be used in a\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"workbench and acts like Lapis Lazuli\",\"underlined\":false}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-1552970433,966475394,-1534563787,-187702059],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTM1MDMyZjRkN2QwMWRlOGVjOTlkODlmODcyMzAxMmQ0ZTc0ZmE3MzAyMmM0ZmFjZjFiNTdjN2ZmNmZmMCJ9fX0\u003d\"}]}}"
     },
     "items": [
       "REINFORCED_ALLOY_INGOT",
@@ -220,7 +220,7 @@
   "halloween": {
     "item": {
       "item": "minecraft:jack_o_lantern",
-      "nbt": "{HideFlags:35,display:{Name:\u0027{\"extra\":[{\"bold\":true,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gold\",\"text\":\"Halloween \"},{\"bold\":false,\"italic\":false,\"color\":\"gray\",\"text\":\"(31st October)\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":true,\"color\":\"gold\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Halloween \",\"underlined\":false},{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"text\":\"(31st October)\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "RAINBOW_WOOL_HALLOWEEN",
@@ -235,7 +235,7 @@
   "easter": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,SkullOwner:{Id:[I;-1859935777,168378349,-1778097002,-1580502633],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJjZDVkZjlkN2YxZmE4MzQxZmNjZTJmM2MxMThlMmY1MTdlNGQyZDk5ZGYyYzUxZDYxZDkzZWQ3ZjgzZTEzIn19fQ\u003d\u003d\"}]}},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gold\",\"text\":\"Easter \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"(April)\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gold\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Easter \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"(April)\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:profile\":{id:[I;-1859935777,168378349,-1778097002,-1580502633],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJjZDVkZjlkN2YxZmE4MzQxZmNjZTJmM2MxMThlMmY1MTdlNGQyZDk5ZGYyYzUxZDYxZDkzZWQ3ZjgzZTEzIn19fQ\u003d\u003d\"}]}}"
     },
     "items": [
       "CARROT_PIE",
@@ -247,7 +247,7 @@
   "misc": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"CAN\"},SkullOwner:{Id:[I;-199526219,-2042285232,-1536059516,-305475505],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTRkYTk3ZjA4MGUzOTViODQyYzRjYzgyYTg0MDgyM2Q0ZGJkOGNhNjg4YTIwNjg1M2U1NzgzZTRiZmRjMDEyIn19fQ\u003d\u003d\"}]}},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Miscellaneous\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"CAN\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Miscellaneous\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:profile\":{id:[I;-199526219,-2042285232,-1536059516,-305475505],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTRkYTk3ZjA4MGUzOTViODQyYzRjYzgyYTg0MDgyM2Q0ZGJkOGNhNjg4YTIwNjg1M2U1NzgzZTRiZmRjMDEyIn19fQ\u003d\u003d\"}]}}"
     },
     "items": [
       "SIFTED_ORE",
@@ -255,6 +255,7 @@
       "STEEL_PLATE",
       "CHAIN",
       "HOOK",
+      "STONE_CHUNK",
       "SALT",
       "HEAVY_CREAM",
       "CHEESE",
@@ -296,7 +297,7 @@
   "valentines_day": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,SkullOwner:{Id:[I;1161359076,-780257140,-1146699810,1988305610],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTVkODk0MzFkMTRiZmVmMjA2MDQ2MWI0YTM1NjU2MTRkYzUxMTE1YzAwMWZhZTI1MDhlODY4NGJjMGFlNmE4MCJ9fX0\u003d\"}]}},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"light_purple\",\"text\":\"Valentine\\\u0027s Day \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"(14th February)\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"light_purple\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Valentine\\\u0027s Day \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"(14th February)\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:profile\":{id:[I;1161359076,-780257140,-1146699810,1988305610],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTVkODk0MzFkMTRiZmVmMjA2MDQ2MWI0YTM1NjU2MTRkYzUxMTE1YzAwMWZhZTI1MDhlODY4NGJjMGFlNmE4MCJ9fX0\u003d\"}]}}"
     },
     "items": [
       "RAINBOW_WOOL_VALENTINE",
@@ -311,7 +312,7 @@
   "magical_items": {
     "item": {
       "item": "minecraft:firework_star",
-      "nbt": "{Explosion:{Colors:[I;8388736],Type:4b},HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"ANCIENT_RUNE_ENDER\"},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Magical Items\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"ANCIENT_RUNE_ENDER\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Magical Items\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:firework_explosion\":{colors:[I;8388736],shape:\"burst\"},\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "MAGIC_LUMP_1",
@@ -346,7 +347,7 @@
   "tech_misc": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"HEATING_COIL\"},SkullOwner:{Id:[I;440257240,-972212373,-2118123193,-1484624289],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2UzYmM0ODkzYmE0MWEzZjczZWUyODE3NGNkZjRmZWY2YjE0NWU0MWZlNmM4MmNiN2JlOGQ4ZTk3NzFhNSJ9fX0\u003d\"}]}},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Technical Components\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"HEATING_COIL\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Technical Components\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:profile\":{id:[I;440257240,-972212373,-2118123193,-1484624289],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2UzYmM0ODkzYmE0MWEzZjczZWUyODE3NGNkZjRmZWY2YjE0NWU0MWZlNmM4MmNiN2JlOGQ4ZTk3NzFhNSJ9fX0\u003d\"}]}}"
     },
     "items": [
       "BASIC_CIRCUIT_BOARD",
@@ -374,7 +375,7 @@
   "magical_armor": {
     "item": {
       "item": "minecraft:leather_helmet",
-      "nbt": "{Damage:0,HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENDER_HELMET\"},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"Sometimes its here, sometimes there!\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Magical Armor\"}],\"text\":\"\"}\u0027,color:1841520}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENDER_HELMET\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Magical Armor\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:dyed_color\":{rgb:1841520},\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":true,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Sometimes its here, sometimes there!\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "ENDER_HELMET",
@@ -413,7 +414,7 @@
   "food": {
     "item": {
       "item": "minecraft:cookie",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"FORTUNE_COOKIE\"},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":true,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"green\",\"text\":\"Tells you stuff about your Future :o\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Food\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"FORTUNE_COOKIE\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Food\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"green\",\"italic\":true,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Tells you stuff about your Future :o\",\"underlined\":false}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "FORTUNE_COOKIE",
@@ -440,7 +441,7 @@
   "armor": {
     "item": {
       "item": "minecraft:iron_chestplate",
-      "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:protection\",lvl:5s},{id:\"minecraft:unbreaking\",lvl:5s}],HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"DAMASCUS_STEEL_CHESTPLATE\"},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Armor\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"DAMASCUS_STEEL_CHESTPLATE\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Armor\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:enchantments\":{levels:{\"minecraft:protection\":5,\"minecraft:unbreaking\":5},show_in_tooltip:0b},\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "DAMASCUS_STEEL_HELMET",
@@ -476,7 +477,7 @@
   "talismans": {
     "item": {
       "item": "minecraft:emerald",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"COMMON_TALISMAN\"},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Talismans - \"},{\"italic\":false,\"color\":\"green\",\"text\":\"Tier I\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"COMMON_TALISMAN\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Talismans - \",\"underlined\":false},{\"color\":\"green\",\"italic\":false,\"text\":\"Tier I\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "ANVIL_TALISMAN",
@@ -500,7 +501,7 @@
   "magical_gadgets": {
     "item": {
       "item": "minecraft:elytra",
-      "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:mending\",lvl:1s}],HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"INFUSED_ELYTRA\"},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Magical Gadgets\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"INFUSED_ELYTRA\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Magical Gadgets\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:enchantments\":{levels:{\"minecraft:mending\":1},show_in_tooltip:0b},\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "ENDER_BACKPACK",
@@ -538,7 +539,7 @@
   "technical_gadgets": {
     "item": {
       "item": "minecraft:leather_chestplate",
-      "nbt": "{Damage:0,HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"STEEL_JETPACK\"},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Material: \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"0 / 60 J\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Thrust: \"},{\"italic\":false,\"color\":\"red\",\"text\":\"0.5\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"yellow\",\"text\":\"Crouch\"},{\"italic\":false,\"color\":\"gray\",\"text\":\" to use\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Technical Gadgets\"}],\"text\":\"\"}\u0027,color:12632256}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"STEEL_JETPACK\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Technical Gadgets\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:dyed_color\":{rgb:12632256},\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Material: \"},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Steel\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"0 / 60 J\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Thrust: \"},{\"color\":\"red\",\"italic\":false,\"text\":\"0.5\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"yellow\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Crouch\",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\" to use\"}],\"text\":\"\"}\u0027]}"
     },
     "items": [
       "DURALUMIN_JETPACK",
@@ -574,7 +575,7 @@
   "ender_talismans": {
     "item": {
       "item": "minecraft:emerald",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENDER_TALISMAN\"},display:{Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"gray\",\"text\":\"Talismans - \"},{\"italic\":false,\"color\":\"green\",\"text\":\"Tier II\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"ENDER_TALISMAN\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Talismans - \",\"underlined\":false},{\"color\":\"green\",\"italic\":false,\"text\":\"Tier II\"}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{}}"
     },
     "items": [
       "ENDER_ANVIL_TALISMAN",
@@ -601,7 +602,7 @@
   "androids": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"PROGRAMMABLE_ANDROID\"},SkullOwner:{Id:[I;945838493,1491351080,-1386746575,1429047811],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUwM2NiN2VkODQ1ZTdhNTA3ZjU2OWFmYzY0N2M0N2FjNDgzNzcxNDY1YzlhNjc5YTU0NTk0Yzc2YWZiYSJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Function: None\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"Fuel Efficiency: 1.0x\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"red\",\"text\":\"Programmable Androids\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"PROGRAMMABLE_ANDROID\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"red\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Programmable Androids\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Function: None\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"gray\",\"italic\":false,\"text\":\"Fuel Efficiency: 1.0x\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;945838493,1491351080,-1386746575,1429047811],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzUwM2NiN2VkODQ1ZTdhNTA3ZjU2OWFmYzY0N2M0N2FjNDgzNzcxNDY1YzlhNjc5YTU0NTk0Yzc2YWZiYSJ9fX0\u003d\"}]}}"
     },
     "items": [
       "ANDROID_INTERFACE_ITEMS",
@@ -627,7 +628,7 @@
   "cargo": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"CARGO_MANAGER\"},SkullOwner:{Id:[I;-1133212615,-1484505327,-1313621683,1499675243],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTUxMGJjODUzNjJhMTMwYTZmZjlkOTFmZjExZDZmYTQ2ZDdkMTkxMmEzNDMxZjc1MTU1OGVmM2M0ZDljMiJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"Core Component of an Item Transport Network\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"red\",\"text\":\"Cargo Management\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"CARGO_MANAGER\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"red\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Cargo Management\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Core Component of an Item Transport Network\",\"underlined\":false}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-1133212615,-1484505327,-1313621683,1499675243],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTUxMGJjODUzNjJhMTMwYTZmZjlkOTFmZjExZDZmYTQ2ZDdkMTkxMmEzNDMxZjc1MTU1OGVmM2M0ZDljMiJ9fX0\u003d\"}]}}"
     },
     "items": [
       "CARGO_MOTOR",
@@ -650,7 +651,7 @@
   "electricity": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"NUCLEAR_REACTOR\"},SkullOwner:{Id:[I;-747902297,-1698745019,-1203623678,-1002513862],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE1ZGUwYmMyYmZiNWNjMmQyM2ViNzJmOTY0MDJhZGE0Nzk1MjRkZDBkZTQwNGJjMjNiNmRhY2VlM2ZmZDA4MCJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"white\",\"text\":\"Requires Cooling!\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Must be surrounded by Water\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"aqua\",\"text\":\"Must be supplied with Reactor Coolant Cells\"}],\"text\":\"\"}\u0027,\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_red\",\"text\":\"End-Game Generator\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"16384 J Buffer\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"500 J/s\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"Energy and Electricity\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"NUCLEAR_REACTOR\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Energy and Electricity\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"white\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"Requires Cooling!\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Must be surrounded by Water\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"aqua\",\"italic\":false,\"text\":\"Must be supplied with Reactor Coolant Cells\"}],\"text\":\"\"}\u0027,\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_red\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"End-Game Generator\",\"underlined\":false}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"16384 J Buffer\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"500 J/s\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-747902297,-1698745019,-1203623678,-1002513862],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE1ZGUwYmMyYmZiNWNjMmQyM2ViNzJmOTY0MDJhZGE0Nzk1MjRkZDBkZTQwNGJjMjNiNmRhY2VlM2ZmZDA4MCJ9fX0\u003d\"}]}}"
     },
     "items": [
       "ENERGY_REGULATOR",
@@ -738,7 +739,7 @@
   "gps": {
     "item": {
       "item": "minecraft:player_head",
-      "nbt": "{HideFlags:35,PublicBukkitValues:{\"slimefun:slimefun_item\":\"GPS_TRANSMITTER\"},SkullOwner:{Id:[I;-620598812,1924021564,-1736575542,1516433682],Name:\"CS-CoreLib\",Properties:{textures:[{Value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0\u003d\"}]}},display:{Lore:[\u0027{\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"16 J Buffer\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"dark_gray\",\"text\":\"⇨ \"},{\"italic\":false,\"color\":\"yellow\",\"text\":\"⚡ \"},{\"italic\":false,\"color\":\"gray\",\"text\":\"2 J/s\"}],\"text\":\"\"}\u0027],Name:\u0027{\"extra\":[{\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false,\"color\":\"aqua\",\"text\":\"GPS-based Machines\"}],\"text\":\"\"}\u0027}}"
+      "components": "{\"minecraft:custom_data\":{PublicBukkitValues:{\"slimefun:slimefun_item\":\"GPS_TRANSMITTER\"}},\"minecraft:custom_name\":\u0027{\"extra\":[{\"bold\":false,\"color\":\"aqua\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"GPS-based Machines\",\"underlined\":false}],\"text\":\"\"}\u0027,\"minecraft:hide_additional_tooltip\":{},\"minecraft:lore\":[\u0027\"\"\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"16 J Buffer\"}],\"text\":\"\"}\u0027,\u0027{\"extra\":[{\"bold\":false,\"color\":\"dark_gray\",\"italic\":false,\"obfuscated\":false,\"strikethrough\":false,\"text\":\"⇨ \",\"underlined\":false},{\"color\":\"yellow\",\"italic\":false,\"text\":\"⚡ \"},{\"color\":\"gray\",\"italic\":false,\"text\":\"2 J/s\"}],\"text\":\"\"}\u0027],\"minecraft:profile\":{id:[I;-620598812,1924021564,-1736575542,1516433682],name:\"CS-CoreLib\",properties:[{name:\"textures\",value:\"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjBjOWMxYTAyMmY0MGI3M2YxNGI0Y2JhMzdjNzE4YzZhNTMzZjNhMjg2NGI2NTM2ZDVmNDU2OTM0Y2MxZiJ9fX0\u003d\"}]}}"
     },
     "items": [
       "GPS_TRANSMITTER",
